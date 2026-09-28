@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { EvidenceBadge } from "@/components/evidence-badge";
+import { FlyReferenceThumb } from "@/components/fly-reference-photo";
+import { getFlyReferenceHero } from "@/lib/fly-photos";
 import { CATEGORY_LABELS, TECHNIQUE_LABELS, type Fly } from "@/data";
 import type { Product } from "@/lib/shopify/types";
 import { formatMoney } from "@/lib/shopify/types";
@@ -27,11 +29,16 @@ export function FlyCard({
   /** Extra labels, e.g. which of several target species this fly serves. */
   tags?: string[];
 }) {
+  const referencePhoto = product?.featuredImage ? null : getFlyReferenceHero(fly.id);
   return (
     <Card className="flex h-full flex-col overflow-hidden">
       {product?.featuredImage ? (
         <Link href={`/shop/${product.handle}`} className="relative block aspect-[4/3] bg-muted">
           <Image src={product.featuredImage.url} alt={product.featuredImage.altText ?? product.title} fill sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className="object-cover" />
+        </Link>
+      ) : referencePhoto ? (
+        <Link href={`/flies/${fly.id}`} className="block">
+          <FlyReferenceThumb photo={referencePhoto} alt={fly.name} />
         </Link>
       ) : null}
       <CardHeader className="gap-1">

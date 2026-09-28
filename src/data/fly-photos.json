@@ -1,0 +1,452 @@
+{
+ "fetchedAt": "2026-09-28T17:46:41.209Z",
+ "flies": {
+  "pheasant-tail-nymph": {
+   "flyId": "pheasant-tail-nymph",
+   "photos": [
+    {
+     "source": "wikimedia",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/American_Pheasant_Tail_Nymph_02.jpg",
+     "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/American_Pheasant_Tail_Nymph_02.jpg/960px-American_Pheasant_Tail_Nymph_02.jpg",
+     "width": 1159,
+     "height": 617,
+     "title": "American Pheasant Tail Nymph 02",
+     "author": "Mike Cline",
+     "license": "CC BY-SA 4.0",
+     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+     "sourceUrl": "https://commons.wikimedia.org/wiki/File:American_Pheasant_Tail_Nymph_02.jpg"
+    },
+    {
+     "source": "wikimedia",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/9/92/American_Pheasant_Tail_Nymph.jpg",
+     "thumbUrl": "https://upload.wikimedia.org/wikipedia/commons/9/92/American_Pheasant_Tail_Nymph.jpg",
+     "width": 710,
+     "height": 1223,
+     "title": "American Pheasant Tail Nymph",
+     "author": "Mike Cline",
+     "license": "CC BY-SA 4.0",
+     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+     "sourceUrl": "https://commons.wikimedia.org/wiki/File:American_Pheasant_Tail_Nymph.jpg"
+    },
+    {
+     "source": "wikimedia",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/8/83/Pheasant_Tail_Nymph.jpg",
+     "thumbUrl": "https://upload.wikimedia.org/wikipedia/commons/8/83/Pheasant_Tail_Nymph.jpg",
+     "width": 164,
+     "height": 122,
+     "title": "Pheasant Tail Nymph",
+     "author": "User:Radderz",
+     "license": "Public domain",
+     "licenseUrl": null,
+     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pheasant_Tail_Nymph.jpg"
+    }
+   ]
+  },
+  "sulphur-comparadun": {
+   "flyId": "sulphur-comparadun",
+   "photos": [
+    {
+     "source": "openverse",
+     "url": "https://live.staticflickr.com/2829/9238930845_edc8ac5456_b.jpg",
+     "thumbUrl": "https://api.openverse.org/v1/images/636a7636-2573-4c75-9511-40f93ff85a47/thumb/",
+     "width": 1024,
+     "height": 815,
+     "title": "#18-#10 Comparaduns",
+     "author": "freyfisher",
+     "license": "CC BY-SA 2.0",
+     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+     "sourceUrl": "https://www.flickr.com/photos/77843900@N07/9238930845"
+    }
+   ]
+  },
+  "march-brown-parachute": {
+   "flyId": "march-brown-parachute",
+   "photos": [
+    {
+     "source": "wikimedia",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/0/03/March_Brown_Parachute_dry_fly.jpg",
+     "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/March_Brown_Parachute_dry_fly.jpg/960px-March_Brown_Parachute_dry_fly.jpg",
+     "width": 2592,
+     "height": 1936,
+     "title": "March Brown Parachute dry fly",
+     "author": "Freyfisher",
+     "license": "CC BY-SA 2.0",
+     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+     "sourceUrl": "https://commons.wikimedia.org/wiki/File:March_Brown_Parachute_dry_fly.jpg"
+    },
+    {
+     "source": "openverse",
+     "url": "https://live.staticflickr.com/3780/9335597404_bc44248f55_b.jpg",
+     "thumbUrl": "https://api.openverse.org/v1/images/f69b6c07-cc0e-44e1-aa4f-d2adfee2e9b6/thumb/",
+     "width": 1024,
+     "height": 765,
+     "title": "March Brown Biot Parachute",
+     "author": "freyfisher",
+     "license": "CC BY-SA 2.0",
+     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+     "sourceUrl": "https://www.flickr.com/photos/77843900@N07/9335597404"
+    }
+   ]
+  },
+  "light-cahill-parachute": {
+   "flyId": "light-cahill-parachute",
+   "photos": [
+    {
+     "source": "wikimedia",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/1/13/Light_Cahill_dry_flies.jpg",
+     "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Light_Cahill_dry_flies.jpg/960px-Light_Cahill_dry_flies.jpg",
+     "width": 2592,
+     "height": 1936,
+     "title": "Light Cahill dry flies",
+     "author": "Freyfisher",
+     "license": "CC BY-SA 2.0",
+     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Light_Cahill_dry_flies.jpg"
+    }
+   ]
+  },
+  "adams-parachute": {
+   "flyId": "adams-parachute",
+   "photos": [
+    {
+     "source": "wikimedia",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/6/63/MoscaAdams.jpg",
+     "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/MoscaAdams.jpg/960px-MoscaAdams.jpg",
+     "width": 3888,
+     "height": 2592,
+     "title": "MoscaAdams",
+     "author": "Drcooling",
+     "license": "CC BY-SA 3.0",
+     "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+     "sourceUrl": "https://commons.wikimedia.org/wiki/File:MoscaAdams.jpg"
+    },
+    {
+     "source": "wikimedia",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/5/5b/AdamsDryFly.jpg",
+     "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/AdamsDryFly.jpg/960px-AdamsDryFly.jpg",
+     "width": 2306,
+     "height": 2151,
+     "title": "AdamsDryFly",
+     "author": "Mike Cline",
+     "license": "Public domain",
+     "licenseUrl": null,
+     "sourceUrl": "https://commons.wikimedia.org/wiki/File:AdamsDryFly.jpg"
+    },
+    {
+     "source": "wikimedia",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/5/56/Parachute_Adams_Dry_Fly.jpg",
+     "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Parachute_Adams_Dry_Fly.jpg/960px-Parachute_Adams_Dry_Fly.jpg",
+     "width": 1160,
+     "height": 857,
+     "title": "Parachute Adams Dry Fly",
+     "author": "Freyfisher",
+     "license": "CC BY-SA 2.0",
+     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parachute_Adams_Dry_Fly.jpg"
+    }
+   ]
+  },
+  "white-wulff": {
+   "flyId": "white-wulff",
+   "photos": [
+    {
+     "source": "wikimedia",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/0/01/White_Wulff_dry_fly.jpg",
+     "thumbUrl": "https://upload.wikimedia.org/wikipedia/commons/0/01/White_Wulff_dry_fly.jpg",
+     "width": 817,
+     "height": 788,
+     "title": "White Wulff dry fly",
+     "author": "DeliciousDunder",
+     "license": "CC0",
+     "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+     "sourceUrl": "https://commons.wikimedia.org/wiki/File:White_Wulff_dry_fly.jpg"
+    }
+   ]
+  },
+  "zebra-midge": {
+   "flyId": "zebra-midge",
+   "photos": [
+    {
+     "source": "wikimedia",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/7/73/Zebra_Midge_by_AWH.JPG",
+     "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Zebra_Midge_by_AWH.JPG/960px-Zebra_Midge_by_AWH.JPG",
+     "width": 2560,
+     "height": 1920,
+     "title": "Zebra Midge by AWH",
+     "author": "Pcrh at English Wikipedia",
+     "license": "CC BY-SA 2.5",
+     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zebra_Midge_by_AWH.JPG"
+    }
+   ]
+  },
+  "elk-hair-caddis": {
+   "flyId": "elk-hair-caddis",
+   "photos": [
+    {
+     "source": "wikimedia",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Elk_Hair_Caddis.JPG",
+     "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Elk_Hair_Caddis.JPG/960px-Elk_Hair_Caddis.JPG",
+     "width": 3968,
+     "height": 2976,
+     "title": "Elk Hair Caddis",
+     "author": "Mike Cline",
+     "license": "CC BY-SA 3.0",
+     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Elk_Hair_Caddis.JPG"
+    },
+    {
+     "source": "wikimedia",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Elk_Hair_Caddis2.jpg",
+     "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Elk_Hair_Caddis2.jpg/960px-Elk_Hair_Caddis2.jpg",
+     "width": 2168,
+     "height": 1458,
+     "title": "Elk Hair Caddis2",
+     "author": "Mike Cline",
+     "license": "CC BY-SA 4.0",
+     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Elk_Hair_Caddis2.jpg"
+    },
+    {
+     "source": "wikimedia",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/5/59/Elk_Hair_Caddis_dry_flies.jpg",
+     "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Elk_Hair_Caddis_dry_flies.jpg/960px-Elk_Hair_Caddis_dry_flies.jpg",
+     "width": 1906,
+     "height": 1424,
+     "title": "Elk Hair Caddis dry flies",
+     "author": "Freyfisher",
+     "license": "CC BY-SA 2.0",
+     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Elk_Hair_Caddis_dry_flies.jpg"
+    }
+   ]
+  },
+  "stimulator": {
+   "flyId": "stimulator",
+   "photos": [
+    {
+     "source": "wikimedia",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Stimulator_dry_fly.jpg",
+     "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Stimulator_dry_fly.jpg/960px-Stimulator_dry_fly.jpg",
+     "width": 3264,
+     "height": 2448,
+     "title": "Stimulator dry fly",
+     "author": "Mike Cline",
+     "license": "CC BY-SA 4.0",
+     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stimulator_dry_fly.jpg"
+    },
+    {
+     "source": "wikimedia",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Stimulator_dry_flies.jpg",
+     "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Stimulator_dry_flies.jpg/960px-Stimulator_dry_flies.jpg",
+     "width": 1536,
+     "height": 2056,
+     "title": "Stimulator dry flies",
+     "author": "Freyfisher",
+     "license": "CC BY-SA 2.0",
+     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stimulator_dry_flies.jpg"
+    },
+    {
+     "source": "wikimedia",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/5/58/OrangeStimulator.jpg",
+     "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/OrangeStimulator.jpg/960px-OrangeStimulator.jpg",
+     "width": 1280,
+     "height": 960,
+     "title": "OrangeStimulator",
+     "author": "Mike Cline",
+     "license": "Public domain",
+     "licenseUrl": null,
+     "sourceUrl": "https://commons.wikimedia.org/wiki/File:OrangeStimulator.jpg"
+    }
+   ]
+  },
+  "egg-sucking-leech": {
+   "flyId": "egg-sucking-leech",
+   "photos": [
+    {
+     "source": "wikimedia",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/c/c9/BlackEggSuckingLeech.jpg",
+     "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/BlackEggSuckingLeech.jpg/960px-BlackEggSuckingLeech.jpg",
+     "width": 3072,
+     "height": 2304,
+     "title": "BlackEggSuckingLeech",
+     "author": "Mike Cline",
+     "license": "Public domain",
+     "licenseUrl": null,
+     "sourceUrl": "https://commons.wikimedia.org/wiki/File:BlackEggSuckingLeech.jpg"
+    }
+   ]
+  },
+  "intruder": {
+   "flyId": "intruder",
+   "photos": [
+    {
+     "source": "openverse",
+     "url": "https://live.staticflickr.com/5181/5621563469_2a393e7132.jpg",
+     "thumbUrl": "https://api.openverse.org/v1/images/a3217ee0-2a26-43ef-9545-b779373a5e07/thumb/",
+     "width": 500,
+     "height": 331,
+     "title": "Head of black/blue intruder",
+     "author": "nilsrinaldi",
+     "license": "CC BY 2.0",
+     "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+     "sourceUrl": "https://www.flickr.com/photos/12668382@N07/5621563469"
+    },
+    {
+     "source": "openverse",
+     "url": "https://live.staticflickr.com/5270/5621563369_1e9b57923a.jpg",
+     "thumbUrl": "https://api.openverse.org/v1/images/60af0f5b-c6bd-489d-8112-efc995f706c9/thumb/",
+     "width": 500,
+     "height": 331,
+     "title": "Orange intruder tube",
+     "author": "nilsrinaldi",
+     "license": "CC BY 2.0",
+     "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+     "sourceUrl": "https://www.flickr.com/photos/12668382@N07/5621563369"
+    }
+   ]
+  },
+  "woolly-bugger": {
+   "flyId": "woolly-bugger",
+   "photos": [
+    {
+     "source": "wikimedia",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/OliveDumbBellWoollyBugger.jpg",
+     "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/OliveDumbBellWoollyBugger.jpg/960px-OliveDumbBellWoollyBugger.jpg",
+     "width": 2860,
+     "height": 1865,
+     "title": "OliveDumbBellWoollyBugger",
+     "author": "Mike Cline",
+     "license": "Public domain",
+     "licenseUrl": null,
+     "sourceUrl": "https://commons.wikimedia.org/wiki/File:OliveDumbBellWoollyBugger.jpg"
+    },
+    {
+     "source": "wikimedia",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/0/03/OliveAndWhiteDumbBellWoollyBugger.jpg",
+     "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/OliveAndWhiteDumbBellWoollyBugger.jpg/960px-OliveAndWhiteDumbBellWoollyBugger.jpg",
+     "width": 2784,
+     "height": 1893,
+     "title": "OliveAndWhiteDumbBellWoollyBugger",
+     "author": "Mike Cline",
+     "license": "Public domain",
+     "licenseUrl": null,
+     "sourceUrl": "https://commons.wikimedia.org/wiki/File:OliveAndWhiteDumbBellWoollyBugger.jpg"
+    },
+    {
+     "source": "wikimedia",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/2/21/PurpleAndBlackBeadHeadWoollyBugger.jpg",
+     "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/PurpleAndBlackBeadHeadWoollyBugger.jpg/960px-PurpleAndBlackBeadHeadWoollyBugger.jpg",
+     "width": 2725,
+     "height": 1776,
+     "title": "PurpleAndBlackBeadHeadWoollyBugger",
+     "author": "Mike Cline",
+     "license": "Public domain",
+     "licenseUrl": null,
+     "sourceUrl": "https://commons.wikimedia.org/wiki/File:PurpleAndBlackBeadHeadWoollyBugger.jpg"
+    }
+   ]
+  },
+  "clouser-minnow": {
+   "flyId": "clouser-minnow",
+   "photos": [
+    {
+     "source": "wikimedia",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/6/67/ClouserDeepMinnow.jpg",
+     "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/ClouserDeepMinnow.jpg/960px-ClouserDeepMinnow.jpg",
+     "width": 3072,
+     "height": 2304,
+     "title": "ClouserDeepMinnow",
+     "author": "Mike Cline",
+     "license": "Public domain",
+     "licenseUrl": null,
+     "sourceUrl": "https://commons.wikimedia.org/wiki/File:ClouserDeepMinnow.jpg"
+    },
+    {
+     "source": "wikimedia",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/1/12/BrownGoldWhiteClouserDeepMinnow.jpg",
+     "thumbUrl": "https://upload.wikimedia.org/wikipedia/commons/1/12/BrownGoldWhiteClouserDeepMinnow.jpg",
+     "width": 600,
+     "height": 366,
+     "title": "BrownGoldWhiteClouserDeepMinnow",
+     "author": "Mike Cline",
+     "license": "Public domain",
+     "licenseUrl": null,
+     "sourceUrl": "https://commons.wikimedia.org/wiki/File:BrownGoldWhiteClouserDeepMinnow.jpg"
+    }
+   ]
+  },
+  "soft-hackle-wet": {
+   "flyId": "soft-hackle-wet",
+   "photos": [
+    {
+     "source": "wikimedia",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/0/00/BrownTroutandSoftHackleNymph.JPG",
+     "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/BrownTroutandSoftHackleNymph.JPG/960px-BrownTroutandSoftHackleNymph.JPG",
+     "width": 3072,
+     "height": 2304,
+     "title": "BrownTroutandSoftHackleNymph",
+     "author": "Mike Cline",
+     "license": "Public domain",
+     "licenseUrl": null,
+     "sourceUrl": "https://commons.wikimedia.org/wiki/File:BrownTroutandSoftHackleNymph.JPG"
+    },
+    {
+     "source": "wikimedia",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/PartridgeandOrange.jpg",
+     "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/PartridgeandOrange.jpg/960px-PartridgeandOrange.jpg",
+     "width": 1781,
+     "height": 1448,
+     "title": "PartridgeandOrange",
+     "author": "Mike Cline",
+     "license": "Public domain",
+     "licenseUrl": null,
+     "sourceUrl": "https://commons.wikimedia.org/wiki/File:PartridgeandOrange.jpg"
+    }
+   ]
+  },
+  "muddler-minnow": {
+   "flyId": "muddler-minnow",
+   "photos": [
+    {
+     "source": "wikimedia",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/3/31/Muddler_Minnow.jpg",
+     "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Muddler_Minnow.jpg/960px-Muddler_Minnow.jpg",
+     "width": 2272,
+     "height": 1704,
+     "title": "Muddler Minnow",
+     "author": "Unknown",
+     "license": "Public domain",
+     "licenseUrl": null,
+     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Muddler_Minnow.jpg"
+    },
+    {
+     "source": "wikimedia",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Original_Don_Gapen_Muddler_Minnow.jpg",
+     "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Original_Don_Gapen_Muddler_Minnow.jpg/960px-Original_Don_Gapen_Muddler_Minnow.jpg",
+     "width": 1920,
+     "height": 1275,
+     "title": "Original Don Gapen Muddler Minnow",
+     "author": "Martin Joergensen",
+     "license": "CC BY-SA 3.0",
+     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Original_Don_Gapen_Muddler_Minnow.jpg"
+    },
+    {
+     "source": "wikimedia",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Muddler_Minnow_Small.jpg",
+     "thumbUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Muddler_Minnow_Small.jpg",
+     "width": 314,
+     "height": 235,
+     "title": "Muddler Minnow Small",
+     "author": "Unknown",
+     "license": "Public domain",
+     "licenseUrl": null,
+     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Muddler_Minnow_Small.jpg"
+    }
+   ]
+  }
+ }
+}

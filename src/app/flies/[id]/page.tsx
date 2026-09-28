@@ -10,6 +10,8 @@ import { SourceList } from "@/components/source-list";
 import { AddToCartButton } from "@/components/add-to-cart-button";
 import { hookSizeLabel } from "@/components/fly-card";
 import { InsectThumb, PhotoCredit } from "@/components/insect-photo";
+import { FlyReferenceCard } from "@/components/fly-reference-photo";
+import { getFlyReferencePhotos } from "@/lib/fly-photos";
 import { getHatchHero } from "@/lib/photos";
 import { CATEGORY_LABELS, TECHNIQUE_LABELS, eggSourceById, flies, flyById, forageById, hatchById, speciesById } from "@/data";
 import { getProductByHandle } from "@/lib/shopify/products";
@@ -75,6 +77,7 @@ export default async function FlyPage({ params }: PageProps<"/flies/[id]">) {
 
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_340px]">
         <div className="space-y-6">
+          {!product?.featuredImage ? <FlyReferenceCard photos={getFlyReferencePhotos(fly.id)} flyName={fly.name} /> : null}
           <Card>
             <CardHeader>
               <CardTitle className="text-base">Season</CardTitle>

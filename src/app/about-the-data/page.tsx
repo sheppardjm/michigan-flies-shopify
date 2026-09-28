@@ -78,7 +78,12 @@ export default function AboutDataPage() {
         Insect photographs come from <a href="https://www.inaturalist.org">iNaturalist</a> observers who released them under CC0, CC BY, or CC BY-SA
         licenses. We prefer research-grade Michigan observations and widen the search only when Michigan has none. Each photo carries the
         observer&apos;s name, the license, and a link to the observation. If you see one of your photos here and want it removed or credited
-        differently, contact us and we will fix it. Fly photographs are our own, taken at the bench.
+        differently, contact us and we will fix it.
+      </p>
+      <p>
+        Until our own bench photos are shot, some pattern pages show Creative Commons reference photos of the same pattern tied by others, sourced
+        from Wikimedia Commons and Flickr via Openverse and labeled &ldquo;reference photo.&rdquo; They show what the pattern looks like, not the fly
+        you will receive, and they never appear as product images in the shop.
       </p>
 
       <h2>Regulations</h2>

@@ -11,7 +11,8 @@
     "test": "vitest run",
     "validate-data": "tsx scripts/validate-data.ts",
     "fetch-stocking": "tsx scripts/fetch-stocking.ts",
-    "fetch-photos": "tsx scripts/fetch-inat-photos.ts"
+    "fetch-photos": "tsx scripts/fetch-inat-photos.ts",
+    "fetch-fly-photos": "tsx scripts/fetch-fly-photos.ts"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
