@@ -63,7 +63,7 @@ export function CounterCard({
   }
 
   return (
-    <form onSubmit={submit} className="counter-card flex h-full flex-col justify-between p-5 pl-16 sm:p-7 sm:pl-20" aria-labelledby="counter-title">
+    <form onSubmit={submit} className="counter-card flex h-full flex-col justify-between p-5 sm:p-7 sm:pl-20" aria-labelledby="counter-title">
       <h2 id="counter-title" className="woodtype text-2xl leading-none sm:text-3xl">
         What should be on the end of my line?
       </h2>
