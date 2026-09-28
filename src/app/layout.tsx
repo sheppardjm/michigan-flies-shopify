@@ -14,11 +14,24 @@ const courier = Courier_Prime({ subsets: ["latin"], weight: ["400", "700"], disp
 export const metadata: Metadata = {
   metadataBase: new URL("https://michiganflies.com"),
   title: {
-    default: "Michigan Flies — hatch calendar and hand-tied flies for Michigan rivers",
+    default: "Michigan Flies: Hand-tied flies for the Great Lakes State salmon and steelhead rivers",
     template: "%s · Michigan Flies",
   },
   description:
     "Find the right fly for any Michigan river on any date. Hatch windows, egg drops, and forage tuned to the river's region, water temperature, and growing degree days. Hand-tied flies for trout, steelhead, and salmon.",
+  // Link previews (iMessage, Slack, social) read these before the page title.
+  openGraph: {
+    type: "website",
+    siteName: "Michigan Flies",
+    title: "Michigan Flies: Hand-tied flies for the Great Lakes State salmon and steelhead rivers",
+    description:
+      "Find the right fly for any Michigan river on any date. Hatch windows, egg drops, and forage tuned to the river's region, water temperature, and growing degree days.",
+    url: "/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Michigan Flies: Hand-tied flies for the Great Lakes State salmon and steelhead rivers",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // The Open Graph card reads its fonts and the logo from disk at render time.
+  outputFileTracingIncludes: {
+    "/opengraph-image": ["./src/assets/fonts/*.woff", "./public/photos/illustration/trout-logo.svg"],
+  },
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "cdn.shopify.com" },
