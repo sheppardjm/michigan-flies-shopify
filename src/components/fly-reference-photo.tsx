@@ -8,10 +8,15 @@ export function FlyPhotoCredit({ photo, className }: { photo: FlyPhoto; classNam
   if (photo.source === "permission") {
     return (
       <p className={cn("text-[11px] leading-snug text-muted-foreground", className)}>
-        Photo © {photo.author}, used with permission ·{" "}
-        <a href={photo.sourceUrl} target="_blank" rel="noreferrer" className="underline-offset-2 hover:underline">
-          {photo.title}
-        </a>
+        Photo © {photo.author}, used with permission
+        {photo.sourceUrl ? (
+          <>
+            {" · "}
+            <a href={photo.sourceUrl} target="_blank" rel="noreferrer" className="underline-offset-2 hover:underline">
+              {photo.title}
+            </a>
+          </>
+        ) : null}
       </p>
     );
   }

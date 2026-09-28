@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-09-28T18:15:11.355Z",
+ "fetchedAt": "2026-09-28T18:34:44.477191+00:00",
  "flies": {
   "pheasant-tail-nymph": {
    "flyId": "pheasant-tail-nymph",
@@ -1888,6 +1888,193 @@
      "license": "Used with permission",
      "licenseUrl": null,
      "sourceUrl": "https://www.flydealflies.com/product/sowbug/"
+    }
+   ]
+  },
+  "nuke-egg": {
+   "flyId": "nuke-egg",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/nuke-egg--quinn.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Nuke Egg, white",
+     "author": "Quinn",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": ""
+    }
+   ]
+  },
+  "clown-egg": {
+   "flyId": "clown-egg",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/clown-egg--quinn.webp",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Rag egg",
+     "author": "Quinn",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": ""
+    }
+   ]
+  },
+  "halloween-leech": {
+   "flyId": "halloween-leech",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/halloween-leech--quinn.webp",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Feenstra's Halloween Leech",
+     "author": "Quinn",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": ""
+    }
+   ]
+  },
+  "borchers-parachute": {
+   "flyId": "borchers-parachute",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/borchers-parachute--quinn.webp",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Borchers Parachute",
+     "author": "Quinn",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": ""
+    }
+   ]
+  },
+  "circus-peanut": {
+   "flyId": "circus-peanut",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/circus-peanut--quinn.webp",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Circus Peanut, olive",
+     "author": "Quinn",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": ""
+    }
+   ]
+  },
+  "grapefruit-head-leech": {
+   "flyId": "grapefruit-head-leech",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/grapefruit-head-leech--quinn.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Feenstra's Grapefruit Head Leech",
+     "author": "Quinn",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": ""
+    }
+   ]
+  },
+  "hex-nymph": {
+   "flyId": "hex-nymph",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/hex-nymph--quinn.webp",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Hex wiggle nymph",
+     "author": "Quinn",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": ""
+    }
+   ]
+  },
+  "hex-spinner": {
+   "flyId": "hex-spinner",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/hex-spinner--quinn.webp",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Hex spinner",
+     "author": "Quinn",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": ""
+    }
+   ]
+  },
+  "master-splinter": {
+   "flyId": "master-splinter",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/master-splinter--quinn.webp",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Master Splinter",
+     "author": "Quinn",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": ""
+    }
+   ]
+  },
+  "drunk-and-disorderly": {
+   "flyId": "drunk-and-disorderly",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/drunk-and-disorderly--quinn.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Drunk and Disorderly",
+     "author": "Quinn",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": ""
+    }
+   ]
+  },
+  "sex-dungeon": {
+   "flyId": "sex-dungeon",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/sex-dungeon--quinn.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Sex Dungeon",
+     "author": "Quinn",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": ""
     }
    ]
   }
