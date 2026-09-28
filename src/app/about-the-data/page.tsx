@@ -65,6 +65,14 @@ export default function AboutDataPage() {
         stocking data, B for multiple angler sources, C for inference. Runs shift with the year&apos;s weather; use the months as a guide.
       </p>
 
+      <h2>Stocking</h2>
+      <p>
+        Each river page shows Michigan DNR Fish Stocking Database records since 1979 for the water bodies that feed that reach, pulled from the
+        table behind the <a href="https://www.michigandnr.com/fishstock/">DNR stocking dashboard</a> and snapshotted into the site a few times a
+        year. Counts are fish planted, not fish surviving. &ldquo;Rainbow trout&rdquo; plants in Great Lakes tributaries are steelhead strains
+        unless the strain says otherwise. Average lengths are converted from the DNR&apos;s centimeters.
+      </p>
+
       <h2>Regulations</h2>
       <p>
         Gear rules are transcribed from the 2026 Michigan Fishing Regulations digest. Two reaches have conflicting sources and are flagged. Always

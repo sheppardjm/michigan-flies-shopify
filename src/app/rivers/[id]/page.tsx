@@ -12,8 +12,10 @@ import { MonthGrid } from "@/components/month-grid";
 import { SourceList } from "@/components/source-list";
 import { StatusBadge } from "@/components/status-badge";
 import { REGION_LABELS, hatchById, riverById, rivers, speciesById, type River } from "@/data";
+import { StockingSection } from "@/components/stocking-section";
 import { getRiverConditions } from "@/lib/conditions";
 import { hatchStatusesForRiver } from "@/lib/recommend";
+import { getRiverStocking } from "@/lib/stocking";
 import { formatPeak, formatWindow, monthOf, toIsoDate, toUtcDay } from "@/lib/season";
 
 export function generateStaticParams() {
@@ -158,6 +160,8 @@ export default async function RiverPage({ params }: PageProps<"/rivers/[id]">) {
               </div>
             </section>
           ) : null}
+
+          <StockingSection stocking={getRiverStocking(river.id)} />
 
           {river.sections.length ? (
             <section className="space-y-3">
