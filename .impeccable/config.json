@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font",
+        "value": "${encodeuricomponent(family",
+        "createdAt": "2026-09-28T23:28:59.643Z",
+        "reason": "Claude: the flagged string is a Google Fonts URL template in the OG image font loader; the families it loads are Zilla Slab and Mr Dafoe, both in DESIGN.md"
+      }
+    ]
+  }
+}
