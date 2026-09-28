@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-09-28T18:34:44.477191+00:00",
+ "fetchedAt": "2026-09-28T18:37:34.165627+00:00",
  "flies": {
   "pheasant-tail-nymph": {
    "flyId": "pheasant-tail-nymph",
@@ -2071,6 +2071,57 @@
      "width": null,
      "height": null,
      "title": "Sex Dungeon",
+     "author": "Quinn",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": ""
+    }
+   ]
+  },
+  "blood-dot-egg": {
+   "flyId": "blood-dot-egg",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/blood-dot-egg--quinn.webp",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Blood Dot Egg",
+     "author": "Quinn",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": ""
+    }
+   ]
+  },
+  "boogie-man": {
+   "flyId": "boogie-man",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/boogie-man--quinn.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Boogie Man",
+     "author": "Quinn",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": ""
+    }
+   ]
+  },
+  "crystal-meth": {
+   "flyId": "crystal-meth",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/crystal-meth--quinn.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Crystal Meth egg, pink",
      "author": "Quinn",
      "license": "Used with permission",
      "licenseUrl": null,
