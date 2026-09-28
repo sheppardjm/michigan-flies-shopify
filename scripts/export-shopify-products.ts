@@ -12,6 +12,7 @@
  */
 import { writeFileSync } from "node:fs";
 import { CATEGORY_LABELS, flies, hatchById, speciesById, type Fly } from "../src/data";
+import { collectionById } from "../src/data/collections";
 
 const PRICE_BY_CATEGORY: Record<Fly["category"], number> = {
   dry: 3.0,
@@ -90,6 +91,7 @@ function rowsFor(fly: Fly): string[] {
     ...fly.eggSourceIds,
     ...fly.forageIds,
     `evidence-${fly.evidence}`,
+    ...extraTags,
   ];
   const price = priceFor(fly).toFixed(2);
   const rows: string[] = [];
@@ -133,9 +135,16 @@ function rowsFor(fly: Fly): string[] {
 const args = process.argv.slice(2);
 const all = args.includes("--all");
 const outIdx = args.indexOf("--out");
-const out = outIdx >= 0 ? args[outIdx + 1] : all ? "shopify-products-all.csv" : "shopify-products-staples.csv";
+const colIdx = args.indexOf("--collection");
+const collection = colIdx >= 0 ? collectionById.get(args[colIdx + 1]) : undefined;
+if (colIdx >= 0 && !collection) throw new Error(`Unknown collection ${args[colIdx + 1]}`);
+const out = outIdx >= 0 ? args[outIdx + 1] : collection ? `shopify-products-${collection.id}.csv` : all ? "shopify-products-all.csv" : "shopify-products-staples.csv";
 
-const selected = flies.filter((f) => all || f.priority === 3).sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name));
+const collectionIds = collection ? new Set(collection.flies.map((f) => f.flyId)) : null;
+const extraTags = collection ? [`collection:${collection.id}`, ...(collection.riverId ? [`river:${collection.riverId}`] : [])] : [];
+const selected = flies
+  .filter((f) => (collectionIds ? collectionIds.has(f.id) : all || f.priority === 3))
+  .sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name));
 const lines = [COLUMNS.join(","), ...selected.flatMap(rowsFor)];
 writeFileSync(out, lines.join("\n") + "\n");
 console.log(`${selected.length} products, ${lines.length - 1} variant rows → ${out}`);

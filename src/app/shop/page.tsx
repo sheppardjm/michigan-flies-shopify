@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { collections } from "@/data/collections";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { isShopifyConfigured } from "@/lib/shopify/client";
 import { getProducts } from "@/lib/shopify/products";
@@ -13,14 +15,43 @@ export const metadata: Metadata = {
   description: "Hand-tied flies for Michigan rivers.",
 };
 
+function CollectionGrid() {
+  return (
+    <section className="space-y-3">
+      <h2 className="text-xl font-semibold tracking-tight">Boxes by river</h2>
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {collections.map((c) => (
+          <Link key={c.id} href={`/collections/${c.id}`} className="group">
+            <Card className="h-full transition-colors group-hover:bg-muted/40">
+              <CardHeader>
+                <CardTitle className="text-base">{c.title}</CardTitle>
+                <CardDescription className="line-clamp-3">{c.description}</CardDescription>
+              </CardHeader>
+              <CardContent className="flex flex-wrap gap-1.5">
+                <Badge variant="secondary">{c.flies.length} patterns</Badge>
+                {c.status === "coming-soon" ? <Badge>Coming soon</Badge> : null}
+              </CardContent>
+            </Card>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 export default async function ShopPage() {
   if (!isShopifyConfigured()) {
     return (
-      <div className="mx-auto w-full max-w-3xl px-4 py-12">
+      <div className="mx-auto w-full max-w-6xl space-y-8 px-4 py-8 sm:py-12">
+        <div className="space-y-2">
+          <h1 className="text-3xl font-semibold tracking-tight">Shop</h1>
+          <p className="max-w-2xl text-muted-foreground">Flies tied at the bench for Michigan water. Checkout opens soon; the first batch is on the vise now.</p>
+        </div>
+        <CollectionGrid />
         <Alert>
-          <AlertTitle>The shop is not connected yet</AlertTitle>
+          <AlertTitle>Checkout is not open yet</AlertTitle>
           <AlertDescription>
-            Product listings appear here once the Shopify store is linked. Until then, use the{" "}
+            Until then, use the{" "}
             <Link href="/quiz" className="underline underline-offset-4">
               fly finder
             </Link>{" "}
@@ -37,6 +68,7 @@ export default async function ShopPage() {
         <h1 className="text-3xl font-semibold tracking-tight">Shop</h1>
         <p className="max-w-2xl text-muted-foreground">Flies tied at the bench for Michigan water. Sizes and colors follow the patterns in the fly finder.</p>
       </div>
+      <CollectionGrid />
       {products.length ? (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {products.map((p) => (
