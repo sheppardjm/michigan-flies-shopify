@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { TroutWoodcut } from "@/components/wall/trout-sign";
+import { TroutLogo } from "@/components/wall/trout-logo";
 
 /** The bottom rail: the small trout, and where the numbers come from. */
 export function SiteFooter() {
@@ -7,7 +7,7 @@ export function SiteFooter() {
     <footer className="rail rail-bottom mt-auto">
       <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-8 px-4 py-10 text-sm md:grid-cols-[220px_minmax(0,1fr)_minmax(0,1fr)]">
         <div className="min-w-0 space-y-3">
-          <TroutWoodcut className="max-w-[200px] opacity-95" />
+          <TroutLogo className="max-w-[140px]" />
           <p className="script text-3xl leading-none">Michigan Flies</p>
           <p className="woodtype-caps text-[0.76rem] opacity-80">Hand-tied for Michigan rivers</p>
         </div>
