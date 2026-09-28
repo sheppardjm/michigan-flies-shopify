@@ -12,6 +12,10 @@ export interface DnrWater {
   watersId: number;
   name: string;
   counties?: string[];
+  /** Keep only plants whose DNR site name contains one of these (case-insensitive). */
+  siteIncludes?: string[];
+  /** Drop plants whose DNR site name contains any of these (case-insensitive). */
+  siteExcludes?: string[];
 }
 
 export const STOCKING_WATERS: Record<string, DnrWater[]> = {
@@ -47,6 +51,8 @@ export const STOCKING_WATERS: Record<string, DnrWater[]> = {
     { watersId: 10710, name: "Rifle River" },
     { watersId: 10712, name: "West Branch Rifle River" },
   ],
+  "big-sable-above-hamlin": [{ watersId: 7002, name: "Big Sable River", siteExcludes: ["STATE PARK"] }],
+  "big-sable-below-hamlin": [{ watersId: 7002, name: "Big Sable River", siteIncludes: ["STATE PARK"] }],
   "pere-marquette": [
     { watersId: 8450, name: "Pere Marquette River" },
     { watersId: 9925, name: "Middle Branch Pere Marquette River" },

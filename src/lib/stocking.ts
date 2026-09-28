@@ -82,6 +82,28 @@ export const FEATURED_DNR_SPECIES = [
   "Walleye",
 ];
 
+/**
+ * DNR rainbow trout strains that are anadromous steelhead lines. "Michigan" is
+ * the Little Manistee winter-run strain; Skamania is the summer-run strain.
+ * Everything else the DNR plants (Harrietta, Shasta, Arlee, Eagle Lake,
+ * Wytheville, Harrison Lake) is a domestic resident rainbow.
+ */
+export const STEELHEAD_STRAINS = ["Michigan", "Skamania", "Chambers Creek", "Little Manistee", "Ganaraska"];
+
+export function isSteelheadStrain(strain: string | null): boolean {
+  return strain !== null && STEELHEAD_STRAINS.some((s) => strain.toLowerCase().includes(s.toLowerCase()));
+}
+
+/** Display label for a DNR species row, calling out steelhead-strain rainbow plants. */
+export function speciesLabel(species: string, strains: string[]): { label: string; note?: string } {
+  if (species !== "Rainbow trout") return { label: species };
+  const steel = strains.filter(isSteelheadStrain);
+  const resident = strains.filter((s) => !isSteelheadStrain(s));
+  if (steel.length && !resident.length) return { label: "Rainbow trout", note: "steelhead strain" };
+  if (steel.length && resident.length) return { label: "Rainbow trout", note: "steelhead and resident strains" };
+  return { label: "Rainbow trout", note: resident.length ? "resident strain" : undefined };
+}
+
 export function cmToInches(cm: number): number {
   return Math.round((cm / 2.54) * 10) / 10;
 }

@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { FEATURED_DNR_SPECIES, STOCKING_FETCHED_AT, STOCKING_SOURCE, cmToInches, recentYears, type RiverStocking } from "@/lib/stocking";
+import { FEATURED_DNR_SPECIES, STOCKING_FETCHED_AT, STOCKING_SOURCE, cmToInches, recentYears, speciesLabel, type RiverStocking } from "@/lib/stocking";
 
 const fmt = new Intl.NumberFormat("en-US");
 
@@ -39,7 +39,8 @@ export function StockingSection({ stocking }: { stocking: RiverStocking | null }
         <p className="text-sm text-muted-foreground">
           Michigan DNR Fish Stocking Database records since 1979 for {stocking.waters.map((w) => w.name).join(", ")}
           {stocking.waters.some((w) => w.counties?.length) ? ` (${[...new Set(stocking.waters.flatMap((w) => w.counties ?? []))].join(", ")} County)` : ""}.{" "}
-          {fmt.format(stocking.totalEvents)} plants on record. Snapshot {fetched}.{" "}
+          {fmt.format(stocking.totalEvents)} plants on record. Snapshot {fetched}. DNR &ldquo;rainbow trout&rdquo; of Michigan or Skamania strain are
+          steelhead smolts.{" "}
           <a href={STOCKING_SOURCE.url} target="_blank" rel="noreferrer" className="underline underline-offset-4">
             Open the DNR database
           </a>
@@ -65,7 +66,14 @@ export function StockingSection({ stocking }: { stocking: RiverStocking | null }
               {active.map((s) => (
                 <TableRow key={s.species}>
                   <TableCell className="max-w-56">
-                    <p className="font-medium">{s.species}</p>
+                    <p className="flex items-center gap-1.5 font-medium">
+                      {speciesLabel(s.species, s.strains).label}
+                      {speciesLabel(s.species, s.strains).note ? (
+                        <Badge variant={speciesLabel(s.species, s.strains).note === "steelhead strain" ? "default" : "outline"} className="text-[10px]">
+                          {speciesLabel(s.species, s.strains).note}
+                        </Badge>
+                      ) : null}
+                    </p>
                     <p className="truncate text-xs text-muted-foreground" title={s.strains.join(", ")}>
                       {s.strains.length ? `${s.strains.slice(0, 2).join(", ")}${s.strains.length > 2 ? ` +${s.strains.length - 2}` : ""} · ` : ""}
                       since {s.firstYear}

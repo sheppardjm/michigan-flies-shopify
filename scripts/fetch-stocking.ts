@@ -164,9 +164,12 @@ async function main() {
       snapshot.rivers[riverId] = { riverId, waters: [], species: [], recentEvents: [], totalEvents: 0 };
       continue;
     }
+    const esc = (s: string) => s.replace(/'/g, "''").toUpperCase();
     const clauses = waters.map((w) => {
       const county = w.counties?.length ? ` AND County_Name IN (${w.counties.map((c) => `'${c.replace(/'/g, "''")}'`).join(",")})` : "";
-      return `(waters_id = ${w.watersId}${county})`;
+      const inc = w.siteIncludes?.length ? ` AND (${w.siteIncludes.map((s) => `UPPER(sitename) LIKE '%${esc(s)}%'`).join(" OR ")})` : "";
+      const exc = w.siteExcludes?.length ? w.siteExcludes.map((s) => ` AND (sitename IS NULL OR UPPER(sitename) NOT LIKE '%${esc(s)}%')`).join("") : "";
+      return `(waters_id = ${w.watersId}${county}${inc}${exc})`;
     });
     const rows = await queryAll(clauses.join(" OR "));
     const events = rows.map(toEvent).sort((a, b) => a.date.localeCompare(b.date));

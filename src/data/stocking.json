@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-09-28T17:01:24.387Z",
+ "fetchedAt": "2026-09-28T17:15:52.956Z",
  "source": {
   "name": "Michigan DNR Fish Stocking Database",
   "url": "https://www.michigandnr.com/fishstock/",
@@ -10226,6 +10226,682 @@
     }
    ],
    "totalEvents": 472
+  },
+  "big-sable-above-hamlin": {
+   "riverId": "big-sable-above-hamlin",
+   "waters": [
+    {
+     "watersId": 7002,
+     "name": "Big Sable River",
+     "siteExcludes": [
+      "STATE PARK"
+     ]
+    }
+   ],
+   "species": [
+    {
+     "species": "Brown trout",
+     "firstYear": 1979,
+     "lastYear": 2026,
+     "totalAllYears": 392707,
+     "eventsAllYears": 169,
+     "byYear": {
+      "1979": 4000,
+      "1980": 2500,
+      "1981": 2500,
+      "1982": 4250,
+      "1983": 8500,
+      "1984": 8500,
+      "1985": 4170,
+      "1986": 5950,
+      "1987": 6370,
+      "1988": 8500,
+      "1989": 8500,
+      "1990": 8500,
+      "1991": 8330,
+      "1992": 8310,
+      "1993": 8339,
+      "1994": 9940,
+      "1995": 7438,
+      "1996": 7970,
+      "1997": 10874,
+      "1998": 8150,
+      "1999": 8500,
+      "2000": 12500,
+      "2001": 7577,
+      "2002": 8680,
+      "2003": 8300,
+      "2004": 7993,
+      "2005": 8799,
+      "2006": 10484,
+      "2007": 7354,
+      "2008": 8387,
+      "2009": 9448,
+      "2010": 10200,
+      "2011": 7200,
+      "2012": 11130,
+      "2013": 7300,
+      "2014": 7994,
+      "2015": 8800,
+      "2016": 8000,
+      "2017": 8295,
+      "2018": 8800,
+      "2019": 10000,
+      "2020": 9600,
+      "2021": 9000,
+      "2022": 9000,
+      "2023": 8981,
+      "2024": 9394,
+      "2025": 10000,
+      "2026": 9400
+     },
+     "latest": {
+      "date": "2026-05-13",
+      "species": "Brown trout",
+      "strain": "Sturgeon River",
+      "count": 1900,
+      "avgLengthCm": 13.52,
+      "site": "DARR ROAD",
+      "county": "Mason",
+      "water": "Big Sable River",
+      "marking": null,
+      "operation": "State Plant"
+     },
+     "strains": [
+      "Harrietta",
+      "Wild Rose",
+      "Plymouth Rock",
+      "Soda Lake",
+      "Saint Croix",
+      "Seeforellen",
+      "Gilchrist Creek",
+      "Sturgeon River"
+     ]
+    },
+    {
+     "species": "Rainbow trout",
+     "firstYear": 1994,
+     "lastYear": 1999,
+     "totalAllYears": 1200,
+     "eventsAllYears": 7,
+     "byYear": {
+      "1994": 1000,
+      "1998": 100,
+      "1999": 100
+     },
+     "latest": {
+      "date": "1999-04-15",
+      "species": "Rainbow trout",
+      "strain": null,
+      "count": 100,
+      "avgLengthCm": 22.9,
+      "site": "STEPHENS RD",
+      "county": "Mason",
+      "water": "Big Sable River",
+      "marking": null,
+      "operation": "Private Plant (under permit)"
+     },
+     "strains": []
+    },
+    {
+     "species": "Brook trout",
+     "firstYear": 1995,
+     "lastYear": 1999,
+     "totalAllYears": 1100,
+     "eventsAllYears": 6,
+     "byYear": {
+      "1995": 400,
+      "1998": 350,
+      "1999": 350
+     },
+     "latest": {
+      "date": "1999-04-15",
+      "species": "Brook trout",
+      "strain": null,
+      "count": 100,
+      "avgLengthCm": 7.6,
+      "site": "STEPHENS RD",
+      "county": "Mason",
+      "water": "Big Sable River",
+      "marking": null,
+      "operation": "Private Plant (under permit)"
+     },
+     "strains": []
+    }
+   ],
+   "recentEvents": [
+    {
+     "date": "2026-05-13",
+     "species": "Brown trout",
+     "strain": "Sturgeon River",
+     "count": 1900,
+     "avgLengthCm": 13.52,
+     "site": "DARR ROAD",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": null,
+     "operation": "State Plant"
+    },
+    {
+     "date": "2026-05-13",
+     "species": "Brown trout",
+     "strain": "Sturgeon River",
+     "count": 2800,
+     "avgLengthCm": 13.52,
+     "site": "STEPHENS RD",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": null,
+     "operation": "State Plant"
+    },
+    {
+     "date": "2026-05-13",
+     "species": "Brown trout",
+     "strain": "Sturgeon River",
+     "count": 2800,
+     "avgLengthCm": 13.52,
+     "site": "SCHOENHERR RD",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": null,
+     "operation": "State Plant"
+    },
+    {
+     "date": "2026-05-13",
+     "species": "Brown trout",
+     "strain": "Sturgeon River",
+     "count": 1900,
+     "avgLengthCm": 13.52,
+     "site": "FREESOIL RD",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": null,
+     "operation": "State Plant"
+    },
+    {
+     "date": "2025-04-28",
+     "species": "Brown trout",
+     "strain": "Sturgeon River",
+     "count": 2000,
+     "avgLengthCm": 13.42,
+     "site": "DARR ROAD",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": null,
+     "operation": "State Plant"
+    },
+    {
+     "date": "2025-04-28",
+     "species": "Brown trout",
+     "strain": "Sturgeon River",
+     "count": 3000,
+     "avgLengthCm": 13.42,
+     "site": "STEPHENS RD",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": null,
+     "operation": "State Plant"
+    },
+    {
+     "date": "2025-04-28",
+     "species": "Brown trout",
+     "strain": "Sturgeon River",
+     "count": 3000,
+     "avgLengthCm": 13.42,
+     "site": "SCHOENHERR RD",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": null,
+     "operation": "State Plant"
+    },
+    {
+     "date": "2025-04-28",
+     "species": "Brown trout",
+     "strain": "Sturgeon River",
+     "count": 2000,
+     "avgLengthCm": 13.42,
+     "site": "FREESOIL RD",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": null,
+     "operation": "State Plant"
+    },
+    {
+     "date": "2024-04-12",
+     "species": "Brown trout",
+     "strain": "Sturgeon River",
+     "count": 1900,
+     "avgLengthCm": 12.53,
+     "site": "DARR ROAD",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": null,
+     "operation": "State Plant"
+    },
+    {
+     "date": "2024-04-12",
+     "species": "Brown trout",
+     "strain": "Sturgeon River",
+     "count": 2796,
+     "avgLengthCm": 12.53,
+     "site": "STEPHENS RD",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": null,
+     "operation": "State Plant"
+    },
+    {
+     "date": "2024-04-12",
+     "species": "Brown trout",
+     "strain": "Sturgeon River",
+     "count": 2800,
+     "avgLengthCm": 12.53,
+     "site": "SCHOENHERR RD",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": null,
+     "operation": "State Plant"
+    },
+    {
+     "date": "2024-04-12",
+     "species": "Brown trout",
+     "strain": "Sturgeon River",
+     "count": 1898,
+     "avgLengthCm": 12.53,
+     "site": "FREESOIL RD",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": null,
+     "operation": "State Plant"
+    },
+    {
+     "date": "2023-05-05",
+     "species": "Brown trout",
+     "strain": "Sturgeon River",
+     "count": 1798,
+     "avgLengthCm": 12.92,
+     "site": "DARR ROAD",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": null,
+     "operation": "State Plant"
+    },
+    {
+     "date": "2023-05-05",
+     "species": "Brown trout",
+     "strain": "Sturgeon River",
+     "count": 2697,
+     "avgLengthCm": 12.92,
+     "site": "STEPHENS RD",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": null,
+     "operation": "State Plant"
+    },
+    {
+     "date": "2023-05-05",
+     "species": "Brown trout",
+     "strain": "Sturgeon River",
+     "count": 2691,
+     "avgLengthCm": 12.92,
+     "site": "SCHOENHERR RD",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": null,
+     "operation": "State Plant"
+    },
+    {
+     "date": "2023-05-05",
+     "species": "Brown trout",
+     "strain": "Sturgeon River",
+     "count": 1795,
+     "avgLengthCm": 12.92,
+     "site": "FREESOIL RD",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": null,
+     "operation": "State Plant"
+    },
+    {
+     "date": "2022-04-22",
+     "species": "Brown trout",
+     "strain": "Sturgeon River",
+     "count": 1800,
+     "avgLengthCm": 12.74,
+     "site": "DARR ROAD",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": null,
+     "operation": "State Plant"
+    },
+    {
+     "date": "2022-04-22",
+     "species": "Brown trout",
+     "strain": "Sturgeon River",
+     "count": 2700,
+     "avgLengthCm": 12.74,
+     "site": "STEPHENS RD",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": null,
+     "operation": "State Plant"
+    },
+    {
+     "date": "2022-04-22",
+     "species": "Brown trout",
+     "strain": "Sturgeon River",
+     "count": 2700,
+     "avgLengthCm": 12.74,
+     "site": "SCHOENHERR RD",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": null,
+     "operation": "State Plant"
+    },
+    {
+     "date": "2022-04-22",
+     "species": "Brown trout",
+     "strain": "Sturgeon River",
+     "count": 1800,
+     "avgLengthCm": 12.74,
+     "site": "FREESOIL RD",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": null,
+     "operation": "State Plant"
+    }
+   ],
+   "totalEvents": 182
+  },
+  "big-sable-below-hamlin": {
+   "riverId": "big-sable-below-hamlin",
+   "waters": [
+    {
+     "watersId": 7002,
+     "name": "Big Sable River",
+     "siteIncludes": [
+      "STATE PARK"
+     ]
+    }
+   ],
+   "species": [
+    {
+     "species": "Chinook salmon",
+     "firstYear": 1979,
+     "lastYear": 2026,
+     "totalAllYears": 6410392,
+     "eventsAllYears": 47,
+     "byYear": {
+      "1979": 200000,
+      "1980": 300150,
+      "1981": 100000,
+      "1982": 200284,
+      "1983": 200000,
+      "1984": 200170,
+      "1985": 185014,
+      "1986": 199990,
+      "1987": 199150,
+      "1988": 220000,
+      "1989": 200070,
+      "1990": 204516,
+      "1991": 186424,
+      "1992": 190664,
+      "1993": 180494,
+      "1994": 192544,
+      "1995": 220040,
+      "1996": 199974,
+      "1997": 200012,
+      "1998": 182645,
+      "1999": 158396,
+      "2000": 157922,
+      "2001": 151157,
+      "2002": 152290,
+      "2003": 151499,
+      "2004": 149760,
+      "2005": 151726,
+      "2006": 119145,
+      "2007": 119036,
+      "2008": 113309,
+      "2009": 117536,
+      "2010": 116995,
+      "2011": 117080,
+      "2012": 120395,
+      "2013": 37875,
+      "2014": 38378,
+      "2015": 37917,
+      "2016": 38089,
+      "2023": 99537,
+      "2024": 99698,
+      "2025": 101059,
+      "2026": 99452
+     },
+     "latest": {
+      "date": "2026-04-30",
+      "species": "Chinook salmon",
+      "strain": "Michigan",
+      "count": 99452,
+      "avgLengthCm": 9.3,
+      "site": "STATE PARK NET PEN",
+      "county": "Mason",
+      "water": "Big Sable River",
+      "marking": null,
+      "operation": "State Plant"
+     },
+     "strains": [
+      "Michigan"
+     ]
+    },
+    {
+     "species": "Coho salmon",
+     "firstYear": 1979,
+     "lastYear": 2026,
+     "totalAllYears": 948029,
+     "eventsAllYears": 22,
+     "byYear": {
+      "1979": 300000,
+      "1980": 99480,
+      "1981": 90048,
+      "1982": 50053,
+      "2017": 47946,
+      "2018": 49999,
+      "2019": 39303,
+      "2020": 40745,
+      "2021": 39999,
+      "2022": 41790,
+      "2023": 41198,
+      "2024": 41799,
+      "2025": 34800,
+      "2026": 30869
+     },
+     "latest": {
+      "date": "2026-04-07",
+      "species": "Coho salmon",
+      "strain": "Michigan",
+      "count": 14918,
+      "avgLengthCm": 13.8,
+      "site": "STATE PARK",
+      "county": "Mason",
+      "water": "Big Sable River",
+      "marking": "adipose, coded wire tag",
+      "operation": "State Plant"
+     },
+     "strains": [
+      "Michigan"
+     ]
+    },
+    {
+     "species": "Brown trout",
+     "firstYear": 1981,
+     "lastYear": 1981,
+     "totalAllYears": 8400,
+     "eventsAllYears": 2,
+     "byYear": {
+      "1981": 8400
+     },
+     "latest": {
+      "date": "1981-06-03",
+      "species": "Brown trout",
+      "strain": "Harrietta",
+      "count": 3400,
+      "avgLengthCm": 12.1,
+      "site": "STATE PARK",
+      "county": "Mason",
+      "water": "Big Sable River",
+      "marking": null,
+      "operation": "State Plant"
+     },
+     "strains": [
+      "Harrietta"
+     ]
+    }
+   ],
+   "recentEvents": [
+    {
+     "date": "2026-04-30",
+     "species": "Chinook salmon",
+     "strain": "Michigan",
+     "count": 99452,
+     "avgLengthCm": 9.3,
+     "site": "STATE PARK NET PEN",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": null,
+     "operation": "State Plant"
+    },
+    {
+     "date": "2026-04-07",
+     "species": "Coho salmon",
+     "strain": "Michigan",
+     "count": 14918,
+     "avgLengthCm": 13.8,
+     "site": "STATE PARK",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": "adipose, coded wire tag",
+     "operation": "State Plant"
+    },
+    {
+     "date": "2026-04-06",
+     "species": "Coho salmon",
+     "strain": "Michigan",
+     "count": 15951,
+     "avgLengthCm": 13.8,
+     "site": "STATE PARK",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": "adipose, coded wire tag",
+     "operation": "State Plant"
+    },
+    {
+     "date": "2025-05-05",
+     "species": "Chinook salmon",
+     "strain": "Michigan",
+     "count": 101059,
+     "avgLengthCm": 9.4,
+     "site": "STATE PARK NET PEN",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": "adipose, coded wire tag",
+     "operation": "State Plant"
+    },
+    {
+     "date": "2025-04-23",
+     "species": "Coho salmon",
+     "strain": "Michigan",
+     "count": 34800,
+     "avgLengthCm": 14.4,
+     "site": "STATE PARK",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": null,
+     "operation": "State Plant"
+    },
+    {
+     "date": "2024-05-08",
+     "species": "Chinook salmon",
+     "strain": "Michigan",
+     "count": 99698,
+     "avgLengthCm": 9.9,
+     "site": "STATE PARK NET PEN",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": "adipose clip",
+     "operation": "State Plant"
+    },
+    {
+     "date": "2024-04-16",
+     "species": "Coho salmon",
+     "strain": "Michigan",
+     "count": 20900,
+     "avgLengthCm": 13.5,
+     "site": "STATE PARK",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": null,
+     "operation": "State Plant"
+    },
+    {
+     "date": "2024-04-15",
+     "species": "Coho salmon",
+     "strain": "Michigan",
+     "count": 20899,
+     "avgLengthCm": 13.4,
+     "site": "STATE PARK",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": null,
+     "operation": "State Plant"
+    },
+    {
+     "date": "2023-05-08",
+     "species": "Coho salmon",
+     "strain": "Michigan",
+     "count": 41198,
+     "avgLengthCm": 13.9,
+     "site": "STATE PARK",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": null,
+     "operation": "State Plant"
+    },
+    {
+     "date": "2023-05-05",
+     "species": "Chinook salmon",
+     "strain": "Michigan",
+     "count": 99537,
+     "avgLengthCm": 10.5,
+     "site": "STATE PARK NET PEN",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": "adipose clip",
+     "operation": "State Plant"
+    },
+    {
+     "date": "2022-05-04",
+     "species": "Coho salmon",
+     "strain": "Michigan",
+     "count": 26798,
+     "avgLengthCm": 14.3,
+     "site": "STATE PARK",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": null,
+     "operation": "State Plant"
+    },
+    {
+     "date": "2022-04-20",
+     "species": "Coho salmon",
+     "strain": "Michigan",
+     "count": 14992,
+     "avgLengthCm": 15,
+     "site": "STATE PARK NET PEN",
+     "county": "Mason",
+     "water": "Big Sable River",
+     "marking": null,
+     "operation": "State Plant"
+    }
+   ],
+   "totalEvents": 71
   },
   "pere-marquette": {
    "riverId": "pere-marquette",
