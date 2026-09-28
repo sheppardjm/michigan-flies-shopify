@@ -82,8 +82,9 @@ export default function AboutDataPage() {
       </p>
       <p>
         Until our own bench photos are shot, some pattern pages show Creative Commons reference photos of the same pattern tied by others, sourced
-        from Wikimedia Commons and Flickr via Openverse and labeled &ldquo;reference photo.&rdquo; They show what the pattern looks like, not the fly
-        you will receive, and they never appear as product images in the shop.
+        from Wikimedia Commons and Flickr via Openverse, or shared directly by their photographer (Quinn, whose work appears on Fly Deal Flies), and
+        labeled &ldquo;reference photo.&rdquo; They show what the pattern looks like, not the fly you will receive, and they never appear as
+        product images in the shop.
       </p>
 
       <h2>Regulations</h2>

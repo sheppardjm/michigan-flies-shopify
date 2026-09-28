@@ -8,7 +8,8 @@ import data from "@/data/fly-photos.json";
  */
 
 export interface FlyPhoto {
-  source: "wikimedia" | "openverse";
+  /** "permission" = photographer granted us use directly (hosted locally under /photos/flies). */
+  source: "wikimedia" | "openverse" | "permission";
   url: string;
   thumbUrl: string | null;
   width: number | null;

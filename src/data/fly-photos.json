@@ -1,9 +1,21 @@
 {
- "fetchedAt": "2026-09-28T17:46:41.209Z",
+ "fetchedAt": "2026-09-28T18:15:11.355Z",
  "flies": {
   "pheasant-tail-nymph": {
    "flyId": "pheasant-tail-nymph",
    "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/pheasant-tail-nymph--pheasant-tail-nymph.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Pheasant Tail - Nymph",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/pheasant-tail-nymph/"
+    },
     {
      "source": "wikimedia",
      "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/American_Pheasant_Tail_Nymph_02.jpg",
@@ -46,6 +58,18 @@
    "flyId": "sulphur-comparadun",
    "photos": [
     {
+     "source": "permission",
+     "url": "/photos/flies/sulphur-comparadun--comparadun-sulphur.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Comparadun - Sulphur",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/comparadun-sulphur/"
+    },
+    {
      "source": "openverse",
      "url": "https://live.staticflickr.com/2829/9238930845_edc8ac5456_b.jpg",
      "thumbUrl": "https://api.openverse.org/v1/images/636a7636-2573-4c75-9511-40f93ff85a47/thumb/",
@@ -62,6 +86,18 @@
   "march-brown-parachute": {
    "flyId": "march-brown-parachute",
    "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/march-brown-parachute--march-brown-2.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "March Brown",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/march-brown-2/"
+    },
     {
      "source": "wikimedia",
      "url": "https://upload.wikimedia.org/wikipedia/commons/0/03/March_Brown_Parachute_dry_fly.jpg",
@@ -92,6 +128,30 @@
    "flyId": "light-cahill-parachute",
    "photos": [
     {
+     "source": "permission",
+     "url": "/photos/flies/light-cahill-parachute--cahill-light-parachute.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Cahill Light - Parachute",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/cahill-light-parachute/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/light-cahill-parachute--cahill-light-2.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Cahill Light",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/cahill-light-2/"
+    },
+    {
      "source": "wikimedia",
      "url": "https://upload.wikimedia.org/wikipedia/commons/1/13/Light_Cahill_dry_flies.jpg",
      "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Light_Cahill_dry_flies.jpg/960px-Light_Cahill_dry_flies.jpg",
@@ -108,6 +168,18 @@
   "adams-parachute": {
    "flyId": "adams-parachute",
    "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/adams-parachute--adams-2.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Adams",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/adams-2/"
+    },
     {
      "source": "wikimedia",
      "url": "https://upload.wikimedia.org/wikipedia/commons/6/63/MoscaAdams.jpg",
@@ -150,6 +222,18 @@
    "flyId": "white-wulff",
    "photos": [
     {
+     "source": "permission",
+     "url": "/photos/flies/white-wulff--wulff-white-hairwing.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Wulff White - Hairwing",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/wulff-white-hairwing/"
+    },
+    {
      "source": "wikimedia",
      "url": "https://upload.wikimedia.org/wikipedia/commons/0/01/White_Wulff_dry_fly.jpg",
      "thumbUrl": "https://upload.wikimedia.org/wikipedia/commons/0/01/White_Wulff_dry_fly.jpg",
@@ -167,6 +251,30 @@
    "flyId": "zebra-midge",
    "photos": [
     {
+     "source": "permission",
+     "url": "/photos/flies/zebra-midge--zebra-midge-black.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Zebra Midge Black - Bead Nymph",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/zebra-midge-black/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/zebra-midge--zebra-midge-red.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Zebra Midge Red - Bead Nymph",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/zebra-midge-red/"
+    },
+    {
      "source": "wikimedia",
      "url": "https://upload.wikimedia.org/wikipedia/commons/7/73/Zebra_Midge_by_AWH.JPG",
      "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Zebra_Midge_by_AWH.JPG/960px-Zebra_Midge_by_AWH.JPG",
@@ -183,6 +291,30 @@
   "elk-hair-caddis": {
    "flyId": "elk-hair-caddis",
    "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/elk-hair-caddis--elkhair-caddis-tan.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Elkhair Caddis Tan",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/elkhair-caddis-tan/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/elk-hair-caddis--elkhair-caddis-olive.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Elkhair Caddis Olive",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/elkhair-caddis-olive/"
+    },
     {
      "source": "wikimedia",
      "url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Elk_Hair_Caddis.JPG",
@@ -225,6 +357,30 @@
    "flyId": "stimulator",
    "photos": [
     {
+     "source": "permission",
+     "url": "/photos/flies/stimulator--stimulator-olive-2.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Stimulator Olive",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/stimulator-olive-2/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/stimulator--stimulator-brown.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Stimulator Brown",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/stimulator-brown/"
+    },
+    {
      "source": "wikimedia",
      "url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Stimulator_dry_fly.jpg",
      "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Stimulator_dry_fly.jpg/960px-Stimulator_dry_fly.jpg",
@@ -265,6 +421,30 @@
   "egg-sucking-leech": {
    "flyId": "egg-sucking-leech",
    "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/egg-sucking-leech--egg-sucking-leech-black-steelhead.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Egg Sucking Leech Black - Steelhead",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/egg-sucking-leech-black-steelhead/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/egg-sucking-leech--egg-sucking-leech-purple.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Egg Sucking Leech Purple",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/egg-sucking-leech-purple/"
+    },
     {
      "source": "wikimedia",
      "url": "https://upload.wikimedia.org/wikipedia/commons/c/c9/BlackEggSuckingLeech.jpg",
@@ -312,6 +492,30 @@
    "flyId": "woolly-bugger",
    "photos": [
     {
+     "source": "permission",
+     "url": "/photos/flies/woolly-bugger--woolly-bugger-black-2.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Woolly Bugger Black",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/woolly-bugger-black-2/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/woolly-bugger--woolly-bugger-olive-2.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Woolly Bugger Olive",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/woolly-bugger-olive-2/"
+    },
+    {
      "source": "wikimedia",
      "url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/OliveDumbBellWoollyBugger.jpg",
      "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/OliveDumbBellWoollyBugger.jpg/960px-OliveDumbBellWoollyBugger.jpg",
@@ -353,6 +557,30 @@
    "flyId": "clouser-minnow",
    "photos": [
     {
+     "source": "permission",
+     "url": "/photos/flies/clouser-minnow--clouser-white-chartreuse.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Clouser White Chartreuse",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/clouser-white-chartreuse/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/clouser-minnow--clouser-white.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Clouser White",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/clouser-white/"
+    },
+    {
      "source": "wikimedia",
      "url": "https://upload.wikimedia.org/wikipedia/commons/6/67/ClouserDeepMinnow.jpg",
      "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/ClouserDeepMinnow.jpg/960px-ClouserDeepMinnow.jpg",
@@ -382,6 +610,30 @@
    "flyId": "soft-hackle-wet",
    "photos": [
     {
+     "source": "permission",
+     "url": "/photos/flies/soft-hackle-wet--orange-soft-hackle.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Orange Soft Hackle",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/orange-soft-hackle/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/soft-hackle-wet--hares-ear-soft-hackle-2.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Hares Ear - Soft Hackle",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/hares-ear-soft-hackle-2/"
+    },
+    {
      "source": "wikimedia",
      "url": "https://upload.wikimedia.org/wikipedia/commons/0/00/BrownTroutandSoftHackleNymph.JPG",
      "thumbUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/BrownTroutandSoftHackleNymph.JPG/960px-BrownTroutandSoftHackleNymph.JPG",
@@ -410,6 +662,30 @@
   "muddler-minnow": {
    "flyId": "muddler-minnow",
    "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/muddler-minnow--muddler-gold.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Muddler Gold",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/muddler-gold/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/muddler-minnow--marabou-olive-muddler.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Marabou Olive Muddler",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/marabou-olive-muddler/"
+    },
     {
      "source": "wikimedia",
      "url": "https://upload.wikimedia.org/wikipedia/commons/3/31/Muddler_Minnow.jpg",
@@ -445,6 +721,1173 @@
      "license": "Public domain",
      "licenseUrl": null,
      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Muddler_Minnow_Small.jpg"
+    }
+   ]
+  },
+  "regans-hendrickson-parachute": {
+   "flyId": "regans-hendrickson-parachute",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/regans-hendrickson-parachute--hendrickson-light.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Hendrickson Light",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/hendrickson-light/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/regans-hendrickson-parachute--light-hendrickson-comparadun.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Light Hendrickson Comparadun",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/light-hendrickson-comparadun/"
+    }
+   ]
+  },
+  "red-quill": {
+   "flyId": "red-quill",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/red-quill--red-quill.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Red Quill",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/red-quill/"
+    }
+   ]
+  },
+  "rusty-spinner": {
+   "flyId": "rusty-spinner",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/rusty-spinner--rusty-spinner.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Rusty Spinner",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/rusty-spinner/"
+    }
+   ]
+  },
+  "bwo-parachute": {
+   "flyId": "bwo-parachute",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/bwo-parachute--blue-wing-olive-parachute.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Blue Wing Olive - Parachute",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/blue-wing-olive-parachute/"
+    }
+   ]
+  },
+  "blue-quill-parachute": {
+   "flyId": "blue-quill-parachute",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/blue-quill-parachute--blue-quill.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Blue Quill",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/blue-quill/"
+    }
+   ]
+  },
+  "black-quill-parachute": {
+   "flyId": "black-quill-parachute",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/black-quill-parachute--black-quill.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Black Quill",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/black-quill/"
+    }
+   ]
+  },
+  "brown-drake-parachute": {
+   "flyId": "brown-drake-parachute",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/brown-drake-parachute--eastern-brown-drake.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Eastern Brown Drake",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/eastern-brown-drake/"
+    }
+   ]
+  },
+  "brown-drake-spinner": {
+   "flyId": "brown-drake-spinner",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/brown-drake-spinner--dark-brown-spinner.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Dark Brown Spinner",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/dark-brown-spinner/"
+    }
+   ]
+  },
+  "isonychia-parachute": {
+   "flyId": "isonychia-parachute",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/isonychia-parachute--isonychia-parachute.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Isonychia - Parachute",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/isonychia-parachute/"
+    }
+   ]
+  },
+  "isonychia-nymph": {
+   "flyId": "isonychia-nymph",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/isonychia-nymph--isonychia-nymph.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Isonychia Nymph",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/isonychia-nymph/"
+    }
+   ]
+  },
+  "trico-spinner": {
+   "flyId": "trico-spinner",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/trico-spinner--trico-dark-spinner.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Trico Dark Spinner",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/trico-dark-spinner/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/trico-spinner--trico-female-poly-spinner.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Trico Female Poly Spinner",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/trico-female-poly-spinner/"
+    }
+   ]
+  },
+  "mahogany-dun-parachute": {
+   "flyId": "mahogany-dun-parachute",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/mahogany-dun-parachute--thorax-mahogany-dun.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Thorax Mahogany Dun",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/thorax-mahogany-dun/"
+    }
+   ]
+  },
+  "hares-ear-nymph": {
+   "flyId": "hares-ear-nymph",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/hares-ear-nymph--gr-hares-ear.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "GR Hares Ear",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/gr-hares-ear/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/hares-ear-nymph--hares-ear.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Hares Ear - Bead Nymph",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/hares-ear/"
+    }
+   ]
+  },
+  "griffiths-gnat": {
+   "flyId": "griffiths-gnat",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/griffiths-gnat--griffiths-gnat-2.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Griffiths Gnat",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/griffiths-gnat-2/"
+    }
+   ]
+  },
+  "henryville-special": {
+   "flyId": "henryville-special",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/henryville-special--henryville-special.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Henryville Special",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/henryville-special/"
+    }
+   ]
+  },
+  "little-black-caddis-adult": {
+   "flyId": "little-black-caddis-adult",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/little-black-caddis-adult--elkhair-caddis-black.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Elkhair Caddis Black",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/elkhair-caddis-black/"
+    }
+   ]
+  },
+  "green-caddis-larva": {
+   "flyId": "green-caddis-larva",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/green-caddis-larva--nymph-head-caddis-larva-green.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Nymph-Head Caddis Larva-Green",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/nymph-head-caddis-larva-green/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/green-caddis-larva--caddis-larva.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Caddis Larva",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/caddis-larva/"
+    }
+   ]
+  },
+  "spotted-sedge-pupa": {
+   "flyId": "spotted-sedge-pupa",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/spotted-sedge-pupa--caddis-pupa-brown.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Caddis Pupa Brown - Bead Nymph",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/caddis-pupa-brown/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/spotted-sedge-pupa--sparkle-pupa-tan-emerger.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Sparkle Pupa Tan Emerger",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/sparkle-pupa-tan-emerger/"
+    }
+   ]
+  },
+  "grannom-pupa": {
+   "flyId": "grannom-pupa",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/grannom-pupa--emergent-sparkle-pupa-olive.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Emergent Sparkle Pupa Olive - Beadhead",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/emergent-sparkle-pupa-olive/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/grannom-pupa--sparkle-pupa-green-emerger.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Sparkle Pupa Green Emerger",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/sparkle-pupa-green-emerger/"
+    }
+   ]
+  },
+  "october-caddis-adult": {
+   "flyId": "october-caddis-adult",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/october-caddis-adult--october-caddis.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "October Caddis",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/october-caddis/"
+    }
+   ]
+  },
+  "black-stonefly-nymph": {
+   "flyId": "black-stonefly-nymph",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/black-stonefly-nymph--k-stone-black-2.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "(K) Stone Black",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/k-stone-black-2/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/black-stonefly-nymph--biot-stone-black-beadhead.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Biot Stone Black - Beadhead",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/biot-stone-black-beadhead/"
+    }
+   ]
+  },
+  "early-brown-stonefly-nymph": {
+   "flyId": "early-brown-stonefly-nymph",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/early-brown-stonefly-nymph--brown-stonefly.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Brown Stonefly - Bead Nymph",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/brown-stonefly/"
+    }
+   ]
+  },
+  "pats-rubber-legs": {
+   "flyId": "pats-rubber-legs",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/pats-rubber-legs--k-stone-rubber-legs-black.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "(K) Stone Rubber Legs Black",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/k-stone-rubber-legs-black/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/pats-rubber-legs--k-stone-rubber-legs-brown.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "(K) Stone Rubber Legs Brown",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/k-stone-rubber-legs-brown/"
+    }
+   ]
+  },
+  "twenty-incher": {
+   "flyId": "twenty-incher",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/twenty-incher--20-incher.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "20 Incher - Bead Nymph",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/20-incher/"
+    }
+   ]
+  },
+  "giant-black-stonefly-nymph": {
+   "flyId": "giant-black-stonefly-nymph",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/giant-black-stonefly-nymph--k-stone-black-beadhead-2.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "(K) Stone Black - Beadhead",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/k-stone-black-beadhead-2/"
+    }
+   ]
+  },
+  "yellow-sally-dry": {
+   "flyId": "yellow-sally-dry",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/yellow-sally-dry--yellow-sally-2.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Yellow Sally",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/yellow-sally-2/"
+    }
+   ]
+  },
+  "glo-bug": {
+   "flyId": "glo-bug",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/glo-bug--glo-bug-orange.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Glo Bug Orange",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/glo-bug-orange/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/glo-bug--glo-bug-apricot.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Glo Bug Apricot",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/glo-bug-apricot/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/glo-bug--glo-bug-natural.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Glo Bug Natural",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/glo-bug-natural/"
+    }
+   ]
+  },
+  "sucker-spawn": {
+   "flyId": "sucker-spawn",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/sucker-spawn--sucker-spawn-white.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Sucker Spawn White",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/sucker-spawn-white/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/sucker-spawn--sucker-spawn-orange.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Sucker Spawn Orange",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/sucker-spawn-orange/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/sucker-spawn--sucker-spawn-chartreuse.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Sucker Spawn Chartreuse",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/sucker-spawn-chartreuse/"
+    }
+   ]
+  },
+  "estaz-egg": {
+   "flyId": "estaz-egg",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/estaz-egg--estaz-bug.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Estaz Bug",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/estaz-bug/"
+    }
+   ]
+  },
+  "steelhead-bugger": {
+   "flyId": "steelhead-bugger",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/steelhead-bugger--steelhead-bugger.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Steelhead Bugger",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/steelhead-bugger/"
+    }
+   ]
+  },
+  "black-string-leech": {
+   "flyId": "black-string-leech",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/black-string-leech--leech-black.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Leech Black",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/leech-black/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/black-string-leech--marabou-leech-black.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Marabou Leech Black",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/marabou-leech-black/"
+    }
+   ]
+  },
+  "marabou-spey": {
+   "flyId": "marabou-spey",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/marabou-spey--chinook-spey.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Chinook Spey",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/chinook-spey/"
+    }
+   ]
+  },
+  "white-zonker": {
+   "flyId": "white-zonker",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/white-zonker--zonker-white-pearl.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Zonker White/Pearl",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/zonker-white-pearl/"
+    }
+   ]
+  },
+  "green-machine": {
+   "flyId": "green-machine",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/green-machine--green-machine.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Green Machine",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/green-machine/"
+    }
+   ]
+  },
+  "bomber": {
+   "flyId": "bomber",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/bomber--bomber-natural.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Bomber - Natural",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/bomber-natural/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/bomber--bomber-black.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Bomber - Black",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/bomber-black/"
+    }
+   ]
+  },
+  "woolly-sculpin": {
+   "flyId": "woolly-sculpin",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/woolly-sculpin--matuka-sculpin-olive.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Matuka Sculpin Olive",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/matuka-sculpin-olive/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/woolly-sculpin--clouser-sculpin.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Clouser Sculpin",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/clouser-sculpin/"
+    }
+   ]
+  },
+  "st-marys-smelt-streamer": {
+   "flyId": "st-marys-smelt-streamer",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/st-marys-smelt-streamer--magog-smelt.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Magog Smelt",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/magog-smelt/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/st-marys-smelt-streamer--kennebago-smelt-marabou.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Kennebago Smelt - Marabou",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/kennebago-smelt-marabou/"
+    }
+   ]
+  },
+  "crayfish-pattern": {
+   "flyId": "crayfish-pattern",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/crayfish-pattern--crayfish-brown.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Crayfish Brown",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/crayfish-brown/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/crayfish-pattern--crayfish-orange.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Crayfish Orange",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/crayfish-orange/"
+    }
+   ]
+  },
+  "parachute-hopper": {
+   "flyId": "parachute-hopper",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/parachute-hopper--tentwing-hopper-parachute-2.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Tentwing Hopper - Parachute",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/tentwing-hopper-parachute-2/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/parachute-hopper--daves-hopper-2.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Daves Hopper",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/daves-hopper-2/"
+    }
+   ]
+  },
+  "chernobyl-ant": {
+   "flyId": "chernobyl-ant",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/chernobyl-ant--chernobyl-ant-black-red.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Chernobyl Ant Black/Red",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/chernobyl-ant-black-red/"
+    }
+   ]
+  },
+  "chubby-chernobyl": {
+   "flyId": "chubby-chernobyl",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/chubby-chernobyl--chubby-chernobyl-tan-black.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Chubby Chernobyl - Tan/Black",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/chubby-chernobyl-tan-black/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/chubby-chernobyl--chubby-chernobyl-olive-tan.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Chubby Chernobyl - Olive/Tan",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/chubby-chernobyl-olive-tan/"
+    }
+   ]
+  },
+  "flying-ant": {
+   "flyId": "flying-ant",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/flying-ant--flying-ant-black-2.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Flying Ant Black",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/flying-ant-black-2/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/flying-ant--flying-ant-red.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Flying Ant Red",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/flying-ant-red/"
+    }
+   ]
+  },
+  "xo-beetle": {
+   "flyId": "xo-beetle",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/xo-beetle--foam-beetle.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Foam Beetle",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/foam-beetle/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/xo-beetle--beetle-2.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Beetle",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/beetle-2/"
+    }
+   ]
+  },
+  "japanese-beetle": {
+   "flyId": "japanese-beetle",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/japanese-beetle--japanese-beetle.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Japanese Beetle",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/japanese-beetle/"
+    }
+   ]
+  },
+  "inchworm": {
+   "flyId": "inchworm",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/inchworm--inchworm.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Inchworm",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/inchworm/"
+    }
+   ]
+  },
+  "cicada": {
+   "flyId": "cicada",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/cicada--cicada.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Cicada",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/cicada/"
+    }
+   ]
+  },
+  "cricket": {
+   "flyId": "cricket",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/cricket--letort-cricket-black.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Letort Cricket Black",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/letort-cricket-black/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/cricket--daves-cricket-2.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Daves Cricket",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/daves-cricket-2/"
+    }
+   ]
+  },
+  "morrish-mouse": {
+   "flyId": "morrish-mouse",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/morrish-mouse--morrish-mouse.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Morrish Mouse",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/morrish-mouse/"
+    }
+   ]
+  },
+  "san-juan-worm": {
+   "flyId": "san-juan-worm",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/san-juan-worm--san-juan-worm-red.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "San Juan Worm Red",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/san-juan-worm-red/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/san-juan-worm--san-juan-earth-worm.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "San Juan Earth Worm",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/san-juan-earth-worm/"
+    }
+   ]
+  },
+  "scud": {
+   "flyId": "scud",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/scud--olive-scud-nymph.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Olive Scud - Nymph",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/olive-scud-nymph/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/scud--gray-scud-nymph.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Gray Scud - Nymph",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/gray-scud-nymph/"
+    },
+    {
+     "source": "permission",
+     "url": "/photos/flies/scud--pink-scud.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Pink Scud",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/pink-scud/"
+    }
+   ]
+  },
+  "sowbug": {
+   "flyId": "sowbug",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/sowbug--sowbug.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Sowbug",
+     "author": "Quinn for Fly Deal Flies",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": "https://www.flydealflies.com/product/sowbug/"
     }
    ]
   }

@@ -5,6 +5,16 @@ import { flyPhotoSrc, type FlyPhoto } from "@/lib/fly-photos";
 import { cn } from "@/lib/utils";
 
 export function FlyPhotoCredit({ photo, className }: { photo: FlyPhoto; className?: string }) {
+  if (photo.source === "permission") {
+    return (
+      <p className={cn("text-[11px] leading-snug text-muted-foreground", className)}>
+        Photo © {photo.author}, used with permission ·{" "}
+        <a href={photo.sourceUrl} target="_blank" rel="noreferrer" className="underline-offset-2 hover:underline">
+          {photo.title}
+        </a>
+      </p>
+    );
+  }
   return (
     <p className={cn("text-[11px] leading-snug text-muted-foreground", className)}>
       {/^(cc0|public domain)/i.test(photo.license) ? photo.author : `© ${photo.author}`}
@@ -45,8 +55,9 @@ export function FlyReferenceCard({ photos, flyName }: { photos: FlyPhoto[]; flyN
       <CardHeader>
         <CardTitle className="text-base">What the pattern looks like</CardTitle>
         <CardDescription>
-          Reference photos of the {flyName} tied by others, shared under Creative Commons. Not our flies; our own product photos replace these as
-          they are shot.
+          Reference photos of the {flyName} tied by others
+          {photos.some((p) => p.source === "permission") ? ", shared by their photographers" : ", shared under Creative Commons"}. Not our flies; our
+          own product photos replace these as they are shot.
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-3">
