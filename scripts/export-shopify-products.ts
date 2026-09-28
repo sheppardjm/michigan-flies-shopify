@@ -14,22 +14,7 @@ import { writeFileSync } from "node:fs";
 import { CATEGORY_LABELS, flies, hatchById, speciesById, type Fly } from "../src/data";
 import { collectionById } from "../src/data/collections";
 
-const PRICE_BY_CATEGORY: Record<Fly["category"], number> = {
-  dry: 3.0,
-  emerger: 3.0,
-  nymph: 2.75,
-  larva: 2.75,
-  wet: 2.75,
-  egg: 2.25,
-  worm: 2.25,
-  terrestrial: 3.5,
-  attractor: 3.5,
-  streamer: 6.5,
-  mouse: 8.0,
-};
-
-/** Articulated or oversized streamers cost more to tie. */
-const BIG_STREAMER = /dungeon|circus peanut|drunk|butt monkey|boogie|intruder|articulated|zoo cougar/i;
+import { priceFor } from "../src/lib/pricing";
 
 const COLUMNS = [
   "Handle",
@@ -72,12 +57,6 @@ function bodyHtml(fly: Fly): string {
   if (fly.origin) parts.push(`<p><em>${fly.origin}</em></p>`);
   parts.push(`<p>Hand-tied in Michigan for Michigan rivers. See when and where to fish it at michiganflies.com/flies/${fly.id}.</p>`);
   return parts.join("");
-}
-
-function priceFor(fly: Fly): number {
-  let p = PRICE_BY_CATEGORY[fly.category];
-  if (fly.category === "streamer" && BIG_STREAMER.test(fly.name)) p = 9.5;
-  return p;
 }
 
 function rowsFor(fly: Fly): string[] {

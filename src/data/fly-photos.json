@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-09-28T18:37:34.165627+00:00",
+ "fetchedAt": "2026-09-28T19:14:43.220259+00:00",
  "flies": {
   "pheasant-tail-nymph": {
    "flyId": "pheasant-tail-nymph",
@@ -2122,6 +2122,125 @@
      "width": null,
      "height": null,
      "title": "Crystal Meth egg, pink",
+     "author": "Quinn",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": ""
+    }
+   ]
+  },
+  "eggstacy-egg": {
+   "flyId": "eggstacy-egg",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/eggstacy-egg--quinn.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Eggstacy egg, steelhead orange",
+     "author": "Quinn",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": ""
+    }
+   ]
+  },
+  "y2k-egg": {
+   "flyId": "y2k-egg",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/y2k-egg--quinn.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Y2K egg, champagne",
+     "author": "Quinn",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": ""
+    }
+   ]
+  },
+  "regans-hendrickson-spinner": {
+   "flyId": "regans-hendrickson-spinner",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/regans-hendrickson-spinner--quinn.webp",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Hendrickson spinner",
+     "author": "Quinn",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": ""
+    }
+   ]
+  },
+  "micro-spawn": {
+   "flyId": "micro-spawn",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/micro-spawn--quinn.webp",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Micro spawn",
+     "author": "Quinn",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": ""
+    }
+   ]
+  },
+  "otters-soft-milking-egg": {
+   "flyId": "otters-soft-milking-egg",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/otters-soft-milking-egg--quinn.png",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Otter's Soft Milking Egg",
+     "author": "Quinn",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": ""
+    }
+   ]
+  },
+  "salmon-egg-cluster": {
+   "flyId": "salmon-egg-cluster",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/salmon-egg-cluster--quinn.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Salmon egg cluster",
+     "author": "Quinn",
+     "license": "Used with permission",
+     "licenseUrl": null,
+     "sourceUrl": ""
+    }
+   ]
+  },
+  "scrambled-eggs": {
+   "flyId": "scrambled-eggs",
+   "photos": [
+    {
+     "source": "permission",
+     "url": "/photos/flies/scrambled-eggs--quinn.jpg",
+     "thumbUrl": null,
+     "width": null,
+     "height": null,
+     "title": "Scrambled Eggs, Oregon Cheese",
      "author": "Quinn",
      "license": "Used with permission",
      "licenseUrl": null,

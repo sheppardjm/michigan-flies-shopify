@@ -4,7 +4,11 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { EvidenceBadge } from "@/components/evidence-badge";
 import { FlyReferenceThumb } from "@/components/fly-reference-photo";
+import { collections } from "@/data/collections";
 import { getFlyReferenceHero } from "@/lib/fly-photos";
+import { formatUsd, priceFor } from "@/lib/pricing";
+
+const COLLECTION_FLY_IDS = new Set(collections.flatMap((c) => c.flies.map((f) => f.flyId)));
 import { CATEGORY_LABELS, TECHNIQUE_LABELS, type Fly } from "@/data";
 import type { Product } from "@/lib/shopify/types";
 import { formatMoney } from "@/lib/shopify/types";
@@ -30,6 +34,7 @@ export function FlyCard({
   tags?: string[];
 }) {
   const referencePhoto = product?.featuredImage ? null : getFlyReferenceHero(fly.id);
+  const inCollection = COLLECTION_FLY_IDS.has(fly.id);
   return (
     <Card className="flex h-full flex-col overflow-hidden">
       {product?.featuredImage ? (
@@ -90,6 +95,10 @@ export function FlyCard({
           {product ? (
             <Link href={`/shop/${product.handle}`} className="text-sm font-medium text-primary underline-offset-4 hover:underline">
               Buy from {formatMoney(product.priceRange.minVariantPrice)}
+            </Link>
+          ) : inCollection ? (
+            <Link href={`/shop/${fly.id}`} className="text-sm font-medium text-primary underline-offset-4 hover:underline">
+              Reserve · {formatUsd(priceFor(fly))}
             </Link>
           ) : (
             <span className="text-xs text-muted-foreground">Not in the shop yet</span>
