@@ -304,6 +304,21 @@ const SRC = {
     url: "https://www.canr.msu.edu/news/fast_facts_on_lake_michigan_salmon_and_trout_msg16_okeefe16",
     year: 2016,
   },
+  mdnrIdTroutSalmon: {
+    title: "Michigan DNR: Know your Great Lakes trout and salmon species",
+    url: "https://www.michigan.gov/dnr/-/media/Project/Websites/dnr/Documents/Education/Misc/ID-GL-Trout-Salmon.pdf",
+    year: 2019,
+  },
+  seaGrant2023Videos: {
+    title: "Michigan Sea Grant: Videos share new science on Lake Michigan salmon, steelhead, and alewife",
+    url: "https://www.michiganseagrant.org/blog/2023/03/09/videos-share-new-science-on-lake-michigan-salmon-steelhead-and-alewife/",
+    year: 2023,
+  },
+  kingSteelheadHistory: {
+    title: "MichiganSportsman: History of Michigan steelhead (John King, after Smedley's Trout of Michigan, 1938)",
+    url: "https://www.michigansportsman.com/Tips_n_Trix/Steelhead_History.html",
+    year: 2001,
+  },
   michiganFishingGuideCoho: {
     title: "Michigan Fishing Guide: Coho salmon",
     url: "https://www.michiganfishing.guide/species/coho-salmon/",
@@ -420,8 +435,8 @@ const raw: z.input<typeof SpeciesList> = [
     regulationsNote:
       "Only three reaches are both flies-only and no-kill year-round: the Au Sable Holy Water (Burton's Landing to Wakeley Bridge), the South Branch from Chase Bridge to Lower High Banks, and the Pere Marquette from M-37 to Gleason's Landing. Other flies-only reaches allow two-fish harvest, and scented material is illegal on all flies-only gear-restricted streams. Type 1 and 2 streams close September 30 (2026 digest).",
     description:
-      "Introduced to Michigan in 1883, the brown trout is the fish the Au Sable, Pere Marquette and Manistee are famous for, and it is the reason the modern articulated-streamer movement started here. Michigan DNR stomach studies show that browns over roughly 12 inches are true predators, eating small brook trout, sculpins and juvenile salmon rather than insects, while smaller fish feed largely on caddis and other aquatic insects. Big browns are nocturnal, which is why Hex nights and July-to-September mousing produce the largest fish of the year. Browns tolerate warmer water than other trout and spawn in tributaries in September and October, when pre-spawn aggression makes streamers deadly. A smaller lake-run component follows salmon into Lake Michigan tributaries in October and November.",
-    sources: [SRC.rr1855, SRC.rr1759, SRC.mdnrBrown, SRC.cwSeasons, SRC.mangledNight, SRC.wetFlySwingGalloup, SRC.feenstraGamefish],
+      "A European exotic and close relative of the Atlantic salmon, first brought to Michigan in 1883, the brown trout is the fish the Au Sable, Pere Marquette and Manistee are famous for, and it is the reason the modern articulated-streamer movement started here. Michigan DNR stomach studies show that browns over roughly 12 inches are true predators, eating small brook trout, sculpins and juvenile salmon rather than insects, while smaller fish feed largely on caddis and other aquatic insects. Big browns are nocturnal, which is why Hex nights and July-to-September mousing produce the largest fish of the year. Browns tolerate warmer water than other trout and spawn in tributaries in September and October, when pre-spawn aggression makes streamers deadly. A smaller lake-run component follows salmon into Lake Michigan tributaries in October and November.",
+    sources: [SRC.rr1855, SRC.rr1759, SRC.mdnrBrown, SRC.mdnrIdTroutSalmon, SRC.cwSeasons, SRC.mangledNight, SRC.wetFlySwingGalloup, SRC.feenstraGamefish],
   },
 
   /* ------------------------------------------------------------------ */
@@ -547,8 +562,8 @@ const raw: z.input<typeof SpeciesList> = [
     regulationsNote:
       "General inland trout season and stream type rules apply; extended-season reaches (for example the Manistee and Boardman gear-restricted water) stay open all year. Rainbows in the Great Lakes tributaries are counted with steelhead for bag limits, so the one-fish spring limit (March 15 to May 15) applies on the listed rivers regardless of a fish's life history.",
     description:
-      "Resident stream rainbows are the non-migratory form of the same species as steelhead, holding year-round in tailwaters such as the Muskegon below Croton and in cold tributaries like the Rogue, Pine and Paint Creek. They are the most surface-oriented of Michigan's river trout once water passes 50 F, feeding on Sulphurs, Gray Drakes, Isonychia and caddis in May and June. In spring they gorge on Chinook fry and on sucker, walleye and steelhead eggs behind active redds, which makes fry patterns and pale-yellow sucker spawn as productive as dries. No Michigan diet study exists for resident rainbows, so the seasonal picture here rests on guide observation. Spawning is in spring, on the same March-to-May gravel schedule as steelhead.",
-    sources: [SRC.feenstraGamefish, SRC.bettsSuckerSpawn, SRC.bettsSpring, SRC.mdnrSteelhead, SRC.fishSite, SRC.cwEggPatterns],
+      "Resident stream rainbows are the non-migratory form of the same species as steelhead, a Pacific fish first planted in Michigan in the 1870s and 1880s, holding year-round in tailwaters such as the Muskegon below Croton and in cold tributaries like the Rogue, Pine and Paint Creek. They are the most surface-oriented of Michigan's river trout once water passes 50 F, feeding on Sulphurs, Gray Drakes, Isonychia and caddis in May and June. In spring they gorge on Chinook fry and on sucker, walleye and steelhead eggs behind active redds, which makes fry patterns and pale-yellow sucker spawn as productive as dries. No Michigan diet study exists for resident rainbows, so the seasonal picture here rests on guide observation. Spawning is in spring, on the same March-to-May gravel schedule as steelhead.",
+    sources: [SRC.feenstraGamefish, SRC.bettsSuckerSpawn, SRC.bettsSpring, SRC.mdnrSteelhead, SRC.kingSteelheadHistory, SRC.fishSite, SRC.cwEggPatterns],
   },
 
   /* ------------------------------------------------------------------ */
@@ -643,9 +658,12 @@ const raw: z.input<typeof SpeciesList> = [
     regulationsNote:
       "Effective January 9, 2022, the daily steelhead limit is one fish from March 15 to May 15 on Bear Creek, the Manistee, Pere Marquette, Muskegon, Manistique and Carp rivers. On all streams from August 1 to May 31 single hooks over a half-inch gap and lures over one ounce are illegal; a bead is a lure, legal when pegged within 4 inches of a half-inch single hook but never on flies-only water (2026 digest).",
     description:
-      "Steelhead are lake-run rainbow trout that enter Michigan rivers from late October to early May, overwinter, and spawn in spring, with fall-run fish spawning first in March and spring-run fish in April. The Little Manistee weir, an unstocked and mostly wild run, is the state's only steelhead egg source and its mid-March-to-mid-April schedule is the best public anchor for the spring peak. Unlike Pacific salmon, steelhead feed in the river: on Chinook eggs and shiners in fall, sculpins and nymphs in winter, and fry, stoneflies, Hex nymphs and sucker eggs in spring, which is why one fly in a Michigan tandem rig is almost always an egg. The population is fragile, with Little Manistee counts falling from about 6,000 in 2002 to under 2,000 in 2020 and an April 2026 weir power failure killing more than 1,700 adults. Summer-run Skamania fish extend the season on the St. Joseph and Big Manistee from June to September.",
+      "Steelhead are lake-run rainbow trout, native to the Pacific coastal streams of North America and not to Michigan. Rainbows first came here in 1876 as Au Sable plantings and U.S. Fish Commission fry in 1880, meant to replace the vanishing grayling; the state learned they ran to the Great Lakes in the 1890s, documented steelhead plants followed in 1905 and 1908, and summer-run strains arrived in the early 1980s. Today's fish enter Michigan rivers from late October to early May, overwinter, and spawn in spring, with fall-run fish spawning first in March and spring-run fish in April. The Little Manistee weir, an unstocked and mostly wild run, is the state's only steelhead egg source and its mid-March-to-mid-April schedule is the best public anchor for the spring peak. Unlike Pacific salmon, steelhead feed in the river: on Chinook eggs and shiners in fall, sculpins and nymphs in winter, and fry, stoneflies, Hex nymphs and sucker eggs in spring, which is why one fly in a Michigan tandem rig is almost always an egg. The population is fragile, with Little Manistee counts falling from about 6,000 in 2002 to under 2,000 in 2020 and an April 2026 weir power failure killing more than 1,700 adults. Even so, 30 to 45 percent of Lake Michigan steelhead are wild, about 1.0 to 1.6 million fish a year from 2017 to 2019. Summer-run Skamania fish extend the season on the St. Joseph and Big Manistee from June to September.",
     sources: [
       SRC.mdnrSteelhead,
+      SRC.mdnrIdTroutSalmon,
+      SRC.seaGrant2023Videos,
+      SRC.kingSteelheadHistory,
       SRC.mdnr2026Steelhead,
       SRC.littleManisteeWeir,
       SRC.workman2002,
@@ -674,7 +692,7 @@ const raw: z.input<typeof SpeciesList> = [
     scientificName: "Oncorhynchus tshawytscha",
     feedingModel: "aggression-striker",
     dietSummary:
-      "Lake diet is alewife (99 percent by one DNR account) with smelt and bloater. On the spawning run the DNR states salmon do not feed but will often strike out of aggression, and fisheries biologists attribute strikes to redd defense. Anglers nonetheless take Chinook on eggs and beads presented behind spawners, and on large dark or bright flies that trigger territorial strikes. Do not match diet; match triggers.",
+      "Lake diet is alewife (99 percent by one DNR account) with some smelt. Bloater are now the most abundant forage fish in Lake Michigan, but USGS surveys find no evidence that salmon or trout eat them. On the spawning run the DNR states salmon do not feed but will often strike out of aggression, and fisheries biologists attribute strikes to redd defense. Anglers nonetheless take Chinook on eggs and beads presented behind spawners, and on large dark or bright flies that trigger territorial strikes. Do not match diet; match triggers.",
     diet: [
       {
         months: [8, 9, 10, 11],
@@ -709,8 +727,8 @@ const raw: z.input<typeof SpeciesList> = [
     regulationsNote:
       "On the listed salmon rivers (Betsie, Bear Creek, Manistee below Tippy, Big Sable, Pere Marquette, Little Manistee, White, Muskegon below Croton, Pentwater branches) terminal gear from August 1 to November 15 is limited to single hooks or jigs of half-inch gap or less; snagging is illegal statewide. A 2027 stocking cut is planned but will not change river presence through at least 2028.",
     description:
-      "Chinook, or king salmon, are the largest fish in Michigan rivers, averaging 12 to 13 pounds on the Muskegon and arriving in catchable numbers by mid-August as rivers and the nearshore lake cool into the 60s. The run peaks from mid-September through the first week of October, when the Little Manistee weir takes its eggs, and the Manistee, Pere Marquette and St. Joseph are the DNR's named best stream fisheries. Kings stop feeding once they enter the river and strike out of aggression, so fresh chrome fish near the mouth take swung or stripped streamers on 9- and 10-weights while staged fish in October take dead-drifted eggs and Egg-Sucking Leeches. The Lake Michigan population is now majority wild, driven largely by Michigan tributaries. Their drifting eggs are the single most important food event of the year for steelhead and resident trout.",
-    sources: [SRC.mdnrChinook, SRC.mdnr2021Salmon, SRC.outdoorNews2025, SRC.littleManisteeWeir, SRC.mdnrAtlantic, SRC.fishbio, SRC.flylordsSalmon, SRC.cwSalmon, SRC.seaGrantFastFacts, SRC.krebs2018, SRC.digest2026],
+      "Chinook, or king salmon, are the largest fish in Michigan rivers, averaging 12 to 13 pounds on the Muskegon and arriving in catchable numbers by mid-August as rivers and the nearshore lake cool into the 60s. The run peaks from mid-September through the first week of October, when the Little Manistee weir takes its eggs, and the Manistee, Pere Marquette and St. Joseph are the DNR's named best stream fisheries. Kings stop feeding once they enter the river and strike out of aggression, so fresh chrome fish near the mouth take swung or stripped streamers on 9- and 10-weights while staged fish in October take dead-drifted eggs and Egg-Sucking Leeches. Native to the Pacific from California to Alaska, Chinook were introduced to the Great Lakes by Michigan in 1967; today most Chinook caught in Lakes Michigan and Huron are wild, produced mostly in Michigan tributaries and trending upward. They roam the whole lake, and many Lake Huron fish feed in Lake Michigan, but in fall each returns to the stream where it was stocked or hatched. Their drifting eggs are the single most important food event of the year for steelhead and resident trout.",
+    sources: [SRC.mdnrChinook, SRC.mdnr2021Salmon, SRC.outdoorNews2025, SRC.littleManisteeWeir, SRC.mdnrAtlantic, SRC.fishbio, SRC.flylordsSalmon, SRC.cwSalmon, SRC.seaGrantFastFacts, SRC.seaGrant2023Videos, SRC.mdnrIdTroutSalmon, SRC.krebs2018, SRC.digest2026],
   },
 
   /* ------------------------------------------------------------------ */
@@ -756,8 +774,8 @@ const raw: z.input<typeof SpeciesList> = [
     regulationsNote:
       "Same August 1 to November 15 single-hook terminal-gear rules as Chinook on the listed salmon rivers; the DNR passes 20,000 coho above the Platte weir under a consent decree and harvests the remainder.",
     description:
-      "Coho migrate later than Chinook and travel farther, with tributary runs from early September to November and St. Joseph fish caught as late as Christmas. The Platte River, home of the state coho hatchery and about half of Michigan's plants, peaks at its mid-to-late October egg take, and the Manistee has a notable late-October fishery. Like kings they stop feeding in the river, but coho are famously responsive to flash and bright color, so swung flash flies, pink or chartreuse Clousers and Egg-Sucking Leeches on 7- and 8-weights are the standard approach. Their eggs are a secondary drift source behind Chinook through October and November. The fishery is largely stocking-sustained at roughly 1.5 million fish per year.",
-    sources: [SRC.mdnrCoho, SRC.mdnr2021Salmon, SRC.outdoorNews2025, SRC.mdnrAtlantic, SRC.flylordsSalmon, SRC.michiganFishingGuideCoho, SRC.stoneColdBeads],
+      "Native to the Pacific coast, coho have been stocked by Michigan since 1966, a year before the state introduced Chinook. They migrate later than Chinook and travel farther, with tributary runs from early September to November and St. Joseph fish caught as late as Christmas. The Platte River, home of the state coho hatchery and about half of Michigan's plants, peaks at its mid-to-late October egg take, and the Manistee has a notable late-October fishery. Like kings they stop feeding in the river, but coho are famously responsive to flash and bright color, so swung flash flies, pink or chartreuse Clousers and Egg-Sucking Leeches on 7- and 8-weights are the standard approach. Their eggs are a secondary drift source behind Chinook through October and November. The fishery is largely stocking-sustained at roughly 1.5 million fish per year.",
+    sources: [SRC.mdnrCoho, SRC.mdnrIdTroutSalmon, SRC.mdnr2021Salmon, SRC.outdoorNews2025, SRC.mdnrAtlantic, SRC.flylordsSalmon, SRC.michiganFishingGuideCoho, SRC.stoneColdBeads],
   },
 
   /* ------------------------------------------------------------------ */
@@ -876,8 +894,8 @@ const raw: z.input<typeof SpeciesList> = [
     regulationsNote:
       "The St. Marys River is a Great Lakes connecting water with its own rules, including exemption from the one-ounce stream lure limit; a guide source cites a three-fish daily Atlantic harvest limit there. Confirm current St. Marys and Au Sable Atlantic limits in the DNR digest before publishing a limit.",
     description:
-      "Michigan's only established Atlantic salmon river fishery is the St. Marys at Sault Ste. Marie, where Lake Superior State University has reared and released fish inside the hydro plant since 1987. Adults of 2 to 8 pounds arrive from Lake Huron in late June, hold in the tailrace through August, and spawn in the rapids from late October into November. Unlike Pacific salmon they feed actively in the river, eating smelt and juvenile salmonids early, then switching to Hex nymphs, caddis and midges once the mid-July Hex hatch begins, which makes them a true match-the-food target on streamers, nymphs and swung wets. Experimental stocking has produced fall returns to the lower Au Sable, Thunder Bay River and Lexington Harbor, where fish regarded as among the hardest-fighting in the Great Lakes are caught below Foote Dam all winter.",
-    sources: [SRC.mdnrAtlantic, SRC.riversNorthAtlantic, SRC.fishSens, SRC.bettsAtlantic, SRC.perfectFlyStMarys, SRC.glaAuSableAtlantics, SRC.streamsideAtlantic, SRC.lssuAtlantic, SRC.icesAtlanticEggs],
+      "A native of the north Atlantic, the Atlantic salmon was introduced into the Great Lakes in 1972. Michigan's only established Atlantic salmon river fishery is the St. Marys at Sault Ste. Marie, where Lake Superior State University has reared and released fish inside the hydro plant since 1987. Adults of 2 to 8 pounds arrive from Lake Huron in late June, hold in the tailrace through August, and spawn in the rapids from late October into November. Unlike Pacific salmon they feed actively in the river, eating smelt and juvenile salmonids early, then switching to Hex nymphs, caddis and midges once the mid-July Hex hatch begins, which makes them a true match-the-food target on streamers, nymphs and swung wets. Experimental stocking has produced fall returns to the lower Au Sable, Thunder Bay River and Lexington Harbor, where fish regarded as among the hardest-fighting in the Great Lakes are caught below Foote Dam all winter.",
+    sources: [SRC.mdnrAtlantic, SRC.mdnrIdTroutSalmon, SRC.riversNorthAtlantic, SRC.fishSens, SRC.bettsAtlantic, SRC.perfectFlyStMarys, SRC.glaAuSableAtlantics, SRC.streamsideAtlantic, SRC.lssuAtlantic, SRC.icesAtlanticEggs],
   },
 ];
 
