@@ -11,8 +11,17 @@ const zilla = Zilla_Slab({ subsets: ["latin"], weight: ["500", "600", "700"], di
 const dafoe = Mr_Dafoe({ subsets: ["latin"], weight: "400", display: "swap", variable: "--font-dafoe" });
 const courier = Courier_Prime({ subsets: ["latin"], weight: ["400", "700"], display: "swap", variable: "--font-courier" });
 
+/**
+ * Absolute base for canonical and preview URLs. Follows the Vercel production
+ * host until michiganflies.com is attached as the production domain, at which
+ * point VERCEL_PROJECT_PRODUCTION_URL becomes that domain on its own.
+ */
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "https://michiganflies.com");
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://michiganflies.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Michigan Flies: Hand-tied flies for the Great Lakes State salmon and steelhead rivers",
     template: "%s · Michigan Flies",
