@@ -65,7 +65,7 @@ export function QuizWizard({
     const filtered = q ? rivers.filter((r) => `${r.name} ${r.locale} ${r.system}`.toLowerCase().includes(q)) : rivers;
     const groups = new Map<Region, QuizRiverOption[]>();
     for (const r of filtered) groups.set(r.region, [...(groups.get(r.region) ?? []), r]);
-    const order: Region[] = ["northern-lp", "tip-of-mitt", "mid-lp", "southern-lp", "upper-peninsula"];
+    const order: Region[] = ["southeast-lp", "southwest-lp", "northeast-lp", "northwest-lp", "upper-peninsula"];
     return order.filter((reg) => groups.has(reg)).map((reg) => [reg, groups.get(reg)!] as const);
   }, [rivers, riverQuery]);
 

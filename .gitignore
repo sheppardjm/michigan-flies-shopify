@@ -43,3 +43,7 @@ next-env.d.ts
 
 # Design references (not for publishing)
 design/inspiration/
+
+# Impeccable working state (captures, live-mode journal)
+.impeccable/review/
+.impeccable/live/

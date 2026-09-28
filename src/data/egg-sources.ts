@@ -323,7 +323,7 @@ const raw: z.input<typeof EggSourceList> = [
     deadColors: ["Cream/Dead Egg"],
     hookSizes: [12, 14, 16],
     eatenBy: ["brook-trout", "brown-trout", "rainbow-trout"],
-    regions: ["northern-lp", "tip-of-mitt", "upper-peninsula"],
+    regions: ["northeast-lp", "northwest-lp", "upper-peninsula"],
     evidence: "S",
     notes:
       "DNR: spawning generally occurs in October and November on gravel in spring-fed streams and groundwater seepages. Lab work puts ovulation at 16 C (61 F) and below, but no field spawning temperature was found so none is given. This is a small-stream food source for resident trout on headwater and Upper Peninsula brook trout water, not a steelhead-river event; its importance to fly selection is inferred. The 4.1 to 4.6 mm size is from a secondary source and the color names are inferred from the general trout-egg palette.",

@@ -30,6 +30,8 @@ const snapshot = data as unknown as Snapshot;
 
 /** Photo URLs to drop after review. */
 export const EXCLUDED_FLY_PHOTO_URLS = new Set<string>([
+  // Carries a third-party "NYMPH" logo watermark in frame.
+  "/photos/flies/green-caddis-larva--nymph-head-caddis-larva-green.jpg",
   "https://upload.wikimedia.org/wikipedia/commons/e/e5/Well_Known_Trout_and_Bass_Flies_That_Should_Be_In_Every_Angler%27s_Book.jpg",
   "https://upload.wikimedia.org/wikipedia/commons/9/97/BowlkersArtofAnglingFrontpiece.JPG",
   "https://upload.wikimedia.org/wikipedia/commons/a/a9/Caddisfly_bait.png",

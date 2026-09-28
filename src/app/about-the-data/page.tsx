@@ -34,9 +34,10 @@ export default function AboutDataPage() {
 
       <h2>Hatch timing</h2>
       <p>
-        Baseline windows are for the northern Lower Peninsula (Au Sable and Manistee). Mid-state rivers run about one to two weeks ahead, the
-        Tip of the Mitt one to two weeks behind, and the Upper Peninsula two to four weeks behind. Where a river&apos;s own chart gives a
-        window, we use it instead. The scientific layer is thin: <em>Hexagenia limbata</em> has a real degree-day model (emergence at or above 20 °C
+        Baseline windows are for the Au Sable and Manistee. We group rivers by the Michigan DNR weekly fishing report&apos;s five regions
+        (Southeast, Southwest, Northeast, and Northwest Lower Peninsula, and the Upper Peninsula). Southwest rivers run about one to two weeks
+        ahead, the southeast a little more, the Tip of the Mitt rivers in the two northern regions one to two weeks behind, and the Upper
+        Peninsula two to four weeks behind. Each river carries its own offset; where a river&apos;s own chart gives a window, we use it instead. The scientific layer is thin: <em>Hexagenia limbata</em> has a real degree-day model (emergence at or above 20 °C
         water after roughly 1,800 to 2,030 degree days above 10 °C), and Michigan caddis are date-driven rather than temperature-driven. Everything
         else is guide consensus, and we say so.
       </p>

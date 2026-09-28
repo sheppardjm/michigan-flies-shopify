@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Michigan trout, steelhead, and salmon rivers with hatch timing, species by month, gauges, and gear rules.",
 };
 
-const ORDER: Region[] = ["northern-lp", "tip-of-mitt", "mid-lp", "southern-lp", "upper-peninsula"];
+const ORDER: Region[] = ["southeast-lp", "southwest-lp", "northeast-lp", "northwest-lp", "upper-peninsula"];
 
 export default function RiversPage() {
   return (
@@ -25,7 +25,7 @@ export default function RiversPage() {
         const list = rivers.filter((r) => r.region === region);
         if (!list.length) return null;
         return (
-          <section key={region} className="space-y-3">
+          <section key={region} id={region} className="scroll-mt-20 space-y-3">
             <h2 className="text-xl font-semibold tracking-tight">{REGION_LABELS[region]}</h2>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {list.map((r) => (

@@ -8,10 +8,10 @@ export { rivers, riverById } from "./rivers";
 export { regionOffsets, regionOffsetByRegion } from "./region-offsets";
 
 export const REGION_LABELS: Record<import("./schema").Region, string> = {
-  "southern-lp": "Southern Lower Peninsula",
-  "mid-lp": "Mid-Michigan",
-  "northern-lp": "Northern Lower Peninsula",
-  "tip-of-mitt": "Tip of the Mitt",
+  "southeast-lp": "Southeast Lower Peninsula",
+  "southwest-lp": "Southwest Lower Peninsula",
+  "northeast-lp": "Northeast Lower Peninsula",
+  "northwest-lp": "Northwest Lower Peninsula",
   "upper-peninsula": "Upper Peninsula",
 };
 

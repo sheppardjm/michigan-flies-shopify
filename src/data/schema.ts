@@ -15,12 +15,16 @@ import { z } from "zod";
 export const Evidence = z.enum(["S", "A", "I"]);
 export type Evidence = z.infer<typeof Evidence>;
 
-/** Regions used for hatch-timing offsets relative to the northern Lower Peninsula baseline. */
+/**
+ * Regions follow the Michigan DNR weekly fishing report: Southeast, Southwest,
+ * Northeast, and Northwest Lower Peninsula, plus the Upper Peninsula. Each
+ * river carries its own timing offset; a region holds only a default.
+ */
 export const Region = z.enum([
-  "southern-lp",
-  "mid-lp",
-  "northern-lp",
-  "tip-of-mitt",
+  "southeast-lp",
+  "southwest-lp",
+  "northeast-lp",
+  "northwest-lp",
   "upper-peninsula",
 ]);
 export type Region = z.infer<typeof Region>;
@@ -94,7 +98,7 @@ export const Month = z.number().int().min(1).max(12);
 export const MonthDay = z.string().regex(/^(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/);
 export type MonthDay = z.infer<typeof MonthDay>;
 
-/** A seasonal window expressed against the northern Lower Peninsula baseline. */
+/** A seasonal window expressed against the Au Sable / Manistee (northern Lower Peninsula) baseline. */
 export const SeasonWindow = z.object({
   start: MonthDay,
   peakStart: MonthDay.optional(),

@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Courier_Prime, Jost, Mr_Dafoe, Zilla_Slab } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+// Each font registers its @font-face under its own family name; globals.css references those names literally.
+const jost = Jost({ subsets: ["latin"], weight: ["400", "500", "600", "700"], display: "swap", variable: "--font-jost" });
+const zilla = Zilla_Slab({ subsets: ["latin"], weight: ["500", "600", "700"], display: "swap", variable: "--font-zilla" });
+const dafoe = Mr_Dafoe({ subsets: ["latin"], weight: "400", display: "swap", variable: "--font-dafoe" });
+const courier = Courier_Prime({ subsets: ["latin"], weight: ["400", "700"], display: "swap", variable: "--font-courier" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://michiganflies.com"),
@@ -20,8 +23,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col bg-background text-foreground">
+    <html lang="en" className={`${jost.variable} ${zilla.variable} ${dafoe.variable} ${courier.variable} h-full antialiased`}>
+      <body className="flex min-h-full flex-col bg-background text-foreground font-sans">
         <TooltipProvider>
           <SiteHeader />
           <main className="flex-1">{children}</main>
