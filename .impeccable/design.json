@@ -1,0 +1,276 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-28T00:00:00Z",
+  "title": "Design System: Michigan Flies",
+  "source": {
+    "tokens": "src/app/globals.css",
+    "fonts": "src/app/layout.tsx",
+    "surface": "src/app/page.tsx",
+    "shell": ["src/components/site-header.tsx", "src/components/site-footer.tsx"],
+    "wall": ["src/components/wall/trout-sign.tsx", "src/components/wall/wallpaper.tsx", "src/components/wall/river-badge.tsx", "src/components/wall/hatch-board.tsx", "src/components/wall/counter-card.tsx", "src/components/wall/board-reveal.tsx"],
+    "brief": ".impeccable/surfaces/src-app-page-tsx.md",
+    "innerPages": "Inherit tokens through shadcn primitives under src/components/ui/; not individually restyled."
+  },
+  "extensions": {
+    "colorMeta": {
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "oklch(0.22 0.012 70)", "cssVar": "--ink", "tonalRamp": ["oklch(0.15 0.012 70)", "oklch(0.22 0.012 70)", "oklch(0.32 0.012 70)", "oklch(0.44 0.012 70)", "oklch(0.56 0.012 70)", "oklch(0.7 0.012 70)", "oklch(0.84 0.012 70)", "oklch(0.95 0.012 70)"] },
+      "trout-back": { "role": "primary", "displayName": "Olive Back", "canonical": "oklch(0.42 0.075 128)", "cssVar": "--trout-back", "tonalRamp": ["oklch(0.15 0.075 128)", "oklch(0.25 0.075 128)", "oklch(0.33 0.06 130)", "oklch(0.42 0.075 128)", "oklch(0.56 0.075 128)", "oklch(0.7 0.075 128)", "oklch(0.84 0.06 128)", "oklch(0.95 0.03 128)"] },
+      "trout-back-deep": { "role": "primary", "displayName": "Olive Back Deep", "canonical": "oklch(0.33 0.06 130)", "cssVar": "--trout-back-deep", "tonalRamp": ["oklch(0.15 0.06 130)", "oklch(0.22 0.06 130)", "oklch(0.33 0.06 130)", "oklch(0.44 0.06 130)", "oklch(0.56 0.06 130)", "oklch(0.7 0.06 130)", "oklch(0.84 0.06 130)", "oklch(0.95 0.03 130)"] },
+      "trout-band": { "role": "secondary", "displayName": "Rose Band", "canonical": "oklch(0.63 0.13 5)", "cssVar": "--trout-band", "tonalRamp": ["oklch(0.15 0.1 5)", "oklch(0.28 0.13 5)", "oklch(0.4 0.13 5)", "oklch(0.52 0.13 5)", "oklch(0.63 0.13 5)", "oklch(0.75 0.1 5)", "oklch(0.86 0.06 8)", "oklch(0.95 0.03 8)"] },
+      "trout-band-soft": { "role": "secondary", "displayName": "Rose Band Soft", "canonical": "oklch(0.86 0.06 8)", "cssVar": "--trout-band-soft", "tonalRamp": ["oklch(0.15 0.06 8)", "oklch(0.28 0.06 8)", "oklch(0.4 0.06 8)", "oklch(0.52 0.06 8)", "oklch(0.64 0.06 8)", "oklch(0.76 0.06 8)", "oklch(0.86 0.06 8)", "oklch(0.95 0.04 8)"] },
+      "trout-belly": { "role": "neutral", "displayName": "Cream Belly", "canonical": "oklch(0.965 0.018 85)", "cssVar": "--trout-belly", "tonalRamp": ["oklch(0.15 0.018 85)", "oklch(0.28 0.018 85)", "oklch(0.4 0.018 85)", "oklch(0.52 0.018 85)", "oklch(0.64 0.018 85)", "oklch(0.78 0.018 85)", "oklch(0.9 0.018 85)", "oklch(0.965 0.018 85)"] },
+      "trout-fin": { "role": "tertiary", "displayName": "Copper Fin", "canonical": "oklch(0.6 0.15 45)", "cssVar": "--trout-fin", "tonalRamp": ["oklch(0.15 0.1 45)", "oklch(0.28 0.15 45)", "oklch(0.4 0.15 45)", "oklch(0.5 0.15 45)", "oklch(0.6 0.15 45)", "oklch(0.72 0.12 45)", "oklch(0.84 0.08 45)", "oklch(0.95 0.04 45)"] },
+      "trout-gill": { "role": "tertiary", "displayName": "Gill Red", "canonical": "oklch(0.5 0.16 25)", "cssVar": "--trout-gill", "tonalRamp": ["oklch(0.15 0.1 25)", "oklch(0.28 0.16 25)", "oklch(0.4 0.16 25)", "oklch(0.5 0.16 25)", "oklch(0.62 0.16 25)", "oklch(0.74 0.12 25)", "oklch(0.86 0.08 25)", "oklch(0.95 0.04 25)"] },
+      "trout-steel": { "role": "tertiary", "displayName": "Steel", "canonical": "oklch(0.55 0.05 190)", "cssVar": "--trout-steel", "tonalRamp": ["oklch(0.15 0.05 190)", "oklch(0.28 0.05 190)", "oklch(0.4 0.05 190)", "oklch(0.55 0.05 190)", "oklch(0.66 0.05 190)", "oklch(0.78 0.05 190)", "oklch(0.88 0.04 190)", "oklch(0.95 0.02 190)"] },
+      "mitt-moss": { "role": "tertiary", "displayName": "Mitt Moss", "canonical": "oklch(0.56 0.08 118)", "cssVar": null, "note": "Set inline on .badge-tip-of-mitt as --badge.", "tonalRamp": ["oklch(0.15 0.08 118)", "oklch(0.28 0.08 118)", "oklch(0.4 0.08 118)", "oklch(0.56 0.08 118)", "oklch(0.66 0.08 118)", "oklch(0.78 0.08 118)", "oklch(0.88 0.06 118)", "oklch(0.95 0.03 118)"] },
+      "wall": { "role": "neutral", "displayName": "Wall", "canonical": "oklch(0.925 0.025 85)", "cssVar": "--wall", "tonalRamp": ["oklch(0.15 0.025 85)", "oklch(0.28 0.025 85)", "oklch(0.4 0.025 85)", "oklch(0.52 0.025 85)", "oklch(0.64 0.025 85)", "oklch(0.78 0.025 85)", "oklch(0.925 0.025 85)", "oklch(0.965 0.018 85)"] },
+      "plank": { "role": "neutral", "displayName": "Plank", "canonical": "oklch(0.895 0.03 82)", "cssVar": "--plank", "tonalRamp": ["oklch(0.15 0.03 82)", "oklch(0.28 0.03 82)", "oklch(0.4 0.03 82)", "oklch(0.52 0.03 82)", "oklch(0.64 0.03 82)", "oklch(0.8 0.035 78)", "oklch(0.895 0.03 82)", "oklch(0.95 0.02 82)"] },
+      "plank-shadow": { "role": "neutral", "displayName": "Plank Shadow", "canonical": "oklch(0.8 0.035 78)", "cssVar": "--plank-shadow", "note": "Also shadcn --border and --input.", "tonalRamp": ["oklch(0.15 0.035 78)", "oklch(0.28 0.035 78)", "oklch(0.4 0.035 78)", "oklch(0.52 0.035 78)", "oklch(0.64 0.035 78)", "oklch(0.8 0.035 78)", "oklch(0.895 0.03 82)", "oklch(0.95 0.02 78)"] },
+      "card": { "role": "neutral", "displayName": "Card", "canonical": "oklch(0.975 0.014 85)", "cssVar": "--card", "tonalRamp": ["oklch(0.15 0.014 85)", "oklch(0.28 0.014 85)", "oklch(0.4 0.014 85)", "oklch(0.52 0.014 85)", "oklch(0.64 0.014 85)", "oklch(0.78 0.014 85)", "oklch(0.9 0.014 85)", "oklch(0.975 0.014 85)"] },
+      "board": { "role": "neutral", "displayName": "Board", "canonical": "oklch(0.31 0.045 150)", "cssVar": "--board", "tonalRamp": ["oklch(0.15 0.045 150)", "oklch(0.25 0.04 150)", "oklch(0.31 0.045 150)", "oklch(0.42 0.045 150)", "oklch(0.55 0.045 150)", "oklch(0.7 0.045 150)", "oklch(0.84 0.03 150)", "oklch(0.95 0.02 150)"] },
+      "board-deep": { "role": "neutral", "displayName": "Board Deep", "canonical": "oklch(0.25 0.04 150)", "cssVar": "--board-deep", "tonalRamp": ["oklch(0.15 0.04 150)", "oklch(0.25 0.04 150)", "oklch(0.35 0.04 150)", "oklch(0.45 0.04 150)", "oklch(0.55 0.04 150)", "oklch(0.7 0.04 150)", "oklch(0.84 0.03 150)", "oklch(0.95 0.02 150)"] },
+      "chalk": { "role": "neutral", "displayName": "Chalk", "canonical": "oklch(0.955 0.02 85)", "cssVar": "--chalk", "tonalRamp": ["oklch(0.15 0.02 85)", "oklch(0.28 0.02 85)", "oklch(0.4 0.02 85)", "oklch(0.52 0.02 85)", "oklch(0.64 0.02 85)", "oklch(0.78 0.02 85)", "oklch(0.9 0.02 85)", "oklch(0.955 0.02 85)"] },
+      "chalk-dim": { "role": "neutral", "displayName": "Chalk Dim", "canonical": "oklch(0.955 0.02 85 / 0.8)", "cssVar": "--chalk-dim", "note": "Chalk at 0.8 alpha; raised from lower alpha in the finish fix pass for legibility.", "tonalRamp": ["oklch(0.955 0.02 85 / 0.15)", "oklch(0.955 0.02 85 / 0.25)", "oklch(0.955 0.02 85 / 0.4)", "oklch(0.955 0.02 85 / 0.55)", "oklch(0.955 0.02 85 / 0.7)", "oklch(0.955 0.02 85 / 0.8)", "oklch(0.955 0.02 85 / 0.9)", "oklch(0.955 0.02 85 / 1)"] },
+      "rail": { "role": "neutral", "displayName": "Rail", "canonical": "oklch(0.36 0.05 55)", "cssVar": "--rail", "tonalRamp": ["oklch(0.15 0.05 55)", "oklch(0.29 0.045 52)", "oklch(0.36 0.05 55)", "oklch(0.47 0.05 60)", "oklch(0.58 0.05 55)", "oklch(0.7 0.05 55)", "oklch(0.84 0.04 55)", "oklch(0.95 0.02 55)"] },
+      "rail-deep": { "role": "neutral", "displayName": "Rail Deep", "canonical": "oklch(0.29 0.045 52)", "cssVar": "--rail-deep", "tonalRamp": ["oklch(0.15 0.045 52)", "oklch(0.22 0.045 52)", "oklch(0.29 0.045 52)", "oklch(0.4 0.045 52)", "oklch(0.52 0.045 52)", "oklch(0.66 0.045 52)", "oklch(0.82 0.04 52)", "oklch(0.95 0.02 52)"] },
+      "dirt": { "role": "neutral", "displayName": "Dirt", "canonical": "oklch(0.47 0.05 60)", "cssVar": "--dirt", "tonalRamp": ["oklch(0.15 0.05 60)", "oklch(0.26 0.05 60)", "oklch(0.36 0.05 60)", "oklch(0.47 0.05 60)", "oklch(0.58 0.05 60)", "oklch(0.7 0.05 60)", "oklch(0.84 0.04 60)", "oklch(0.95 0.02 60)"] },
+      "wallpaper-ink": { "role": "neutral", "displayName": "Wallpaper Ink", "canonical": "oklch(0.47 0.05 60 / 0.34)", "cssVar": "--wallpaper-ink", "tonalRamp": ["oklch(0.47 0.05 60 / 0.1)", "oklch(0.47 0.05 60 / 0.16)", "oklch(0.47 0.05 60 / 0.22)", "oklch(0.47 0.05 60 / 0.28)", "oklch(0.47 0.05 60 / 0.34)", "oklch(0.47 0.05 60 / 0.5)", "oklch(0.47 0.05 60 / 0.7)", "oklch(0.47 0.05 60 / 1)"] },
+      "muted-foreground": { "role": "neutral", "displayName": "Muted Foreground", "canonical": "oklch(0.44 0.04 62)", "cssVar": "--muted-foreground", "tonalRamp": ["oklch(0.15 0.04 62)", "oklch(0.25 0.04 62)", "oklch(0.34 0.04 62)", "oklch(0.44 0.04 62)", "oklch(0.56 0.04 62)", "oklch(0.7 0.04 62)", "oklch(0.84 0.04 62)", "oklch(0.95 0.02 62)"] },
+      "live": { "role": "reserved", "displayName": "Live Chalk", "canonical": "oklch(0.985 0.015 90)", "cssVar": "--live", "note": "The one reserved live color: chalk-white mono on the board, nowhere else.", "tonalRamp": ["oklch(0.15 0.015 90)", "oklch(0.28 0.015 90)", "oklch(0.4 0.015 90)", "oklch(0.52 0.015 90)", "oklch(0.64 0.015 90)", "oklch(0.78 0.015 90)", "oklch(0.9 0.015 90)", "oklch(0.985 0.015 90)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display (script)", "purpose": "Wordmark placeholder on the sign (Olive Back, -3deg, offset shadow 2px cream / 4px rose), rail (1.9rem, -2deg), footer and mobile sheet (1.875rem). Yellowtail stands in until a mark is commissioned.", "cssVar": "--font-script" },
+      "headline": { "displayName": "Headline (woodtype)", "purpose": "Section titles and the counter question. Alfa Slab One regular, sentence case, 0.01em, 1.05.", "cssVar": "--font-display" },
+      "title": { "displayName": "Title (woodtype caps)", "purpose": "Sign line (0.22em), board title (0.14em), shelf region labels, counter labels (0.72rem, 0.16em, Dirt), footer labels (0.76rem). Uppercase, tracked, regular weight.", "cssVar": "--font-display" },
+      "body": { "displayName": "Body", "purpose": "All paragraphs in Jost 400 at 0.875rem; secondary copy in Muted Foreground bounded to max-w-prose.", "cssVar": "--font-sans" },
+      "label": { "displayName": "Label", "purpose": "Badge names (600, 0.78rem, 0.1em), badge subs (500, 0.72rem), rail nav (500, 0.8rem, 0.14em), board region labels (600, 0.72rem, 0.14em). Uppercase.", "cssVar": "--font-sans" },
+      "live": { "displayName": "Live (typewriter mono)", "purpose": "Courier Prime, tabular numerals, only for measured or entered numbers and dates: board date, temperatures, offsets, reading times, the date input.", "cssVar": "--font-mono" }
+    },
+    "fontLoading": {
+      "loader": "next/font/google",
+      "families": [
+        { "family": "Jost", "weights": [400, 500, 600, 700], "variable": "--font-jost" },
+        { "family": "Alfa Slab One", "weights": [400], "variable": "--font-alfa" },
+        { "family": "Yellowtail", "weights": [400], "variable": "--font-yellowtail" },
+        { "family": "Courier Prime", "weights": [400, 700], "variable": "--font-courier" }
+      ],
+      "themeFonts": {
+        "--font-sans": "\"Jost\", \"Jost Fallback\", ui-sans-serif, system-ui, sans-serif",
+        "--font-mono": "\"Courier Prime\", \"Courier Prime Fallback\", ui-monospace, \"Courier New\", monospace",
+        "--font-heading": "\"Alfa Slab One\", \"Alfa Slab One Fallback\", \"Rockwell\", serif",
+        "--font-display": "\"Alfa Slab One\", \"Alfa Slab One Fallback\", \"Rockwell\", serif",
+        "--font-script": "\"Yellowtail\", \"Yellowtail Fallback\", \"Brush Script MT\", cursive"
+      }
+    },
+    "shadows": [
+      { "name": "hung-sign", "value": "inset 0 0 0 6px var(--trout-belly), inset 0 0 0 8px var(--trout-back), 0 14px 28px -10px oklch(0.2 0.02 60 / 0.45), 0 2px 0 0 oklch(0.2 0.02 60 / 0.2)", "purpose": "The enamel sign; the insets are its olive pinstripe." },
+      { "name": "counter-pad", "value": "0 18px 30px -14px oklch(0.2 0.02 60 / 0.5), 0 1px 0 0 oklch(0.2 0.02 60 / 0.25)", "purpose": "The order card resting on the counter." },
+      { "name": "wall-card", "value": "0 12px 22px -14px oklch(0.2 0.02 60 / 0.55)", "purpose": "Fly cards and the evidence legend." },
+      { "name": "board", "value": "inset 0 0 0 2px var(--rail-deep), inset 0 0 40px oklch(0 0 0 / 0.35), 0 18px 30px -14px oklch(0.2 0.02 60 / 0.6)", "purpose": "The chalkboard recessed in its frame." },
+      { "name": "chalk-tray", "value": "0 6px 10px -4px oklch(0 0 0 / 0.5)", "purpose": "The tray under the board." },
+      { "name": "patch-rest", "value": "drop-shadow(0 3px 0 oklch(0.2 0.02 60 / 0.35)) drop-shadow(0 8px 12px oklch(0.2 0.02 60 / 0.25))", "purpose": "River badge at rest (filter, on the SVG)." },
+      { "name": "patch-lift", "value": "drop-shadow(0 10px 10px oklch(0.2 0.02 60 / 0.35))", "purpose": "River badge on hover and focus, with translateY(-3px) rotate(-1deg)." },
+      { "name": "button", "value": "0 10px 18px -8px oklch(0.2 0.02 60 / 0.55)", "purpose": "Primary submit at rest." },
+      { "name": "button-hover", "value": "0 14px 22px -10px oklch(0.2 0.02 60 / 0.6)", "purpose": "Primary submit hover, with translateY(-1px)." },
+      { "name": "button-active", "value": "0 6px 12px -8px oklch(0.2 0.02 60 / 0.5)", "purpose": "Primary submit pressed, with translateY(1px)." },
+      { "name": "button-disabled", "value": "0 6px 12px -8px oklch(0.2 0.02 60 / 0.4)", "purpose": "Primary submit disabled; keeps full color at 0.85 opacity." },
+      { "name": "rail", "value": "0 6px 14px -8px oklch(0 0 0 / 0.5)", "purpose": "Header rail onto the wall; footer mirrors with 0 -6px." },
+      { "name": "ledge", "value": "0 8px 12px -6px oklch(0 0 0 / 0.55)", "purpose": "The shelf under each badge region." },
+      { "name": "sign-script-text", "value": "2px 2px 0 var(--trout-belly), 4px 4px 0 var(--trout-band)", "purpose": "text-shadow on the sign script; lettering, not elevation." },
+      { "name": "rail-wordmark-text", "value": "1px 1px 0 var(--rail-deep)", "purpose": "text-shadow on the rail wordmark." }
+    ],
+    "motion": [
+      { "name": "ease-spring", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Every lift, press, and chalk draw-on." },
+      { "name": "duration-press", "value": "160ms", "purpose": "Primary button transform, shadow, and color." },
+      { "name": "duration-lift", "value": "180ms", "purpose": "Badge transform and filter." },
+      { "name": "duration-wash", "value": "140ms", "purpose": "Rail nav hover background." },
+      { "name": "chalk-in", "value": "620ms ease-spring both; delay calc(var(--i) * 70ms); from { opacity: 0; clip-path: inset(0 100% 0 0) } to { opacity: 1; clip-path: inset(0 0 0 0) }", "purpose": "Board rows draw on once inside .board-reveal[data-reveal=\"in\"]; rows visible by default; reduced motion disables it." },
+      { "name": "drift-rear", "value": "translate3d(0, 0, 0) to translate3d(0, -9%, 0); animation-timeline: scroll(root); animation-range: 0 120vh", "purpose": "Wallpaper plane parallax; requires animation-timeline support and no-preference motion." },
+      { "name": "drift-near", "value": "translate3d(0, 0, 0) to translate3d(0, -2.5rem, 0); animation-timeline: scroll(root); animation-range: 0 120vh", "purpose": "Near plane (sign, board) parallax; the front card never moves." }
+    ],
+    "breakpoints": [
+      { "name": "board-two-col", "value": "420px", "purpose": "Water readings go to two columns." },
+      { "name": "sm", "value": "640px", "purpose": "Badge row leaves snap-scroll for a 3-col grid; card padding steps up." },
+      { "name": "md", "value": "768px", "purpose": "Rail nav appears; badges 4-col; footer 3-col." },
+      { "name": "lg", "value": "1024px", "purpose": "Counter card and board sit side by side 7fr/5fr; badges 5-col; fly cards 4-col." },
+      { "name": "container", "value": "72rem", "purpose": "max-w-6xl content width with 1rem side padding." }
+    ],
+    "planes": [
+      { "name": "plane-wallpaper", "z": 0, "opacity": 0.55, "inset": "-12% 0", "height": "124%", "motion": "drift-rear" },
+      { "name": "wall-grain", "z": 3, "opacity": 0.16, "blend": "multiply", "note": "SVG fractalNoise tile 240px; the only texture layer on the wall." },
+      { "name": "plane-near", "z": 2, "motion": "drift-near", "holds": ["sign", "board"] },
+      { "name": "plane-content", "z": 2, "holds": ["sections"] },
+      { "name": "plane-front", "z": 4, "motion": "none", "holds": ["counter-card"] }
+    ],
+    "stateVocabulary": {
+      "scope": "Hatch board only; Jost 500 at 0.95rem, line-height 1.2, filter url(#chalk-rough).",
+      "states": {
+        "approaching": { "color": "{colors.chalk-dim}", "mark": "hand-dashed box: 1.6px dashed chalk-dim, inset -3px -4px, radius 3px", "meaning": "within two weeks" },
+        "hatching": { "color": "{colors.chalk}", "mark": "chalk underline: 3px chalk, radius 2px, opacity 0.95", "meaning": "in the window" },
+        "peak": { "color": "{colors.ink}", "mark": "rough rose fill: trout-band, inset -1px -2px, radius 3px; weight 600; padding-inline 0.45rem", "meaning": "best days" },
+        "finished": { "color": "{colors.chalk-dim}", "mark": "strike: 2.5px chalk-dim at 52%, rotate(-2deg); opacity 0.85", "meaning": "ended this fortnight" }
+      }
+    },
+    "badgeShapes": {
+      "viewBox": "0 0 160 80",
+      "stroke": "{colors.ink} 3, round joins",
+      "stitch": "badge-text color, 1.6 stroke, dasharray 1.2 1.2, opacity 0.85, scale 0.93",
+      "active": "stroke trout-band, width 5; shape and fill unchanged",
+      "regions": {
+        "upper-peninsula": { "shape": "shield", "path": "M8 4 H152 V54 L80 78 L8 54 Z", "fill": "{colors.trout-steel}" },
+        "tip-of-mitt": { "shape": "arch", "path": "M8 76 V40 C8 18 34 4 80 4 C126 4 152 18 152 40 V76 Z", "fill": "{colors.mitt-moss}" },
+        "northern-lp": { "shape": "rounded rectangle", "path": "M20 4 H140 A16 16 0 0 1 156 20 V60 A16 16 0 0 1 140 76 H20 A16 16 0 0 1 4 60 V20 A16 16 0 0 1 20 4 Z", "fill": "{colors.trout-back}" },
+        "mid-lp": { "shape": "hexagon", "path": "M40 4 H120 L156 40 L120 76 H40 L4 40 Z", "fill": "{colors.trout-fin}" },
+        "southern-lp": { "shape": "oval", "path": "M80 4 C130 4 156 20 156 40 C156 60 130 76 80 76 C30 76 4 60 4 40 C4 20 30 4 80 4 Z", "fill": "{colors.trout-gill}" }
+      }
+    },
+    "browserSurfaces": {
+      "selection": { "background": "{colors.trout-band}", "color": "{colors.trout-belly}" },
+      "focusVisible": "3px solid var(--trout-fin); outline-offset 2px",
+      "caret": "{colors.trout-fin}",
+      "scrollbar": { "thumb": "{colors.trout-back}", "track": "{colors.plank}", "width": "12px", "thumbInset": "3px", "thumbRadius": "8px" },
+      "links": "text-underline-offset 0.18em; text-decoration-thickness 1.5px"
+    },
+    "shadcnMapping": {
+      "--background": "--wall", "--foreground": "--ink", "--card": "oklch(0.975 0.014 85)", "--popover": "oklch(0.975 0.014 85)",
+      "--primary": "--trout-back", "--primary-foreground": "--trout-belly", "--secondary": "--plank", "--muted": "--plank",
+      "--muted-foreground": "oklch(0.44 0.04 62)", "--accent": "--trout-band-soft", "--destructive": "--trout-gill",
+      "--border": "oklch(0.8 0.035 78)", "--input": "oklch(0.8 0.035 78)", "--ring": "--trout-fin", "--radius": "0.5rem",
+      "--chart-1": "--trout-back", "--chart-2": "--trout-band", "--chart-3": "--trout-fin", "--chart-4": "--trout-steel", "--chart-5": "--dirt",
+      "note": "Inner pages inherit through these; radius scale sm 0.3rem, md 0.4rem, lg 0.5rem, xl 0.7rem, 2xl 0.9rem, 3xl 1.1rem, 4xl 1.3rem."
+    },
+    "nightVariant": {
+      "selector": ".dark",
+      "status": "defined, not shipped; no toggle exposed; the scene is daylight",
+      "wall": "oklch(0.27 0.03 140)", "plank": "oklch(0.31 0.035 140)", "plank-shadow": "oklch(0.22 0.03 140)",
+      "card": "oklch(0.33 0.035 145)", "primary": "oklch(0.8 0.06 120)", "accent": "oklch(0.45 0.09 8)",
+      "destructive": "oklch(0.7 0.16 25)", "muted-foreground": "oklch(0.78 0.03 90)", "border": "oklch(1 0 0 / 14%)", "wallpaper-ink": "oklch(0.9 0.02 90 / 0.14)"
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The counter's one large action: Olive Back, woodtype caps, Ink border, lifts on hover and presses on click.",
+      "html": "<button class=\"ds-btn-primary\">Find my flies <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; font-family: var(--font-display, \"Alfa Slab One\", Rockwell, serif); font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; font-size: 1.05rem; height: 3.25rem; padding-inline: 1.5rem; background: var(--trout-back, oklch(0.42 0.075 128)); color: var(--trout-belly, oklch(0.965 0.018 85)); border: 2px solid var(--ink, oklch(0.22 0.012 70)); border-radius: 0.6rem; box-shadow: 0 10px 18px -8px oklch(0.2 0.02 60 / 0.55); cursor: pointer; transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 160ms cubic-bezier(0.16, 1, 0.3, 1), background-color 160ms; } .ds-btn-primary:hover { background: var(--trout-back-deep, oklch(0.33 0.06 130)); transform: translateY(-1px); box-shadow: 0 14px 22px -10px oklch(0.2 0.02 60 / 0.6); } .ds-btn-primary:active { transform: translateY(1px); box-shadow: 0 6px 12px -8px oklch(0.2 0.02 60 / 0.5); } .ds-btn-primary:focus-visible { outline: 3px solid var(--trout-fin, oklch(0.6 0.15 45)); outline-offset: 2px; } .ds-btn-primary:disabled { background: var(--trout-back-deep, oklch(0.33 0.06 130)); opacity: 0.85; cursor: not-allowed; transform: none; box-shadow: 0 6px 12px -8px oklch(0.2 0.02 60 / 0.4); }"
+    },
+    {
+      "name": "Fish Chip",
+      "kind": "chip",
+      "refersTo": "chip-fish",
+      "description": "Multi-select species toggle on the counter card; pill, Card fill, Ink border, Olive Back when on.",
+      "html": "<span class=\"ds-chips\"><button class=\"ds-chip\" aria-pressed=\"false\">Brown trout</button><button class=\"ds-chip\" aria-pressed=\"true\">Steelhead</button><button class=\"ds-chip ds-chip-absent\" aria-pressed=\"false\" title=\"Not documented in this river\">Atlantic salmon</button></span>",
+      "css": ".ds-chips { display: inline-flex; flex-wrap: wrap; gap: 0.375rem; } .ds-chip { font-family: var(--font-sans, Jost, system-ui, sans-serif); font-size: 0.8rem; font-weight: 500; height: 2.25rem; padding-inline: 0.75rem; border-radius: 9999px; background: var(--card, oklch(0.975 0.014 85)); color: var(--ink, oklch(0.22 0.012 70)); border: 1px solid color-mix(in oklch, var(--ink, oklch(0.22 0.012 70)) 60%, transparent); cursor: pointer; transition: background-color 140ms, color 140ms, border-color 140ms; } .ds-chip:hover { background: var(--plank, oklch(0.895 0.03 82)); } .ds-chip[aria-pressed=\"true\"] { background: var(--trout-back, oklch(0.42 0.075 128)); color: var(--trout-belly, oklch(0.965 0.018 85)); border-color: var(--ink, oklch(0.22 0.012 70)); } .ds-chip:focus-visible { outline: 3px solid var(--trout-fin, oklch(0.6 0.15 45)); outline-offset: 2px; } .ds-chip-absent { opacity: 0.45; }"
+    },
+    {
+      "name": "Counter Field",
+      "kind": "input",
+      "refersTo": "input-counter",
+      "description": "A field on the counter pad: woodtype-caps label in Dirt, 2.75rem input on Card with a Plank Shadow border and Copper Fin focus.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Date</span><input class=\"ds-input ds-input-mono\" type=\"date\" value=\"2026-09-28\"></label>",
+      "css": ".ds-field { display: grid; gap: 0.375rem; width: 16rem; } .ds-field-label { font-family: var(--font-display, \"Alfa Slab One\", Rockwell, serif); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dirt, oklch(0.47 0.05 60)); } .ds-input { font-family: var(--font-sans, Jost, system-ui, sans-serif); font-size: 1rem; height: 2.75rem; width: 100%; padding: 0.25rem 0.625rem; background: var(--card, oklch(0.975 0.014 85)); color: var(--ink, oklch(0.22 0.012 70)); border: 1px solid var(--plank-shadow, oklch(0.8 0.035 78)); border-radius: 0.5rem; outline: none; transition: border-color 140ms, box-shadow 140ms; } .ds-input::placeholder { color: var(--muted-foreground, oklch(0.44 0.04 62)); } .ds-input:focus-visible { border-color: var(--trout-fin, oklch(0.6 0.15 45)); box-shadow: 0 0 0 3px color-mix(in oklch, var(--trout-fin, oklch(0.6 0.15 45)) 50%, transparent); } .ds-input:disabled { opacity: 0.5; cursor: not-allowed; } .ds-input-mono { font-family: var(--font-mono, \"Courier Prime\", \"Courier New\", monospace); }"
+    },
+    {
+      "name": "Rail Navigation",
+      "kind": "nav",
+      "refersTo": "nav-rail",
+      "description": "Header as dirt-brown wood trim: script wordmark left, tracked caps links right, Rose Band tab on the current page.",
+      "html": "<header class=\"ds-rail\"><a class=\"ds-rail-wordmark\" href=\"#\">Michigan Flies</a><nav class=\"ds-rail-nav\"><a href=\"#\" aria-current=\"page\">Fly finder</a><a href=\"#\">Hatch calendar</a><a href=\"#\">Rivers</a><a href=\"#\">Hatches</a><a href=\"#\">Flies</a><a href=\"#\">Fish</a><a href=\"#\">Shop</a></nav></header>",
+      "css": ".ds-rail { display: flex; align-items: center; gap: 1rem; height: 4rem; padding-inline: 1rem; background-color: var(--rail, oklch(0.36 0.05 55)); background-image: linear-gradient(to bottom, oklch(1 0 0 / 0.08), transparent 30%, transparent 70%, oklch(0 0 0 / 0.18)), repeating-linear-gradient(to right, transparent 0 140px, oklch(0 0 0 / 0.07) 140px 142px); color: var(--trout-belly, oklch(0.965 0.018 85)); border-bottom: 3px solid var(--rail-deep, oklch(0.29 0.045 52)); box-shadow: 0 6px 14px -8px oklch(0 0 0 / 0.5); } .ds-rail-wordmark { font-family: var(--font-script, Yellowtail, \"Brush Script MT\", cursive); font-size: 1.9rem; line-height: 1; color: var(--trout-belly, oklch(0.965 0.018 85)); text-shadow: 1px 1px 0 var(--rail-deep, oklch(0.29 0.045 52)); transform: rotate(-2deg); text-decoration: none; padding-right: 0.5rem; border-radius: 0.3rem; } .ds-rail-nav { margin-left: auto; display: flex; align-items: center; gap: 0.125rem; } .ds-rail-nav a { font-family: var(--font-sans, Jost, system-ui, sans-serif); font-weight: 500; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--trout-belly, oklch(0.965 0.018 85)); padding: 0.5rem 0.65rem; border-radius: 0.35rem; text-decoration: none; transition: background-color 140ms; } .ds-rail-nav a:hover { background: oklch(1 0 0 / 0.1); } .ds-rail-nav a[aria-current=\"page\"] { background: var(--trout-band, oklch(0.63 0.13 5)); color: var(--ink, oklch(0.22 0.012 70)); } .ds-rail-nav a:focus-visible, .ds-rail-wordmark:focus-visible { outline: 3px solid var(--trout-fin, oklch(0.6 0.15 45)); outline-offset: 2px; }"
+    },
+    {
+      "name": "Wall Card",
+      "kind": "card",
+      "refersTo": "card-plain",
+      "description": "A cream card hung on the wall: 2px Ink border, 0.5rem radius, warm downward shadow. Fly cards and the evidence legend use it.",
+      "html": "<article class=\"ds-card\"><h3 class=\"ds-card-title\">How much to trust each line</h3><p class=\"ds-card-body\">Live numbers on the board are USGS provisional readings. Calendar windows shift by river region and are gated by water temperature within a week of your date.</p></article>",
+      "css": ".ds-card { max-width: 32rem; background: var(--card, oklch(0.975 0.014 85)); color: var(--ink, oklch(0.22 0.012 70)); border: 2px solid var(--ink, oklch(0.22 0.012 70)); border-radius: 0.5rem; padding: 1.5rem; box-shadow: 0 12px 22px -14px oklch(0.2 0.02 60 / 0.55); } .ds-card-title { font-family: var(--font-display, \"Alfa Slab One\", Rockwell, serif); font-weight: 400; font-size: 1.5rem; line-height: 1.05; letter-spacing: 0.01em; margin: 0 0 0.75rem; text-wrap: balance; } .ds-card-body { font-family: var(--font-sans, Jost, system-ui, sans-serif); font-size: 0.875rem; line-height: 1.5; color: var(--muted-foreground, oklch(0.44 0.04 62)); margin: 0; max-width: 65ch; text-wrap: pretty; }"
+    },
+    {
+      "name": "Counter Card",
+      "kind": "card",
+      "refersTo": "card-counter",
+      "description": "The pencil-ruled order pad with its rose margin rule; the only object on the still front plane.",
+      "html": "<section class=\"ds-counter\"><h2 class=\"ds-counter-title\">What should be on the end of my line?</h2><p class=\"ds-counter-lead\">Four questions. The answer is a ranked box for that river on that date, with the reasons.</p></section>",
+      "css": ".ds-counter { position: relative; max-width: 36rem; padding: 1.25rem 1.25rem 1.25rem 4rem; background-color: var(--card, oklch(0.975 0.014 85)); background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 31px, oklch(0.62 0.05 60 / 0.22) 31px, oklch(0.62 0.05 60 / 0.22) 32px); background-position: 0 14px; color: var(--ink, oklch(0.22 0.012 70)); border: 2px solid var(--ink, oklch(0.22 0.012 70)); border-radius: 0.75rem; box-shadow: 0 18px 30px -14px oklch(0.2 0.02 60 / 0.5), 0 1px 0 0 oklch(0.2 0.02 60 / 0.25); } .ds-counter::before { content: \"\"; position: absolute; left: 3.25rem; top: 0; bottom: 0; width: 2px; background: oklch(0.63 0.13 5 / 0.55); pointer-events: none; } .ds-counter-title { font-family: var(--font-display, \"Alfa Slab One\", Rockwell, serif); font-weight: 400; font-size: 1.5rem; line-height: 1; letter-spacing: 0.01em; margin: 0; text-wrap: balance; } .ds-counter-lead { font-family: var(--font-sans, Jost, system-ui, sans-serif); font-size: 0.875rem; line-height: 1.5; color: var(--muted-foreground, oklch(0.44 0.04 62)); margin: 0.5rem 0 0; max-width: 65ch; }"
+    },
+    {
+      "name": "Enamel Sign",
+      "kind": "custom",
+      "refersTo": "sign-enamel",
+      "description": "The trout sign over the counter: cream enamel, Ink border, olive pinstripe, four screws, script name, woodtype tagline.",
+      "html": "<div class=\"ds-sign\"><svg class=\"ds-sign-screw ds-sign-tl\" viewBox=\"0 0 14 14\" aria-hidden=\"true\"><circle cx=\"7\" cy=\"7\" r=\"6\" fill=\"currentColor\"/><path d=\"M3 7h8\" stroke=\"oklch(0.965 0.018 85)\" stroke-width=\"1.5\"/></svg><svg class=\"ds-sign-screw ds-sign-tr\" viewBox=\"0 0 14 14\" aria-hidden=\"true\"><circle cx=\"7\" cy=\"7\" r=\"6\" fill=\"currentColor\"/><path d=\"M3 7h8\" stroke=\"oklch(0.965 0.018 85)\" stroke-width=\"1.5\"/></svg><svg class=\"ds-sign-screw ds-sign-bl\" viewBox=\"0 0 14 14\" aria-hidden=\"true\"><circle cx=\"7\" cy=\"7\" r=\"6\" fill=\"currentColor\"/><path d=\"M3 7h8\" stroke=\"oklch(0.965 0.018 85)\" stroke-width=\"1.5\"/></svg><svg class=\"ds-sign-screw ds-sign-br\" viewBox=\"0 0 14 14\" aria-hidden=\"true\"><circle cx=\"7\" cy=\"7\" r=\"6\" fill=\"currentColor\"/><path d=\"M3 7h8\" stroke=\"oklch(0.965 0.018 85)\" stroke-width=\"1.5\"/></svg><p class=\"ds-sign-script\">Michigan Flies</p><p class=\"ds-sign-line\">Hand-tied for Michigan rivers</p></div>",
+      "css": ".ds-sign { position: relative; max-width: 44rem; padding: 2rem 2.5rem 1.5rem; background: var(--trout-belly, oklch(0.965 0.018 85)); border: 4px solid var(--ink, oklch(0.22 0.012 70)); border-radius: 1.25rem; box-shadow: inset 0 0 0 6px var(--trout-belly, oklch(0.965 0.018 85)), inset 0 0 0 8px var(--trout-back, oklch(0.42 0.075 128)), 0 14px 28px -10px oklch(0.2 0.02 60 / 0.45), 0 2px 0 0 oklch(0.2 0.02 60 / 0.2); color: var(--ink, oklch(0.22 0.012 70)); text-align: center; } .ds-sign-script { font-family: var(--font-script, Yellowtail, \"Brush Script MT\", cursive); font-size: clamp(2.75rem, 7vw, 4.5rem); line-height: 0.95; color: var(--trout-back, oklch(0.42 0.075 128)); transform: rotate(-3deg); margin: 0; text-shadow: 2px 2px 0 var(--trout-belly, oklch(0.965 0.018 85)), 4px 4px 0 var(--trout-band, oklch(0.63 0.13 5)); } .ds-sign-line { margin: 0.6rem 0 0; font-family: var(--font-display, \"Alfa Slab One\", Rockwell, serif); font-size: clamp(0.8rem, 1.4vw, 1rem); letter-spacing: 0.22em; text-transform: uppercase; } .ds-sign-screw { position: absolute; width: 14px; height: 14px; color: var(--ink, oklch(0.22 0.012 70)); } .ds-sign-tl { top: 10px; left: 10px; } .ds-sign-tr { top: 10px; right: 10px; } .ds-sign-bl { bottom: 10px; left: 10px; } .ds-sign-br { bottom: 10px; right: 10px; }"
+    },
+    {
+      "name": "Hatch Board",
+      "kind": "custom",
+      "refersTo": "board-chalk",
+      "description": "Dark green chalkboard in a wood frame with the four-state chalk vocabulary and the reserved live mono for today's numbers.",
+      "html": "<section class=\"ds-board\"><svg width=\"0\" height=\"0\" style=\"position:absolute\" aria-hidden=\"true\"><filter id=\"ds-chalk-rough\" x=\"-10%\" y=\"-40%\" width=\"120%\" height=\"180%\"><feTurbulence type=\"fractalNoise\" baseFrequency=\"0.9\" numOctaves=\"2\" result=\"n\"/><feDisplacementMap in=\"SourceGraphic\" in2=\"n\" scale=\"1.6\"/></filter></svg><div class=\"ds-board-head\"><h2 class=\"ds-board-title\">Hatching now</h2><time class=\"ds-live\">September 28, 2026</time></div><hr class=\"ds-board-rule\"><div class=\"ds-board-row\"><span class=\"ds-board-region\">Northern LP<span class=\"ds-live ds-live-sm\">baseline</span></span><span class=\"ds-board-marks\"><span class=\"ds-chalk ds-chalk-peak\">Mahogany Dun</span><span class=\"ds-chalk ds-chalk-hatching\">October Caddis</span><span class=\"ds-chalk ds-chalk-approaching\">Blue-Winged Olive</span><span class=\"ds-chalk ds-chalk-finished\">Isonychia</span></span></div><hr class=\"ds-board-rule\"><div class=\"ds-board-water\"><span class=\"ds-board-region\">Water today</span><span class=\"ds-board-region ds-board-region-plain\">USGS, provisional</span></div><div class=\"ds-board-reading\"><a class=\"ds-board-link\" href=\"#\">Au Sable, Mio</a><span class=\"ds-live\">57° <small>2:45PM</small></span></div></section>",
+      "css": ".ds-board { position: relative; max-width: 30rem; padding: 1.5rem; color: var(--chalk, oklch(0.955 0.02 85)); background-color: var(--board, oklch(0.31 0.045 150)); background-image: radial-gradient(ellipse at 20% 10%, oklch(1 0 0 / 0.06), transparent 55%), radial-gradient(ellipse at 80% 90%, oklch(1 0 0 / 0.05), transparent 50%); border: 10px solid var(--rail, oklch(0.36 0.05 55)); border-radius: 0.5rem; box-shadow: inset 0 0 0 2px var(--rail-deep, oklch(0.29 0.045 52)), inset 0 0 40px oklch(0 0 0 / 0.35), 0 18px 30px -14px oklch(0.2 0.02 60 / 0.6); font-family: var(--font-sans, Jost, system-ui, sans-serif); } .ds-board::before { content: \"\"; position: absolute; left: 8%; right: 8%; bottom: -18px; height: 10px; background: var(--rail-deep, oklch(0.29 0.045 52)); border-radius: 0 0 4px 4px; box-shadow: 0 6px 10px -4px oklch(0 0 0 / 0.5); } .ds-board-head, .ds-board-water, .ds-board-reading { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; } .ds-board-title { margin: 0; font-family: var(--font-display, \"Alfa Slab One\", Rockwell, serif); font-weight: 400; font-size: 1.25rem; text-transform: uppercase; letter-spacing: 0.14em; text-shadow: 0 0 1px var(--chalk, oklch(0.955 0.02 85)); filter: url(#ds-chalk-rough); } .ds-live { font-family: var(--font-mono, \"Courier Prime\", \"Courier New\", monospace); font-variant-numeric: tabular-nums; color: var(--live, oklch(0.985 0.015 90)); font-size: 0.875rem; } .ds-live small { font-size: 0.74rem; opacity: 0.75; margin-left: 0.25rem; } .ds-live-sm { display: block; font-size: 0.74rem; opacity: 0.8; } .ds-board-rule { border: 0; height: 2px; margin: 0.75rem 0; background: repeating-linear-gradient(to right, var(--chalk-dim, oklch(0.955 0.02 85 / 0.8)) 0 6px, transparent 6px 9px); opacity: 0.8; } .ds-board-row { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 0 0.75rem; } .ds-board-region { font-weight: 600; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--chalk-dim, oklch(0.955 0.02 85 / 0.8)); line-height: 1.25; } .ds-board-region-plain { text-transform: none; letter-spacing: normal; } .ds-board-marks { display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem; } .ds-board-link { color: var(--chalk, oklch(0.955 0.02 85)); text-decoration: none; font-size: 0.9rem; } .ds-board-link:hover { color: var(--live, oklch(0.985 0.015 90)); } .ds-board-link:focus-visible { outline: 3px solid var(--trout-fin, oklch(0.6 0.15 45)); outline-offset: 2px; } .ds-board-reading { margin-top: 0.5rem; } .ds-chalk { position: relative; display: inline-block; font-weight: 500; font-size: 0.95rem; line-height: 1.2; padding: 0.1rem 0.15rem; color: var(--chalk, oklch(0.955 0.02 85)); } .ds-chalk-approaching { color: var(--chalk-dim, oklch(0.955 0.02 85 / 0.8)); } .ds-chalk-approaching::after { content: \"\"; position: absolute; inset: -3px -4px; border: 1.6px dashed var(--chalk-dim, oklch(0.955 0.02 85 / 0.8)); border-radius: 3px; filter: url(#ds-chalk-rough); pointer-events: none; } .ds-chalk-hatching::after { content: \"\"; position: absolute; left: -1px; right: -2px; bottom: -1px; height: 3px; background: var(--chalk, oklch(0.955 0.02 85)); border-radius: 2px; filter: url(#ds-chalk-rough); opacity: 0.95; pointer-events: none; } .ds-chalk-peak { color: var(--ink, oklch(0.22 0.012 70)); padding-inline: 0.45rem; font-weight: 600; isolation: isolate; } .ds-chalk-peak::before { content: \"\"; position: absolute; inset: -1px -2px; background: var(--trout-band, oklch(0.63 0.13 5)); border-radius: 3px; filter: url(#ds-chalk-rough); z-index: -1; } .ds-chalk-finished { color: var(--chalk-dim, oklch(0.955 0.02 85 / 0.8)); opacity: 0.85; } .ds-chalk-finished::after { content: \"\"; position: absolute; left: -2px; right: -2px; top: 52%; height: 2.5px; background: var(--chalk-dim, oklch(0.955 0.02 85 / 0.8)); transform: rotate(-2deg); filter: url(#ds-chalk-rough); pointer-events: none; }"
+    },
+    {
+      "name": "River Badge",
+      "kind": "custom",
+      "refersTo": "badge-river",
+      "description": "An embroidered patch, one silhouette and fill per region; here the U.P. shield in Steel and the Northern LP rounded rectangle in Olive Back.",
+      "html": "<span class=\"ds-badges\"><a class=\"ds-badge-link\" href=\"#\" aria-label=\"Two Hearted River river page\"><span class=\"ds-badge ds-badge-up\"><svg viewBox=\"0 0 160 80\" class=\"ds-badge-shape\" aria-hidden=\"true\"><path d=\"M8 4 H152 V54 L80 78 L8 54 Z\" class=\"ds-badge-fill\"/><path d=\"M8 4 H152 V54 L80 78 L8 54 Z\" class=\"ds-badge-stitch\" pathLength=\"100\"/></svg><span class=\"ds-badge-text\"><span class=\"ds-badge-name\">Two Hearted River</span><span class=\"ds-badge-sub\">U.P.</span></span></span></a><a class=\"ds-badge-link\" href=\"#\" aria-label=\"Au Sable River river page\"><span class=\"ds-badge ds-badge-nlp\"><svg viewBox=\"0 0 160 80\" class=\"ds-badge-shape\" aria-hidden=\"true\"><path d=\"M20 4 H140 A16 16 0 0 1 156 20 V60 A16 16 0 0 1 140 76 H20 A16 16 0 0 1 4 60 V20 A16 16 0 0 1 20 4 Z\" class=\"ds-badge-fill\"/><path d=\"M20 4 H140 A16 16 0 0 1 156 20 V60 A16 16 0 0 1 140 76 H20 A16 16 0 0 1 4 60 V20 A16 16 0 0 1 20 4 Z\" class=\"ds-badge-stitch\" pathLength=\"100\"/></svg><span class=\"ds-badge-text\"><span class=\"ds-badge-name\">Au Sable River</span><span class=\"ds-badge-sub\">Northern LP</span></span></span></a></span>",
+      "css": ".ds-badges { display: inline-grid; grid-template-columns: repeat(2, 9.5rem); gap: 0.75rem; } .ds-badge-link { display: block; width: 100%; text-decoration: none; border-radius: 0.5rem; } .ds-badge { position: relative; display: inline-grid; place-items: center; width: 100%; aspect-ratio: 2 / 1; --badge: var(--trout-back, oklch(0.42 0.075 128)); --badge-text: var(--trout-belly, oklch(0.965 0.018 85)); transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), filter 180ms; } .ds-badge-up { --badge: var(--trout-steel, oklch(0.55 0.05 190)); } .ds-badge-nlp { --badge: var(--trout-back, oklch(0.42 0.075 128)); } .ds-badge-link:hover .ds-badge, .ds-badge-link:focus-visible .ds-badge { transform: translateY(-3px) rotate(-1deg); filter: drop-shadow(0 10px 10px oklch(0.2 0.02 60 / 0.35)); } .ds-badge-link:focus-visible { outline: 3px solid var(--trout-fin, oklch(0.6 0.15 45)); outline-offset: 2px; } .ds-badge-shape { position: absolute; inset: 0; width: 100%; height: 100%; filter: drop-shadow(0 3px 0 oklch(0.2 0.02 60 / 0.35)) drop-shadow(0 8px 12px oklch(0.2 0.02 60 / 0.25)); } .ds-badge-fill { fill: var(--badge); stroke: var(--ink, oklch(0.22 0.012 70)); stroke-width: 3; stroke-linejoin: round; } .ds-badge-stitch { fill: none; stroke: var(--badge-text); stroke-width: 1.6; stroke-dasharray: 1.2 1.2; opacity: 0.85; transform: scale(0.93); transform-origin: center; } .ds-badge-text { position: relative; z-index: 1; display: grid; gap: 0.1rem; text-align: center; padding: 0.4rem 1.1rem; color: var(--badge-text); max-width: 100%; font-family: var(--font-sans, Jost, system-ui, sans-serif); } .ds-badge-name { font-weight: 600; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.1; text-wrap: balance; } .ds-badge-sub { font-weight: 500; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.85; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Shop Wall",
+    "overview": "The site is the back wall of a Michigan fly shop, and the wall works as an instrument rather than a backdrop. Every surface is a material that would hang there: cream painted shiplap for the page, a dark green chalkboard for anything live, an enamel trout sign over the counter, embroidered patches for the rivers, dirt-brown wood rails for the header and footer, and a pencil-ruled counter pad for the order form. The palette is the rainbow trout laid on those materials: olive back, rose lateral band, cream belly, copper fin, gill red, ink black for spots and type.\n\nThe world is dense and layered, not airy. Four depth planes stack in a fixed order (wallpaper, shiplap, board and badges, counter card), the rear two drift on scroll and the front card holds still. Nothing is left unpainted on any viewport; the wall runs edge to edge under everything, including the rails. Depth is physical: hard 2 to 4px ink borders, real drop shadows under things that hang, inset shadows on things that recess. Type is sign lettering: woodtype slab for what is painted on the sign and the section titles, a brush script standing in for a commissioned wordmark, a geometric sans for every badge, label, chip, and paragraph, and a typewriter mono that appears only where a number is live.\n\nConfirmed rejections from the build: no photographic river hero; no white page with badges scattered as decoration; no chalkboard styled as a menu; no kicker or eyebrow above any heading (section headings carry their own weight; the small woodtype-caps region labels on the shelf are headings in their own right, not eyebrows over a larger title).",
+    "keyCharacteristics": [
+      "Trout palette on shop materials; the page background is painted shiplap, never flat white.",
+      "Four named depth planes with scroll parallax on the rear planes only.",
+      "One reserved live color (chalk-white mono) that appears only on the chalkboard.",
+      "A strict four-state chalk vocabulary for hatch timing, used only on the board.",
+      "River badges keep one silhouette and one fill per region under a shared stitched edge.",
+      "Inner pages inherit these tokens through shadcn primitives and have not been individually restyled yet."
+    ],
+    "rules": [
+      { "name": "The Reserved Live Color Rule", "section": "colors", "body": "`live` (near-white chalk mono) appears only on the chalkboard and only on numbers and dates that came from a live source today: the date line, water temperatures, gauge reading times, region offsets. It is never used as a text color anywhere else, and the board never sets a static word in it. Board link hover may brighten to it because the board is the one place it exists." },
+      { "name": "The One Accent Rule", "section": "colors", "body": "Rose Band is the only warm accent on a screen. It marks peak on the board, the current page on the rail, selection, and the pad's margin rule. It is not used for decoration, backgrounds, or a second call to action." },
+      { "name": "The Ink Border Rule", "section": "colors", "body": "Anything that hangs on the wall or sits on the counter is outlined in Ink (2px cards and buttons, 3 to 4px on the sign, 3 SVG units on badges). Ghost or tonal borders belong only to shadcn inner-page primitives." },
+      { "name": "The Woodtype Regular Rule", "section": "typography", "body": "Alfa Slab One ships in one weight and is never synthesized bold. Hierarchy in the slab comes from size, case, and tracking, not weight." },
+      { "name": "The Mono Means Live Rule", "section": "typography", "body": "Courier Prime is reserved for numbers and dates that were measured or entered, not for labels, code, or decoration. If it is set in mono, a reader may trust it is a real reading." },
+      { "name": "The Hung Object Rule", "section": "elevation", "body": "A shadow means the object is physically on the wall: it is offset downward, blurred, warm grey, and paired with a hard Ink border. Hard offset shadows without blur are not used; the sign's offset text-shadow is lettering, not elevation." },
+      { "name": "The Front Plane Holds Still Rule", "section": "elevation", "body": "Only the wallpaper and the near plane move on scroll; the counter card and the rails never do." },
+      { "name": "The Badge Shape Per Region Rule", "section": "shapes", "body": "A river badge's outline and fill are decided by its region and nothing else: U.P. shield in Steel, Tip of the Mitt arch in Mitt Moss, Northern LP rounded rectangle in Olive Back, Mid-state hexagon in Copper Fin, Southern LP oval in Gill Red. All five share the same 2:1 ratio, Ink stroke, cream stitch, and cream label, so the shelf reads as one set. An active badge thickens its stroke to 5 and turns it Rose Band; it does not change shape or fill." },
+      { "name": "The State Vocabulary Rule", "section": "components", "body": "Hatch timing on the board is spoken in exactly four chalk states, each one treatment, all in Jost 500 at 0.95rem on the roughened filter: approaching is Chalk Dim inside a hand-dashed 1.6px box; hatching is Chalk with a 3px chalk underline; peak is Ink on a rough Rose Band fill at 600 weight with 0.45rem side padding; finished is Chalk Dim at 85% struck through by one 2.5px stroke rotated -2deg. No other color, icon, or weight signals state, and the vocabulary is used only on the board." }
+    ],
+    "dos": [
+      "Do paint every viewport with the wall (`.wall` with its plank repeat and grain); a new page that shows flat `--background` alone has left the world.",
+      "Do outline hung and counter objects in Ink (2px cards and buttons, 4px sign) and give them a downward warm-grey shadow keyed to `oklch(0.2 0.02 60)`.",
+      "Do set section titles in Alfa Slab One at regular weight, sentence case for headlines, uppercase with 0.14em or more tracking for small woodtype labels.",
+      "Do reserve Courier Prime and the `live` color for measured numbers and dates on the board, and keep the four chalk states as the only hatch-timing language.",
+      "Do give each region's river badge its own silhouette and fill from the fixed table, all on the shared stitched-edge patch.",
+      "Do put focus in Copper Fin (3px outline, 2px offset) and the current nav item in a Rose Band tab.",
+      "Do keep parallax on the rear planes only and respect `prefers-reduced-motion`; content must be complete with motion off."
+    ],
+    "donts": [
+      "Don't use a photograph as a page hero or a full-bleed background; imagery is reference photos inside cards, insect thumbnails, and the SVG woodcut.",
+      "Don't put a kicker or eyebrow line above a heading. The shelf's region labels are level-three headings with their own offset tag; do not add a smaller line over a title anywhere else.",
+      "Don't use `live` chalk white, Courier Prime, or any chalk state off the board.",
+      "Don't introduce a second accent; Rose Band is the only warm highlight, and Copper Fin belongs to focus, hover, and the mid-state badge.",
+      "Don't synthesize bold on Alfa Slab One, or set body copy in it.",
+      "Don't flatten badges into rectangles or recolor them by river; shape and fill are decided by region.",
+      "Don't treat the Night variant as a theme option; it is a token mapping held in reserve, not a shipped scene."
+    ],
+    "notCanonized": [
+      "The S/A/I EvidenceBadge colors S and A with Tailwind emerald and amber rather than trout tokens (pre-existing, shared with inner pages).",
+      "The .stamp class is defined in globals.css but not used on the home page.",
+      "The wordmark is a Google Fonts script standing in for a commissioned mark."
+    ],
+    "futureHeadroom": [
+      "A chalk hand for the board title.",
+      "Thread fill on badges.",
+      "Wood grain on shiplap and rails.",
+      "Enamel wear or sheen on the sign."
+    ]
+  }
+}
