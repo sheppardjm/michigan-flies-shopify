@@ -73,6 +73,14 @@ export default function AboutDataPage() {
         unless the strain says otherwise. Average lengths are converted from the DNR&apos;s centimeters.
       </p>
 
+      <h2>Insect photos</h2>
+      <p>
+        Insect photographs come from <a href="https://www.inaturalist.org">iNaturalist</a> observers who released them under CC0, CC BY, or CC BY-SA
+        licenses. We prefer research-grade Michigan observations and widen the search only when Michigan has none. Each photo carries the
+        observer&apos;s name, the license, and a link to the observation. If you see one of your photos here and want it removed or credited
+        differently, contact us and we will fix it. Fly photographs are our own, taken at the bench.
+      </p>
+
       <h2>Regulations</h2>
       <p>
         Gear rules are transcribed from the 2026 Michigan Fishing Regulations digest. Two reaches have conflicting sources and are flagged. Always

@@ -10,7 +10,8 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "validate-data": "tsx scripts/validate-data.ts",
-    "fetch-stocking": "tsx scripts/fetch-stocking.ts"
+    "fetch-stocking": "tsx scripts/fetch-stocking.ts",
+    "fetch-photos": "tsx scripts/fetch-inat-photos.ts"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",

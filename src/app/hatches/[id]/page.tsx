@@ -8,7 +8,9 @@ import { EvidenceBadge } from "@/components/evidence-badge";
 import { FlyCard } from "@/components/fly-card";
 import { MonthGrid } from "@/components/month-grid";
 import { SourceList } from "@/components/source-list";
+import { InsectGallery } from "@/components/insect-photo";
 import { REGION_LABELS, flies, hatchById, hatches, regionOffsets, rivers } from "@/data";
+import { getHatchPhotos } from "@/lib/photos";
 import { formatPeak, formatWindow, windowMonths } from "@/lib/season";
 
 export function generateStaticParams() {
@@ -29,6 +31,7 @@ export default async function HatchPage({ params }: PageProps<"/hatches/[id]">) 
   const matching = flies.filter((f) => f.hatchIds.includes(hatch.id)).sort((a, b) => b.priority - a.priority);
   const signatureRivers = rivers.filter((r) => r.signatureHatches.includes(hatch.id));
   const overrides = rivers.filter((r) => r.hatchOverrides.some((o) => o.hatchId === hatch.id));
+  const photos = getHatchPhotos(hatch.id);
 
   return (
     <div className="mx-auto w-full max-w-6xl space-y-8 px-4 py-8 sm:py-12">
@@ -70,6 +73,12 @@ export default async function HatchPage({ params }: PageProps<"/hatches/[id]">) 
 
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_340px]">
         <div className="space-y-8">
+          {photos.length ? (
+            <section className="space-y-2">
+              <InsectGallery photos={photos} alt={`${hatch.commonName} (${photos[0].taxonName || hatch.scientificName})`} />
+            </section>
+          ) : null}
+
           <section className="space-y-3">
             <h2 className="text-xl font-semibold tracking-tight">Timing by region</h2>
             <div className="overflow-x-auto rounded-lg border border-border">

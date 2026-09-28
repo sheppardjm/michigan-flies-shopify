@@ -11,7 +11,9 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { ConditionsPanel } from "@/components/conditions-panel";
 import { EvidenceBadge } from "@/components/evidence-badge";
 import { FlyCard } from "@/components/fly-card";
+import { InsectThumb } from "@/components/insect-photo";
 import { StatusBadge } from "@/components/status-badge";
+import { getHatchHero } from "@/lib/photos";
 import { REGION_LABELS, SpeciesId, TECHNIQUE_LABELS, Technique, riverById, speciesById, type River } from "@/data";
 import { getRiverConditions } from "@/lib/conditions";
 import { recommendMulti } from "@/lib/recommend";
@@ -143,6 +145,9 @@ async function Results({
                   {result.hatches.map((h) => (
                     <li key={h.hatch.id} className="flex flex-wrap items-center justify-between gap-2 py-2 text-sm">
                       <div className="flex items-center gap-2">
+                        {getHatchHero(h.hatch.id) ? (
+                          <InsectThumb photo={getHatchHero(h.hatch.id)!} alt={h.hatch.commonName} className="size-9" sizes="36px" />
+                        ) : null}
                         <StatusBadge status={h.status} />
                         <Link href={`/hatches/${h.hatch.id}`} className="font-medium hover:underline">
                           {h.hatch.commonName}

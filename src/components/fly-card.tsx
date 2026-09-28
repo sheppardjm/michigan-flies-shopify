@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -27,7 +28,12 @@ export function FlyCard({
   tags?: string[];
 }) {
   return (
-    <Card className="flex h-full flex-col">
+    <Card className="flex h-full flex-col overflow-hidden">
+      {product?.featuredImage ? (
+        <Link href={`/shop/${product.handle}`} className="relative block aspect-[4/3] bg-muted">
+          <Image src={product.featuredImage.url} alt={product.featuredImage.altText ?? product.title} fill sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className="object-cover" />
+        </Link>
+      ) : null}
       <CardHeader className="gap-1">
         <div className="flex items-start justify-between gap-2">
           <CardTitle className="text-base leading-tight">

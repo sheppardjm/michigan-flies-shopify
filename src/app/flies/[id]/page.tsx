@@ -9,6 +9,8 @@ import { MonthGrid } from "@/components/month-grid";
 import { SourceList } from "@/components/source-list";
 import { AddToCartButton } from "@/components/add-to-cart-button";
 import { hookSizeLabel } from "@/components/fly-card";
+import { InsectThumb, PhotoCredit } from "@/components/insect-photo";
+import { getHatchHero } from "@/lib/photos";
 import { CATEGORY_LABELS, TECHNIQUE_LABELS, eggSourceById, flies, flyById, forageById, hatchById, speciesById } from "@/data";
 import { getProductByHandle } from "@/lib/shopify/products";
 import { formatMoney } from "@/lib/shopify/types";
@@ -91,16 +93,27 @@ export default async function FlyPage({ params }: PageProps<"/flies/[id]">) {
               <CardContent className="space-y-3 text-sm">
                 {linkedHatches.length ? (
                   <div>
-                    <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Hatches</p>
-                    <ul className="mt-1 space-y-0.5">
-                      {linkedHatches.map((h) => (
-                        <li key={h!.id}>
-                          <Link href={`/hatches/${h!.id}`} className="underline-offset-4 hover:underline">
-                            {h!.commonName}
-                          </Link>
-                          {fly.stages.length ? <span className="ml-1 text-xs text-muted-foreground">({fly.stages.join(", ")})</span> : null}
-                        </li>
-                      ))}
+                    <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">The naturals</p>
+                    <ul className="mt-2 space-y-2">
+                      {linkedHatches.map((h) => {
+                        const hero = getHatchHero(h!.id);
+                        return (
+                          <li key={h!.id} className="flex items-center gap-3">
+                            {hero ? (
+                              <Link href={`/hatches/${h!.id}`} className="shrink-0">
+                                <InsectThumb photo={hero} alt={h!.commonName} className="size-14" sizes="56px" />
+                              </Link>
+                            ) : null}
+                            <div className="min-w-0">
+                              <Link href={`/hatches/${h!.id}`} className="font-medium underline-offset-4 hover:underline">
+                                {h!.commonName}
+                              </Link>
+                              {fly.stages.length ? <span className="ml-1 text-xs text-muted-foreground">({fly.stages.join(", ")})</span> : null}
+                              {hero ? <PhotoCredit photo={hero} className="line-clamp-1" /> : null}
+                            </div>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
                 ) : null}

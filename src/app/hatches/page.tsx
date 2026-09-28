@@ -4,7 +4,9 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { EvidenceBadge } from "@/components/evidence-badge";
 import { MonthGrid } from "@/components/month-grid";
+import { InsectThumb } from "@/components/insect-photo";
 import { InsectOrder, hatches } from "@/data";
+import { getHatchHero } from "@/lib/photos";
 import { formatWindow, windowMonths } from "@/lib/season";
 
 export const metadata: Metadata = {
@@ -37,15 +39,22 @@ export default function HatchesPage() {
           <section key={order} className="space-y-3">
             <h2 className="text-xl font-semibold tracking-tight">{ORDER_LABELS[order]}</h2>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {list.map((h) => (
+              {list.map((h) => {
+                const hero = getHatchHero(h.id);
+                return (
                 <Link key={h.id} href={`/hatches/${h.id}`} className="group">
                   <Card className="h-full transition-colors group-hover:bg-muted/40">
                     <CardHeader>
-                      <div className="flex items-start justify-between gap-2">
-                        <CardTitle className="text-base">{h.commonName}</CardTitle>
-                        <EvidenceBadge evidence={h.evidence} />
+                      <div className="flex items-start gap-3">
+                        {hero ? <InsectThumb photo={hero} alt={h.commonName} className="size-16 shrink-0" sizes="64px" /> : <div className="size-16 shrink-0 rounded-lg bg-muted" aria-hidden />}
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-start justify-between gap-2">
+                            <CardTitle className="text-base">{h.commonName}</CardTitle>
+                            <EvidenceBadge evidence={h.evidence} />
+                          </div>
+                          <CardDescription className="line-clamp-2 italic">{h.scientificName}</CardDescription>
+                        </div>
                       </div>
-                      <CardDescription className="italic">{h.scientificName}</CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-2">
                       <MonthGrid active={windowMonths(h.window)} compact />
@@ -60,7 +69,8 @@ export default function HatchesPage() {
                     </CardContent>
                   </Card>
                 </Link>
-              ))}
+                );
+              })}
             </div>
           </section>
         );
