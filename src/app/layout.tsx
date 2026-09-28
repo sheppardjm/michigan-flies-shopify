@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     url: "/",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Michigan Flies: Hand-tied flies for the Great Lakes State salmon and steelhead rivers",
   },
 };
