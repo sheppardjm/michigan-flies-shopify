@@ -30,12 +30,15 @@ export function CounterCard({
   techniques,
   regionLabels,
   today,
+  children,
 }: {
   rivers: CounterRiver[];
   species: CounterOption<SpeciesId>[];
   techniques: CounterOption<Technique>[];
   regionLabels: Record<Region, string>;
   today: string;
+  /** Optional key rendered at the foot of the card, below the button. */
+  children?: React.ReactNode;
 }) {
   const router = useRouter();
   const [riverId, setRiverId] = useState("");
@@ -44,7 +47,7 @@ export function CounterCard({
   const [setup, setSetup] = useState<string>("");
 
   const byRegion = useMemo(() => {
-    const order: Region[] = ["northern-lp", "tip-of-mitt", "mid-lp", "southern-lp", "upper-peninsula"];
+    const order: Region[] = ["southeast-lp", "southwest-lp", "northeast-lp", "northwest-lp", "upper-peninsula"];
     return order.map((r) => [r, rivers.filter((x) => x.region === r)] as const).filter(([, list]) => list.length);
   }, [rivers]);
   const river = rivers.find((r) => r.id === riverId);
@@ -59,7 +62,7 @@ export function CounterCard({
   }
 
   return (
-    <form onSubmit={submit} className="counter-card p-5 pl-16 sm:p-7 sm:pl-20" aria-labelledby="counter-title">
+    <form onSubmit={submit} className="counter-card flex h-full flex-col justify-between p-5 pl-16 sm:p-7 sm:pl-20" aria-labelledby="counter-title">
       <h2 id="counter-title" className="woodtype text-2xl leading-none sm:text-3xl">
         What should be on the end of my line?
       </h2>
@@ -143,6 +146,7 @@ export function CounterCard({
           <ArrowRight className="size-4" aria-hidden />
         </button>
       </div>
+      {children ? <div className="pt-7">{children}</div> : null}
     </form>
   );
 }

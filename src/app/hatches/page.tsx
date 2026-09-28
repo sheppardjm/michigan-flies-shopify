@@ -28,7 +28,7 @@ export default function HatchesPage() {
       <div className="space-y-2">
         <h1 className="text-3xl font-semibold tracking-tight">Hatches</h1>
         <p className="max-w-2xl text-muted-foreground">
-          {hatches.length} insects that matter on Michigan rivers. Windows shown are the northern Lower Peninsula baseline; the calendar and river
+          {hatches.length} insects that matter on Michigan rivers. Windows shown are the Au Sable baseline; the calendar and river
           pages shift them for your water.
         </p>
       </div>

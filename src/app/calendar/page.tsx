@@ -13,13 +13,13 @@ export const metadata: Metadata = {
   description: "Month-by-month hatch and egg calendar for Michigan rivers, shifted by region or for a specific river.",
 };
 
-const ORDER: Region[] = ["southern-lp", "mid-lp", "northern-lp", "tip-of-mitt", "upper-peninsula"];
+const ORDER: Region[] = ["southeast-lp", "southwest-lp", "northeast-lp", "northwest-lp", "upper-peninsula"];
 
 export default async function CalendarPage({ searchParams }: PageProps<"/calendar">) {
   const sp = await searchParams;
   const riverParam = typeof sp.river === "string" ? riverById.get(sp.river) : undefined;
   const regionParam = Region.safeParse(sp.region);
-  const region: Region = riverParam?.region ?? (regionParam.success ? regionParam.data : "northern-lp");
+  const region: Region = riverParam?.region ?? (regionParam.success ? regionParam.data : "northeast-lp");
   const offset = riverParam?.offsetDays ?? regionOffsetByRegion.get(region)?.offsetDays ?? 0;
   const overrides = new Map(riverParam?.hatchOverrides.map((o) => [o.hatchId, o.window]) ?? []);
   const absent = new Set(riverParam?.absentHatches ?? []);
@@ -41,7 +41,7 @@ export default async function CalendarPage({ searchParams }: PageProps<"/calenda
       <div className="space-y-3">
         <h1 className="text-3xl font-semibold tracking-tight">Hatch calendar</h1>
         <p className="max-w-2xl text-muted-foreground">
-          Baseline windows come from northern Lower Peninsula charts. Pick a region to shift them, or a river to apply its own offset and any
+          Baseline windows come from Au Sable and Manistee charts. Pick a DNR fishing-report region to shift them, or a river to apply its own offset and any
           local chart overrides. Live water temperature and degree-day adjustments appear on river pages and in the fly finder.
         </p>
         <div className="flex flex-wrap gap-2">

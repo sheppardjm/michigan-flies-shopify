@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { TroutLogo } from "@/components/wall/trout-logo";
+import { PineStand } from "@/components/wall/wilderness";
 
 /** The bottom rail: the small trout, and where the numbers come from. */
 export function SiteFooter() {
   return (
     <footer className="rail rail-bottom mt-auto">
+      <PineStand className="mx-auto max-w-6xl px-4 text-trout-belly/50" />
       <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-8 px-4 py-10 text-sm md:grid-cols-[220px_minmax(0,1fr)_minmax(0,1fr)]">
         <div className="min-w-0 space-y-3">
           <TroutLogo className="max-w-[140px]" />
@@ -14,7 +16,7 @@ export function SiteFooter() {
         <div className="min-w-0 space-y-2 opacity-90">
           <p className="woodtype-caps text-[0.76rem]">How the timing works</p>
           <p className="leading-relaxed md:max-w-prose">
-            Hatch windows start from northern Lower Peninsula charts and shift by river region, then adjust to live USGS water temperature and growing
+            Hatch windows start from Au Sable and Manistee charts and shift by river, then adjust to live USGS water temperature and growing
             degree days from gridMET. Every claim carries a tag: S for scientific, A for angler consensus, I for our inference.{" "}
             <Link href="/about-the-data" className="underline">
               Read about the data

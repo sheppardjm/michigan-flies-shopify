@@ -821,7 +821,7 @@ const raw: z.input<typeof FlyList> = [
     techniques: ["dry-fly"],
     waterClarity: "clear",
     timeOfDay: ["evening"],
-    regions: ["mid-lp", "southern-lp"],
+    regions: ["southeast-lp", "southwest-lp", "northwest-lp"],
     priority: 1,
     evidence: "A",
     description:
@@ -1799,7 +1799,7 @@ const raw: z.input<typeof FlyList> = [
     species: ["atlantic-salmon", "steelhead", "brown-trout"],
     techniques: ["streamer", "swing-spey"],
     months: [6, 7, 10, 11, 12, 1, 2, 3, 4],
-    regions: ["upper-peninsula", "northern-lp"],
+    regions: ["northeast-lp", "northwest-lp", "upper-peninsula"],
     priority: 2,
     evidence: "A",
     description:

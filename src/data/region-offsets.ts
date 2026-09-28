@@ -2,8 +2,12 @@ import { z } from "zod";
 import { RegionOffsetList, type RegionOffset } from "./schema";
 
 /**
- * Regional hatch-timing offsets in days relative to the northern Lower
- * Peninsula (Au Sable / Manistee) baseline used by every `Hatch.window`.
+ * Default hatch-timing offsets by Michigan DNR weekly fishing-report region
+ * (Southeast, Southwest, Northeast, Northwest Lower Peninsula; Upper
+ * Peninsula), in days relative to the Au Sable / Manistee baseline used by
+ * every `Hatch.window`. Each river carries its own `offsetDays`, which takes
+ * precedence; the region default drives the region views of the calendar and
+ * the home board.
  *
  * Two independently printed chart rules agree: Trails to Trout (northern-LP
  * baseline) says mid-state rivers "subtract 1-2 weeks", Tip-of-the-Mitt rivers
@@ -37,12 +41,12 @@ const HEX_HUB = {
 
 const raw: z.input<typeof RegionOffsetList> = [
   {
-    region: "southern-lp",
-    label: "Southern Lower Peninsula",
+    region: "southeast-lp",
+    label: "Southeast Lower Peninsula",
     offsetDays: -14,
     offsetRangeDays: [-21, -7],
     notes:
-      "Southern spring creeks and warm-water rivers such as the Rogue, Dowagiac, Huron, Grand and St. Joseph basins. No printed chart rule covers these rivers directly; the Trails to Trout rule for mid-state rivers (subtract 1-2 weeks) is the nearest published guidance, and Superior Flies places mid-state rivers 3 weeks ahead of the U.P., i.e. one week ahead of the northern baseline. The -14 day default and the -21 day floor extend that rule southward by latitude and are an inference made for this dataset, not a printed figure. These rivers warm earliest, so the late-season White Fly and Stenonema hatches are proportionally more important here and the Huron fishes from the last Saturday in April into late October.",
+      "The DNR's Southeast region: Huron and Clinton, the Lake Erie, Lake St. Clair and Saginaw Bay tributaries. No printed chart rule covers these rivers directly; the Trails to Trout rule for mid-state rivers (subtract 1-2 weeks) is the nearest published guidance, and Superior Flies places mid-state rivers 3 weeks ahead of the U.P., i.e. one week ahead of the northern baseline. The -14 day default and the -21 day floor extend that rule southward by latitude and are an inference made for this dataset, not a printed figure. These are the warmest, earliest rivers in the state, so the late-season White Fly and Stenonema hatches are proportionally more important and the Huron fishes from the last Saturday in April into late October.",
     sources: [
       TRAILS_TO_TROUT,
       SUPERIOR_FLIES,
@@ -50,19 +54,15 @@ const raw: z.input<typeof RegionOffsetList> = [
         title: "DIY Fly Fishing, Huron River Michigan",
         url: "https://diyflyfishing.com/huron-river-michigan/",
       },
-      {
-        title: "DIY Fly Fishing, Dowagiac River Michigan",
-        url: "https://diyflyfishing.com/dowagiac-river-michigan/",
-      },
     ],
   },
   {
-    region: "mid-lp",
-    label: "Mid-state Lower Peninsula",
+    region: "southwest-lp",
+    label: "Southwest Lower Peninsula",
     offsetDays: -10,
     offsetRangeDays: [-14, -7],
     notes:
-      "Trails to Trout instructs users of its northern-river dates to subtract 1-2 weeks for mid-state rivers (Muskegon, Pere Marquette); Superior Flies puts mid-state rivers 3 weeks ahead of the U.P. and northern rivers 2 weeks ahead, which implies the same one-to-two-week lead. Worked example: 2026 Hex peaks were Muskegon June 8-20 and Pere Marquette June 10-25 against Au Sable June 20-28. The Muskegon tailwater below Croton Dam runs warmer than the northern rivers and is among the first to hatch, with midges and BWOs active all winter, so it sits at the early end of the range; the spring-fed upper Pere Marquette and White are closer to the middle. Aggregator tables that list Pere Marquette Hendricksons later than the Au Sable contradict this rule and are treated as artifacts.",
+      "The DNR's Southwest region: Muskegon, White, Rogue, Grand, Kalamazoo, St. Joseph and Dowagiac (the report groups Muskegon, Grand Haven, South Haven and St. Joseph here; Ludington and north are Northwest). Trails to Trout instructs users of its northern-river dates to subtract 1-2 weeks for mid-state rivers; Superior Flies puts mid-state rivers 3 weeks ahead of the U.P. and northern rivers 2 weeks ahead, which implies the same one-to-two-week lead. Worked example: the 2026 Muskegon Hex peak was June 8-20 against Au Sable June 20-28. The Muskegon tailwater below Croton Dam runs warmer than the northern rivers and is among the first to hatch, with midges and BWOs active all winter; the southern spring creeks (Rogue, Dowagiac) and the warm-water St. Joseph and Kalamazoo sit at the early end of the range.",
     sources: [
       TRAILS_TO_TROUT,
       SUPERIOR_FLIES,
@@ -73,18 +73,42 @@ const raw: z.input<typeof RegionOffsetList> = [
         url: "http://graydrakelodgeandoutfitters.blogspot.com/2013/05/new-muskegon-river-hatch-cycle-chart.html",
         year: 2013,
       },
+      {
+        title: "DIY Fly Fishing, Dowagiac River Michigan",
+        url: "https://diyflyfishing.com/dowagiac-river-michigan/",
+      },
     ],
   },
   {
-    region: "northern-lp",
-    label: "Northern Lower Peninsula (baseline)",
+    region: "northeast-lp",
+    label: "Northeast Lower Peninsula (baseline)",
     offsetDays: 0,
-    offsetRangeDays: [0, 0],
+    offsetRangeDays: [0, 14],
     notes:
-      "The reference region. Trails to Trout calibrates its chart to the northern rivers (Au Sable, Manistee) and prints 'Use Emergence Dates' for them; every Hatch.window in this dataset is that baseline. The Boardman, Pine, Little Manistee, Platte and Rifle are treated as baseline rivers because no chart names them and they fit the Au Sable/Manistee latitude. Within the region, thermal class still matters: the Big Manistee below Tippy Dam is a tailwater with extended BWO and midge shoulders and a Hex peak about five days behind the Au Sable (June 25-July 5 versus June 20-28), while the South Branch Au Sable, Pine and Platte are strongly groundwater-buffered and run cold all summer.",
+      "The DNR's Northeast region, from Tawas and Oscoda to Alpena and Cheboygan: the Au Sable system, the Rifle, and the Cheboygan-area Pigeon, Sturgeon and Black. The Au Sable is the reference river; Trails to Trout calibrates its chart to it and prints 'Use Emergence Dates', and every Hatch.window in this dataset is that baseline. The Rifle fits the same latitude and is treated as baseline. The Tip of the Mitt rivers run behind: Trails to Trout says add 1-2 weeks for the Sturgeon, Pigeon and Black, Superior Flies places them one week behind the northern rivers, and FlyFishFinder about 1-2 weeks later; the Pigeon carries small mayflies, caddis and August Tricos but lacks the big drake and Hex hatches, and the Sturgeon has stoneflies year-round. Those rivers carry their lag in their own offsetDays.",
     sources: [
       TRAILS_TO_TROUT,
+      SUPERIOR_FLIES,
+      FLYFISHFINDER_MI,
       HEX_HUB,
+      {
+        title: "DIY Fly Fishing, Pigeon River Michigan",
+        url: "https://diyflyfishing.com/pigeon-river-michigan/",
+      },
+    ],
+  },
+  {
+    region: "northwest-lp",
+    label: "Northwest Lower Peninsula",
+    offsetDays: 0,
+    offsetRangeDays: [-7, 14],
+    notes:
+      "The DNR's Northwest region, from Ludington north through Manistee, Frankfort and Traverse City to Charlevoix and Petoskey: the Manistee system, Little Manistee, Pine, Boardman, Platte, Betsie, Pere Marquette, Big Sable and Jordan. The Manistee shares the Au Sable baseline in every chart, and the Boardman, Pine, Little Manistee, Platte and Betsie are treated as baseline rivers because no chart names them and they fit that latitude. The region spans a real spread: the Pere Marquette and the Ludington rivers run about a week ahead (2026 Hex peak June 10-25 against Au Sable June 20-28), the Big Manistee tailwater below Tippy about five days behind (June 25-July 5), and the spring-fed Jordan, rarely above 60 F, runs Hex in July, two to three weeks behind. Each river carries its own offsetDays; the region default is the baseline.",
+    sources: [
+      TRAILS_TO_TROUT,
+      SUPERIOR_FLIES,
+      HEX_HUB,
+      FLYFISHFINDER_MI,
       {
         title: "Current Works, Fly Fishing the Lower Manistee River",
         url: "https://www.current-works.com/northern-michigan-rivers-hatches/fly-fishing-lower-manistee-river/",
@@ -93,27 +117,9 @@ const raw: z.input<typeof RegionOffsetList> = [
         title: "Hawkins Outfitters, Pine River",
         url: "https://hawkinsoutfitters.com/pine-river/",
       },
-    ],
-  },
-  {
-    region: "tip-of-mitt",
-    label: "Tip of the Mitt",
-    offsetDays: 10,
-    offsetRangeDays: [7, 14],
-    notes:
-      "Trails to Trout instructs users to add 1-2 weeks for Tip-of-the-Mitt rivers (Sturgeon, Pigeon, Black); Superior Flies places the same rivers one week behind the northern rivers (subtract 1 week from the U.P. versus 2 for northern rivers). FlyFishFinder also puts them about 1-2 weeks later. The Jordan, fed by springs and rarely above 60 F, runs Hex in July, 2-3 weeks behind the Au Sable, at the late end of the range; the Pigeon has small mayflies, caddis and mid-to-late-August Tricos but lacks the big drake and Hex hatches, and the Sturgeon carries stoneflies year-round. The Maple (Emmet County) is grouped here by geography with no chart of its own.",
-    sources: [
-      TRAILS_TO_TROUT,
-      SUPERIOR_FLIES,
-      FLYFISHFINDER_MI,
-      HEX_HUB,
       {
         title: "DIY Fly Fishing, Jordan River Michigan",
         url: "https://diyflyfishing.com/jordan-river-michigan/",
-      },
-      {
-        title: "DIY Fly Fishing, Pigeon River Michigan",
-        url: "https://diyflyfishing.com/pigeon-river-michigan/",
       },
     ],
   },

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { REGION_LABELS, Region, hatches, regionOffsetByRegion } from "@/data";
+import { Region, hatches, regionOffsetByRegion } from "@/data";
 import { evaluateWindow, formatDate, type WindowStatus } from "@/lib/season";
 import { fetchLatestConditions } from "@/lib/usgs";
 
@@ -10,7 +10,15 @@ import { fetchLatestConditions } from "@/lib/usgs";
  * gauge reads are cached for 30 minutes.
  */
 
-const REGIONS: Region[] = ["southern-lp", "mid-lp", "northern-lp", "tip-of-mitt", "upper-peninsula"];
+const REGIONS: Region[] = ["southeast-lp", "southwest-lp", "northeast-lp", "northwest-lp", "upper-peninsula"];
+/** Chalk shorthand for the DNR fishing-report regions; the full names sit on the shelf below. */
+const BOARD_LABELS: Record<Region, string> = {
+  "southeast-lp": "SE Lower",
+  "southwest-lp": "SW Lower",
+  "northeast-lp": "NE Lower",
+  "northwest-lp": "NW Lower",
+  "upper-peninsula": "Upper Pen.",
+};
 
 /** A few gauged rivers a planner recognizes, north to south; labels sized to the board. */
 const BOARD_GAUGES: { siteId: string; label: string; riverId: string }[] = [
@@ -88,7 +96,7 @@ export async function HatchBoard({ today }: { today: Date }) {
         {rows.map(({ region, offset, items }, i) => (
           <li key={region} className="board-row grid grid-cols-[6.5rem_minmax(0,1fr)] gap-x-3" style={{ "--i": i } as React.CSSProperties}>
             <div className="pt-0.5">
-              <span className="board-region block leading-tight">{REGION_LABELS[region].replace(" Peninsula", " Pen.").replace("Lower Pen.", "LP")}</span>
+              <span className="board-region block leading-tight">{BOARD_LABELS[region]}</span>
               <span className="live block text-[0.74rem] opacity-80">{offset === 0 ? "baseline" : `${offset > 0 ? "+" : ""}${offset} d`}</span>
             </div>
             {items.length ? (

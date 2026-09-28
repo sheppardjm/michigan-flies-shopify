@@ -32,7 +32,7 @@ What a fly shop or big retailer cannot truthfully copy: per-river, per-date reco
 
 ## Operating Context
 
-- Rivers: 44 reaches across the Upper and Lower Peninsulas, grouped into regions with hatch-timing offsets from the northern Lower Peninsula baseline (mid-state about 10 days early, Upper Peninsula about three weeks late).
+- Rivers: 44 reaches across the Upper and Lower Peninsulas, grouped into the five Michigan DNR weekly fishing-report regions (Southeast, Southwest, Northeast, Northwest Lower Peninsula; Upper Peninsula), each river with its own hatch-timing offset from the Au Sable baseline (southwest rivers about 10 days early, Upper Peninsula about three weeks late).
 - Fish: brown trout, brook trout, resident rainbow, steelhead, Chinook, coho, pink salmon, Atlantic salmon, each with a feeding model (hatch matcher, piscivore, egg and nymph feeder, aggression striker, in-river feeder) that shapes recommendations.
 - Setups the quiz recognizes: dry fly, indicator nymphing, Euro nymphing, streamers, swinging (spey or switch), chuck and duck, mousing.
 - Live data: gridMET air temperatures accumulated into growing degree days at bases 32, 42, and 50 °F; National Weather Service seven-day forecast; USGS gauges (63 Michigan sites with water temperature; the Pere Marquette, Boardman, and Two Hearted have none and use proxies or the calendar); Michigan DNR Fish Stocking Database snapshotted a few times a year.
@@ -58,9 +58,9 @@ Undecided: real pricing (current prices are placeholders by category); which col
 
 ## Brand Commitments
 
-- Name: Michigan Flies. No logo or wordmark yet; the owner will commission one later. Do not invent one as a binding asset.
+- Name: Michigan Flies. The owner supplied a leaping rainbow trout logo on September 28, 2026 (`public/photos/illustration/trout-logo.svg`; `logo.svg` is the full lockup); it is the mark on the sign and footer. No final wordmark lettering yet; the script face is a placeholder. Do not invent a wordmark as a binding asset.
 - Voice: field guide. Precise, sourced, slightly formal, like a good hatch guide or DNR report. States uncertainty plainly and cites where a number came from. No hype, no exclamation, no invented enthusiasm.
-- Terminology follows Michigan usage: Hex, Hendrickson, Grannom, chuck and duck, Holy Waters, Trophy Water, Tip of the Mitt, the U.P.
+- Terminology follows Michigan usage: Hex, Hendrickson, Grannom, chuck and duck, Holy Waters, Trophy Water, Tip of the Mitt, the U.P.; river regions are the DNR weekly fishing-report regions (Southeast, Southwest, Northeast, Northwest Lower Peninsula, Upper Peninsula), not invented ones.
 
 ## Evidence on Hand
 
@@ -70,7 +70,7 @@ Undecided: real pricing (current prices are placeholders by category); which col
 - Insect photos: `src/data/hatch-photos.json` (201 iNaturalist photos). Fly photos: `src/data/fly-photos.json` and `public/photos/flies/` (87 patterns covered; 55-pattern Two Hearted batch has 47 with photos).
 - Owner's field observation: Chinook landed in the Two Hearted, late September 2026.
 - Shopify import files: `shopify/products-*.csv`.
-- Absent, do not fabricate: customer testimonials, sales history, press, guide endorsements, a logo, real prices, calibrated hatch thresholds, and the owner's own product photography.
+- Absent, do not fabricate: customer testimonials, sales history, press, guide endorsements, real prices, calibrated hatch thresholds, and the owner's own product photography.
 
 ## Product Principles
 

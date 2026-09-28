@@ -9,8 +9,9 @@ import { CounterCard, type CounterRiver } from "@/components/wall/counter-card";
 import { HatchBoard } from "@/components/wall/hatch-board";
 import { RiverBadge, REGION_SHORT } from "@/components/wall/river-badge";
 import { TroutSign } from "@/components/wall/trout-sign";
-import { Wallpaper } from "@/components/wall/wallpaper";
-import { REGION_LABELS, Region, TECHNIQUE_LABELS, Technique, flyById, hatchById, rivers, species, speciesById } from "@/data";
+import { MichiganMap } from "@/components/wall/michigan-map";
+import { RiverBend } from "@/components/wall/wilderness";
+import { CATEGORY_LABELS, REGION_LABELS, Region, TECHNIQUE_LABELS, Technique, eggSourceById, flyById, forageById, hatchById, rivers, species, speciesById } from "@/data";
 import { collectionById } from "@/data/collections";
 import { flyPhotoSrc, getFlyReferenceHero } from "@/lib/fly-photos";
 import { getHatchHero } from "@/lib/photos";
@@ -19,7 +20,7 @@ import { toIsoDate, toUtcDay } from "@/lib/season";
 
 export const revalidate = 1800;
 
-const SHELF_ORDER: Region[] = ["upper-peninsula", "tip-of-mitt", "northern-lp", "mid-lp", "southern-lp"];
+const SHELF_ORDER: Region[] = ["southeast-lp", "southwest-lp", "northeast-lp", "northwest-lp", "upper-peninsula"];
 
 export default function HomePage() {
   const today = toUtcDay(new Date());
@@ -31,16 +32,49 @@ export default function HomePage() {
 
   return (
     <div className="wall">
-      <Wallpaper className="plane-wallpaper" />
+      {/* Rear plane: the river bend, engraved, behind the first viewport */}
+      <div className="plane-plate" aria-hidden="true">
+        <RiverBend />
+      </div>
 
       {/* First viewport: sign, counter card, hatch board */}
       <section className="plane-content mx-auto w-full max-w-6xl px-4 pt-6 pb-16 sm:pt-8">
         <div className="plane-near">
           <TroutSign />
         </div>
-        <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-start">
+        <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-stretch">
           <div className="plane-front">
-            <CounterCard rivers={riverOptions} species={speciesOptions} techniques={techniqueOptions} regionLabels={REGION_LABELS} today={toIsoDate(today)} />
+            <CounterCard rivers={riverOptions} species={speciesOptions} techniques={techniqueOptions} regionLabels={REGION_LABELS} today={toIsoDate(today)}>
+              <div className="border-t border-ink/15 pt-4">
+                <p className="counter-label">How much to trust the answer</p>
+                <ul className="mt-2 grid gap-x-4 gap-y-1.5 text-xs text-muted-foreground sm:grid-cols-3">
+                  <li className="flex items-start gap-2">
+                    <EvidenceBadge evidence="S" />
+                    <span>
+                      <span className="font-medium text-ink">Scientific.</span> Papers, DNR, USGS.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <EvidenceBadge evidence="A" />
+                    <span>
+                      <span className="font-medium text-ink">Angler consensus.</span> Shop charts, guides.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <EvidenceBadge evidence="I" />
+                    <span>
+                      <span className="font-medium text-ink">Inferred.</span> Our extension, marked.
+                    </span>
+                  </li>
+                </ul>
+                <p className="mt-2 text-xs text-muted-foreground">
+                  Every line in the ranked box carries one.{" "}
+                  <Link href="/about-the-data" className="underline underline-offset-4">
+                    About the data
+                  </Link>
+                </p>
+              </div>
+            </CounterCard>
           </div>
           <div className="plane-near">
             <Suspense fallback={<Skeleton className="h-[28rem] rounded-lg bg-board/70" />}>
@@ -54,14 +88,29 @@ export default function HomePage() {
 
       {/* The shelf of river patches */}
       <section className="plane-content mx-auto w-full max-w-6xl px-4 pb-16" aria-labelledby="shelf-title">
-        <div className="flex flex-wrap items-end justify-between gap-3">
-          <h2 id="shelf-title" className="woodtype text-3xl sm:text-4xl">
-            Pick your river
-          </h2>
-          <p className="max-w-md text-sm text-muted-foreground">
-            {rivers.length} reaches, grouped by the region that sets their hatch timing. The U.P. runs about three weeks behind the Au Sable; mid-state rivers run
-            ten days ahead.
-          </p>
+        <div className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_380px] sm:items-center">
+          <div className="space-y-3">
+            <h2 id="shelf-title" className="woodtype text-3xl sm:text-4xl">
+              Pick your river
+            </h2>
+            <p className="max-w-md text-sm text-muted-foreground">
+              {rivers.length} reaches in the five regions of the DNR weekly fishing report. The U.P. runs about three weeks behind the Au Sable; the southwest
+              runs ten days ahead. Every dot on the plate is a river page.
+            </p>
+          </div>
+          <div>
+            <MichiganMap className="plate-ink mx-auto w-64 sm:w-full" rivers={rivers.map((r) => ({ id: r.id, name: r.name, lat: r.centroid.lat, lon: r.centroid.lon, region: r.region }))} />
+            <ul className="mt-2 flex flex-wrap justify-center gap-x-3 gap-y-1 text-[0.72rem] text-muted-foreground sm:justify-end" aria-label="Region key">
+              {SHELF_ORDER.map((region) => (
+                <li key={region} className="flex items-center gap-1.5">
+                  <svg viewBox="0 0 10 10" className="size-2.5" aria-hidden="true" focusable="false">
+                    <circle cx="5" cy="5" r="4" className={`map-dot map-dot-${region}`} />
+                  </svg>
+                  {REGION_SHORT[region]}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
         <div className="mt-6 space-y-10">
           {SHELF_ORDER.map((region) => {
@@ -69,13 +118,16 @@ export default function HomePage() {
             if (!list.length) return null;
             return (
               <div key={region} className="shelf">
-                <div className="mb-3 flex items-baseline gap-3">
-                  <h3 className="woodtype-caps text-sm">{REGION_LABELS[region]}</h3>
-                  <span className="whitespace-nowrap rounded-sm border border-ink/40 bg-card px-1.5 py-0.5 text-[0.76rem] font-medium text-ink">{formatOffset(list[0].offsetDays, region)}</span>
+                <div className="mb-3 flex flex-wrap items-baseline gap-x-3 gap-y-1.5">
+                  <h3 className="woodtype-caps basis-full text-sm sm:basis-auto">{REGION_LABELS[region]}</h3>
+                  <span className="whitespace-nowrap rounded-sm border border-ink/40 bg-card px-1.5 py-0.5 text-[0.76rem] font-medium text-ink">{formatOffset(list.map((r) => r.offsetDays))}</span>
+                  <Link href={`/rivers#${region}`} className="ml-auto whitespace-nowrap text-xs underline underline-offset-4 sm:hidden">
+                    All {list.length} rivers
+                  </Link>
                 </div>
                 <ul className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:gap-x-3 sm:gap-y-4 sm:overflow-visible sm:px-0 sm:pb-0 md:grid-cols-4 lg:grid-cols-5">
                   {list.map((r) => (
-                    <li key={r.id} className="w-[9.5rem] shrink-0 snap-start sm:w-auto">
+                    <li key={r.id} className="w-[11.5rem] shrink-0 snap-start sm:w-auto">
                       <RiverBadge name={badgeName(r.name)} sub={badgeSub(r.name, region)} region={region} href={`/rivers/${r.id}`} />
                     </li>
                   ))}
@@ -102,6 +154,11 @@ export default function HomePage() {
             const photo = getFlyReferenceHero(fly.id);
             const natural = fly.hatchIds.map((id) => hatchById.get(id)).find(Boolean);
             const naturalPhoto = natural ? getHatchHero(natural.id) : null;
+            const naturalLabel =
+              natural?.commonName ??
+              forageById.get(fly.forageIds[0] ?? "")?.name ??
+              eggSourceById.get(fly.eggSourceIds[0] ?? "")?.name ??
+              `${CATEGORY_LABELS[fly.category]}, no single natural`;
             return (
               <li key={fly.id} className="group relative overflow-hidden rounded-lg border-2 border-ink bg-card shadow-[0_12px_22px_-14px_oklch(0.2_0.02_60/0.55)]">
                 <Link href={`/shop/${fly.id}`} className="block">
@@ -116,16 +173,6 @@ export default function HomePage() {
                     ) : (
                       <div className="flex h-full items-center justify-center text-xs text-muted-foreground">Bench photo coming</div>
                     )}
-                    {naturalPhoto && natural ? (
-                      <div className="absolute bottom-1.5 right-1.5 flex items-center gap-1.5 rounded-md border border-ink bg-card/95 p-1 text-[0.72rem] shadow sm:bottom-2 sm:right-2 sm:pr-2">
-                        <InsectThumb photo={naturalPhoto} alt={natural.commonName} className="size-8 rounded sm:size-9" sizes="36px" />
-                        <span className="hidden max-w-[7rem] leading-tight sm:block">
-                          <span className="block font-medium">{natural.commonName}</span>
-                          <span className="block text-muted-foreground">the natural</span>
-                        </span>
-                        <span className="sr-only">Imitates {natural.commonName}</span>
-                      </div>
-                    ) : null}
                   </div>
                   <div className="p-2.5 sm:p-3">
                     <div className="flex items-start justify-between gap-2">
@@ -139,6 +186,13 @@ export default function HomePage() {
                         .join(" · ")}
                       {fly.species.length > 3 ? ` · +${fly.species.length - 3}` : ""}
                     </p>
+                    <div className="mt-1.5 flex h-6 items-center gap-1.5 text-xs text-muted-foreground">
+                      {naturalPhoto && natural ? <InsectThumb photo={naturalPhoto} alt="" className="size-6 shrink-0 rounded border border-ink/30" sizes="24px" /> : null}
+                      <span className="line-clamp-1">
+                        <span className="text-ink">{naturalLabel}</span>
+                        {natural || fly.forageIds.length || fly.eggSourceIds.length ? " · the natural" : ""}
+                      </span>
+                    </div>
                     <p className="mt-2 text-sm tabular-nums">
                       <span className="font-semibold">{formatUsd(priceFor(fly))}</span> <span className="text-muted-foreground">each, provisional</span>
                     </p>
@@ -199,10 +253,13 @@ export default function HomePage() {
   );
 }
 
-function formatOffset(days: number, region: Region): string {
-  if (days === 0) return "baseline";
-  const sign = days > 0 ? "+" : "";
-  return region === "upper-peninsula" || region === "tip-of-mitt" ? `${sign}${days} d behind Au Sable` : `${Math.abs(days)} d ahead`;
+/** The spread of river offsets in a region, against the Au Sable: one number when they agree, a range when they do not. */
+function formatOffset(offsets: number[]): string {
+  const min = Math.min(...offsets);
+  const max = Math.max(...offsets);
+  const word = (d: number) => (d > 0 ? `+${d}` : `${d}`);
+  if (min === max) return min === 0 ? "Au Sable baseline" : `${word(min)} d vs Au Sable`;
+  return `${word(min)} to ${word(max)} d vs Au Sable`;
 }
 
 /** Patch text: the river's short name; the parenthetical detail lives on the river page unless it is short enough to stitch. */
