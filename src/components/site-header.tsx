@@ -11,6 +11,7 @@ const NAV = [
   { href: "/flies", label: "Flies" },
   { href: "/species", label: "Fish" },
   { href: "/shop", label: "Shop" },
+  { href: "/faq", label: "FAQ" },
 ] as const;
 
 /** The top rail of the shop: wood trim, script wordmark, painted nav. */

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -125,9 +126,14 @@ export function CounterCard({
 
       <div className="mt-5 grid gap-5 sm:grid-cols-[1fr_auto] sm:items-end">
         <div className="grid gap-1.5">
-          <label htmlFor="counter-setup" className="counter-label">
-            Setup
-          </label>
+          <div className="flex items-baseline justify-between gap-3">
+            <label htmlFor="counter-setup" className="counter-label">
+              Setup
+            </label>
+            <Link href="/faq#setups" className="text-xs text-muted-foreground underline underline-offset-2 hover:text-foreground">
+              What do these mean?
+            </Link>
+          </div>
           <Select value={setup} onValueChange={setSetup}>
             <SelectTrigger id="counter-setup" className="h-11 w-full bg-card">
               <SelectValue placeholder="How you're rigged" />

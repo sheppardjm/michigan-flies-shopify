@@ -58,7 +58,7 @@ Undecided: real pricing (current prices are placeholders by category); which col
 
 ## Brand Commitments
 
-- Name: Michigan Flies. The owner supplied a leaping rainbow trout logo on September 28, 2026 (`public/photos/illustration/trout-logo.svg`; `logo.svg` is the full lockup); it is the mark on the sign and footer. No final wordmark lettering yet; the script face is a placeholder. Do not invent a wordmark as a binding asset.
+- Name: Michigan Flies. The owner drew the leaping rainbow trout logo themselves and added it on September 28, 2026 (`public/photos/illustration/trout-logo.svg`; `logo.svg` is the full lockup); it is owner-owned original work, needs no third-party license, and is the mark on the sign and footer. No final wordmark lettering yet; the script face is a placeholder. Do not invent a wordmark as a binding asset.
 - Voice: field guide. Precise, sourced, slightly formal, like a good hatch guide or DNR report. States uncertainty plainly and cites where a number came from. No hype, no exclamation, no invented enthusiasm.
 - Terminology follows Michigan usage: Hex, Hendrickson, Grannom, chuck and duck, Holy Waters, Trophy Water, Tip of the Mitt, the U.P.; river regions are the DNR weekly fishing-report regions (Southeast, Southwest, Northeast, Northwest Lower Peninsula, Upper Peninsula), not invented ones.
 
