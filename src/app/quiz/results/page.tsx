@@ -7,10 +7,10 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { Skeleton } from "@/components/ui/skeleton";
 import { ConditionsPanel } from "@/components/conditions-panel";
 import { EvidenceBadge } from "@/components/evidence-badge";
 import { FlyCard } from "@/components/fly-card";
+import { ResultsLoading } from "@/components/results-loading";
 import { InsectThumb } from "@/components/insect-photo";
 import { StatusBadge } from "@/components/status-badge";
 import { getHatchHero } from "@/lib/photos";
@@ -64,7 +64,7 @@ export default async function ResultsPage({ searchParams }: PageProps<"/quiz/res
         </Button>
       </div>
 
-      <Suspense fallback={<ResultsSkeleton />}>
+      <Suspense fallback={<ResultsLoading river={river.name} live={useLive} />}>
         <Results river={river} speciesIds={speciesIds} setup={setup} date={date} useLive={useLive} />
       </Suspense>
     </div>
@@ -292,15 +292,3 @@ function joinNames(names: string[]): string {
   return `${names.slice(0, -1).join(", ")}, and ${names[names.length - 1]}`;
 }
 
-function ResultsSkeleton() {
-  return (
-    <div className="grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
-      <div className="grid gap-4 sm:grid-cols-2">
-        {Array.from({ length: 6 }).map((_, i) => (
-          <Skeleton key={i} className="h-44" />
-        ))}
-      </div>
-      <Skeleton className="h-64" />
-    </div>
-  );
-}
