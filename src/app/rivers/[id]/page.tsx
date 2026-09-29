@@ -15,7 +15,8 @@ import { SourceList } from "@/components/source-list";
 import { StatusBadge } from "@/components/status-badge";
 import { REGION_LABELS, hatchById, riverById, rivers, speciesById, type River } from "@/data";
 import { StockingSection } from "@/components/stocking-section";
-import { FieldBanner, FieldPrint } from "@/components/field-print";
+import { FieldBanner } from "@/components/field-print";
+import { FieldGallery } from "@/components/field-gallery";
 import { fieldPhotosFor } from "@/data/field-photos";
 import { getRiverConditions } from "@/lib/conditions";
 import { getHatchHero } from "@/lib/photos";
@@ -202,13 +203,7 @@ export default async function RiverPage({ params, searchParams }: PageProps<"/ri
               <p className="text-sm text-muted-foreground">
                 Our own photographs on this water, {formatYearSpan(prints.map((p) => p.takenOn))}. Every fish shown took a fly we tied. Photographs: Jamison Sheppard.
               </p>
-              <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-                {prints.map((p, i) => (
-                  <li key={p.id}>
-                    <FieldPrint photo={p} tilt={[-0.8, 0.6, -0.4, 0.9, -0.7, 0.5][i % 6]} sizes="(min-width: 1024px) 260px, (min-width: 640px) 33vw, 50vw" />
-                  </li>
-                ))}
-              </ul>
+              <FieldGallery photos={prints} tilts={[-0.8, 0.6, -0.4, 0.9, -0.7, 0.5]} listClassName="grid grid-cols-2 gap-4 sm:grid-cols-3" sizes="(min-width: 1024px) 260px, (min-width: 640px) 33vw, 50vw" />
             </section>
           ) : null}
 
