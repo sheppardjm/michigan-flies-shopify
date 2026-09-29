@@ -42,7 +42,7 @@ What a fly shop or big retailer cannot truthfully copy: per-river, per-date reco
 
 ## Capabilities and Constraints
 
-Confirmed capabilities: fly finder with multi-species selection; hatch calendar by region or river; river pages with species-by-month, signature hatches, live conditions, DNR stocking history, and gear rules; hatch pages with photos, regional timing, triggers, and matching flies; fly pattern pages; species pages; collection pages (river boxes); store pages per collection fly with pre-order; About the Data page.
+Confirmed capabilities: fly finder with multi-species selection and a whatever's-biting option; hatch calendar by region or river; river pages with species-by-month, signature hatches, live conditions, DNR stocking history, and gear rules; hatch pages with photos, regional timing, triggers, and matching flies; fly pattern pages with tying sheets and materials lists; species pages; collection pages (river boxes); a store page for every pattern with a reserve form at a provisional price (since September 29, 2026), plus a full catalogue on the shop index; About the Data page.
 
 Constraints future work must preserve:
 

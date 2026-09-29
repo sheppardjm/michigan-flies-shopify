@@ -13,7 +13,7 @@ import { FlyPhotoCredit } from "@/components/fly-reference-photo";
 import { InsectThumb } from "@/components/insect-photo";
 import { MonthGrid } from "@/components/month-grid";
 import { PreorderPanel } from "@/components/preorder-panel";
-import { CATEGORY_LABELS, TECHNIQUE_LABELS, flyById, hatchById, riverById, speciesById, type Fly } from "@/data";
+import { CATEGORY_LABELS, TECHNIQUE_LABELS, flies, flyById, hatchById, riverById, speciesById, type Fly } from "@/data";
 import { collections } from "@/data/collections";
 import { flyPhotoSrc, getFlyReferencePhotos } from "@/lib/fly-photos";
 import { getHatchHero } from "@/lib/photos";
@@ -23,14 +23,13 @@ import { getProductByHandle } from "@/lib/shopify/products";
 import { formatMoney } from "@/lib/shopify/types";
 import { windowMonths } from "@/lib/season";
 
-/** Flies that belong to a published collection get a store page even before Shopify is connected. */
+/** Every pattern has a store page; collection membership adds the box context. */
 function collectionMemberships(flyId: string) {
   return collections.flatMap((c) => c.flies.filter((f) => f.flyId === flyId).map((f) => ({ collection: c, entry: f })));
 }
 
 export function generateStaticParams() {
-  const ids = new Set(collections.flatMap((c) => c.flies.map((f) => f.flyId)));
-  return [...ids].map((handle) => ({ handle }));
+  return flies.map((f) => ({ handle: f.id }));
 }
 
 export async function generateMetadata({ params }: PageProps<"/shop/[handle]">): Promise<Metadata> {
@@ -48,8 +47,6 @@ export default async function ProductPage({ params }: PageProps<"/shop/[handle]"
   const fly = flyById.get(handle);
   if (!product && !fly) notFound();
   const memberships = fly ? collectionMemberships(fly.id) : [];
-  // Before launch, only flies in a collection are sellable pages.
-  if (!product && memberships.length === 0) notFound();
 
   const photos = fly ? getFlyReferencePhotos(fly.id) : [];
   const hero = product?.featuredImage ?? null;
