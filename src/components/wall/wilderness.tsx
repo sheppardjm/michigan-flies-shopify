@@ -9,6 +9,11 @@ import { cn } from "@/lib/utils";
  * PineStand: a short row of white pines for margins and the footer.
  */
 
+/** Coordinates are rounded to a tenth of a unit: the drawings are hairlines at most 1600 units wide, and full float precision was 400KB of text per page. */
+function r(n: number): string {
+  return (Math.round(n * 10) / 10).toString();
+}
+
 function seeded(seed: number) {
   return (i: number) => {
     const v = Math.sin(seed * 12.9898 + i * 78.233) * 43758.5453;
@@ -38,9 +43,9 @@ function Pine({ x, y, h, lean = 0, dense = false }: { x: number; y: number; h: n
       [1, w * (1 - lean * 0.45)],
     ];
     for (const [s, len] of sides) {
-      branches.push(`M${x} ${ty} c ${s * len * 0.35} ${droop * 0.25}, ${s * len * 0.7} ${droop * 0.7}, ${s * len} ${droop}`);
+      branches.push(`M${r(x)} ${r(ty)} c ${r(s * len * 0.35)} ${r(droop * 0.25)}, ${r(s * len * 0.7)} ${r(droop * 0.7)}, ${r(s * len)} ${r(droop)}`);
       if (rnd(i + 40 + s) > 0.35) {
-        branches.push(`M${x} ${ty + w * 0.07} c ${s * len * 0.3} ${droop * 0.5}, ${s * len * 0.5} ${droop * 0.9}, ${s * len * 0.72} ${droop * 1.3}`);
+        branches.push(`M${r(x)} ${r(ty + w * 0.07)} c ${r(s * len * 0.3)} ${r(droop * 0.5)}, ${r(s * len * 0.5)} ${r(droop * 0.9)}, ${r(s * len * 0.72)} ${r(droop * 1.3)}`);
       }
       const lee = s * lean <= 0;
       const n = 4 + Math.round(rnd(i + 60 + s) * 2);
@@ -54,23 +59,23 @@ function Pine({ x, y, h, lean = 0, dense = false }: { x: number; y: number; h: n
           const ang = 0.85 + m * 0.3 + (rnd(i * 7 + k * 3 + m) - 0.5) * 0.3;
           const dx = s * Math.cos(ang) * tl * 0.7;
           const dy = Math.sin(ang) * tl;
-          tufts.push(`M${px + (m - (count - 1) / 2) * tl * 0.22} ${py} l ${dx} ${dy}`);
+          tufts.push(`M${r(px + (m - (count - 1) / 2) * tl * 0.22)} ${r(py)} l ${r(dx)} ${r(dy)}`);
         }
       }
       if (lee) {
         for (let m = 0; m < 5; m++) {
           const p = 0.22 + m * 0.15;
-          shade.push(`M${x + s * len * p} ${ty + droop * p * p + w * 0.05} l ${s * w * 0.04} ${w * 0.11}`);
+          shade.push(`M${r(x + s * len * p)} ${r(ty + droop * p * p + w * 0.05)} l ${r(s * w * 0.04)} ${r(w * 0.11)}`);
         }
       }
     }
   }
-  const top = `M${x} ${y - h} c ${-h * 0.02} ${h * 0.03}, ${-h * 0.05} ${h * 0.05}, ${-h * 0.07} ${h * 0.09} M${x} ${y - h * 0.99} c ${h * 0.02} ${h * 0.03}, ${h * 0.04} ${h * 0.05}, ${h * 0.06} ${h * 0.08} M${x} ${y - h * 0.96} c ${-h * 0.03} ${h * 0.02}, ${-h * 0.06} ${h * 0.04}, ${-h * 0.1} ${h * 0.06}`;
-  const bark = `M${x + h * 0.018} ${y - h * 0.02} l ${h * 0.02} ${-h * 0.05} M${x + h * 0.02} ${y - h * 0.1} l ${h * 0.02} ${-h * 0.05} M${x + h * 0.022} ${y - h * 0.18} l ${h * 0.018} ${-h * 0.05} M${x - h * 0.02} ${y - h * 0.06} l ${-h * 0.014} ${-h * 0.04}`;
+  const top = `M${r(x)} ${r(y - h)} c ${r(-h * 0.02)} ${r(h * 0.03)}, ${r(-h * 0.05)} ${r(h * 0.05)}, ${r(-h * 0.07)} ${r(h * 0.09)} M${r(x)} ${r(y - h * 0.99)} c ${r(h * 0.02)} ${r(h * 0.03)}, ${r(h * 0.04)} ${r(h * 0.05)}, ${r(h * 0.06)} ${r(h * 0.08)} M${r(x)} ${r(y - h * 0.96)} c ${r(-h * 0.03)} ${r(h * 0.02)}, ${r(-h * 0.06)} ${r(h * 0.04)}, ${r(-h * 0.1)} ${r(h * 0.06)}`;
+  const bark = `M${r(x + h * 0.018)} ${r(y - h * 0.02)} l ${r(h * 0.02)} ${r(-h * 0.05)} M${r(x + h * 0.02)} ${r(y - h * 0.1)} l ${r(h * 0.02)} ${r(-h * 0.05)} M${r(x + h * 0.022)} ${r(y - h * 0.18)} l ${r(h * 0.018)} ${r(-h * 0.05)} M${r(x - h * 0.02)} ${r(y - h * 0.06)} l ${r(-h * 0.014)} ${r(-h * 0.04)}`;
   return (
     <g fill="none" stroke="currentColor" strokeLinecap="round">
-      <path d={`M${x - h * 0.012} ${y} L ${x - h * 0.004 + lean * 2} ${y - h * 0.97}`} strokeWidth="1.5" />
-      <path d={`M${x + h * 0.012} ${y} L ${x + h * 0.006 + lean * 2} ${y - h * 0.62}`} strokeWidth="1" opacity="0.7" />
+      <path d={`M${r(x - h * 0.012)} ${r(y)} L ${r(x - h * 0.004 + lean * 2)} ${r(y - h * 0.97)}`} strokeWidth="1.5" />
+      <path d={`M${r(x + h * 0.012)} ${r(y)} L ${r(x + h * 0.006 + lean * 2)} ${r(y - h * 0.62)}`} strokeWidth="1" opacity="0.7" />
       <path d={bark} strokeWidth="0.6" opacity="0.6" />
       <path d={branches.join(" ")} strokeWidth="0.9" />
       <path d={tufts.join(" ")} strokeWidth="0.7" opacity="0.85" />
@@ -90,16 +95,16 @@ function Spruce({ x, y, h }: { x: number; y: number; h: number }) {
     const ty = y - h + h * t * 0.96;
     const w = (h * 0.06 + h * 0.16 * t) * (0.85 + rnd(i) * 0.3);
     for (const s of [-1, 1]) {
-      branches.push(`M${x} ${ty} c ${s * w * 0.4} ${w * 0.1}, ${s * w * 0.75} ${w * 0.3}, ${s * w} ${w * 0.5}`);
-      tufts.push(`M${x + s * w * 0.55} ${ty + w * 0.2} l ${s * w * 0.04} ${w * 0.22} M${x + s * w * 0.8} ${ty + w * 0.34} l ${s * w * 0.05} ${w * 0.24} M${x + s * w} ${ty + w * 0.5} l ${s * w * 0.03} ${w * 0.2}`);
+      branches.push(`M${r(x)} ${r(ty)} c ${r(s * w * 0.4)} ${r(w * 0.1)}, ${r(s * w * 0.75)} ${r(w * 0.3)}, ${r(s * w)} ${r(w * 0.5)}`);
+      tufts.push(`M${r(x + s * w * 0.55)} ${r(ty + w * 0.2)} l ${r(s * w * 0.04)} ${r(w * 0.22)} M${r(x + s * w * 0.8)} ${r(ty + w * 0.34)} l ${r(s * w * 0.05)} ${r(w * 0.24)} M${r(x + s * w)} ${r(ty + w * 0.5)} l ${r(s * w * 0.03)} ${r(w * 0.2)}`);
     }
   }
   return (
     <g fill="none" stroke="currentColor" strokeLinecap="round">
-      <path d={`M${x} ${y} L ${x} ${y - h}`} strokeWidth="1.1" />
+      <path d={`M${r(x)} ${r(y)} L ${r(x)} ${r(y - h)}`} strokeWidth="1.1" />
       <path d={branches.join(" ")} strokeWidth="0.8" />
       <path d={tufts.join(" ")} strokeWidth="0.6" opacity="0.8" />
-      <path d={`M${x} ${y - h} l ${-h * 0.015} ${h * 0.04} M${x} ${y - h} l ${h * 0.02} ${h * 0.035}`} strokeWidth="0.7" />
+      <path d={`M${r(x)} ${r(y - h)} l ${r(-h * 0.015)} ${r(h * 0.04)} M${r(x)} ${r(y - h)} l ${r(h * 0.02)} ${r(h * 0.035)}`} strokeWidth="0.7" />
     </g>
   );
 }
@@ -167,7 +172,7 @@ export function RiverBend({ className, title = "A northern Michigan river throug
           const y = 318 + i * 7;
           const x0 = 400 + i * 22 + (i % 2) * 40;
           const len = 500 - i * 18;
-          return <path key={i} d={`M${x0} ${y} c ${len * 0.25} -2, ${len * 0.5} 2, ${len} 0`} strokeWidth={i % 3 === 0 ? 1 : 0.7} />;
+          return <path key={i} d={`M${x0} ${y} c ${r(len * 0.25)} -2, ${r(len * 0.5)} 2, ${r(len)} 0`} strokeWidth={i % 3 === 0 ? 1 : 0.7} />;
         })}
         <path d="M700 330 c 40 -4, 80 4, 120 0 c 40 -4, 80 4, 120 0" strokeWidth="1.1" />
         <ellipse cx="880" cy="352" rx="26" ry="5" strokeWidth="0.9" />

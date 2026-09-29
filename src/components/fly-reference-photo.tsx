@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { LightboxGroup, LightboxTrigger } from "@/components/lightbox";
 import { flyPhotoSrc, type FlyPhoto } from "@/lib/fly-photos";
 import { cn } from "@/lib/utils";
 
@@ -65,27 +66,48 @@ export function FlyReferenceCard({ photos, flyName }: { photos: FlyPhoto[]; flyN
           own product photos replace these as they are shot.
         </CardDescription>
       </CardHeader>
-      <CardContent className="space-y-3">
-        <figure className="space-y-1">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border bg-muted">
-            <Image src={flyPhotoSrc(hero, "thumb")} alt={`${flyName} reference photo`} fill sizes="(min-width: 1024px) 640px, 100vw" className="object-cover" />
-          </div>
-          <figcaption>
-            <FlyPhotoCredit photo={hero} />
-          </figcaption>
-        </figure>
-        {rest.length ? (
-          <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-            {rest.map((p) => (
-              <li key={p.url} className="space-y-1">
+      <CardContent>
+        <LightboxGroup
+          photos={photos.map((p) => ({
+            src: flyPhotoSrc(p, "full"),
+            alt: `${flyName} reference photo`,
+            width: p.width,
+            height: p.height,
+            caption: (
+              <>
+                <p>{flyName}, tied by {p.author}. Reference photo, not our fly.</p>
+                <FlyPhotoCredit photo={p} className="text-current text-sm opacity-75" />
+              </>
+            ),
+          }))}
+        >
+          <div className="space-y-3">
+            <figure className="space-y-1">
+              <LightboxTrigger index={0} label={`Open larger: ${flyName} reference photo by ${hero.author}`} className="rounded-lg">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border bg-muted">
-                  <Image src={flyPhotoSrc(p, "thumb")} alt={`${flyName} reference photo`} fill sizes="200px" className="object-cover" />
+                  <Image src={flyPhotoSrc(hero, "thumb")} alt={`${flyName} reference photo`} fill sizes="(min-width: 1024px) 640px, 100vw" className="object-cover" />
                 </div>
-                <FlyPhotoCredit photo={p} className="line-clamp-2 text-[0.7rem]" />
-              </li>
-            ))}
-          </ul>
-        ) : null}
+              </LightboxTrigger>
+              <figcaption>
+                <FlyPhotoCredit photo={hero} />
+              </figcaption>
+            </figure>
+            {rest.length ? (
+              <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+                {rest.map((p, i) => (
+                  <li key={p.url} className="space-y-1">
+                    <LightboxTrigger index={i + 1} label={`Open larger: ${flyName} reference photo by ${p.author}`} className="rounded-lg">
+                      <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border bg-muted">
+                        <Image src={flyPhotoSrc(p, "thumb")} alt={`${flyName} reference photo`} fill sizes="200px" className="object-cover" />
+                      </div>
+                    </LightboxTrigger>
+                    <FlyPhotoCredit photo={p} className="line-clamp-2 text-[0.7rem]" />
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </div>
+        </LightboxGroup>
       </CardContent>
     </Card>
   );
