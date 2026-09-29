@@ -21,7 +21,7 @@ function CollectionGrid() {
       <h2 className="text-xl font-semibold tracking-tight">Boxes by river</h2>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {collections.map((c) => (
-          <Link key={c.id} href={`/collections/${c.id}`} className="group">
+          <Link key={c.id} href={`/collections/${c.id}`} className="group card-link-wrap">
             <Card className="h-full transition-colors group-hover:bg-muted/40">
               <CardHeader>
                 <CardTitle className="text-base">{c.title}</CardTitle>
@@ -72,7 +72,7 @@ export default async function ShopPage() {
       {products.length ? (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {products.map((p) => (
-            <Link key={p.id} href={`/shop/${p.handle}`} className="group">
+            <Link key={p.id} href={`/shop/${p.handle}`} className="group card-link-wrap">
               <Card className="h-full overflow-hidden transition-colors group-hover:bg-muted/40">
                 {p.featuredImage ? (
                   <Image

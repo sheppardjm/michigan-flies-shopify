@@ -6,6 +6,7 @@ import { EvidenceBadge } from "@/components/evidence-badge";
 import { MonthGrid } from "@/components/month-grid";
 import { RowTable } from "@/components/row-table";
 import { REGION_LABELS, Region, eggSources, hatches, regionOffsetByRegion, regionOffsets, riverById, rivers } from "@/data";
+import { eggSourcesForRiver } from "@/lib/recommend";
 import { formatPeak, formatWindow, windowMonths } from "@/lib/season";
 
 export const metadata: Metadata = {
@@ -34,7 +35,7 @@ export default async function CalendarPage({ searchParams }: PageProps<"/calenda
     })
     .sort((a, b) => firstMonthKey(a.months) - firstMonthKey(b.months));
 
-  const eggRows = eggSources.filter((e) => !e.regions.length || e.regions.includes(region));
+  const eggRows = riverParam ? eggSourcesForRiver(riverParam) : eggSources.filter((e) => !e.regions.length || e.regions.includes(region));
 
   return (
     <div className="mx-auto w-full max-w-6xl space-y-8 px-4 py-8 sm:py-12">

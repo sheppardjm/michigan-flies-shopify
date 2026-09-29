@@ -42,7 +42,7 @@ export default function HatchesPage() {
               {list.map((h) => {
                 const hero = getHatchHero(h.id);
                 return (
-                <Link key={h.id} href={`/hatches/${h.id}`} className="group">
+                <Link key={h.id} href={`/hatches/${h.id}`} className="group card-link-wrap">
                   <Card className="h-full transition-colors group-hover:bg-muted/40">
                     <CardHeader>
                       <div className="flex items-start gap-3">

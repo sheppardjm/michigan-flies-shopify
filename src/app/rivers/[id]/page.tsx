@@ -13,14 +13,14 @@ import { InsectThumb } from "@/components/insect-photo";
 import { RowTable } from "@/components/row-table";
 import { SourceList } from "@/components/source-list";
 import { StatusBadge } from "@/components/status-badge";
-import { REGION_LABELS, hatchById, riverById, rivers, speciesById, type River } from "@/data";
+import { REGION_LABELS, flies, hatchById, riverById, rivers, speciesById, type EggSource, type River } from "@/data";
 import { StockingSection } from "@/components/stocking-section";
 import { FieldBanner } from "@/components/field-print";
 import { FieldGallery } from "@/components/field-gallery";
 import { fieldPhotosFor } from "@/data/field-photos";
 import { getRiverConditions } from "@/lib/conditions";
 import { getHatchHero } from "@/lib/photos";
-import { hatchStatusesForRiver, type HatchStatus } from "@/lib/recommend";
+import { eggSourcesForRiver, eggStatusesForRiver, hatchStatusesForRiver, type EggStatus, type HatchStatus } from "@/lib/recommend";
 import { getRiverStocking, unmodeledStockedSpecies } from "@/lib/stocking";
 import { MONTH_NAMES, formatPeak, formatWindow, isYearRound, monthDayToDate, monthOf, toIsoDate, toUtcDay, windowMonths } from "@/lib/season";
 
@@ -48,6 +48,7 @@ export default async function RiverPage({ params, searchParams }: PageProps<"/ri
   const tripDate = isCurrent ? today : new Date(Date.UTC(today.getUTCFullYear() + (month < currentMonth ? 1 : 0), month - 1, 15));
   const statuses = hatchStatusesForRiver(river, today);
   const now = isCurrent ? statuses.filter((s) => s.status !== "off") : hatchesInMonth(statuses, month);
+  const eggRows = eggRowsFor(river, eggStatusesForRiver(river, tripDate), month);
   const siblings = rivers.filter((r) => r.system === river.system && r.id !== river.id);
   const hero = fieldPhotosFor({ riverId: river.id, role: "river-hero" })[0];
   const prints = fieldPhotosFor({ riverId: river.id, role: "river" }).filter((p) => p.id !== hero?.id);
@@ -136,17 +137,17 @@ export default async function RiverPage({ params, searchParams }: PageProps<"/ri
             {now.length ? (
               <ul className="divide-y divide-border rounded-lg border border-border">
                 {now.map((h) => (
-                  <li key={h.hatch.id} className="flex flex-wrap items-center justify-between gap-2 px-3 py-2 text-sm">
-                    <div className="flex items-center gap-2">
-                      <StatusBadge status={h.status} />
-                      <Link href={`/hatches/${h.hatch.id}`} className="font-medium hover:underline">
-                        {h.hatch.commonName}
-                      </Link>
-                    </div>
-                    <span className="font-mono text-xs text-muted-foreground">
-                      {formatWindow(h.window, h.offsetDays)}
-                      {formatPeak(h.window, h.offsetDays) ? ` · peak ${formatPeak(h.window, h.offsetDays)}` : ""}
-                    </span>
+                  <li key={h.hatch.id}>
+                    <Link href={`/hatches/${h.hatch.id}`} className="row-link flex flex-wrap items-center justify-between gap-2 px-3 py-2 text-sm">
+                      <span className="flex items-center gap-2">
+                        <StatusBadge status={h.status} />
+                        <span className="font-medium">{h.hatch.commonName}</span>
+                      </span>
+                      <span className="font-mono text-xs text-muted-foreground">
+                        {formatWindow(h.window, h.offsetDays)}
+                        {formatPeak(h.window, h.offsetDays) ? ` · peak ${formatPeak(h.window, h.offsetDays)}` : ""}
+                      </span>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -156,6 +157,59 @@ export default async function RiverPage({ params, searchParams }: PageProps<"/ri
               </p>
             )}
           </section>
+
+          {eggRows.length ? (
+            <section className="space-y-3">
+              <h2 className="text-xl font-semibold tracking-tight">Eggs in the drift</h2>
+              <p className="max-w-3xl text-sm text-muted-foreground">
+                {eggLead(eggRows, isCurrent ? "Right now" : `In ${MONTH_NAMES[month - 1]}`)} Spawning follows water temperature rather than the hatch offset, so these
+                months do not shift.
+                {eggRows.some((r) => r.status && !r.status.spawnerPresent)
+                  ? " The spawners have left, but eggs are still washing out of the redds. They go pale as they age, so rows marked Washing out list the pale colors."
+                  : ""}
+              </p>
+              <RowTable
+                titleLabel="Egg source"
+                stripLabel="Months"
+                factLabels={[MONTH_NAMES[month - 1], "Colors to fish", "Hooks"]}
+                titleClassName="min-w-44"
+                rows={eggRows.map(({ egg, status }) => {
+                  const tieOn = flies.filter((f) => f.eggSourceIds.includes(egg.id)).slice(0, 3);
+                  return {
+                    key: egg.id,
+                    title: (
+                      <div className={status ? "flex flex-col gap-0.5" : "flex flex-col gap-0.5 opacity-60"}>
+                        <span className="font-medium">{egg.name}</span>
+                        {tieOn.length ? (
+                          <span className="text-xs text-muted-foreground">
+                            Tie on{" "}
+                            {tieOn.map((f, i) => (
+                              <span key={f.id}>
+                                {i ? ", " : ""}
+                                <Link href={`/flies/${f.id}`} className="hover:underline">
+                                  {f.name}
+                                </Link>
+                              </span>
+                            ))}
+                          </span>
+                        ) : null}
+                      </div>
+                    ),
+                    strip: <MonthGrid active={egg.months} peak={egg.peakMonths} highlight={month} compact />,
+                    facts: [
+                      { label: MONTH_NAMES[month - 1], value: <EggStatusLabel status={status} />, cellClassName: "text-xs whitespace-nowrap" },
+                      {
+                        label: "Colors to fish",
+                        value: (status && !status.spawnerPresent && egg.deadColors.length ? egg.deadColors : egg.freshColors).join(", "),
+                        cellClassName: "text-xs",
+                      },
+                      { label: "Hooks", value: `#${Math.min(...egg.hookSizes)}–${Math.max(...egg.hookSizes)}`, cellClassName: "font-mono text-xs whitespace-nowrap" },
+                    ],
+                  };
+                })}
+              />
+            </section>
+          ) : null}
 
           {river.signatureHatches.length ? (
             <section className="space-y-3">
@@ -292,6 +346,48 @@ function hatchesInMonth(statuses: HatchStatus[], month: number): HatchStatus[] {
   }
   const start = (s: HatchStatus) => (isYearRound(s.window) ? Infinity : monthDayToDate(s.window.start, 2025, s.offsetDays).getTime());
   return out.sort((a, b) => Number(b.status === "peak") - Number(a.status === "peak") || start(a) - start(b));
+}
+
+interface EggRow {
+  egg: EggSource;
+  /** How the egg stands in the month being shown; undefined when it is not drifting. */
+  status?: EggStatus;
+}
+
+/** Every egg source this river sees, drifting ones first (peak, then fresh), the rest in the order they arrive. */
+function eggRowsFor(river: River, statuses: EggStatus[], month: number): EggRow[] {
+  const byId = new Map(statuses.map((s) => [s.egg.id, s]));
+  const rank = (r: EggRow) => (!r.status ? 3 : r.status.peak ? 0 : r.status.spawnerPresent ? 1 : 2);
+  const monthsUntil = (egg: EggSource) => Math.min(...egg.months.map((m) => (m - month + 12) % 12));
+  return eggSourcesForRiver(river)
+    .map((egg) => ({ egg, status: byId.get(egg.id) }))
+    .sort((a, b) => rank(a) - rank(b) || monthsUntil(a.egg) - monthsUntil(b.egg));
+}
+
+function eggLead(rows: EggRow[], when: string): string {
+  const drifting = rows.filter((r) => r.status);
+  if (!drifting.length) {
+    const next = rows[0]?.egg;
+    return next ? `${when} no eggs are in the drift here. Next up: ${next.name.replace(/^(?!Chinook|Atlantic)\w/, (c) => c.toLowerCase())}.` : "";
+  }
+  const short = (r: EggRow) => r.egg.name.replace(/ eggs.*$/, "").replace(/^(?!Chinook|Atlantic)\w/, (c) => c.toLowerCase());
+  const peaks = drifting.filter((r) => r.status?.peak && r.status.spawnerPresent).map(short);
+  return `${when} the drift carries ${joinAnd(drifting.map(short))} eggs${peaks.length ? `, with ${joinAnd(peaks)} at peak` : ""}.`;
+}
+
+function joinAnd(items: string[]): string {
+  return items.length > 1 ? `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}` : items[0];
+}
+
+function EggStatusLabel({ status }: { status?: EggStatus }) {
+  if (!status) return <span className="text-muted-foreground">Not drifting</span>;
+  if (status.peak && status.spawnerPresent) return <StatusBadge status="peak" />;
+  if (!status.spawnerPresent) return <span className="text-muted-foreground">Washing out</span>;
+  return (
+    <Badge variant="outline" className="border-primary/40 bg-primary/10 text-primary">
+      Drifting
+    </Badge>
+  );
 }
 
 async function LiveConditions({ river }: { river: River }) {

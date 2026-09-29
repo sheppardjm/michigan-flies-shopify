@@ -240,6 +240,12 @@ export const EggSource = z.object({
   /** Which target species key on these eggs. */
   eatenBy: z.array(SpeciesId),
   regions: z.array(Region).default([]),
+  /**
+   * The spawner comes up from a Great Lake (walleye, lake trout, redhorse), so
+   * these eggs only drift on reaches open to the lake. Salmonid sources are
+   * gated by the river's species list instead.
+   */
+  lakeRun: z.boolean().default(false),
   evidence: Evidence,
   notes: z.string().optional(),
   sources: z.array(Source),
