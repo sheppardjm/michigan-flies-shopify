@@ -26,7 +26,7 @@ export default function SpeciesIndexPage() {
         {species.map((s) => {
           const hero = getSpeciesPhotos(s.id).adults[0];
           return (
-            <Link key={s.id} href={`/species/${s.id}`} className="group">
+            <Link key={s.id} href={`/species/${s.id}`} className="group card-link-wrap">
               <Card className="h-full transition-colors group-hover:bg-muted/40">
                 <CardHeader>
                   <div className="flex items-start gap-3">

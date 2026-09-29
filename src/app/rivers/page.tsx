@@ -31,7 +31,7 @@ export default function RiversPage() {
             <h2 className="text-xl font-semibold tracking-tight">{REGION_LABELS[region]}</h2>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {list.map((r) => (
-                <Link key={r.id} href={`/rivers/${r.id}`} className="group">
+                <Link key={r.id} href={`/rivers/${r.id}`} className="group card-link-wrap">
                   <Card className="h-full pt-0 transition-colors group-hover:bg-muted/40">
                     <RiverMap riverId={r.id} region={r.region} className="border-b border-ink/15" />
                     <CardHeader>

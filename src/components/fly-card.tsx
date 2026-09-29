@@ -36,20 +36,20 @@ export function FlyCard({
   const referencePhoto = product?.featuredImage ? null : getFlyReferenceHero(fly.id);
   const inCollection = COLLECTION_FLY_IDS.has(fly.id);
   return (
-    <Card className="flex h-full flex-col overflow-hidden">
+    <Card className="card-link relative flex h-full flex-col overflow-hidden">
       {product?.featuredImage ? (
-        <Link href={`/shop/${product.handle}`} className="relative block aspect-[4/3] bg-muted">
+        <Link href={`/shop/${product.handle}`} className="relative z-10 block aspect-[4/3] bg-muted">
           <Image src={product.featuredImage.url} alt={product.featuredImage.altText ?? product.title} fill sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className="object-cover" />
         </Link>
       ) : referencePhoto ? (
-        <Link href={`/flies/${fly.id}`} className="block">
+        <div className="block">
           <FlyReferenceThumb photo={referencePhoto} alt={fly.name} />
-        </Link>
+        </div>
       ) : null}
       <CardHeader className="gap-1">
         <div className="flex items-start justify-between gap-2">
           <CardTitle className="text-base leading-tight">
-            <Link href={`/flies/${fly.id}`} className="hover:underline">
+            <Link href={`/flies/${fly.id}`} className="card-link-stretch group-hover/card:underline">
               {fly.name}
             </Link>
           </CardTitle>
@@ -93,19 +93,19 @@ export function FlyCard({
         </p>
         <div className="mt-auto flex items-center justify-between pt-1">
           {product ? (
-            <Link href={`/shop/${product.handle}`} className="text-sm font-medium text-primary underline-offset-4 hover:underline">
+            <Link href={`/shop/${product.handle}`} className="relative z-10 text-sm font-medium text-primary underline-offset-4 hover:underline">
               Buy from {formatMoney(product.priceRange.minVariantPrice)}
             </Link>
           ) : inCollection ? (
-            <Link href={`/shop/${fly.id}`} className="text-sm font-medium text-primary underline-offset-4 hover:underline">
+            <Link href={`/shop/${fly.id}`} className="relative z-10 text-sm font-medium text-primary underline-offset-4 hover:underline">
               Reserve · {formatUsd(priceFor(fly))}
             </Link>
           ) : (
             <span className="text-xs text-muted-foreground">Not in the shop yet</span>
           )}
-          <Link href={`/flies/${fly.id}`} className="text-xs text-muted-foreground underline-offset-4 hover:underline">
+          <span className="text-xs text-muted-foreground underline-offset-4 group-hover/card:underline" aria-hidden="true">
             Details
-          </Link>
+          </span>
         </div>
       </CardContent>
     </Card>

@@ -137,17 +137,17 @@ export default async function RiverPage({ params, searchParams }: PageProps<"/ri
             {now.length ? (
               <ul className="divide-y divide-border rounded-lg border border-border">
                 {now.map((h) => (
-                  <li key={h.hatch.id} className="flex flex-wrap items-center justify-between gap-2 px-3 py-2 text-sm">
-                    <div className="flex items-center gap-2">
-                      <StatusBadge status={h.status} />
-                      <Link href={`/hatches/${h.hatch.id}`} className="font-medium hover:underline">
-                        {h.hatch.commonName}
-                      </Link>
-                    </div>
-                    <span className="font-mono text-xs text-muted-foreground">
-                      {formatWindow(h.window, h.offsetDays)}
-                      {formatPeak(h.window, h.offsetDays) ? ` · peak ${formatPeak(h.window, h.offsetDays)}` : ""}
-                    </span>
+                  <li key={h.hatch.id}>
+                    <Link href={`/hatches/${h.hatch.id}`} className="row-link flex flex-wrap items-center justify-between gap-2 px-3 py-2 text-sm">
+                      <span className="flex items-center gap-2">
+                        <StatusBadge status={h.status} />
+                        <span className="font-medium">{h.hatch.commonName}</span>
+                      </span>
+                      <span className="font-mono text-xs text-muted-foreground">
+                        {formatWindow(h.window, h.offsetDays)}
+                        {formatPeak(h.window, h.offsetDays) ? ` · peak ${formatPeak(h.window, h.offsetDays)}` : ""}
+                      </span>
+                    </Link>
                   </li>
                 ))}
               </ul>
