@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { OTHER_SETUP } from "@/lib/recommend";
+import { ANY_FISH, OTHER_SETUP } from "@/lib/recommend";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import type { Region, SpeciesId, Technique } from "@/data/schema";
 import { cn } from "@/lib/utils";
@@ -103,7 +103,26 @@ export function CounterCard({
 
       <fieldset className="mt-5">
         <legend className="counter-label">Fish</legend>
-        <ToggleGroup type="multiple" value={fish} onValueChange={setFish} className="mt-1.5 flex flex-wrap justify-start gap-1.5" aria-label="Target fish">
+        <ToggleGroup
+          type="multiple"
+          value={fish}
+          onValueChange={(next) => {
+            // "Whatever" stands alone: choosing it clears the fish, choosing a fish clears it.
+            const addedAny = next.includes(ANY_FISH) && !fish.includes(ANY_FISH);
+            setFish(addedAny ? [ANY_FISH] : next.filter((v) => v !== ANY_FISH));
+          }}
+          className="mt-1.5 flex flex-wrap justify-start gap-1.5"
+          aria-label="Target fish"
+        >
+          <ToggleGroupItem
+            value={ANY_FISH}
+            variant="outline"
+            size="sm"
+            className="h-9 rounded-full border-ink/60 bg-card px-3 text-[0.8rem] font-medium data-[state=on]:border-ink data-[state=on]:bg-primary data-[state=on]:text-primary-foreground"
+            title="Every fish documented in the river on that date"
+          >
+            Whatever&apos;s biting
+          </ToggleGroupItem>
           {species.map((s) => {
             const present = !river || here.has(s.id);
             return (

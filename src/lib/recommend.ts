@@ -12,7 +12,7 @@ import {
   type River,
   type SeasonWindow,
   type Species,
-  type SpeciesId,
+  SpeciesId,
   Technique,
   type WaterClarity,
 } from "@/data";
@@ -52,6 +52,30 @@ export interface Setup {
 }
 
 export const OTHER_SETUP = "other";
+
+/** The species value meaning "whatever is in this river on this date". */
+export const ANY_FISH = "whatever";
+
+/**
+ * Turn the species query into target ids. "whatever" expands to every
+ * species documented in the river for the trip's month (peak months first),
+ * or every species in the river if none is documented for that month, so
+ * the engine always has real fish to rank against.
+ */
+export function resolveSpecies(raw: string | string[] | undefined, river: River, date: Date): { ids: SpeciesId[]; any: boolean } {
+  const text = Array.isArray(raw) ? raw.join(",") : (raw ?? "");
+  const tokens = text.split(",").map((t) => t.trim()).filter(Boolean);
+  const any = tokens.includes(ANY_FISH);
+  const chosen = [...new Set(tokens.flatMap((t) => (SpeciesId.safeParse(t).success ? [t as SpeciesId] : [])))];
+  if (!any) return { ids: chosen, any: false };
+  const month = monthOf(date);
+  const inMonth = river.species.filter((s) => s.months.includes(month));
+  const pool = (inMonth.length ? inMonth : river.species)
+    .slice()
+    .sort((a, b) => Number(b.peakMonths.includes(month)) - Number(a.peakMonths.includes(month)));
+  const ids = [...new Set([...chosen, ...pool.map((s) => s.speciesId)])];
+  return { ids, any: true };
+}
 
 /** Parse a `setup` query value such as "dry-fly,streamer,other". Returns null when nothing valid was given. */
 export function parseSetup(raw: string | string[] | undefined): Setup | null {
