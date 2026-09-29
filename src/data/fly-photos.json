@@ -2330,6 +2330,18 @@
           "license": "Used with permission",
           "licenseUrl": null,
           "sourceUrl": ""
+        },
+        {
+          "source": "permission",
+          "url": "/photos/flies/chinook-fry-streamer--coho-fry.webp",
+          "thumbUrl": null,
+          "width": 900,
+          "height": 900,
+          "title": "Coho fry pattern",
+          "author": "the photographer",
+          "license": "Used with permission",
+          "licenseUrl": null,
+          "sourceUrl": ""
         }
       ]
     },
@@ -2496,6 +2508,23 @@
           "width": 900,
           "height": 900,
           "title": "Sweetgrass Hopper",
+          "author": "the photographer",
+          "license": "Used with permission",
+          "licenseUrl": null,
+          "sourceUrl": ""
+        }
+      ]
+    },
+    "eds-salmon-alevin": {
+      "flyId": "eds-salmon-alevin",
+      "photos": [
+        {
+          "source": "permission",
+          "url": "/photos/flies/eds-salmon-alevin--alevin.webp",
+          "thumbUrl": null,
+          "width": 800,
+          "height": 451,
+          "title": "Salmon alevin pattern",
           "author": "the photographer",
           "license": "Used with permission",
           "licenseUrl": null,
