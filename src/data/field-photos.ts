@@ -25,7 +25,7 @@ export const FieldPhoto = z.object({
   credit: z.string().default("Jamison Sheppard"),
   peopleVisible: z.boolean().default(false),
   /** Where the print is used. */
-  roles: z.array(z.enum(["river-hero", "collection-hero", "home", "river", "species", "texture"])).default([]),
+  roles: z.array(z.enum(["river-hero", "collection-hero", "home", "river", "species", "texture", "hero"])).default([]),
   /** CSS object-position for cropped uses (banners). */
   focus: z.string().default("50% 50%"),
 });
@@ -113,7 +113,7 @@ const raw: z.input<typeof FieldPhoto>[] = [
     speciesIds: ["steelhead"],
     caption: "A bright hen on a swung fly, May 14, 2025.",
     alt: "An angler kneeling in the river holding a bright steelhead with a pink lateral band",
-    roles: ["home", "river"],
+    roles: ["home", "river", "hero"],
     peopleVisible: true,
   },
   {
@@ -139,7 +139,7 @@ const raw: z.input<typeof FieldPhoto>[] = [
     speciesIds: ["chinook"],
     caption: "Fall Chinook from the lower river, September 25, 2025.",
     alt: "An angler crouched among streamside brush holding a dark fall Chinook salmon",
-    roles: ["home", "species", "river"],
+    roles: ["home", "species", "river", "hero"],
     peopleVisible: true,
   },
   {

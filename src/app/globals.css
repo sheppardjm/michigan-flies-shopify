@@ -1167,3 +1167,101 @@ a:focus-visible > .map-dot {
     padding-bottom: 3.5rem;
   }
 }
+
+
+/* ------------------------------------------------------------------ */
+/* Photographic grounds on the home page                                */
+/* ------------------------------------------------------------------ */
+/* The rear plane behind the first viewport is the river valley, faded to the wall's tone. */
+.plane-photo {
+  height: 100vh;
+  min-height: 680px;
+  max-height: 1100px;
+  opacity: 1;
+  color: inherit;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, oklch(0 0 0 / 0.9) 0%, oklch(0 0 0 / 0.75) 45%, oklch(0 0 0 / 0) 100%);
+  mask-image: linear-gradient(to bottom, oklch(0 0 0 / 0.9) 0%, oklch(0 0 0 / 0.75) 45%, oklch(0 0 0 / 0) 100%);
+}
+.plane-photo-image {
+  object-fit: cover;
+  object-position: 50% 58%;
+  filter: saturate(0.7) contrast(0.92) brightness(1.04) sepia(0.18);
+  opacity: 0.34;
+}
+@media (max-width: 1023px) {
+  .plane-photo {
+    height: 70vh;
+    min-height: 520px;
+  }
+}
+
+/* Caught on our flies: a dark band on the run we swing, two hero prints across it. */
+.catch-band {
+  position: relative;
+  isolation: isolate;
+  color: var(--trout-belly);
+  background-color: var(--board);
+  border-top: 3px solid var(--rail-deep);
+  border-bottom: 3px solid var(--rail-deep);
+}
+.catch-band-photo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  object-fit: cover;
+  object-position: 50% 40%;
+  filter: saturate(0.7) brightness(0.5) contrast(1.05);
+}
+.catch-band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(to bottom, oklch(0.2 0.03 60 / 0.72), oklch(0.2 0.03 60 / 0.3) 40%, oklch(0.2 0.03 60 / 0.35) 75%, oklch(0.2 0.03 60 / 0.7));
+}
+.catch-band > * {
+  position: relative;
+  z-index: 2;
+}
+.catch-band .field-print-matte {
+  padding: 0.75rem 0.75rem 0.9rem;
+  box-shadow:
+    0 1px 0 0 oklch(0 0 0 / 0.4),
+    0 28px 44px -20px oklch(0 0 0 / 0.75);
+}
+.catch-band .field-print-caption {
+  font-size: 0.95rem;
+}
+.catch-band .field-print-caption .live {
+  font-size: 0.8rem;
+}
+/* Hero prints crop the tall frames to a wide-ish portrait so two sit side by side without towering. */
+.catch-hero .field-print-image {
+  aspect-ratio: 4 / 4.6 !important;
+}
+
+/* The shelf sits on a faint photograph of the river's edge, washed to the wall. */
+.shelf-section {
+  position: relative;
+}
+.shelf-ground {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, oklch(0 0 0 / 0.8) 18%, oklch(0 0 0 / 0.8) 82%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, oklch(0 0 0 / 0.8) 18%, oklch(0 0 0 / 0.8) 82%, transparent);
+}
+.shelf-ground img {
+  object-fit: cover;
+  object-position: 50% 50%;
+  filter: saturate(0.55) contrast(0.85) brightness(1.08) sepia(0.25);
+  opacity: 0.16;
+}

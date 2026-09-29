@@ -10,7 +10,6 @@ import { HatchBoard } from "@/components/wall/hatch-board";
 import { RiverBadge, REGION_SHORT } from "@/components/wall/river-badge";
 import { TroutSign } from "@/components/wall/trout-sign";
 import { MichiganMap } from "@/components/wall/michigan-map";
-import { RiverBend } from "@/components/wall/wilderness";
 import { CATEGORY_LABELS, REGION_LABELS, Region, TECHNIQUE_LABELS, Technique, eggSourceById, flyById, forageById, hatchById, rivers, species, speciesById } from "@/data";
 import { collectionById } from "@/data/collections";
 import { fieldPhotoById, fieldPhotosFor } from "@/data/field-photos";
@@ -34,10 +33,15 @@ export default function HomePage() {
 
   return (
     <div className="wall">
-      {/* Rear plane: the river bend, engraved, behind the first viewport */}
-      <div className="plane-plate" aria-hidden="true">
-        <RiverBend />
-      </div>
+      {/* Rear plane: the river valley itself, faded into the wall, behind the first viewport */}
+      {(() => {
+        const ground = fieldPhotoById.get("river-valley-2025-05-14");
+        return ground ? (
+          <div className="plane-plate plane-photo" aria-hidden="true">
+            <Image src={ground.file} alt="" fill sizes="100vw" priority className="plane-photo-image" />
+          </div>
+        ) : null;
+      })()}
 
       {/* First viewport: sign, counter card, hatch board */}
       <section className="plane-content mx-auto w-full max-w-6xl px-4 pt-6 pb-16 sm:pt-8">
@@ -88,8 +92,62 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Caught on our flies: two hero catches over the run we swing */}
+      {(() => {
+        const heroes = fieldPhotosFor({ role: "hero" });
+        const ground = fieldPhotoById.get("casting-2025-05-17");
+        if (heroes.length < 2 || !ground) return null;
+        const links: Record<string, { href: string; label: string }> = {
+          steelhead: { href: "/species/steelhead", label: "Steelhead flies and timing" },
+          chinook: { href: "/species/chinook", label: "Chinook flies and timing" },
+        };
+        return (
+          <section className="catch-band plane-content mb-16 py-14 sm:py-20" aria-labelledby="catch-title">
+            <Image src={ground.file} alt="" fill sizes="100vw" className="catch-band-photo" aria-hidden="true" />
+            <div className="mx-auto w-full max-w-6xl px-4">
+              <div className="max-w-2xl">
+                <h2 id="catch-title" className="woodtype text-3xl sm:text-5xl">
+                  Caught on our flies
+                </h2>
+                <p className="mt-3 text-base text-trout-belly/85 sm:text-lg">
+                  Spring steelhead in May, fall Chinook in September, on the Two Hearted, on patterns tied at our bench. The calendar behind this site is the
+                  same one we fish.
+                </p>
+              </div>
+              <FieldGallery
+                photos={heroes.slice(0, 2)}
+                tilts={[-0.6, 0.6]}
+                listClassName="mt-10 grid gap-6 sm:grid-cols-2 sm:gap-8"
+                itemClassName="catch-hero"
+                sizes="(min-width: 1024px) 560px, (min-width: 640px) 50vw, 100vw"
+              />
+              <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+                {heroes.slice(0, 2).map((p) => {
+                  const link = links[p.speciesIds[0] ?? ""];
+                  return link ? (
+                    <li key={p.id}>
+                      <Link href={link.href} className="underline underline-offset-4 hover:text-trout-belly/80">
+                        {link.label}
+                      </Link>
+                    </li>
+                  ) : null;
+                })}
+              </ul>
+            </div>
+          </section>
+        );
+      })()}
+
       {/* The shelf of river patches */}
-      <section className="plane-content mx-auto w-full max-w-6xl px-4 pb-16" aria-labelledby="shelf-title">
+      <section className="shelf-section plane-content mx-auto w-full max-w-6xl px-4 pb-16" aria-labelledby="shelf-title">
+        {(() => {
+          const ground = fieldPhotoById.get("hummock-2025-05-09");
+          return ground ? (
+            <div className="shelf-ground" aria-hidden="true">
+              <Image src={ground.file} alt="" fill sizes="100vw" />
+            </div>
+          ) : null;
+        })()}
         <div className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_380px] sm:items-center">
           <div className="space-y-3">
             <h2 id="shelf-title" className="woodtype text-3xl sm:text-4xl">
