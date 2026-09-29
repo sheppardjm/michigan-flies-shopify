@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { RiverMap } from "@/components/river-map";
 import { REGION_LABELS, Region, rivers, speciesById } from "@/data";
 
 export const metadata: Metadata = {
@@ -32,10 +33,15 @@ export default function RiversPage() {
                 <Link key={r.id} href={`/rivers/${r.id}`} className="group">
                   <Card className="h-full transition-colors group-hover:bg-muted/40">
                     <CardHeader>
-                      <CardTitle className="text-base">{r.name}</CardTitle>
-                      <CardDescription>
-                        {r.locale} · {r.thermalClass} · {r.offsetDays === 0 ? "baseline" : `${r.offsetDays > 0 ? "+" : ""}${r.offsetDays} d`}
-                      </CardDescription>
+                      <div className="flex items-start gap-3">
+                        <RiverMap riverId={r.id} className="size-20 shrink-0" />
+                        <div className="min-w-0 flex-1 space-y-1.5">
+                          <CardTitle className="text-base">{r.name}</CardTitle>
+                          <CardDescription>
+                            {r.locale} · {r.thermalClass} · {r.offsetDays === 0 ? "baseline" : `${r.offsetDays > 0 ? "+" : ""}${r.offsetDays} d`}
+                          </CardDescription>
+                        </div>
+                      </div>
                     </CardHeader>
                     <CardContent className="flex flex-wrap gap-1">
                       {r.species.map((s) => (

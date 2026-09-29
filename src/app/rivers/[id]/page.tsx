@@ -15,6 +15,8 @@ import { SourceList } from "@/components/source-list";
 import { StatusBadge } from "@/components/status-badge";
 import { REGION_LABELS, hatchById, riverById, rivers, speciesById, type River } from "@/data";
 import { StockingSection } from "@/components/stocking-section";
+import { FieldBanner, FieldPrint } from "@/components/field-print";
+import { fieldPhotosFor } from "@/data/field-photos";
 import { getRiverConditions } from "@/lib/conditions";
 import { getHatchHero } from "@/lib/photos";
 import { hatchStatusesForRiver, type HatchStatus } from "@/lib/recommend";
@@ -46,9 +48,12 @@ export default async function RiverPage({ params, searchParams }: PageProps<"/ri
   const statuses = hatchStatusesForRiver(river, today);
   const now = isCurrent ? statuses.filter((s) => s.status !== "off") : hatchesInMonth(statuses, month);
   const siblings = rivers.filter((r) => r.system === river.system && r.id !== river.id);
+  const hero = fieldPhotosFor({ riverId: river.id, role: "river-hero" })[0];
+  const prints = fieldPhotosFor({ riverId: river.id, role: "river" }).filter((p) => p.id !== hero?.id);
 
   return (
     <div className="mx-auto w-full max-w-6xl space-y-8 px-4 py-8 sm:py-12">
+      {hero ? <FieldBanner photo={hero} /> : null}
       <div className="space-y-3">
         <p className="text-sm text-muted-foreground">
           <Link href="/rivers" className="hover:underline">
@@ -189,6 +194,24 @@ export default async function RiverPage({ params, searchParams }: PageProps<"/ri
             </section>
           ) : null}
 
+          {prints.length ? (
+            <section className="space-y-3" aria-labelledby="field-title">
+              <h2 id="field-title" className="text-xl font-semibold tracking-tight">
+                From our trips
+              </h2>
+              <p className="text-sm text-muted-foreground">
+                Our own photographs on this water, {formatYearSpan(prints.map((p) => p.takenOn))}. Every fish shown took a fly we tied. Photographs: Jamison Sheppard.
+              </p>
+              <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+                {prints.map((p, i) => (
+                  <li key={p.id}>
+                    <FieldPrint photo={p} tilt={[-0.8, 0.6, -0.4, 0.9, -0.7, 0.5][i % 6]} sizes="(min-width: 1024px) 260px, (min-width: 640px) 33vw, 50vw" />
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
+
           <StockingSection stocking={getRiverStocking(river.id)} />
 
           {river.sections.length ? (
@@ -279,4 +302,9 @@ function hatchesInMonth(statuses: HatchStatus[], month: number): HatchStatus[] {
 async function LiveConditions({ river }: { river: River }) {
   const conditions = await getRiverConditions(river);
   return <ConditionsPanel conditions={conditions} />;
+}
+
+function formatYearSpan(dates: string[]): string {
+  const years = [...new Set(dates.map((d) => d.slice(0, 4)))].sort();
+  return years.length > 1 ? `${years[0]} to ${years[years.length - 1]}` : years[0];
 }
