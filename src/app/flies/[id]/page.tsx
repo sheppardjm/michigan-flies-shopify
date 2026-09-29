@@ -63,7 +63,7 @@ export default async function FlyPage({ params }: PageProps<"/flies/[id]">) {
             {hookSizeLabel(fly.hookSizes)}
           </Badge>
           {fly.colors.map((c) => (
-            <Badge key={c} variant="secondary">
+            <Badge key={c} variant="secondary" className="h-auto max-w-full whitespace-normal text-left">
               {c}
             </Badge>
           ))}
