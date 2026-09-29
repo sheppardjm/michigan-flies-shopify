@@ -166,6 +166,8 @@ export const TyingSheet = z.object({
   bill: z.array(BillItem).default([]),
   /** Who wrote the sheet and where it lives. */
   source: Source.extend({ author: z.string() }),
+  /** Further recipes or tutorials the sheet was checked against. */
+  moreSources: z.array(Source.extend({ author: z.string().optional() })).default([]),
   /** How we may reproduce it: the tier's permission, a public sheet, or our own transcription of a published recipe. */
   license: z.enum(["permission", "published-sheet", "own"]),
   /** Our transcription notes: what we changed or could not read. */
