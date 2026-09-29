@@ -1932,13 +1932,13 @@
           "source": "permission",
           "url": "/photos/flies/halloween-leech--feenstra.jpg",
           "thumbUrl": null,
-          "width": null,
-          "height": null,
-          "title": "Feenstra Halloween Leech",
-          "author": "Kevin Feenstra",
+          "width": 700,
+          "height": 394,
+          "title": "Halloween Leech",
+          "author": "Feenstra Guide Service",
           "license": "Used with permission",
           "licenseUrl": null,
-          "sourceUrl": "https://feenstraoutdoors.com/wordpress/halloween-1-of-1-2/"
+          "sourceUrl": "https://feenstraoutdoors.com/wordpress/fly-box/classic-patterns/"
         },
         {
           "source": "permission",
@@ -1995,13 +1995,13 @@
           "source": "permission",
           "url": "/photos/flies/grapefruit-head-leech--feenstra.jpg",
           "thumbUrl": null,
-          "width": null,
-          "height": null,
-          "title": "Feenstra Grapefruit Leech",
-          "author": "Kevin Feenstra",
+          "width": 596,
+          "height": 335,
+          "title": "Grapefruit Head Leech",
+          "author": "Feenstra Guide Service",
           "license": "Used with permission",
           "licenseUrl": null,
-          "sourceUrl": "https://feenstraoutdoors.com/wordpress/grapefruit-1-of-1-2/"
+          "sourceUrl": "https://feenstraoutdoors.com/wordpress/fly-box/classic-patterns/"
         },
         {
           "source": "permission",
@@ -2575,13 +2575,13 @@
           "source": "permission",
           "url": "/photos/flies/emulator--feenstra.jpg",
           "thumbUrl": null,
-          "width": null,
-          "height": null,
+          "width": 700,
+          "height": 394,
           "title": "Emulator",
-          "author": "Kevin Feenstra",
+          "author": "Feenstra Guide Service",
           "license": "Used with permission",
           "licenseUrl": null,
-          "sourceUrl": "https://feenstraoutdoors.com/wordpress/emulator-1-of-1-2/"
+          "sourceUrl": "https://feenstraoutdoors.com/wordpress/fly-box/classic-patterns/"
         }
       ]
     },
@@ -2592,13 +2592,115 @@
           "source": "permission",
           "url": "/photos/flies/aqua-nuisance--feenstra.jpg",
           "thumbUrl": null,
-          "width": null,
-          "height": null,
+          "width": 700,
+          "height": 394,
           "title": "Aquatic Nuisance",
-          "author": "Kevin Feenstra",
+          "author": "Feenstra Guide Service",
           "license": "Used with permission",
           "licenseUrl": null,
-          "sourceUrl": "https://feenstraoutdoors.com/wordpress/aquatic-nuisance-1-of-1-2/"
+          "sourceUrl": "https://feenstraoutdoors.com/wordpress/fly-box/classic-patterns/"
+        }
+      ]
+    },
+    "australian-possum-hex": {
+      "flyId": "australian-possum-hex",
+      "photos": [
+        {
+          "source": "permission",
+          "url": "/photos/flies/australian-possum-hex--feenstra.jpg",
+          "thumbUrl": null,
+          "width": 700,
+          "height": 394,
+          "title": "Australian Possum Hex",
+          "author": "Feenstra Guide Service",
+          "license": "Used with permission",
+          "licenseUrl": null,
+          "sourceUrl": "https://feenstraoutdoors.com/wordpress/fly-box/classic-patterns/"
+        }
+      ]
+    },
+    "better-than-spawn": {
+      "flyId": "better-than-spawn",
+      "photos": [
+        {
+          "source": "permission",
+          "url": "/photos/flies/better-than-spawn--feenstra.jpg",
+          "thumbUrl": null,
+          "width": 700,
+          "height": 394,
+          "title": "Better Than Spawn (BTS)",
+          "author": "Feenstra Guide Service",
+          "license": "Used with permission",
+          "licenseUrl": null,
+          "sourceUrl": "https://feenstraoutdoors.com/wordpress/fly-box/classic-patterns/"
+        }
+      ]
+    },
+    "reflector": {
+      "flyId": "reflector",
+      "photos": [
+        {
+          "source": "permission",
+          "url": "/photos/flies/reflector--feenstra.jpg",
+          "thumbUrl": null,
+          "width": 612,
+          "height": 344,
+          "title": "Reflector",
+          "author": "Feenstra Guide Service",
+          "license": "Used with permission",
+          "licenseUrl": null,
+          "sourceUrl": "https://feenstraoutdoors.com/wordpress/fly-box/classic-patterns/"
+        }
+      ]
+    },
+    "river-chicken": {
+      "flyId": "river-chicken",
+      "photos": [
+        {
+          "source": "permission",
+          "url": "/photos/flies/river-chicken--feenstra.jpg",
+          "thumbUrl": null,
+          "width": 700,
+          "height": 394,
+          "title": "River Chicken",
+          "author": "Feenstra Guide Service",
+          "license": "Used with permission",
+          "licenseUrl": null,
+          "sourceUrl": "https://feenstraoutdoors.com/wordpress/fly-box/classic-patterns/"
+        }
+      ]
+    },
+    "toadbreaker-sculpin": {
+      "flyId": "toadbreaker-sculpin",
+      "photos": [
+        {
+          "source": "permission",
+          "url": "/photos/flies/toadbreaker-sculpin--feenstra.jpg",
+          "thumbUrl": null,
+          "width": 750,
+          "height": 500,
+          "title": "Toadbreaker Sculpin",
+          "author": "Feenstra Guide Service",
+          "license": "Used with permission",
+          "licenseUrl": null,
+          "sourceUrl": "https://feenstraoutdoors.com/wordpress/fly-box/classic-patterns/"
+        }
+      ]
+    },
+    "grape-and-green-sculpin": {
+      "flyId": "grape-and-green-sculpin",
+      "photos": [
+        {
+          "source": "permission",
+          "url": "/photos/flies/grape-and-green-sculpin--feenstra.jpg",
+          "thumbUrl": null,
+          "width": 750,
+          "height": 500,
+          "title": "Grape and Green Sculpin",
+          "author": "Feenstra Guide Service",
+          "license": "Used with permission",
+          "licenseUrl": null,
+          "sourceUrl": "https://feenstraoutdoors.com/wordpress/fly-patterns-grape-and-green/"
         }
       ]
     }
