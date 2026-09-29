@@ -1,6 +1,6 @@
 /** Dev check of multi-species merge: `pnpm exec tsx scripts/try-multi.ts` */
 import { recommendMulti } from "../src/lib/recommend";
-const r = recommendMulti({ riverId: "two-hearted", date: new Date(Date.UTC(2026, 8, 27)), speciesIds: ["chinook", "coho", "steelhead"], technique: "swing-spey" }, 10);
+const r = recommendMulti({ riverId: "two-hearted", date: new Date(Date.UTC(2026, 8, 27)), speciesIds: ["chinook", "coho", "steelhead"], setup: { techniques: ["swing-spey"], other: false } }, 10);
 console.log(r.speciesList.map((s) => s.name).join(" + "), "·", r.river.name);
 for (const w of r.warnings) console.log("  !", w);
 console.log("  eggs:", r.eggs.map((e) => `${e.egg.name}${e.peak ? "*" : ""}${e.spawnerPresent ? "" : "(absent)"}`).join(", "));

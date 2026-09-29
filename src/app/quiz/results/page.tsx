@@ -14,9 +14,9 @@ import { FlyCard } from "@/components/fly-card";
 import { InsectThumb } from "@/components/insect-photo";
 import { StatusBadge } from "@/components/status-badge";
 import { getHatchHero } from "@/lib/photos";
-import { REGION_LABELS, SpeciesId, TECHNIQUE_LABELS, Technique, riverById, speciesById, type River } from "@/data";
+import { REGION_LABELS, SpeciesId, TECHNIQUE_LABELS, riverById, speciesById, type River } from "@/data";
 import { getRiverConditions } from "@/lib/conditions";
-import { recommendMulti } from "@/lib/recommend";
+import { describeSetup, parseSetup, recommendMulti, serializeSetup, type Setup } from "@/lib/recommend";
 import { formatDate, formatPeak, formatWindow, parseIsoDate, toUtcDay } from "@/lib/season";
 import { getProductsByHandles } from "@/lib/shopify/products";
 
@@ -28,23 +28,23 @@ function parseParams(sp: Record<string, string | string[] | undefined>) {
     typeof sp.species === "string"
       ? [...new Set(sp.species.split(",").map((s) => SpeciesId.safeParse(s)).flatMap((r) => (r.success ? [r.data] : [])))]
       : [];
-  const setupParse = Technique.safeParse(sp.setup);
-  if (!river || !speciesIds.length || !setupParse.success) return null;
-  return { river, speciesIds, technique: setupParse.data, date: parseIsoDate(typeof sp.date === "string" ? sp.date : undefined) };
+  const setup = parseSetup(sp.setup);
+  if (!river || !speciesIds.length || !setup) return null;
+  return { river, speciesIds, setup, date: parseIsoDate(typeof sp.date === "string" ? sp.date : undefined) };
 }
 
 export default async function ResultsPage({ searchParams }: PageProps<"/quiz/results">) {
   const sp = await searchParams;
   const parsed = parseParams(sp);
   if (!parsed) notFound();
-  const { river, speciesIds, technique, date } = parsed;
+  const { river, speciesIds, setup, date } = parsed;
   const speciesNames = speciesIds.map((id) => speciesById.get(id)?.name ?? id);
 
   // Live conditions only help when the trip is within the forecast horizon.
   const daysOut = Math.round((date.getTime() - toUtcDay(new Date()).getTime()) / 86_400_000);
   const useLive = daysOut >= -1 && daysOut <= 7;
 
-  const editHref = `/quiz?${new URLSearchParams({ river: river.id, date: date.toISOString().slice(0, 10), species: speciesIds.join(","), setup: technique })}`;
+  const editHref = `/quiz?${new URLSearchParams({ river: river.id, date: date.toISOString().slice(0, 10), species: speciesIds.join(","), setup: serializeSetup(setup) })}`;
 
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-8 sm:py-12">
@@ -55,7 +55,7 @@ export default async function ResultsPage({ searchParams }: PageProps<"/quiz/res
             {joinNames(speciesNames)} · {river.name}
           </h1>
           <p className="text-muted-foreground">
-            {formatDate(date)} · {TECHNIQUE_LABELS[technique]} · {REGION_LABELS[river.region]}
+            {formatDate(date)} · {describeSetup(setup, TECHNIQUE_LABELS)} · {REGION_LABELS[river.region]}
             {river.offsetDays !== 0 ? ` · hatch timing ${river.offsetDays > 0 ? "+" : ""}${river.offsetDays} days vs. Au Sable` : ""}
           </p>
         </div>
@@ -65,7 +65,7 @@ export default async function ResultsPage({ searchParams }: PageProps<"/quiz/res
       </div>
 
       <Suspense fallback={<ResultsSkeleton />}>
-        <Results river={river} speciesIds={speciesIds} technique={technique} date={date} useLive={useLive} />
+        <Results river={river} speciesIds={speciesIds} setup={setup} date={date} useLive={useLive} />
       </Suspense>
     </div>
   );
@@ -74,13 +74,13 @@ export default async function ResultsPage({ searchParams }: PageProps<"/quiz/res
 async function Results({
   river,
   speciesIds,
-  technique,
+  setup,
   date,
   useLive,
 }: {
   river: River;
   speciesIds: SpeciesId[];
-  technique: Technique;
+  setup: Setup;
   date: Date;
   useLive: boolean;
 }) {
@@ -89,7 +89,7 @@ async function Results({
     riverId: river.id,
     date,
     speciesIds,
-    technique,
+    setup,
     conditions: conditions ? { waterTempF: conditions.waterTempF, agdd50: conditions.gdd?.current[50] ?? null } : undefined,
   });
   const products = await getProductsByHandles(result.recommendations.map((r) => r.fly.shopifyHandle ?? r.fly.id)).catch(() => new Map());

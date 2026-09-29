@@ -15,7 +15,7 @@ import { REGION_LABELS, hatchById, riverById, rivers, speciesById, type River } 
 import { StockingSection } from "@/components/stocking-section";
 import { getRiverConditions } from "@/lib/conditions";
 import { hatchStatusesForRiver } from "@/lib/recommend";
-import { getRiverStocking } from "@/lib/stocking";
+import { getRiverStocking, unmodeledStockedSpecies } from "@/lib/stocking";
 import { formatPeak, formatWindow, monthOf, toIsoDate, toUtcDay } from "@/lib/season";
 
 export function generateStaticParams() {
@@ -99,6 +99,20 @@ export default async function RiverPage({ params }: PageProps<"/rivers/[id]">) {
                 ],
               }))}
             />
+            {(() => {
+              const extra = unmodeledStockedSpecies(getRiverStocking(river.id));
+              if (!extra.length) return null;
+              const year = new Date().getUTCFullYear();
+              return (
+                <p className="text-xs text-muted-foreground">
+                  The DNR also plants fish here that this site does not model yet:{" "}
+                  {extra
+                    .map((e) => `${e.species.toLowerCase()} (${e.lastYear >= year - 5 ? `through ${e.lastYear}` : e.firstYear === e.lastYear ? String(e.lastYear) : `${e.firstYear}–${e.lastYear}`})`)
+                    .join(", ")}
+                  . See the stocking record below.
+                </p>
+              );
+            })()}
           </section>
 
           <section className="space-y-3">

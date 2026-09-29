@@ -13,7 +13,7 @@ import {
   type SeasonWindow,
   type Species,
   type SpeciesId,
-  type Technique,
+  Technique,
   type WaterClarity,
 } from "@/data";
 import { evaluateWindow, monthOf, type WindowEvaluation, type WindowStatus } from "./season";
@@ -40,11 +40,45 @@ export interface Conditions {
   agdd50?: number | null;
 }
 
+/**
+ * How the angler is rigged. Several techniques may be picked; `other` means
+ * "something not on the list" and weights neutrally: it never excludes a fly
+ * and never adds or removes points, so with `other` alone the ranking is
+ * pure hatch, egg and forage timing.
+ */
+export interface Setup {
+  techniques: Technique[];
+  other: boolean;
+}
+
+export const OTHER_SETUP = "other";
+
+/** Parse a `setup` query value such as "dry-fly,streamer,other". Returns null when nothing valid was given. */
+export function parseSetup(raw: string | string[] | undefined): Setup | null {
+  const text = Array.isArray(raw) ? raw.join(",") : (raw ?? "");
+  const tokens = text.split(",").map((t) => t.trim()).filter(Boolean);
+  const techniques = [...new Set(tokens.flatMap((t) => (Technique.safeParse(t).success ? [t as Technique] : [])))];
+  const other = tokens.includes(OTHER_SETUP);
+  if (!techniques.length && !other) return null;
+  return { techniques, other };
+}
+
+export function serializeSetup(setup: Setup): string {
+  return [...setup.techniques, ...(setup.other ? [OTHER_SETUP] : [])].join(",");
+}
+
+/** Human label for the header line: "Dry fly, streamer and other". */
+export function describeSetup(setup: Setup, labels: Record<Technique, string>): string {
+  const parts = [...setup.techniques.map((t) => labels[t]), ...(setup.other ? ["other"] : [])];
+  if (parts.length <= 1) return parts[0] ?? "any setup";
+  return `${parts.slice(0, -1).join(", ")} and ${parts[parts.length - 1]}`;
+}
+
 export interface QuizInput {
   riverId: string;
   date: Date;
   speciesId: SpeciesId;
-  technique: Technique;
+  setup: Setup;
   conditions?: Conditions;
 }
 
@@ -76,7 +110,7 @@ export interface Recommendation {
 export interface QuizResult {
   river: River;
   species: Species;
-  technique: Technique;
+  setup: Setup;
   date: Date;
   speciesPresence: { present: boolean; peak: boolean; note?: string; confidence?: "A" | "B" | "C" };
   hatches: HatchStatus[];
@@ -216,17 +250,21 @@ export function recommend(input: QuizInput, limit = 12): QuizResult {
   const eggById = new Map(eggStatuses.map((e) => [e.egg.id, e]));
   const forageNow = forageForMonth(input.date, input.speciesId);
   const forageIds = new Set(forageNow.map((f) => f.id));
-  const compat = TECHNIQUE_COMPAT[input.technique];
+  const selected = input.setup.techniques;
+  const neutral = input.setup.other || selected.length === 0;
+  const compat = new Set(selected.flatMap((t) => TECHNIQUE_COMPAT[t]));
 
   const recommendations: Recommendation[] = [];
   for (const fly of flies) {
     if (!fly.species.includes(input.speciesId)) continue;
-    if (!fly.techniques.some((t) => compat.includes(t))) continue;
+    const exactTechnique = fly.techniques.some((t) => selected.includes(t));
+    const compatible = exactTechnique || fly.techniques.some((t) => compat.has(t));
+    if (!compatible && !neutral) continue;
     const reasons: string[] = [];
     let score = fly.priority * 6;
-    const exactTechnique = fly.techniques.includes(input.technique);
+    // Setup: a fly tied for a chosen technique earns points, a merely compatible one loses a few, and "other" is neutral.
     if (exactTechnique) score += 6;
-    else score -= 4;
+    else if (compatible) score -= 4;
 
     // 1. Hatch links
     let bestHatch: HatchStatus | undefined;
@@ -318,8 +356,8 @@ export function recommend(input: QuizInput, limit = 12): QuizResult {
     // 7. Region
     if (fly.regions.length && !fly.regions.includes(river.region)) score -= 25;
 
-    // 8. Time of day: mousing needs night flies; otherwise ignore.
-    if (input.technique === "mousing" && fly.category !== "mouse") score -= 20;
+    // 8. Time of day: an angler rigged only for mousing wants night flies; otherwise ignore.
+    if (!neutral && selected.length === 1 && selected[0] === "mousing" && fly.category !== "mouse") score -= 20;
 
     if (score <= 0) continue;
     recommendations.push({ fly, score: Math.round(score), reasons });
@@ -328,13 +366,13 @@ export function recommend(input: QuizInput, limit = 12): QuizResult {
   recommendations.sort((a, b) => b.score - a.score || a.fly.name.localeCompare(b.fly.name));
 
   if (recommendations.length === 0) {
-    warnings.push(`No patterns matched ${species.name} with a ${input.technique.replace(/-/g, " ")} setup on this date. Try a different setup.`);
+    warnings.push(`No patterns matched ${species.name} with your setup on this date. Try adding a setup or choosing "other".`);
   }
 
   return {
     river,
     species,
-    technique: input.technique,
+    setup: input.setup,
     date: input.date,
     speciesPresence,
     hatches: hatchStatuses.filter((h) => h.status !== "off"),
@@ -353,7 +391,7 @@ export interface MultiRecommendation extends Recommendation {
 export interface MultiQuizResult {
   river: River;
   speciesList: Species[];
-  technique: Technique;
+  setup: Setup;
   date: Date;
   perSpecies: QuizResult[];
   hatches: HatchStatus[];
@@ -403,7 +441,7 @@ export function recommendMulti(input: Omit<QuizInput, "speciesId"> & { speciesId
   return {
     river: perSpecies[0].river,
     speciesList: perSpecies.map((r) => r.species),
-    technique: input.technique,
+    setup: input.setup,
     date: input.date,
     perSpecies,
     hatches: perSpecies[0].hatches,

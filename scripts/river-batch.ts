@@ -28,7 +28,7 @@ for (let month = 1; month <= 12; month++) {
   for (const entry of river.species) {
     if (!entry.months.includes(month)) continue;
     for (const technique of Technique.options) {
-      const r = recommend({ riverId, date, speciesId: entry.speciesId, technique }, 12);
+      const r = recommend({ riverId, date, speciesId: entry.speciesId, setup: { techniques: [technique], other: false } }, 12);
       const strong = r.recommendations.filter((x) => x.score >= MIN_SCORE).slice(0, topN);
       for (const rec of strong) {
         const t = tally.get(rec.fly.id) ?? { id: rec.fly.id, name: rec.fly.name, category: rec.fly.category, slots: 0, months: new Set(), species: new Set(), speciesIds: new Set(), techniques: new Set(), best: 0 };

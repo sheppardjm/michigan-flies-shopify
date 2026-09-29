@@ -108,10 +108,32 @@ export function StockingSection({ stocking }: { stocking: RiverStocking | null }
       )}
 
       {historical.length ? (
-        <p className="text-xs text-muted-foreground">
-          Historical only:{" "}
-          {historical.map((s) => `${s.species} (${s.firstYear === s.lastYear ? s.lastYear : `${s.firstYear}–${s.lastYear}`}, ${fmt.format(s.totalAllYears)} fish)`).join("; ")}.
-        </p>
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium">Earlier plants, not stocked in the last five years</h3>
+          <RowTable
+            titleLabel="Species"
+            factLabels={["Years", "Fish planted", "Last plant"]}
+            titleClassName="min-w-40"
+            rows={historical.map((s) => ({
+              key: s.species,
+              title: <span className="font-medium">{speciesLabel(s.species, s.strains).label}</span>,
+              facts: [
+                { label: "Years", value: s.firstYear === s.lastYear ? String(s.lastYear) : `${s.firstYear}–${s.lastYear}`, cellClassName: "font-mono text-xs tabular-nums" },
+                { label: "Fish planted", value: fmt.format(s.totalAllYears), cellClassName: "font-mono text-xs tabular-nums" },
+                {
+                  label: "Last plant",
+                  value: (
+                    <span className="text-muted-foreground">
+                      {fmtDate(s.latest.date)}
+                      {s.latest.site ? ` · ${titleCase(s.latest.site)}` : ""}
+                    </span>
+                  ),
+                  cellClassName: "text-xs",
+                },
+              ],
+            }))}
+          />
+        </div>
       ) : null}
 
       {latestPlants.length ? (
