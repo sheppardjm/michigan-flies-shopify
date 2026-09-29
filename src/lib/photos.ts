@@ -1,7 +1,9 @@
 import photos from "@/data/hatch-photos.json";
+import speciesPhotos from "@/data/species-photos.json";
 
 /**
- * Insect photos sourced from iNaturalist by `scripts/fetch-inat-photos.ts`.
+ * Insect photos sourced from iNaturalist by `scripts/fetch-inat-photos.ts`, and
+ * fish photos by `scripts/fetch-species-photos.ts`.
  * Only CC0, CC BY and CC BY-SA photos are kept because the site is commercial;
  * CC BY and CC BY-SA require the attribution rendered by <PhotoCredit>.
  */
@@ -55,7 +57,10 @@ export const PHOTOS_FETCHED_AT = data.fetchedAt;
  * everywhere; a pinned photo id becomes the hero for that hatch. Re-running the
  * fetch script does not touch these lists.
  */
-export const EXCLUDED_PHOTO_IDS = new Set<number>([]);
+export const EXCLUDED_PHOTO_IDS = new Set<number>([
+  // Fish: murky, blurred, a screenshot, a snake eating the fish, a carcass.
+  462422943, 127663785, 444233624, 164248466, 283253888, 283287569, 213971265, 246748752, 569527151, 561309068,
+]);
 export const PINNED_HERO: Record<string, number> = {};
 
 export function getHatchPhotos(hatchId: string): InatPhoto[] {
@@ -73,6 +78,20 @@ export function getHatchHero(hatchId: string): InatPhoto | null {
   if (PINNED_HERO[hatchId] && list[0]?.photoId === PINNED_HERO[hatchId]) return list[0];
   // Prefer an adult or subimago for the hero; fall back to whatever is first.
   return list.find((p) => p.lifeStage === "adult" || p.lifeStage === "subimago") ?? list[0] ?? null;
+}
+
+interface SpeciesSnapshot {
+  fetchedAt: string;
+  species: Record<string, { speciesId: string; taxonName: string; taxonId: number; adults: InatPhoto[]; juveniles: InatPhoto[] }>;
+}
+
+const speciesData = speciesPhotos as unknown as SpeciesSnapshot;
+
+/** Adult and juvenile (fry, parr, smolt) photos for a fish species. */
+export function getSpeciesPhotos(speciesId: string): { adults: InatPhoto[]; juveniles: InatPhoto[] } {
+  const entry = speciesData.species[speciesId];
+  const keep = (list: InatPhoto[] = []) => list.filter((p) => !EXCLUDED_PHOTO_IDS.has(p.photoId));
+  return { adults: keep(entry?.adults), juveniles: keep(entry?.juveniles) };
 }
 
 export function photoUrl(p: InatPhoto, size: "square" | "small" | "medium" | "large" | "original" = "medium"): string {

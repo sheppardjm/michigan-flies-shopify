@@ -120,7 +120,7 @@ export default function HomePage() {
               <div key={region} className="shelf">
                 <div className="mb-3 flex flex-wrap items-baseline gap-x-3 gap-y-1.5">
                   <h3 className="woodtype-caps basis-full text-sm sm:basis-auto">{REGION_LABELS[region]}</h3>
-                  <span className="whitespace-nowrap rounded-sm border border-ink/40 bg-card px-1.5 py-0.5 text-[0.76rem] font-medium text-ink">{formatOffset(list.map((r) => r.offsetDays))}</span>
+                  <span className="whitespace-nowrap rounded-sm border border-ink/40 bg-card px-2 py-1 text-[0.76rem] font-medium leading-none text-ink">{formatOffset(list.map((r) => r.offsetDays))}</span>
                   <Link href={`/rivers#${region}`} className="ml-auto whitespace-nowrap text-xs underline underline-offset-4 sm:hidden">
                     All {list.length} rivers
                   </Link>

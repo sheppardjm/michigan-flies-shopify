@@ -5,11 +5,13 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { EvidenceBadge } from "@/components/evidence-badge";
+import { FishPhotos } from "@/components/fish-photos";
 import { FlyCard } from "@/components/fly-card";
 import { MonthGrid } from "@/components/month-grid";
 import { RowTable } from "@/components/row-table";
 import { SourceList } from "@/components/source-list";
 import { SpeciesId, eggSources, flies, rivers, species, speciesById } from "@/data";
+import { getSpeciesPhotos } from "@/lib/photos";
 import { monthName } from "@/lib/recommend";
 
 export function generateStaticParams() {
@@ -31,6 +33,7 @@ export default async function SpeciesPage({ params }: PageProps<"/species/[id]">
   const topFlies = flies.filter((f) => f.species.includes(s.id)).sort((a, b) => b.priority - a.priority).slice(0, 8);
   const where = rivers.filter((r) => r.species.some((x) => x.speciesId === s.id));
   const eggsEaten = eggSources.filter((e) => e.eatenBy.includes(s.id));
+  const photos = getSpeciesPhotos(s.id);
 
   return (
     <div className="mx-auto w-full max-w-6xl space-y-8 px-4 py-8 sm:py-12">
@@ -54,6 +57,10 @@ export default async function SpeciesPage({ params }: PageProps<"/species/[id]">
 
       <div className="grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[minmax(0,1fr)_340px]">
         <div className="space-y-8">
+          <section>
+            <FishPhotos name={s.name} adults={photos.adults} juveniles={photos.juveniles} />
+          </section>
+
           <section className="space-y-3">
             <h2 className="text-xl font-semibold tracking-tight">What they eat in the river</h2>
             <p className="text-sm text-muted-foreground">{s.dietSummary}</p>
