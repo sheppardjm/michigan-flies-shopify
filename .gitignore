@@ -47,3 +47,6 @@ design/inspiration/
 # Impeccable working state (captures, live-mode journal)
 .impeccable/review/
 .impeccable/live/
+
+# Owner photo originals and other design source material; never served or committed
+design/
