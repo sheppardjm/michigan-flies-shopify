@@ -1499,12 +1499,12 @@ const raw: z.input<typeof FlyList> = [
     priority: 2,
     evidence: "A",
     description:
-      "A flash-bodied baitfish that Feenstra describes as a versatile searching pattern working year-round for multiple species. It imitates the shiners migratory fish key on in fall and the general baitfish profile in winter; swing it on a sink tip in the Muskegon and Manistee.",
+      "Kevin Feenstra's all-purpose sculpin: a grizzly marabou tail, an emu-feather body palmered with schlappen, mallard flank fins and a possum or wool head. Devised as a smallmouth fly, it became a favorite steelhead fly that Feenstra describes as working year-round for multiple species; swing it on a sink tip in the Muskegon and Manistee.",
     sources: [S.feenstraGallery, S.anchored],
   },
   {
     id: "aqua-nuisance",
-    name: "Feenstra's Aqua Nuisance",
+    name: "Feenstra's Aquatic Nuisance",
     category: "streamer",
     forageIds: ["sculpin", "round-goby"],
     hookSizes: [1, 2],
@@ -1518,7 +1518,7 @@ const raw: z.input<typeof FlyList> = [
     priority: 2,
     evidence: "A",
     description:
-      "A size 1 sculpin or large baitfish imitation that 'shines during the fall and spring months when fish are aggressive,' in low light and stained water, for steelhead, salmon and large trout. Swing it on a heavy tip through the deep runs of the Muskegon and Big Manistee.",
+      "Feenstra's rabbit-strip and flash sculpin, sold by shops as the Aqua Nuisance: a size 1 or 1/0 fly that 'shines during the fall and spring months when fish are aggressive,' in low light and stained water, for steelhead, salmon and large trout. Feenstra fishes it fall through spring and rates it best in water over 38 F. Swing it on a heavy tip through the deep runs of the Muskegon and Big Manistee.",
     sources: [S.tridentAqua, S.feenstraGallery],
   },
   {
