@@ -11,9 +11,10 @@ import { AddToCartButton } from "@/components/add-to-cart-button";
 import { hookSizeLabel } from "@/components/fly-card";
 import { InsectThumb, PhotoCredit } from "@/components/insect-photo";
 import { FlyReferenceCard } from "@/components/fly-reference-photo";
+import { TyingSheet } from "@/components/tying-sheet";
 import { getFlyReferencePhotos } from "@/lib/fly-photos";
 import { getHatchHero } from "@/lib/photos";
-import { CATEGORY_LABELS, TECHNIQUE_LABELS, eggSourceById, flies, flyById, forageById, hatchById, speciesById } from "@/data";
+import { CATEGORY_LABELS, TECHNIQUE_LABELS, eggSourceById, flies, flyById, forageById, hatchById, speciesById, tyingByFlyId } from "@/data";
 import { getProductByHandle } from "@/lib/shopify/products";
 import { formatMoney } from "@/lib/shopify/types";
 import { windowMonths } from "@/lib/season";
@@ -75,7 +76,7 @@ export default async function FlyPage({ params }: PageProps<"/flies/[id]">) {
         </div>
       </div>
 
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_340px]">
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[minmax(0,1fr)_340px]">
         <div className="space-y-6">
           {!product?.featuredImage ? <FlyReferenceCard photos={getFlyReferencePhotos(fly.id)} flyName={fly.name} /> : null}
           <Card>
@@ -169,6 +170,10 @@ export default async function FlyPage({ params }: PageProps<"/flies/[id]">) {
               </CardContent>
             </Card>
           </div>
+          {(() => {
+            const sheet = tyingByFlyId.get(fly.id);
+            return sheet ? <TyingSheet sheet={sheet} flyName={fly.name} /> : null;
+          })()}
           <SourceList sources={fly.sources} />
         </div>
 
