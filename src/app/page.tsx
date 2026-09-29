@@ -7,7 +7,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { BoardReveal } from "@/components/wall/board-reveal";
 import { CounterCard, type CounterRiver } from "@/components/wall/counter-card";
 import { HatchBoard } from "@/components/wall/hatch-board";
-import { RiverBadge, REGION_SHORT } from "@/components/wall/river-badge";
+import { MichiganOutlineDefs, RiverBadge, REGION_SHORT } from "@/components/wall/river-badge";
 import { TroutSign } from "@/components/wall/trout-sign";
 import { MichiganMap } from "@/components/wall/michigan-map";
 import { CATEGORY_LABELS, REGION_LABELS, Region, TECHNIQUE_LABELS, Technique, eggSourceById, flyById, forageById, hatchById, rivers, species, speciesById } from "@/data";
@@ -172,6 +172,7 @@ export default function HomePage() {
             </ul>
           </div>
         </div>
+        <MichiganOutlineDefs />
         <div className="mt-6 space-y-10">
           {SHELF_ORDER.map((region) => {
             const list = rivers.filter((r) => r.region === region);

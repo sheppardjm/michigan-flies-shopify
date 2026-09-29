@@ -73,11 +73,24 @@ function PlaceMark({ lat, lon }: { lat: number; lon: number }) {
   const p = project(lat, lon);
   return (
     <g transform="translate(-14.5 -12.5) scale(0.29 0.27)" fill="currentColor" stroke="currentColor">
-      <path d={MICHIGAN_OUTLINE.up} fillOpacity="0.22" strokeWidth="2.2" strokeLinejoin="round" />
-      <path d={MICHIGAN_OUTLINE.lp} fillOpacity="0.22" strokeWidth="2.2" strokeLinejoin="round" />
-      <circle cx={p.x} cy={p.y} r="11" fill="none" strokeWidth="2.4" opacity="0.7" />
-      <circle cx={p.x} cy={p.y} r="5.5" stroke="none" />
+      <use href="#mi-outline" />
+      <circle cx={p.x.toFixed(1)} cy={p.y.toFixed(1)} r="11" fill="none" strokeWidth="2.4" opacity="0.7" />
+      <circle cx={p.x.toFixed(1)} cy={p.y.toFixed(1)} r="5.5" stroke="none" />
     </g>
+  );
+}
+
+/** Render once per page (the shelf does) so every badge's plate reuses one copy of the outline. */
+export function MichiganOutlineDefs() {
+  return (
+    <svg width="0" height="0" className="absolute" aria-hidden="true" focusable="false">
+      <defs>
+        <g id="mi-outline" fillOpacity="0.22" strokeWidth="2.2" strokeLinejoin="round">
+          <path d={MICHIGAN_OUTLINE.up} />
+          <path d={MICHIGAN_OUTLINE.lp} />
+        </g>
+      </defs>
+    </svg>
   );
 }
 

@@ -1003,12 +1003,31 @@ a:focus-visible > .map-dot {
 }
 
 /* Lightbox for field prints: a native dialog, the photograph on a dark matte with its caption. */
-.field-print-button {
-  border-radius: 4px;
+.zoom-trigger {
   cursor: zoom-in;
 }
-.field-print-button:focus-visible {
+.zoom-trigger img {
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.zoom-trigger:hover img {
+  transform: scale(1.03);
+}
+.zoom-trigger:focus-visible {
   outline: 3px solid var(--trout-fin);
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .zoom-trigger img {
+    transition: none;
+  }
+}
+.field-print-button {
+  border-radius: 4px;
+}
+.field-print-button:hover img {
+  transform: none;
+}
+.field-print-button:focus-visible {
   outline-offset: 4px;
 }
 .lightbox {

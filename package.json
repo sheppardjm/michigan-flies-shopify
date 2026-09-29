@@ -9,6 +9,7 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "render-plates": "tsx scripts/render-plates.ts",
     "validate-data": "tsx scripts/validate-data.ts",
     "fetch-stocking": "tsx scripts/fetch-stocking.ts",
     "fetch-photos": "tsx scripts/fetch-inat-photos.ts",
