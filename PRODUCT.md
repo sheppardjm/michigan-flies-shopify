@@ -49,7 +49,7 @@ Constraints future work must preserve:
 - Every timing, presence, and pattern claim carries an evidence tag (S scientific or agency, A angler or guide, I inferred) and sources; the tag is user-visible.
 - The scientific layer is thin. Only Hexagenia degree-days, Michigan caddis being date-driven, a steelhead movement model, and two DNR brown trout diet studies are peer-reviewed; the rest is guide consensus and must be presented as such.
 - No calibrated air degree-day threshold exists for any Michigan hatch. Degree days are shown as context beside water temperature; per-river calibration is a multi-season project.
-- Photos of insects come from iNaturalist under CC0, CC BY, or CC BY-SA only, with attribution. Photos of flies are either the owner's own or reference photos labeled as not our tie, credited, and never used as product images; some are Creative Commons, most are used with the photographer's (Quinn's) permission.
+- Photos of insects come from iNaturalist under CC0, CC BY, or CC BY-SA only, with attribution. Photos of flies are either the owner's own or reference photos labeled as not our tie, credited, and never used as product images; some are Creative Commons, most are used with permission: Quinn's (Fly Deal Flies), and Feenstra Guide Service's pattern photos and sheets (permission given September 29, 2026), plus a set of shop photos the owner obtained permission for.
 - Stocking counts are fish planted, not fish surviving; DNR "rainbow trout" plants of Michigan or Skamania strain are steelhead smolts.
 - Data lives as typed TypeScript and JSON in the repo; no database in v1.
 - Domain: michiganflies.com is canonical; michiganflys.com redirects.
