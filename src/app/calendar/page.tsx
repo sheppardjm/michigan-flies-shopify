@@ -49,7 +49,7 @@ export default async function CalendarPage({ searchParams }: PageProps<"/calenda
             <Button key={r} asChild size="sm" variant={r === region && !riverParam ? "default" : "outline"}>
               <Link href={`/calendar?region=${r}`}>
                 {REGION_LABELS[r]}
-                <span className="ml-1 font-mono text-[10px] opacity-70">
+                <span className="ml-1 font-mono text-[0.7rem] opacity-70">
                   {(regionOffsetByRegion.get(r)?.offsetDays ?? 0) === 0 ? "0" : `${(regionOffsetByRegion.get(r)?.offsetDays ?? 0) > 0 ? "+" : ""}${regionOffsetByRegion.get(r)?.offsetDays}d`}
                 </span>
               </Link>
@@ -101,7 +101,7 @@ export default async function CalendarPage({ searchParams }: PageProps<"/calenda
                 value: (
                   <>
                     {formatWindow(window, off)}
-                    {overridden ? <Badge variant="outline" className="ml-1 text-[10px]">local</Badge> : null}
+                    {overridden ? <Badge variant="outline" className="ml-1 text-[0.7rem]">local</Badge> : null}
                   </>
                 ),
                 cellClassName: "font-mono text-xs whitespace-nowrap",

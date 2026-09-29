@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 export function PhotoCredit({ photo, className }: { photo: InatPhoto; className?: string }) {
   const lic = LICENSE_LABELS[photo.license];
   return (
-    <p className={cn("text-[11px] leading-snug text-muted-foreground", className)}>
+    <p className={cn("text-[0.74rem] leading-snug text-muted-foreground", className)}>
       {photo.license === "cc0" ? photo.observer : `© ${photo.observer}`}
       {" · "}
       <a href={lic.url} target="_blank" rel="noreferrer license" className="underline-offset-2 hover:underline">
@@ -48,7 +48,7 @@ export function InsectGallery({ photos, alt }: { photos: InatPhoto[]; alt: strin
         <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border bg-muted">
           <Image src={photoUrl(hero, "large")} alt={`${alt}${hero.lifeStage ? `, ${hero.lifeStage}` : ""}`} fill sizes="(min-width: 1024px) 640px, 100vw" className="object-cover" priority />
           {hero.lifeStage ? (
-            <span className="absolute left-2 top-2 rounded-md bg-background/85 px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide backdrop-blur">
+            <span className="absolute left-2 top-2 rounded-md bg-background/85 px-1.5 py-0.5 text-[0.7rem] font-medium uppercase tracking-wide backdrop-blur">
               {hero.lifeStage}
             </span>
           ) : null}
@@ -69,7 +69,7 @@ export function InsectGallery({ photos, alt }: { photos: InatPhoto[]; alt: strin
                   </span>
                 ) : null}
               </div>
-              <PhotoCredit photo={p} className="line-clamp-2 text-[10px]" />
+              <PhotoCredit photo={p} className="line-clamp-2 text-[0.7rem]" />
             </li>
           ))}
         </ul>

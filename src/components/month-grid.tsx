@@ -31,7 +31,7 @@ export function MonthGrid({
             key={label}
             title={`${label}${isPeak ? " (peak)" : isActive ? " (active)" : ""}`}
             className={cn(
-              "flex items-center justify-center rounded-sm border text-[10px] font-mono uppercase",
+              "flex items-center justify-center rounded-sm border text-[0.7rem] font-mono uppercase",
               compact ? "h-5" : "h-7",
               isPeak
                 ? "border-primary bg-primary text-primary-foreground"
