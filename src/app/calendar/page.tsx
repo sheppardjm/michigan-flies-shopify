@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { EvidenceBadge } from "@/components/evidence-badge";
 import { MonthGrid } from "@/components/month-grid";
+import { RowTable } from "@/components/row-table";
 import { REGION_LABELS, Region, eggSources, hatches, regionOffsetByRegion, regionOffsets, riverById, rivers } from "@/data";
 import { formatPeak, formatWindow, windowMonths } from "@/lib/season";
 
@@ -79,87 +79,78 @@ export default async function CalendarPage({ searchParams }: PageProps<"/calenda
 
       <section className="space-y-3">
         <h2 className="text-xl font-semibold tracking-tight">Insect hatches</h2>
-        <div className="overflow-x-auto rounded-lg border border-border">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="min-w-44">Hatch</TableHead>
-                <TableHead className="min-w-64">Months</TableHead>
-                <TableHead>Window</TableHead>
-                <TableHead>Peak</TableHead>
-                <TableHead>Size</TableHead>
-                <TableHead>Trigger</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {rows.map(({ hatch, window, off, months, overridden }) => (
-                <TableRow key={hatch.id}>
-                  <TableCell>
-                    <div className="flex flex-col gap-0.5">
-                      <Link href={`/hatches/${hatch.id}`} className="font-medium hover:underline">
-                        {hatch.commonName}
-                      </Link>
-                      <span className="text-xs italic text-muted-foreground">{hatch.scientificName}</span>
-                    </div>
-                  </TableCell>
-                  <TableCell>
-                    <MonthGrid active={months} peak={window.peakStart && window.peakEnd ? windowMonths({ start: window.peakStart, end: window.peakEnd }, off) : []} compact />
-                  </TableCell>
-                  <TableCell className="font-mono text-xs whitespace-nowrap">
+        <RowTable
+          titleLabel="Hatch"
+          stripLabel="Months"
+          factLabels={["Window", "Peak", "Size", "Trigger"]}
+          titleClassName="min-w-44"
+          rows={rows.map(({ hatch, window, off, months, overridden }) => ({
+            key: hatch.id,
+            title: (
+              <div className="flex flex-col gap-0.5">
+                <Link href={`/hatches/${hatch.id}`} className="font-medium hover:underline">
+                  {hatch.commonName}
+                </Link>
+                <span className="text-xs italic text-muted-foreground">{hatch.scientificName}</span>
+              </div>
+            ),
+            strip: <MonthGrid active={months} peak={window.peakStart && window.peakEnd ? windowMonths({ start: window.peakStart, end: window.peakEnd }, off) : []} compact />,
+            facts: [
+              {
+                label: "Window",
+                value: (
+                  <>
                     {formatWindow(window, off)}
                     {overridden ? <Badge variant="outline" className="ml-1 text-[10px]">local</Badge> : null}
-                  </TableCell>
-                  <TableCell className="font-mono text-xs whitespace-nowrap">{formatPeak(window, off) ?? "—"}</TableCell>
-                  <TableCell className="font-mono text-xs whitespace-nowrap">
-                    #{Math.min(...hatch.hookSizes)}–{Math.max(...hatch.hookSizes)}
-                  </TableCell>
-                  <TableCell className="text-xs text-muted-foreground">
-                    <span className="flex items-center gap-1.5">
-                      <EvidenceBadge evidence={hatch.evidence} />
-                      {hatch.trigger.waterTempF ? `${hatch.trigger.waterTempF[0]}–${hatch.trigger.waterTempF[1]} °F water` : hatch.trigger.dateDriven ? "calendar date" : "—"}
-                    </span>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
+                  </>
+                ),
+                cellClassName: "font-mono text-xs whitespace-nowrap",
+              },
+              { label: "Peak", value: formatPeak(window, off) ?? "—", cellClassName: "font-mono text-xs whitespace-nowrap" },
+              { label: "Size", value: `#${Math.min(...hatch.hookSizes)}–${Math.max(...hatch.hookSizes)}`, cellClassName: "font-mono text-xs whitespace-nowrap" },
+              {
+                label: "Trigger",
+                value: (
+                  <span className="flex items-center gap-1.5 text-muted-foreground">
+                    <EvidenceBadge evidence={hatch.evidence} />
+                    {hatch.trigger.waterTempF ? `${hatch.trigger.waterTempF[0]}–${hatch.trigger.waterTempF[1]} °F water` : hatch.trigger.dateDriven ? "calendar date" : "—"}
+                  </span>
+                ),
+                cellClassName: "text-xs",
+              },
+            ],
+          }))}
+        />
       </section>
 
       <section className="space-y-3">
         <h2 className="text-xl font-semibold tracking-tight">Eggs in the drift</h2>
         <p className="text-sm text-muted-foreground">Spawn timing is a water-temperature event, not a regional offset, so these rows do not shift.</p>
-        <div className="overflow-x-auto rounded-lg border border-border">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="min-w-44">Egg source</TableHead>
-                <TableHead className="min-w-64">Months</TableHead>
-                <TableHead>Size</TableHead>
-                <TableHead>Fresh colors</TableHead>
-                <TableHead>Trigger</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {eggRows.map((e) => (
-                <TableRow key={e.id}>
-                  <TableCell className="font-medium">{e.name}</TableCell>
-                  <TableCell>
-                    <MonthGrid active={e.months} peak={e.peakMonths} compact />
-                  </TableCell>
-                  <TableCell className="font-mono text-xs whitespace-nowrap">{e.eggDiameterMm ? `${e.eggDiameterMm[0]}–${e.eggDiameterMm[1]} mm` : "—"}</TableCell>
-                  <TableCell className="text-xs">{e.freshColors.join(", ")}</TableCell>
-                  <TableCell className="text-xs text-muted-foreground">
-                    <span className="flex items-center gap-1.5">
-                      <EvidenceBadge evidence={e.evidence} />
-                      {e.waterTempF ? `${e.waterTempF[0]}–${e.waterTempF[1]} °F` : "—"}
-                    </span>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
+        <RowTable
+          titleLabel="Egg source"
+          stripLabel="Months"
+          factLabels={["Size", "Fresh colors", "Trigger"]}
+          titleClassName="min-w-44"
+          rows={eggRows.map((e) => ({
+            key: e.id,
+            title: <span className="font-medium">{e.name}</span>,
+            strip: <MonthGrid active={e.months} peak={e.peakMonths} compact />,
+            facts: [
+              { label: "Size", value: e.eggDiameterMm ? `${e.eggDiameterMm[0]}–${e.eggDiameterMm[1]} mm` : "—", cellClassName: "font-mono text-xs whitespace-nowrap" },
+              { label: "Fresh colors", value: e.freshColors.join(", "), cellClassName: "text-xs" },
+              {
+                label: "Trigger",
+                value: (
+                  <span className="flex items-center gap-1.5 text-muted-foreground">
+                    <EvidenceBadge evidence={e.evidence} />
+                    {e.waterTempF ? `${e.waterTempF[0]}–${e.waterTempF[1]} °F` : "—"}
+                  </span>
+                ),
+                cellClassName: "text-xs",
+              },
+            ],
+          }))}
+        />
       </section>
 
       <section className="space-y-2 text-sm text-muted-foreground">
