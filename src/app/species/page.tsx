@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { InsectThumb } from "@/components/insect-photo";
 import { MonthGrid } from "@/components/month-grid";
 import { species } from "@/data";
+import { getSpeciesPhotos } from "@/lib/photos";
 
 export const metadata: Metadata = {
   title: "Fish",
@@ -21,28 +23,36 @@ export default function SpeciesIndexPage() {
         </p>
       </div>
       <div className="grid gap-4 md:grid-cols-2">
-        {species.map((s) => (
-          <Link key={s.id} href={`/species/${s.id}`} className="group">
-            <Card className="h-full transition-colors group-hover:bg-muted/40">
-              <CardHeader>
-                <div className="flex items-start justify-between gap-2">
-                  <CardTitle className="text-base">{s.name}</CardTitle>
-                  <Badge variant="secondary">{s.feedingModel.replace(/-/g, " ")}</Badge>
-                </div>
-                <CardDescription className="italic">{s.scientificName}</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-3 text-sm text-muted-foreground">
-                <p>{s.dietSummary}</p>
-                {s.spawn ? (
-                  <div className="space-y-1">
-                    <p className="text-xs">Spawn</p>
-                    <MonthGrid active={s.spawn.months} compact />
+        {species.map((s) => {
+          const hero = getSpeciesPhotos(s.id).adults[0];
+          return (
+            <Link key={s.id} href={`/species/${s.id}`} className="group">
+              <Card className="h-full transition-colors group-hover:bg-muted/40">
+                <CardHeader>
+                  <div className="flex items-start gap-3">
+                    {hero ? <InsectThumb photo={hero} alt={s.name} className="size-16 shrink-0" sizes="64px" /> : <div className="size-16 shrink-0 rounded-lg bg-muted" aria-hidden />}
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-start justify-between gap-2">
+                        <CardTitle className="text-base">{s.name}</CardTitle>
+                        <Badge variant="secondary">{s.feedingModel.replace(/-/g, " ")}</Badge>
+                      </div>
+                      <CardDescription className="italic">{s.scientificName}</CardDescription>
+                    </div>
                   </div>
-                ) : null}
-              </CardContent>
-            </Card>
-          </Link>
-        ))}
+                </CardHeader>
+                <CardContent className="space-y-3 text-sm text-muted-foreground">
+                  <p>{s.dietSummary}</p>
+                  {s.spawn ? (
+                    <div className="space-y-1">
+                      <p className="text-xs">Spawn</p>
+                      <MonthGrid active={s.spawn.months} compact />
+                    </div>
+                  ) : null}
+                </CardContent>
+              </Card>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
