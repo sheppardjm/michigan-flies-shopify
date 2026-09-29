@@ -169,19 +169,27 @@ export function hatchStatusesForRiver(river: River, date: Date, conditions?: Con
   return out;
 }
 
+/** Species that only reach a river from a Great Lake; any one of them means the reach is open to the lake. */
+const LAKE_RUN_SPECIES: SpeciesId[] = ["steelhead", "chinook", "coho", "pink-salmon", "atlantic-salmon"];
+
+/** Egg sources that can drift on this river at some point in the year. */
+export function eggSourcesForRiver(river: River): EggSource[] {
+  const openToLake = river.species.some((s) => LAKE_RUN_SPECIES.includes(s.speciesId));
+  return eggSources.filter((egg) => {
+    if (egg.regions.length && !egg.regions.includes(river.region)) return false;
+    if (egg.speciesId) return river.species.some((s) => s.speciesId === egg.speciesId);
+    return !egg.lakeRun || openToLake;
+  });
+}
+
 export function eggStatusesForRiver(river: River, date: Date, speciesId?: SpeciesId): EggStatus[] {
   const month = monthOf(date);
   const out: EggStatus[] = [];
-  for (const egg of eggSources) {
+  for (const egg of eggSourcesForRiver(river)) {
     if (!egg.months.includes(month)) continue;
-    if (egg.regions.length && !egg.regions.includes(river.region)) continue;
     if (speciesId && !egg.eatenBy.includes(speciesId)) continue;
-    let spawnerPresent = true;
-    if (egg.speciesId) {
-      const entry = river.species.find((s) => s.speciesId === egg.speciesId);
-      spawnerPresent = Boolean(entry && entry.months.includes(month));
-      if (!entry) continue; // that spawner does not run this river at all
-    }
+    const entry = egg.speciesId ? river.species.find((s) => s.speciesId === egg.speciesId) : undefined;
+    const spawnerPresent = !entry || entry.months.includes(month);
     out.push({ egg, peak: egg.peakMonths.includes(month), spawnerPresent });
   }
   out.sort((a, b) => Number(b.peak) - Number(a.peak) || Number(b.spawnerPresent) - Number(a.spawnerPresent));

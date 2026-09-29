@@ -59,6 +59,13 @@ export default function AboutDataPage() {
         Suckers spawn near 43 to 45 °F with a peak around the second week of May; Chinook drop 7 mm orange eggs in late September and October;
         steelhead spawn in March and April. Egg fly colors and sizes follow what Michigan shops recommend for each.
       </p>
+      <p>
+        Each river page lists only the eggs that river can carry. Salmon and trout eggs appear where that fish is documented on the river. Walleye,
+        lake trout and redhorse come up from the Great Lakes, so their eggs appear only on reaches open to the lake, which we take to mean any reach
+        with a steelhead or salmon run. That is a coarse rule: lake trout eggs matter mostly near river mouths, and the river pages do not yet say so
+        reach by reach. Eggs keep drifting for weeks after the spawners are gone, going pale as they age, so for those months we list the washed-out
+        colors instead of the fresh ones.
+      </p>
 
       <h2>Fish presence</h2>
       <p>

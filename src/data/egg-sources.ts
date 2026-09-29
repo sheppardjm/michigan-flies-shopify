@@ -340,6 +340,7 @@ const raw: z.input<typeof EggSourceList> = [
     hookSizes: [10, 12],
     eatenBy: ["steelhead", "brown-trout"],
     regions: [],
+    lakeRun: true,
     evidence: "I",
     notes:
       "DNR: lake trout spawn in the fall, usually on shoals and reefs, but some migrate upstream and create short-term fisheries in drowned river mouths and lower rivers where they are caught incidentally by steelhead anglers; the Boardman weir passes lake trout upstream and the St. Marys rapids were historic spawning grounds. Lake trout prefer 40 to 55 F. Because most spawning is on lake shoals, this is a minor river food source, relevant mainly in drowned river mouths (Manistee Lake, Pere Marquette Lake, Betsie, Boardman, St. Marys) in October and November. No documented lake trout egg diameter was found beyond vendor ranges, so none is given, and the color names are inferred.",
@@ -396,6 +397,7 @@ const raw: z.input<typeof EggSourceList> = [
     hookSizes: [12, 14, 16],
     eatenBy: ["steelhead", "brown-trout", "rainbow-trout"],
     regions: [],
+    lakeRun: true,
     evidence: "S",
     notes:
       "Walleye spawn during a three-week rise in water temperature from 3.5 to 9 C (38 to 48 F), peaking the week of April 12 to 19 in the Detroit River as water rose from 6.5 to 9 C. Their eggs are the smallest in the calendar at 2.0 to 2.1 mm and are imitated by the same pale-yellow Sucker Spawn and small Glo Bugs used for sucker eggs; guides note walleye, resident rainbows, suckers and carp all use the rivers during the March-to-April steelhead spawn, creating abundant small pale eggs. Walleye eggs precede sucker eggs by about three weeks and overlap the steelhead spawn.",
@@ -429,6 +431,7 @@ const raw: z.input<typeof EggSourceList> = [
     hookSizes: [12, 14],
     eatenBy: ["steelhead", "brown-trout", "rainbow-trout"],
     regions: [],
+    lakeRun: true,
     evidence: "A",
     notes:
       "Redhorse extend the sucker-egg window into late May and June: Muskegon guides report over 100,000 redhorse ascending the river in May and June with big trout and drop-back steelhead feeding behind the redds on eggs, nymphs and steelhead fry, and Michigan Sea Grant notes different redhorse species arrive at different times in West Michigan creeks with some still present in late May. Shorthead redhorse spawn at 7 to 16 C (45 to 61 F) and golden redhorse at 17 to 22 C, often at night (general biology, not Michigan-specific). No redhorse egg diameter was found; treat them as sucker-sized (2 to 3 mm) and fish the same pale-yellow Sucker Spawn and Y2K patterns. River redhorse is protected in Michigan.",
