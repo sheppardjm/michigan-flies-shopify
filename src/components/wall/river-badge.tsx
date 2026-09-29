@@ -85,7 +85,7 @@ export function RiverBadge({
         <path d={shape} className="badge-fill" />
         <path d={shape} className="badge-keyline badge-keyline-outer" />
         <path d={shape} className="badge-keyline badge-keyline-inner" />
-        <g transform="translate(80 18)" className="badge-mark">
+        <g transform="translate(80 20.5) scale(0.9)" className="badge-mark">
           <Mark region={region} />
         </g>
       </svg>
