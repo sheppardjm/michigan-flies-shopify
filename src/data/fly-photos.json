@@ -2417,6 +2417,91 @@
           "sourceUrl": ""
         }
       ]
+    },
+    "boondoggle-hex": {
+      "flyId": "boondoggle-hex",
+      "photos": [
+        {
+          "source": "permission",
+          "url": "/photos/flies/boondoggle-hex--boondoggle-spinner-isonychia.jpg",
+          "thumbUrl": null,
+          "width": 500,
+          "height": 334,
+          "title": "McCoy's Boondoggle Spinner, burgundy Isonychia color",
+          "author": "the photographer",
+          "license": "Used with permission",
+          "licenseUrl": null,
+          "sourceUrl": ""
+        }
+      ]
+    },
+    "amphibious-assault": {
+      "flyId": "amphibious-assault",
+      "photos": [
+        {
+          "source": "permission",
+          "url": "/photos/flies/amphibious-assault--amphibious-assault.png",
+          "thumbUrl": null,
+          "width": 600,
+          "height": 400,
+          "title": "Amphibious Assault",
+          "author": "the photographer",
+          "license": "Used with permission",
+          "licenseUrl": null,
+          "sourceUrl": ""
+        }
+      ]
+    },
+    "butt-monkey": {
+      "flyId": "butt-monkey",
+      "photos": [
+        {
+          "source": "permission",
+          "url": "/photos/flies/butt-monkey--butt-monkey.webp",
+          "thumbUrl": null,
+          "width": 1200,
+          "height": 1200,
+          "title": "Galloup's Butt Monkey",
+          "author": "Rainy's Flies",
+          "license": "Used with permission",
+          "licenseUrl": null,
+          "sourceUrl": ""
+        }
+      ]
+    },
+    "sulphur-emerger": {
+      "flyId": "sulphur-emerger",
+      "photos": [
+        {
+          "source": "permission",
+          "url": "/photos/flies/sulphur-emerger--sulphur-emerger.webp",
+          "thumbUrl": null,
+          "width": 720,
+          "height": 527,
+          "title": "Sulphur Emerger",
+          "author": "the photographer",
+          "license": "Used with permission",
+          "licenseUrl": null,
+          "sourceUrl": ""
+        }
+      ]
+    },
+    "sweetgrass-hopper": {
+      "flyId": "sweetgrass-hopper",
+      "photos": [
+        {
+          "source": "permission",
+          "url": "/photos/flies/sweetgrass-hopper--sweetgrass-hopper.webp",
+          "thumbUrl": null,
+          "width": 900,
+          "height": 900,
+          "title": "Sweetgrass Hopper",
+          "author": "the photographer",
+          "license": "Used with permission",
+          "licenseUrl": null,
+          "sourceUrl": ""
+        }
+      ]
     }
   }
 }
