@@ -8,7 +8,12 @@ export function TroutSign({ className, compact = false }: { className?: string; 
       <div className="wall-sign-inner">
         <TroutLogo className={compact ? "mx-auto max-w-[140px]" : "mx-auto max-w-[260px]"} />
         <p className="wall-sign-script">Michigan Flies</p>
-        {!compact ? <p className="wall-sign-line">Hand-tied for Michigan rivers</p> : null}
+        {!compact ? (
+          <p className="wall-sign-line">
+            <span className="block">Scientifically selected and hand-tied</span>
+            <span className="block">for Great Lakes State rivers</span>
+          </p>
+        ) : null}
       </div>
       <Screw className="wall-sign-screw wall-sign-screw-tl" />
       <Screw className="wall-sign-screw wall-sign-screw-tr" />

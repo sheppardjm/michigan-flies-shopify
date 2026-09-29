@@ -402,6 +402,7 @@ body {
   letter-spacing: 0.26em;
   text-transform: uppercase;
   color: var(--ink);
+  text-wrap: balance;
 }
 .wall-sign-screw {
   position: absolute;
