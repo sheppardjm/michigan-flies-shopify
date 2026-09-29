@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
+import { FlyPlaceholder } from "@/components/fly-placeholder";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -74,8 +75,8 @@ export default async function ProductPage({ params }: PageProps<"/shop/[handle]"
               </figcaption>
             </figure>
           ) : (
-            <div className="flex aspect-square w-full items-center justify-center rounded-xl border border-dashed border-border bg-muted text-sm text-muted-foreground">
-              Bench photo coming
+            <div className="relative aspect-square w-full overflow-hidden rounded-xl border border-border">
+              <FlyPlaceholder category={fly!.category} name={fly!.name} />
             </div>
           )}
           {photos.length > 1 && !hero ? (

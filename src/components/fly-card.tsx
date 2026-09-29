@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { EvidenceBadge } from "@/components/evidence-badge";
 import { FlyReferenceThumb } from "@/components/fly-reference-photo";
+import { FlyPlaceholder } from "@/components/fly-placeholder";
 import { collections } from "@/data/collections";
 import { getFlyReferenceHero } from "@/lib/fly-photos";
 import { formatUsd, priceFor } from "@/lib/pricing";
@@ -45,7 +46,11 @@ export function FlyCard({
         <div className="block">
           <FlyReferenceThumb photo={referencePhoto} alt={fly.name} />
         </div>
-      ) : null}
+      ) : (
+        <div className="relative aspect-[4/3]">
+          <FlyPlaceholder category={fly.category} name={fly.name} />
+        </div>
+      )}
       <CardHeader className="gap-1">
         <div className="flex items-start justify-between gap-2">
           <CardTitle className="text-base leading-tight">

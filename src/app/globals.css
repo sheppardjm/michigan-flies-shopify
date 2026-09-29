@@ -1357,3 +1357,39 @@ a:focus-visible > .map-dot {
     transform: none;
   }
 }
+
+/* Placeholder for patterns without a photograph: engraved hook on plank. */
+.fly-placeholder {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 6rem;
+  color: var(--dirt);
+  background-color: var(--plank);
+  background-image:
+    repeating-linear-gradient(to bottom, transparent 0 63px, oklch(0 0 0 / 0.06) 63px 64px),
+    url("/textures/plank-grain.jpg");
+  background-blend-mode: normal, soft-light;
+  background-size: auto, 800px 377px;
+}
+.fly-placeholder-art {
+  width: 58%;
+  max-width: 220px;
+  height: auto;
+  opacity: 0.85;
+}
+.fly-placeholder-compact .fly-placeholder-art {
+  width: 70%;
+}
+.fly-placeholder-label {
+  position: absolute;
+  left: 0.6rem;
+  bottom: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--dirt);
+  opacity: 0.9;
+}

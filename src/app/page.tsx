@@ -14,6 +14,7 @@ import { CATEGORY_LABELS, REGION_LABELS, Region, TECHNIQUE_LABELS, Technique, eg
 import { collectionById } from "@/data/collections";
 import { fieldPhotoById, fieldPhotosFor } from "@/data/field-photos";
 import { FieldGallery } from "@/components/field-gallery";
+import { FlyPlaceholder } from "@/components/fly-placeholder";
 import { flyPhotoSrc, getFlyReferenceHero } from "@/lib/fly-photos";
 import { getHatchHero } from "@/lib/photos";
 import { formatUsd, priceFor } from "@/lib/pricing";
@@ -232,7 +233,7 @@ export default function HomePage() {
                         </span>
                       </>
                     ) : (
-                      <div className="flex h-full items-center justify-center text-xs text-muted-foreground">Bench photo coming</div>
+                      <FlyPlaceholder category={fly.category} name={fly.name} />
                     )}
                   </div>
                   <div className="p-2.5 sm:p-3">

@@ -12,6 +12,7 @@ import { hookSizeLabel } from "@/components/fly-card";
 import { InsectThumb, PhotoCredit } from "@/components/insect-photo";
 import { FlyReferenceCard } from "@/components/fly-reference-photo";
 import { TyingSheet } from "@/components/tying-sheet";
+import { FlyPlaceholder } from "@/components/fly-placeholder";
 import { MaterialsBill } from "@/components/materials-bill";
 import { getFlyReferencePhotos } from "@/lib/fly-photos";
 import { getHatchHero } from "@/lib/photos";
@@ -79,7 +80,23 @@ export default async function FlyPage({ params }: PageProps<"/flies/[id]">) {
 
       <div className="grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[minmax(0,1fr)_340px]">
         <div className="space-y-6">
-          {!product?.featuredImage ? <FlyReferenceCard photos={getFlyReferencePhotos(fly.id)} flyName={fly.name} /> : null}
+          {!product?.featuredImage ? (
+            getFlyReferencePhotos(fly.id).length ? (
+              <FlyReferenceCard photos={getFlyReferencePhotos(fly.id)} flyName={fly.name} />
+            ) : (
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-base">What the pattern looks like</CardTitle>
+                  <CardDescription>No photograph yet. A bench photo of our own tie replaces this mark when the batch is tied.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="relative aspect-[16/7] overflow-hidden rounded-lg border border-border">
+                    <FlyPlaceholder category={fly.category} name={fly.name} />
+                  </div>
+                </CardContent>
+              </Card>
+            )
+          ) : null}
           <Card>
             <CardHeader>
               <CardTitle className="text-base">Season</CardTitle>
