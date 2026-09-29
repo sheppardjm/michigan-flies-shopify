@@ -5,6 +5,9 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { collections } from "@/data/collections";
+import { CATEGORY_LABELS, FlyCategory, flies } from "@/data";
+import { FlyCard } from "@/components/fly-card";
+import { getProductsByHandles } from "@/lib/shopify/products";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { isShopifyConfigured } from "@/lib/shopify/client";
 import { getProducts } from "@/lib/shopify/products";
@@ -39,25 +42,61 @@ function CollectionGrid() {
   );
 }
 
+const CATALOGUE_ORDER: FlyCategory[] = ["dry", "emerger", "nymph", "larva", "wet", "egg", "worm", "streamer", "attractor", "terrestrial", "mouse"];
+
+/** Every pattern, grouped by category, each with its reserve link (or a live product when Shopify has one). */
+async function Catalogue() {
+  const products = await getProductsByHandles(flies.map((f) => f.shopifyHandle ?? f.id)).catch(() => new Map());
+  return (
+    <section className="space-y-8" aria-labelledby="catalogue-title">
+      <div className="space-y-1">
+        <h2 id="catalogue-title" className="text-xl font-semibold tracking-tight">
+          Every pattern, by the piece
+        </h2>
+        <p className="max-w-2xl text-sm text-muted-foreground">
+          {flies.length} patterns, each tied to order. Prices are provisional until checkout opens; reserving costs nothing and we confirm by email.
+        </p>
+      </div>
+      {CATALOGUE_ORDER.map((cat) => {
+        const list = flies.filter((f) => f.category === cat).sort((a, b) => b.priority - a.priority || a.name.localeCompare(b.name));
+        if (!list.length) return null;
+        return (
+          <div key={cat} id={cat} className="scroll-mt-20 space-y-3">
+            <h3 className="text-base font-semibold">
+              {CATEGORY_LABELS[cat]} <span className="font-normal text-muted-foreground">({list.length})</span>
+            </h3>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {list.map((f) => (
+                <FlyCard key={f.id} fly={f} product={products.get(f.shopifyHandle ?? f.id) ?? null} />
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </section>
+  );
+}
+
 export default async function ShopPage() {
   if (!isShopifyConfigured()) {
     return (
-      <div className="mx-auto w-full max-w-6xl space-y-8 px-4 py-8 sm:py-12">
+      <div className="mx-auto w-full max-w-6xl space-y-10 px-4 py-8 sm:py-12">
         <div className="space-y-2">
           <h1 className="text-3xl font-semibold tracking-tight">Shop</h1>
-          <p className="max-w-2xl text-muted-foreground">Flies tied at the bench for Michigan water. Checkout opens soon; the first batch is on the vise now.</p>
+          <p className="max-w-2xl text-muted-foreground">Flies tied at the bench for Michigan water. Every pattern on the site can be reserved now; checkout opens with the first batch.</p>
         </div>
         <CollectionGrid />
         <Alert>
-          <AlertTitle>Checkout is not open yet</AlertTitle>
+          <AlertTitle>Reserve now, pay when checkout opens</AlertTitle>
           <AlertDescription>
-            Until then, use the{" "}
+            Each store page takes a size, colour and quantity and sends us a note. Nothing is charged until we confirm. Use the{" "}
             <Link href="/quiz" className="underline underline-offset-4">
               fly finder
             </Link>{" "}
-            and pattern pages to plan your box.
+            to build a box for a river and date first.
           </AlertDescription>
         </Alert>
+        <Catalogue />
       </div>
     );
   }

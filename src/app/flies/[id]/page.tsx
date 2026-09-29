@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { EvidenceBadge } from "@/components/evidence-badge";
 import { MonthGrid } from "@/components/month-grid";
@@ -19,6 +20,7 @@ import { getHatchHero } from "@/lib/photos";
 import { CATEGORY_LABELS, TECHNIQUE_LABELS, eggSourceById, flies, flyById, forageById, hatchById, speciesById, tyingByFlyId } from "@/data";
 import { getProductByHandle } from "@/lib/shopify/products";
 import { formatMoney } from "@/lib/shopify/types";
+import { formatUsd, priceFor } from "@/lib/pricing";
 import { windowMonths } from "@/lib/season";
 
 export function generateStaticParams() {
@@ -204,7 +206,7 @@ export default async function FlyPage({ params }: PageProps<"/flies/[id]">) {
           <Card>
             <CardHeader>
               <CardTitle className="text-base">{product ? product.title : "Shop"}</CardTitle>
-              <CardDescription>{product ? `From ${formatMoney(product.priceRange.minVariantPrice)}` : "Not listed in the shop yet."}</CardDescription>
+              <CardDescription>{product ? `From ${formatMoney(product.priceRange.minVariantPrice)}` : `${formatUsd(priceFor(fly))} each, provisional. Tied to order.`}</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               {product?.featuredImage ? (
@@ -220,9 +222,15 @@ export default async function FlyPage({ params }: PageProps<"/flies/[id]">) {
               {product ? (
                 <AddToCartButton variants={product.variants.nodes} />
               ) : (
-                <p className="text-sm text-muted-foreground">
-                  We tie to order. Ask about this pattern when the shop opens, or browse what is <Link href="/shop" className="underline underline-offset-4">available now</Link>.
-                </p>
+                <div className="space-y-3">
+                  <Button asChild className="w-full">
+                    <Link href={`/shop/${fly.id}`}>Reserve this pattern</Link>
+                  </Button>
+                  <p className="text-xs text-muted-foreground">
+                    Pick size, colour and quantity on the store page. We tie to order and confirm by email before anything is charged; checkout opens with the
+                    first batch.
+                  </p>
+                </div>
               )}
             </CardContent>
           </Card>
