@@ -130,7 +130,7 @@ export default function HomePage() {
                 <ul className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:gap-x-3 sm:gap-y-4 sm:overflow-visible sm:px-0 sm:pb-0 md:grid-cols-4 lg:grid-cols-5">
                   {list.map((r) => (
                     <li key={r.id} className="w-[11.5rem] shrink-0 snap-start sm:w-auto">
-                      <RiverBadge name={badgeName(r.name)} sub={badgeSub(r.name, region)} region={region} href={`/rivers/${r.id}`} />
+                      <RiverBadge name={badgeName(r.name)} sub={badgeSub(r.name, region)} region={region} href={`/rivers/${r.id}`} lat={r.centroid.lat} lon={r.centroid.lon} />
                     </li>
                   ))}
                 </ul>
