@@ -8,15 +8,18 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Skeleton } from "@/components/ui/skeleton";
 import { ConditionsPanel } from "@/components/conditions-panel";
 import { MonthGrid } from "@/components/month-grid";
+import { MonthPicker } from "@/components/month-picker";
+import { InsectThumb } from "@/components/insect-photo";
 import { RowTable } from "@/components/row-table";
 import { SourceList } from "@/components/source-list";
 import { StatusBadge } from "@/components/status-badge";
 import { REGION_LABELS, hatchById, riverById, rivers, speciesById, type River } from "@/data";
 import { StockingSection } from "@/components/stocking-section";
 import { getRiverConditions } from "@/lib/conditions";
-import { hatchStatusesForRiver } from "@/lib/recommend";
+import { getHatchHero } from "@/lib/photos";
+import { hatchStatusesForRiver, type HatchStatus } from "@/lib/recommend";
 import { getRiverStocking, unmodeledStockedSpecies } from "@/lib/stocking";
-import { formatPeak, formatWindow, monthOf, toIsoDate, toUtcDay } from "@/lib/season";
+import { MONTH_NAMES, formatPeak, formatWindow, isYearRound, monthDayToDate, monthOf, toIsoDate, toUtcDay, windowMonths } from "@/lib/season";
 
 export function generateStaticParams() {
   return rivers.map((r) => ({ id: r.id }));
@@ -29,14 +32,19 @@ export async function generateMetadata({ params }: PageProps<"/rivers/[id]">): P
   return { title: river.name, description: river.character };
 }
 
-export default async function RiverPage({ params }: PageProps<"/rivers/[id]">) {
+export default async function RiverPage({ params, searchParams }: PageProps<"/rivers/[id]">) {
   const { id } = await params;
   const river = riverById.get(id);
   if (!river) notFound();
   const today = toUtcDay(new Date());
-  const month = monthOf(today);
+  const currentMonth = monthOf(today);
+  const asked = Number((await searchParams).month);
+  const month = Number.isInteger(asked) && asked >= 1 && asked <= 12 ? asked : currentMonth;
+  const isCurrent = month === currentMonth;
+  // A trip date for the quiz: today, or the 15th of the picked month's next occurrence.
+  const tripDate = isCurrent ? today : new Date(Date.UTC(today.getUTCFullYear() + (month < currentMonth ? 1 : 0), month - 1, 15));
   const statuses = hatchStatusesForRiver(river, today);
-  const now = statuses.filter((s) => s.status !== "off");
+  const now = isCurrent ? statuses.filter((s) => s.status !== "off") : hatchesInMonth(statuses, month);
   const siblings = rivers.filter((r) => r.system === river.system && r.id !== river.id);
 
   return (
@@ -61,7 +69,7 @@ export default async function RiverPage({ params }: PageProps<"/rivers/[id]">) {
         </div>
         <div className="flex flex-wrap gap-2 pt-1">
           <Button asChild>
-            <Link href={`/quiz?river=${river.id}&date=${toIsoDate(today)}`}>Find flies for this river</Link>
+            <Link href={`/quiz?river=${river.id}&date=${toIsoDate(tripDate)}`}>{isCurrent ? "Find flies for this river" : `Find flies for ${MONTH_NAMES[month - 1]}`}</Link>
           </Button>
           <Button asChild variant="outline">
             <Link href={`/calendar?river=${river.id}`}>Full-year calendar</Link>
@@ -76,6 +84,8 @@ export default async function RiverPage({ params }: PageProps<"/rivers/[id]">) {
 
       <div className="grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[minmax(0,1fr)_340px]">
         <div className="space-y-8">
+          <MonthPicker basePath={`/rivers/${river.id}`} selected={month} current={currentMonth} />
+
           <section className="space-y-3">
             <h2 className="text-xl font-semibold tracking-tight">Fish by month</h2>
             <RowTable
@@ -116,7 +126,7 @@ export default async function RiverPage({ params }: PageProps<"/rivers/[id]">) {
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-xl font-semibold tracking-tight">Hatching now</h2>
+            <h2 className="text-xl font-semibold tracking-tight">{isCurrent ? "Hatching now" : `Hatching in ${MONTH_NAMES[month - 1]}`}</h2>
             {now.length ? (
               <ul className="divide-y divide-border rounded-lg border border-border">
                 {now.map((h) => (
@@ -135,7 +145,9 @@ export default async function RiverPage({ params }: PageProps<"/rivers/[id]">) {
                 ))}
               </ul>
             ) : (
-              <p className="text-sm text-muted-foreground">No insect hatches in the calendar today. Eggs, streamers, and midges are the play.</p>
+              <p className="text-sm text-muted-foreground">
+                No insect hatches in the calendar {isCurrent ? "today" : `in ${MONTH_NAMES[month - 1]}`}. Eggs, streamers, and midges are the play.
+              </p>
             )}
           </section>
 
@@ -147,17 +159,27 @@ export default async function RiverPage({ params }: PageProps<"/rivers/[id]">) {
                   const h = hatchById.get(hid);
                   if (!h) return null;
                   const override = river.hatchOverrides.find((o) => o.hatchId === hid);
+                  const hero = getHatchHero(h.id);
                   return (
                     <Card key={hid}>
                       <CardHeader>
-                        <CardTitle className="text-base">
-                          <Link href={`/hatches/${h.id}`} className="hover:underline">
-                            {h.commonName}
-                          </Link>
-                        </CardTitle>
-                        <CardDescription className="font-mono text-xs">
-                          {override ? `${formatWindow(override.window)} (local chart)` : formatWindow(h.window, river.offsetDays)}
-                        </CardDescription>
+                        <div className="flex items-start gap-3">
+                          {hero ? (
+                            <Link href={`/hatches/${h.id}`} tabIndex={-1} aria-hidden className="shrink-0">
+                              <InsectThumb photo={hero} alt="" className="size-16" sizes="64px" />
+                            </Link>
+                          ) : null}
+                          <div className="min-w-0 flex-1 space-y-1.5">
+                            <CardTitle className="text-base">
+                              <Link href={`/hatches/${h.id}`} className="hover:underline">
+                                {h.commonName}
+                              </Link>
+                            </CardTitle>
+                            <CardDescription className="font-mono text-xs">
+                              {override ? `${formatWindow(override.window)} (local chart)` : formatWindow(h.window, river.offsetDays)}
+                            </CardDescription>
+                          </div>
+                        </div>
                       </CardHeader>
                       <CardContent className="text-sm text-muted-foreground">{h.description}</CardContent>
                     </Card>
@@ -239,6 +261,19 @@ export default async function RiverPage({ params }: PageProps<"/rivers/[id]">) {
       </div>
     </div>
   );
+}
+
+/** Hatches whose window touches `month`: peaking that month first, then by start date, year-round hatches last. */
+function hatchesInMonth(statuses: HatchStatus[], month: number): HatchStatus[] {
+  const out: HatchStatus[] = [];
+  for (const s of statuses) {
+    if (!windowMonths(s.window, s.offsetDays).includes(month)) continue;
+    const { peakStart, peakEnd } = s.window;
+    const peak = peakStart && peakEnd && windowMonths({ start: peakStart, end: peakEnd }, s.offsetDays).includes(month);
+    out.push({ ...s, status: peak ? "peak" : "active" });
+  }
+  const start = (s: HatchStatus) => (isYearRound(s.window) ? Infinity : monthDayToDate(s.window.start, 2025, s.offsetDays).getTime());
+  return out.sort((a, b) => Number(b.status === "peak") - Number(a.status === "peak") || start(a) - start(b));
 }
 
 async function LiveConditions({ river }: { river: River }) {
