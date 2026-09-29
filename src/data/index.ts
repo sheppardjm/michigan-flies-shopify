@@ -6,6 +6,7 @@ export { forage, forageById } from "./forage";
 export { flies, flyById } from "./flies";
 export { rivers, riverById } from "./rivers";
 export { regionOffsets, regionOffsetByRegion } from "./region-offsets";
+export { tyingSheets, tyingByFlyId } from "./tying";
 
 export const REGION_LABELS: Record<import("./schema").Region, string> = {
   "southeast-lp": "Southeast Lower Peninsula",

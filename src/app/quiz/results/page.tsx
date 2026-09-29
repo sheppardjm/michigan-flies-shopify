@@ -96,7 +96,7 @@ async function Results({
   const multi = result.speciesList.length > 1;
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
+    <div className="grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
       <div className="space-y-8">
         {result.warnings.map((w) => (
           <Alert key={w}>
@@ -294,7 +294,7 @@ function joinNames(names: string[]): string {
 
 function ResultsSkeleton() {
   return (
-    <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
+    <div className="grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
       <div className="grid gap-4 sm:grid-cols-2">
         {Array.from({ length: 6 }).map((_, i) => (
           <Skeleton key={i} className="h-44" />

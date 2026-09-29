@@ -2,7 +2,7 @@
  * Validates every seed table against the Zod schema and checks cross-references.
  * Run with `pnpm validate-data`.
  */
-import { eggSourceById, flies, forageById, hatchById, rivers, speciesById, eggSources, forage, hatches, species } from "../src/data";
+import { eggSourceById, flies, flyById, forageById, hatchById, rivers, speciesById, eggSources, forage, hatches, species, tyingSheets } from "../src/data";
 
 const problems: string[] = [];
 
@@ -28,3 +28,14 @@ if (problems.length) {
   process.exit(1);
 }
 console.log("Data valid.");
+
+// Tying sheets point at real flies, one sheet per fly.
+{
+  const seen = new Set<string>();
+  for (const t of tyingSheets) {
+    if (!flyById.has(t.flyId)) throw new Error(`Tying sheet for unknown fly: ${t.flyId}`);
+    if (seen.has(t.flyId)) throw new Error(`Duplicate tying sheet for ${t.flyId}`);
+    seen.add(t.flyId);
+  }
+  console.log(`tying sheets ${tyingSheets.length}`);
+}

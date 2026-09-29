@@ -115,6 +115,48 @@ export const Source = z.object({
 export type Source = z.infer<typeof Source>;
 
 /* ------------------------------------------------------------------ */
+/* Tying sheets                                                        */
+/* ------------------------------------------------------------------ */
+
+/** One line of a materials list: the part of the fly and what goes there. */
+export const TyingMaterial = z.object({
+  /** Hook, Thread, Tail, Body, Head, Eyes, Flash, Legs, Other... free text, shown as the row label. */
+  part: z.string(),
+  material: z.string(),
+  /** Alternatives, sizes, or why this material. */
+  note: z.string().optional(),
+  optional: z.boolean().default(false),
+});
+export type TyingMaterial = z.infer<typeof TyingMaterial>;
+
+/**
+ * How a pattern is tied, as published by its originator or a tier we trust:
+ * the materials list, the steps in order, and the tier's own comments. One
+ * sheet per fly for now; the source is always shown with the sheet. These
+ * are the seed for the component breakdown in docs/plans/product-breakdown.md.
+ */
+export const TyingSheet = z.object({
+  flyId: z.string(),
+  /** The sheet's own title for the pattern, if it differs from ours. */
+  title: z.string().optional(),
+  /** One line on what the fly is for, in the tier's words. */
+  summary: z.string().optional(),
+  materials: z.array(TyingMaterial).min(1),
+  steps: z.array(z.string()).min(1),
+  /** The tier's comments: how to fish it, colour by season, variations. */
+  comments: z.array(z.string()).default([]),
+  /** Who wrote the sheet and where it lives. */
+  source: Source.extend({ author: z.string() }),
+  /** How we may reproduce it: the tier's permission, a public sheet, or our own transcription of a published recipe. */
+  license: z.enum(["permission", "published-sheet", "own"]),
+  /** Our transcription notes: what we changed or could not read. */
+  transcriptionNote: z.string().optional(),
+  evidence: Evidence,
+});
+export type TyingSheet = z.infer<typeof TyingSheet>;
+export const TyingSheetList = z.array(TyingSheet);
+
+/* ------------------------------------------------------------------ */
 /* Hatches                                                             */
 /* ------------------------------------------------------------------ */
 

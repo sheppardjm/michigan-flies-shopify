@@ -1576,8 +1576,8 @@ const raw: z.input<typeof FlyList> = [
     name: "Feenstra's Shrew",
     category: "streamer",
     forageIds: ["round-goby", "sculpin", "dace"],
-    hookSizes: [2, 4],
-    colors: ["Olive-brown", "Tan"],
+    hookSizes: [1, 2, 4],
+    colors: ["Olive (winter)", "Black (spring)", "Mottled tan"],
     species: ["steelhead", "brown-trout"],
     techniques: ["swing-spey", "streamer"],
     months: [4, 5, 6],
@@ -1586,7 +1586,7 @@ const raw: z.input<typeof FlyList> = [
     priority: 2,
     evidence: "A",
     description:
-      "Chuck Hawkins' post-runoff fly for drop-back steelhead, matching the gobies, sculpins and chubs spent fish eat as they recover in April and May. Swing or strip it through runs below spawning gravel once the water clears on the Muskegon, Manistee and Grand.",
+      "Kevin Feenstra's articulated sculpin on a trailing hook, layered hen hackle and grizzly marabou over a pine squirrel tail, and Chuck Hawkins' post-runoff pick for drop-back steelhead: it matches the gobies, sculpins and chubs spent fish eat as they recover in April and May. Swing it, or bounce and swing it along the bottom, through runs below spawning gravel once the water clears on the Muskegon, Manistee and Grand.",
     sources: [S.orvisSpring, S.anchored],
   },
   {
