@@ -94,7 +94,7 @@ export default async function CollectionPage({ params }: PageProps<"/collections
               if (!fly) return null;
               return (
                 <div key={fly.id} className="grid grid-rows-[1fr_auto] gap-1.5">
-                  <FlyCard fly={fly} product={products.get(fly.shopifyHandle ?? fly.id) ?? null} />
+                  <FlyCard fly={fly} product={products.get(fly.shopifyHandle ?? fly.id) ?? null} primary="shop" />
                   <div className="flex items-center gap-2 px-1">
                     <MonthGrid active={item.months} compact className="flex-1" />
                     <span className="text-[0.7rem] text-muted-foreground">{item.forSpecies.map((s) => speciesById.get(s)?.name.split(" ")[0] ?? s).join(" · ")}</span>
