@@ -69,6 +69,7 @@ Undecided: real pricing (current prices are placeholders by category); which col
 - DNR stocking snapshot: `src/data/stocking.json` (events 1979 to September 2026).
 - Insect photos: `src/data/hatch-photos.json` (201 iNaturalist photos). Fly photos: `src/data/fly-photos.json` and `public/photos/flies/` (87 patterns covered; 55-pattern Two Hearted batch has 47 with photos).
 - Owner's field observation: Chinook landed in the Two Hearted, late September 2026.
+- Owner's field photographs: 90 frames from the Two Hearted, May 2022 to May 2026 (steelhead in May, Chinook in late September, camp and river scenes), originals in the untracked `design/photos/two-hearted/`, twelve published as prints under `public/photos/field/` with records in `src/data/field-photos.ts`. Photographs showing co-founders are marked `peopleVisible` and need their say-so before wider use. No macro photographs of our own flies yet.
 - Shopify import files: `shopify/products-*.csv`.
 - Absent, do not fabricate: customer testimonials, sales history, press, guide endorsements, real prices, calibrated hatch thresholds, and the owner's own product photography.
 

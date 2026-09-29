@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { EvidenceBadge } from "@/components/evidence-badge";
 import { FishPhotos } from "@/components/fish-photos";
+import { FieldPrint } from "@/components/field-print";
+import { fieldPhotosFor } from "@/data/field-photos";
 import { FlyCard } from "@/components/fly-card";
 import { MonthGrid } from "@/components/month-grid";
 import { RowTable } from "@/components/row-table";
@@ -58,6 +60,22 @@ export default async function SpeciesPage({ params }: PageProps<"/species/[id]">
       <div className="grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[minmax(0,1fr)_340px]">
         <div className="space-y-8">
           <section>
+            {(() => {
+              const ours = fieldPhotosFor({ speciesId: s.id, role: "species" });
+              if (!ours.length) return null;
+              return (
+                <div className="mb-6 space-y-2">
+                  <p className="text-sm text-muted-foreground">Ours, from the Two Hearted. Each took a fly we tied.</p>
+                  <ul className="grid grid-cols-2 gap-4 sm:max-w-md">
+                    {ours.slice(0, 2).map((p, i) => (
+                      <li key={p.id}>
+                        <FieldPrint photo={p} tilt={i ? 0.7 : -0.7} sizes="(min-width: 640px) 220px, 45vw" />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })()}
             <FishPhotos name={s.name} adults={photos.adults} juveniles={photos.juveniles} />
           </section>
 

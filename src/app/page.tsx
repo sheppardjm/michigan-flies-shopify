@@ -13,6 +13,8 @@ import { MichiganMap } from "@/components/wall/michigan-map";
 import { RiverBend } from "@/components/wall/wilderness";
 import { CATEGORY_LABELS, REGION_LABELS, Region, TECHNIQUE_LABELS, Technique, eggSourceById, flyById, forageById, hatchById, rivers, species, speciesById } from "@/data";
 import { collectionById } from "@/data/collections";
+import { fieldPhotoById, fieldPhotosFor } from "@/data/field-photos";
+import { FieldPrint } from "@/components/field-print";
 import { flyPhotoSrc, getFlyReferenceHero } from "@/lib/fly-photos";
 import { getHatchHero } from "@/lib/photos";
 import { formatUsd, priceFor } from "@/lib/pricing";
@@ -211,6 +213,42 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+
+      {/* From the river: our own photographs, hung over our own water */}
+      {(() => {
+        const prints = fieldPhotosFor({ role: "home" });
+        const ground = fieldPhotoById.get("tannin-bank-2025-05-09");
+        if (!prints.length || !ground) return null;
+        const tilts = [-1.2, 0.8, -0.6, 1.1, -0.9];
+        return (
+          <section className="river-band plane-content mb-16 py-12 sm:py-16" aria-labelledby="river-title">
+            <Image src={ground.file} alt="" fill sizes="100vw" className="river-band-photo" aria-hidden="true" />
+            <div className="mx-auto w-full max-w-6xl px-4">
+              <div className="flex flex-wrap items-end justify-between gap-3">
+                <h2 id="river-title" className="woodtype text-3xl sm:text-4xl">
+                  From the river
+                </h2>
+                <p className="max-w-md text-sm text-trout-belly/85">
+                  Our own photographs from the Two Hearted, 2022 to 2026. Every fish in them took a fly we tied. The water behind them is the river&apos;s
+                  own tannin over sand.
+                </p>
+              </div>
+              <ul className="-mx-4 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-3 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-5">
+                {prints.slice(0, 5).map((p, i) => (
+                  <li key={p.id} className="w-[15.5rem] shrink-0 snap-start sm:w-auto">
+                    <FieldPrint photo={p} tilt={tilts[i % tilts.length]} />
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-6 text-sm">
+                <Link href="/rivers/two-hearted" className="underline underline-offset-4 hover:text-trout-belly/80">
+                  More from our trips on the Two Hearted page
+                </Link>
+              </p>
+            </div>
+          </section>
+        );
+      })()}
 
       {/* How to read the board */}
       <section className="plane-content mx-auto w-full max-w-6xl px-4 pb-20" aria-labelledby="evidence-title">

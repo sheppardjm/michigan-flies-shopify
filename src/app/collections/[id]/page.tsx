@@ -8,6 +8,8 @@ import { FlyCard } from "@/components/fly-card";
 import { MonthGrid } from "@/components/month-grid";
 import { CATEGORY_LABELS, FlyCategory, flyById, riverById, speciesById } from "@/data";
 import { collectionById, collections } from "@/data/collections";
+import { fieldPhotosFor } from "@/data/field-photos";
+import { FieldBanner } from "@/components/field-print";
 import { getProductsByHandles } from "@/lib/shopify/products";
 import { toIsoDate, toUtcDay } from "@/lib/season";
 
@@ -35,6 +37,7 @@ export default async function CollectionPage({ params }: PageProps<"/collections
 
   return (
     <div className="mx-auto w-full max-w-6xl space-y-8 px-4 py-8 sm:py-12">
+      {river ? (() => { const hero = fieldPhotosFor({ riverId: river.id, role: "collection-hero" })[0]; return hero ? <FieldBanner photo={hero} /> : null; })() : null}
       <div className="space-y-3">
         <p className="text-sm text-muted-foreground">
           <Link href="/shop" className="hover:underline">
