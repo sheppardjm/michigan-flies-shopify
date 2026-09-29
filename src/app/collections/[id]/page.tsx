@@ -93,7 +93,7 @@ export default async function CollectionPage({ params }: PageProps<"/collections
               const fly = flyById.get(item.flyId);
               if (!fly) return null;
               return (
-                <div key={fly.id} className="space-y-1.5">
+                <div key={fly.id} className="grid grid-rows-[1fr_auto] gap-1.5">
                   <FlyCard fly={fly} product={products.get(fly.shopifyHandle ?? fly.id) ?? null} />
                   <div className="flex items-center gap-2 px-1">
                     <MonthGrid active={item.months} compact className="flex-1" />
