@@ -30,6 +30,9 @@ function toPath(points: [number, number][]): string {
   return points.map(([lon, lat], i) => { const p = project(lat, lon); return `${i === 0 ? "M" : "L"}${p.x.toFixed(2)} ${p.y.toFixed(2)}`; }).join(" ") + " Z";
 }
 
+/** The two outlines as path data in the 0–100 projection, for small marks elsewhere (the river badges). */
+export const MICHIGAN_OUTLINE = { lp: toPath(LP), up: toPath(UP) };
+
 export interface MapRiver {
   id: string;
   name: string;

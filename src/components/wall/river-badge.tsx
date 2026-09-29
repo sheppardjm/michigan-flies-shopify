@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Region } from "@/data";
 import { cn } from "@/lib/utils";
+import { MICHIGAN_OUTLINE, project } from "./michigan-map";
 
 /**
  * River patch in the Campbell Outfitters manner: solid fill, an ink edge, two
@@ -63,6 +64,23 @@ function Mark({ region }: { region: Region }) {
   }
 }
 
+/**
+ * The river's place on a small Michigan plate: both peninsulas in the
+ * badge's own text color, the river as a solid dot with a ring. Replaces the
+ * region mark when the badge knows its river's coordinates.
+ */
+function PlaceMark({ lat, lon }: { lat: number; lon: number }) {
+  const p = project(lat, lon);
+  return (
+    <g transform="translate(-14.5 -12.5) scale(0.29 0.27)" fill="currentColor" stroke="currentColor">
+      <path d={MICHIGAN_OUTLINE.up} fillOpacity="0.22" strokeWidth="2.2" strokeLinejoin="round" />
+      <path d={MICHIGAN_OUTLINE.lp} fillOpacity="0.22" strokeWidth="2.2" strokeLinejoin="round" />
+      <circle cx={p.x} cy={p.y} r="11" fill="none" strokeWidth="2.4" opacity="0.7" />
+      <circle cx={p.x} cy={p.y} r="5.5" stroke="none" />
+    </g>
+  );
+}
+
 export function RiverBadge({
   name,
   region,
@@ -70,6 +88,8 @@ export function RiverBadge({
   sub,
   className,
   active = false,
+  lat,
+  lon,
 }: {
   name: string;
   region: Region;
@@ -77,6 +97,9 @@ export function RiverBadge({
   sub?: string;
   className?: string;
   active?: boolean;
+  /** River centroid; when given, the mark is the river's place on a small Michigan plate. */
+  lat?: number;
+  lon?: number;
 }) {
   const shape = SHAPES[region];
   const body = (
@@ -86,7 +109,7 @@ export function RiverBadge({
         <path d={shape} className="badge-keyline badge-keyline-outer" />
         <path d={shape} className="badge-keyline badge-keyline-inner" />
         <g transform="translate(80 20.5) scale(0.9)" className="badge-mark">
-          <Mark region={region} />
+          {lat !== undefined && lon !== undefined ? <PlaceMark lat={lat} lon={lon} /> : <Mark region={region} />}
         </g>
       </svg>
       <span className="badge-text">

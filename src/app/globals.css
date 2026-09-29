@@ -736,7 +736,7 @@ body {
   gap: 0.15rem;
   text-align: center;
   /* Clears the mark (top 26/80 of the shape) and the lower keyline at every badge width. */
-  padding: 17.5cqi 10cqi 6cqi;
+  padding: 20cqi 10cqi 6cqi;
   color: var(--badge-text);
   max-width: 100%;
 }
