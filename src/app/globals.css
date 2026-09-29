@@ -1393,3 +1393,154 @@ a:focus-visible > .map-dot {
   color: var(--dirt);
   opacity: 0.9;
 }
+
+/* ------------------------------------------------------------------ */
+/* Fly finder loading: the board being written                          */
+/* ------------------------------------------------------------------ */
+.results-board {
+  min-height: 22rem;
+  border-radius: 0.4rem;
+  box-shadow:
+    inset 0 0 0 1px oklch(1 0 0 / 0.08),
+    0 18px 30px -18px oklch(0 0 0 / 0.6);
+}
+.results-board-inner {
+  display: grid;
+  justify-items: start;
+  gap: 0.5rem;
+  max-width: 34rem;
+}
+.results-board-fly {
+  width: 11rem;
+  height: auto;
+  margin-bottom: 0.5rem;
+  color: var(--chalk);
+  filter: url(#chalk-rough);
+}
+.results-board-fly .stroke {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: chalk-draw 900ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.results-board-fly .s1 { animation-delay: 0ms; }
+.results-board-fly .s2 { animation-delay: 500ms; }
+.results-board-fly .s3 { animation-delay: 700ms; }
+.results-board-fly .s4 { animation-delay: 1000ms; }
+.results-board-fly .s5 { animation-delay: 1250ms; }
+.results-board-fly .s6 { animation-delay: 1600ms; }
+@keyframes chalk-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.results-board-river {
+  color: var(--live);
+  font-size: 0.95rem;
+  margin-top: -0.25rem;
+}
+.results-board-steps {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 1rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+.results-board-steps li {
+  --i: 0;
+  --n: 4;
+  display: grid;
+  grid-template-columns: 1.4rem minmax(0, 1fr);
+  gap: 0.5rem;
+  align-items: baseline;
+  color: var(--chalk-dim);
+  opacity: 0;
+  transform: translateX(-4px);
+  /* Each line writes on 650ms after the last; the current line is chalk-bright until the next one starts. */
+  animation:
+    chalk-line-in 320ms cubic-bezier(0.16, 1, 0.3, 1) forwards,
+    chalk-line-settle 1ms linear forwards;
+  animation-delay: calc(var(--i) * 650ms), calc((var(--i) + 1) * 650ms);
+}
+.results-board-steps li:last-child {
+  animation: chalk-line-in 320ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(var(--i) * 650ms);
+}
+@keyframes chalk-line-in {
+  to {
+    opacity: 1;
+    transform: none;
+    color: var(--chalk);
+  }
+}
+@keyframes chalk-line-settle {
+  to {
+    color: var(--chalk);
+    opacity: 0.8;
+  }
+}
+/* The tick appears once the next line has started; the last line keeps a blinking chalk cursor instead. */
+.results-board-steps .results-board-tick {
+  opacity: 0;
+  animation: chalk-tick 1ms linear forwards;
+  animation-delay: calc((var(--i) + 1) * 650ms);
+}
+.results-board-steps li:last-child .results-board-tick {
+  animation: none;
+}
+@keyframes chalk-tick {
+  to {
+    opacity: 1;
+  }
+}
+.results-board-steps li:last-child .results-board-text::after {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 1em;
+  margin-left: 0.2em;
+  vertical-align: -0.15em;
+  background: var(--chalk);
+  border-radius: 1px;
+  animation: chalk-blink 900ms steps(2, start) infinite;
+}
+@keyframes chalk-blink {
+  to {
+    visibility: hidden;
+  }
+}
+.results-board-tick {
+  font-family: var(--font-mono);
+  color: var(--live);
+  text-align: center;
+}
+/* The sidebar's ghost: two plain chalk-outlined cards, no shimmer. */
+.results-loading-aside {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+.results-loading-card {
+  height: 11rem;
+  border: 1.5px dashed oklch(0.2 0.02 60 / 0.25);
+  border-radius: 0.75rem;
+}
+.results-loading-card.short {
+  height: 7rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  .results-board-fly .stroke {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .results-board-steps li,
+  .results-board-steps .results-board-tick {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    color: var(--chalk);
+  }
+  .results-board-steps li:last-child .results-board-text::after {
+    animation: none;
+  }
+}
