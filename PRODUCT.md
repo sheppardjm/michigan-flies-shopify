@@ -66,7 +66,7 @@ Undecided: real pricing (current prices are placeholders by category); which col
 
 - Deep-research report and six note files: `reports/Michigan river flies and hatch timing.md`, `research_notes/Michigan river flies and hatch timing/`.
 - Seed data with sources: `src/data/` (34 hatches, 8 species, 11 egg sources, 29 forage items, 136 flies, 44 rivers, 5 region offsets, one collection).
-- Tying sheets with bills of materials: `src/data/tying.ts` (11 Feenstra Guide Service patterns transcribed from the published sheets on their Favorites page and blog, September 29, 2026).
+- Tying sheets with bills of materials: `src/data/tying.ts` (64 patterns as of September 29, 2026: 11 Feenstra Guide Service patterns transcribed from their published sheets, and every fly in the Two Hearted box written up in our own words from two or more cited recipes; `scripts/import-tying-research.py` turns research JSON into records).
 - DNR stocking snapshot: `src/data/stocking.json` (events 1979 to September 2026).
 - Insect photos: `src/data/hatch-photos.json` (201 iNaturalist photos). Fly photos: `src/data/fly-photos.json` and `public/photos/flies/` (87 patterns covered; 55-pattern Two Hearted batch has 47 with photos).
 - Owner's field observation: Chinook landed in the Two Hearted, late September 2026.

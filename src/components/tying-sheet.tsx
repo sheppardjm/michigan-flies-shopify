@@ -6,7 +6,7 @@ import type { TyingSheet as Sheet } from "@/data";
 const LICENSE_LINE: Record<Sheet["license"], string> = {
   permission: "Reproduced with the tier's permission.",
   "published-sheet": "From the tier's published pattern sheet.",
-  own: "Our own recipe.",
+  own: "Our own write-up of the standard tie, checked against the sources below.",
 };
 
 /** A pattern's tying sheet: materials, steps in order, the tier's comments, and where it came from. */
@@ -84,6 +84,22 @@ export function TyingSheet({ sheet, flyName }: { sheet: Sheet; flyName: string }
             {sheet.source.title}
           </a>
           {sheet.transcriptionNote ? ` ${sheet.transcriptionNote}` : ""}
+          {sheet.moreSources.length ? (
+            <>
+              {" "}
+              Also checked against{" "}
+              {sheet.moreSources.map((s, i) => (
+                <span key={s.url}>
+                  {i ? (i === sheet.moreSources.length - 1 ? " and " : ", ") : ""}
+                  <a href={s.url} target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-foreground">
+                    {s.author ? `${s.author}, ` : ""}
+                    {s.title}
+                  </a>
+                </span>
+              ))}
+              .
+            </>
+          ) : null}
         </p>
       </CardContent>
     </Card>
