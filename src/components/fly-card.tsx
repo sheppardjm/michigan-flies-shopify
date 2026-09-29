@@ -24,6 +24,7 @@ export function FlyCard({
   score,
   product,
   tags,
+  primary = "pattern",
 }: {
   fly: Fly;
   reasons?: string[];
@@ -31,7 +32,11 @@ export function FlyCard({
   product?: Product | null;
   /** Extra labels, e.g. which of several target species this fly serves. */
   tags?: string[];
+  /** Where the whole card goes: the pattern page (default) or the store page, for shop and box listings. */
+  primary?: "pattern" | "shop";
 }) {
+  const shopHref = product ? `/shop/${product.handle}` : `/shop/${fly.id}`;
+  const primaryHref = primary === "shop" ? shopHref : `/flies/${fly.id}`;
   const referencePhoto = product?.featuredImage ? null : getFlyReferenceHero(fly.id);
   return (
     <Card className="card-link relative flex h-full flex-col overflow-hidden">
@@ -51,7 +56,7 @@ export function FlyCard({
       <CardHeader className="gap-1">
         <div className="flex items-start justify-between gap-2">
           <CardTitle className="text-base leading-tight">
-            <Link href={`/flies/${fly.id}`} className="card-link-stretch group-hover/card:underline">
+            <Link href={primaryHref} className="card-link-stretch group-hover/card:underline">
               {fly.name}
             </Link>
           </CardTitle>
@@ -99,13 +104,19 @@ export function FlyCard({
               Buy from {formatMoney(product.priceRange.minVariantPrice)}
             </Link>
           ) : (
-            <Link href={`/shop/${fly.id}`} className="relative z-10 text-sm font-medium text-primary underline-offset-4 hover:underline">
+            <Link href={shopHref} className="relative z-10 text-sm font-medium text-primary underline-offset-4 hover:underline">
               Reserve · {formatUsd(priceFor(fly))}
             </Link>
           )}
-          <span className="text-xs text-muted-foreground underline-offset-4 group-hover/card:underline" aria-hidden="true">
-            Details
-          </span>
+          {primary === "shop" ? (
+            <Link href={`/flies/${fly.id}`} className="relative z-10 text-xs text-muted-foreground underline-offset-4 hover:underline">
+              Pattern details
+            </Link>
+          ) : (
+            <span className="text-xs text-muted-foreground underline-offset-4 group-hover/card:underline" aria-hidden="true">
+              Details
+            </span>
+          )}
         </div>
       </CardContent>
     </Card>

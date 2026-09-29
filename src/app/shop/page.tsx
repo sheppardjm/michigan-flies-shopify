@@ -67,7 +67,7 @@ async function Catalogue() {
             </h3>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {list.map((f) => (
-                <FlyCard key={f.id} fly={f} product={products.get(f.shopifyHandle ?? f.id) ?? null} />
+                <FlyCard key={f.id} fly={f} product={products.get(f.shopifyHandle ?? f.id) ?? null} primary="shop" />
               ))}
             </div>
           </div>
