@@ -11,6 +11,7 @@ import { Progress } from "@/components/ui/progress";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
+import { OTHER_SETUP } from "@/lib/recommend";
 import { cn } from "@/lib/utils";
 import type { Region, SpeciesId, Technique } from "@/data/schema";
 
@@ -49,14 +50,14 @@ export function QuizWizard({
   techniques: QuizTechniqueOption[];
   regionLabels: Record<Region, string>;
   today: string;
-  initial?: Partial<{ river: string; date: string; species: SpeciesId[]; setup: Technique }>;
+  initial?: Partial<{ river: string; date: string; species: SpeciesId[]; setup: string[] }>;
 }) {
   const router = useRouter();
   const [step, setStep] = useState(0);
   const [riverId, setRiverId] = useState(initial?.river ?? "");
   const [date, setDate] = useState(initial?.date ?? today);
   const [speciesIds, setSpeciesIds] = useState<SpeciesId[]>(initial?.species ?? []);
-  const [technique, setTechnique] = useState<Technique | "">(initial?.setup ?? "");
+  const [setup, setSetup] = useState<string[]>(initial?.setup ?? []);
   const [riverQuery, setRiverQuery] = useState("");
 
   const river = rivers.find((r) => r.id === riverId);
@@ -71,14 +72,14 @@ export function QuizWizard({
 
   const speciesHere = new Set(river?.speciesIds ?? []);
 
-  const canNext = [Boolean(riverId), /^\d{4}-\d{2}-\d{2}$/.test(date), speciesIds.length > 0, Boolean(technique)][step];
+  const canNext = [Boolean(riverId), /^\d{4}-\d{2}-\d{2}$/.test(date), speciesIds.length > 0, setup.length > 0][step];
 
   function toggleSpecies(id: SpeciesId, on: boolean) {
     setSpeciesIds((prev) => (on ? (prev.includes(id) ? prev : [...prev, id]) : prev.filter((x) => x !== id)));
   }
 
   function submit() {
-    const params = new URLSearchParams({ river: riverId, date, species: speciesIds.join(","), setup: technique });
+    const params = new URLSearchParams({ river: riverId, date, species: speciesIds.join(","), setup: setup.join(",") });
     router.push(`/quiz/results?${params}`);
   }
 
@@ -235,27 +236,32 @@ export function QuizWizard({
         <Card>
           <CardHeader>
             <CardTitle>What is your setup?</CardTitle>
-            <CardDescription>We only recommend flies you can actually fish with the rig you are carrying.</CardDescription>
+            <CardDescription>Pick every rig you are carrying. We only recommend flies you can actually fish; &ldquo;other&rdquo; ranks by timing alone.</CardDescription>
           </CardHeader>
           <CardContent>
-            <RadioGroup value={technique} onValueChange={(v) => setTechnique(v as Technique)} className="grid gap-2 sm:grid-cols-2">
-              {techniques.map((t) => (
-                <Label
-                  key={t.id}
-                  htmlFor={`setup-${t.id}`}
-                  className={cn(
-                    "flex cursor-pointer items-start gap-3 rounded-lg border p-3 transition-colors hover:bg-muted",
-                    technique === t.id && "border-primary bg-primary/5",
-                  )}
-                >
-                  <RadioGroupItem id={`setup-${t.id}`} value={t.id} className="mt-0.5" />
-                  <span className="space-y-0.5">
-                    <span className="block font-medium leading-tight">{t.label}</span>
-                    <span className="block text-xs font-normal text-muted-foreground">{t.description}</span>
-                  </span>
-                </Label>
-              ))}
-            </RadioGroup>
+            <div className="grid gap-2 sm:grid-cols-2">
+              {[...techniques, { id: OTHER_SETUP as Technique, label: "Other", description: "A rig not on this list. Nothing is excluded and nothing is weighted; the ranking is hatch, egg and forage timing alone." }].map((t) => {
+                const on = setup.includes(t.id);
+                return (
+                  <Label
+                    key={t.id}
+                    htmlFor={`setup-${t.id}`}
+                    className={cn("flex cursor-pointer items-start gap-3 rounded-lg border p-3 transition-colors hover:bg-muted", on && "border-primary bg-primary/5")}
+                  >
+                    <Checkbox
+                      id={`setup-${t.id}`}
+                      checked={on}
+                      onCheckedChange={(checked) => setSetup((prev) => (checked ? [...prev, t.id] : prev.filter((x) => x !== t.id)))}
+                      className="mt-0.5"
+                    />
+                    <span className="space-y-0.5">
+                      <span className="block font-medium leading-tight">{t.label}</span>
+                      <span className="block text-xs font-normal text-muted-foreground">{t.description}</span>
+                    </span>
+                  </Label>
+                );
+              })}
+            </div>
           </CardContent>
         </Card>
       ) : null}

@@ -13,7 +13,7 @@ const cases: { riverId: string; date: Date; speciesId: SpeciesId; technique: Tec
   { riverId: "au-sable-holy-waters", date: new Date(Date.UTC(2026, 9, 10)), speciesId: "brown-trout", technique: "nymph-indicator" },
 ];
 for (const c of cases) {
-  const r = recommend(c, 6);
+  const r = recommend({ ...c, setup: { techniques: [c.technique], other: false } }, 6);
   console.log(`\n== ${c.speciesId} · ${c.riverId} · ${c.date.toISOString().slice(0, 10)} · ${c.technique}`);
   if (r.warnings.length) console.log("  ! " + r.warnings.join(" | "));
   console.log("  hatches: " + r.hatches.map((h) => `${h.hatch.commonName}(${h.status})`).join(", "));

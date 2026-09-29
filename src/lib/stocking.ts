@@ -80,7 +80,20 @@ export const FEATURED_DNR_SPECIES = [
   "Arctic grayling",
   "Lake sturgeon",
   "Walleye",
+  "Muskellunge",
+  "Tiger muskellunge",
+  "Northern pike",
+  "Smallmouth bass",
 ];
+
+/** DNR species planted in a river that the site does not model as target fish, newest plant first. */
+export function unmodeledStockedSpecies(stocking: RiverStocking | null): { species: string; firstYear: number; lastYear: number; total: number }[] {
+  if (!stocking) return [];
+  return stocking.species
+    .filter((s) => !(s.species in DNR_SPECIES_TO_SITE))
+    .map((s) => ({ species: s.species, firstYear: s.firstYear, lastYear: s.lastYear, total: s.totalAllYears }))
+    .sort((a, b) => b.lastYear - a.lastYear || b.total - a.total);
+}
 
 /**
  * DNR rainbow trout strains that are anadromous steelhead lines. "Michigan" is
