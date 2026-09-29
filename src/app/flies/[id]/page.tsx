@@ -12,6 +12,7 @@ import { hookSizeLabel } from "@/components/fly-card";
 import { InsectThumb, PhotoCredit } from "@/components/insect-photo";
 import { FlyReferenceCard } from "@/components/fly-reference-photo";
 import { TyingSheet } from "@/components/tying-sheet";
+import { MaterialsBill } from "@/components/materials-bill";
 import { getFlyReferencePhotos } from "@/lib/fly-photos";
 import { getHatchHero } from "@/lib/photos";
 import { CATEGORY_LABELS, TECHNIQUE_LABELS, eggSourceById, flies, flyById, forageById, hatchById, speciesById, tyingByFlyId } from "@/data";
@@ -172,7 +173,12 @@ export default async function FlyPage({ params }: PageProps<"/flies/[id]">) {
           </div>
           {(() => {
             const sheet = tyingByFlyId.get(fly.id);
-            return sheet ? <TyingSheet sheet={sheet} flyName={fly.name} /> : null;
+            return sheet ? (
+              <>
+                <TyingSheet sheet={sheet} flyName={fly.name} />
+                <MaterialsBill bill={sheet.bill} flyName={fly.name} />
+              </>
+            ) : null;
           })()}
           <SourceList sources={fly.sources} />
         </div>

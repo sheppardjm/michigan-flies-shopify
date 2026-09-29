@@ -129,6 +129,23 @@ export const TyingMaterial = z.object({
 });
 export type TyingMaterial = z.infer<typeof TyingMaterial>;
 
+/** What to buy: one purchasable material, deduplicated across the parts of the fly it goes into. */
+export const BillItem = z.object({
+  item: z.string(),
+  kind: z.enum(["hook", "shank", "line", "thread", "eyes", "feather", "fur", "synthetic", "flash", "legs", "adhesive", "other"]),
+  /** Quantity for one fly, in the tier's terms: "1", "2 feathers", "5 or 6 strands", "a pinch", "about 6 in". */
+  quantity: z.string(),
+  /** Size, weight, or colour choices. */
+  variant: z.string().optional(),
+  /** Maker or brand, only when the sheet names one. */
+  maker: z.string().optional(),
+  /** Parts of the fly this item is used for (matches `TyingMaterial.part`). */
+  usedFor: z.array(z.string()).default([]),
+  optional: z.boolean().default(false),
+  note: z.string().optional(),
+});
+export type BillItem = z.infer<typeof BillItem>;
+
 /**
  * How a pattern is tied, as published by its originator or a tier we trust:
  * the materials list, the steps in order, and the tier's own comments. One
@@ -145,6 +162,8 @@ export const TyingSheet = z.object({
   steps: z.array(z.string()).min(1),
   /** The tier's comments: how to fish it, colour by season, variations. */
   comments: z.array(z.string()).default([]),
+  /** The shopping list: each material once, with quantity for one fly. Seed for the component pages in the product-breakdown plan. */
+  bill: z.array(BillItem).default([]),
   /** Who wrote the sheet and where it lives. */
   source: Source.extend({ author: z.string() }),
   /** How we may reproduce it: the tier's permission, a public sheet, or our own transcription of a published recipe. */

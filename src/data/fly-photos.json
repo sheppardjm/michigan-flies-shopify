@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-28T19:14:43.220259+00:00",
+  "fetchedAt": "2026-09-29T16:13:30.657Z",
   "flies": {
     "pheasant-tail-nymph": {
       "flyId": "pheasant-tail-nymph",
@@ -1930,6 +1930,18 @@
       "photos": [
         {
           "source": "permission",
+          "url": "/photos/flies/halloween-leech--feenstra.jpg",
+          "thumbUrl": null,
+          "width": null,
+          "height": null,
+          "title": "Feenstra Halloween Leech",
+          "author": "Kevin Feenstra",
+          "license": "Used with permission",
+          "licenseUrl": null,
+          "sourceUrl": "https://feenstraoutdoors.com/wordpress/halloween-1-of-1-2/"
+        },
+        {
+          "source": "permission",
           "url": "/photos/flies/halloween-leech--quinn.webp",
           "thumbUrl": null,
           "width": null,
@@ -1981,6 +1993,18 @@
       "photos": [
         {
           "source": "permission",
+          "url": "/photos/flies/grapefruit-head-leech--feenstra.jpg",
+          "thumbUrl": null,
+          "width": null,
+          "height": null,
+          "title": "Feenstra Grapefruit Leech",
+          "author": "Kevin Feenstra",
+          "license": "Used with permission",
+          "licenseUrl": null,
+          "sourceUrl": "https://feenstraoutdoors.com/wordpress/grapefruit-1-of-1-2/"
+        },
+        {
+          "source": "permission",
           "url": "/photos/flies/grapefruit-head-leech--quinn.jpg",
           "thumbUrl": null,
           "width": null,
@@ -2007,6 +2031,18 @@
           "license": "Used with permission",
           "licenseUrl": null,
           "sourceUrl": ""
+        },
+        {
+          "source": "permission",
+          "url": "/photos/flies/hex-nymph--feenstra.jpg",
+          "thumbUrl": null,
+          "width": null,
+          "height": null,
+          "title": "Kevin Feenstra AP Hex",
+          "author": "Kevin Feenstra",
+          "license": "Used with permission",
+          "licenseUrl": null,
+          "sourceUrl": "https://feenstraoutdoors.com/wordpress/ap-hex-1-of-1-2/"
         }
       ]
     },
@@ -2529,6 +2565,40 @@
           "license": "Used with permission",
           "licenseUrl": null,
           "sourceUrl": ""
+        }
+      ]
+    },
+    "emulator": {
+      "flyId": "emulator",
+      "photos": [
+        {
+          "source": "permission",
+          "url": "/photos/flies/emulator--feenstra.jpg",
+          "thumbUrl": null,
+          "width": null,
+          "height": null,
+          "title": "Emulator",
+          "author": "Kevin Feenstra",
+          "license": "Used with permission",
+          "licenseUrl": null,
+          "sourceUrl": "https://feenstraoutdoors.com/wordpress/emulator-1-of-1-2/"
+        }
+      ]
+    },
+    "aqua-nuisance": {
+      "flyId": "aqua-nuisance",
+      "photos": [
+        {
+          "source": "permission",
+          "url": "/photos/flies/aqua-nuisance--feenstra.jpg",
+          "thumbUrl": null,
+          "width": null,
+          "height": null,
+          "title": "Aquatic Nuisance",
+          "author": "Kevin Feenstra",
+          "license": "Used with permission",
+          "licenseUrl": null,
+          "sourceUrl": "https://feenstraoutdoors.com/wordpress/aquatic-nuisance-1-of-1-2/"
         }
       ]
     }
