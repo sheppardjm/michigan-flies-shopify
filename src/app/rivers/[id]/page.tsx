@@ -6,9 +6,9 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { ConditionsPanel } from "@/components/conditions-panel";
 import { MonthGrid } from "@/components/month-grid";
+import { RowTable } from "@/components/row-table";
 import { SourceList } from "@/components/source-list";
 import { StatusBadge } from "@/components/status-badge";
 import { REGION_LABELS, hatchById, riverById, rivers, speciesById, type River } from "@/data";
@@ -74,39 +74,31 @@ export default async function RiverPage({ params }: PageProps<"/rivers/[id]">) {
         </div>
       </div>
 
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_340px]">
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[minmax(0,1fr)_340px]">
         <div className="space-y-8">
           <section className="space-y-3">
             <h2 className="text-xl font-semibold tracking-tight">Fish by month</h2>
-            <div className="overflow-x-auto rounded-lg border border-border">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Species</TableHead>
-                    <TableHead className="min-w-64">Months</TableHead>
-                    <TableHead>Origin</TableHead>
-                    <TableHead>Confidence</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {river.species.map((s) => (
-                    <TableRow key={s.speciesId}>
-                      <TableCell>
-                        <Link href={`/species/${s.speciesId}`} className="font-medium hover:underline">
-                          {speciesById.get(s.speciesId)?.name ?? s.speciesId}
-                        </Link>
-                        {s.notes ? <p className="max-w-xs text-xs text-muted-foreground">{s.notes}</p> : null}
-                      </TableCell>
-                      <TableCell>
-                        <MonthGrid active={s.months} peak={s.peakMonths} highlight={month} compact />
-                      </TableCell>
-                      <TableCell className="text-xs capitalize">{s.origin}</TableCell>
-                      <TableCell className="font-mono text-xs">{s.confidence}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
+            <RowTable
+              titleLabel="Species"
+              stripLabel="Months"
+              factLabels={["Origin", "Confidence"]}
+              rows={river.species.map((s) => ({
+                key: s.speciesId,
+                title: (
+                  <>
+                    <Link href={`/species/${s.speciesId}`} className="font-medium hover:underline">
+                      {speciesById.get(s.speciesId)?.name ?? s.speciesId}
+                    </Link>
+                    {s.notes ? <p className="max-w-xs text-xs text-muted-foreground">{s.notes}</p> : null}
+                  </>
+                ),
+                strip: <MonthGrid active={s.months} peak={s.peakMonths} highlight={month} compact />,
+                facts: [
+                  { label: "Origin", value: <span className="capitalize">{s.origin}</span>, cellClassName: "text-xs" },
+                  { label: "Confidence", value: s.confidence, cellClassName: "font-mono text-xs" },
+                ],
+              }))}
+            />
           </section>
 
           <section className="space-y-3">
@@ -167,34 +159,37 @@ export default async function RiverPage({ params }: PageProps<"/rivers/[id]">) {
             <section className="space-y-3">
               <h2 className="text-xl font-semibold tracking-tight">Gear rules</h2>
               <p className="text-sm text-muted-foreground">Transcribed from the 2026 Michigan Fishing Regulations digest. Confirm with the DNR before fishing.</p>
-              <div className="overflow-x-auto rounded-lg border border-border">
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Reach</TableHead>
-                      <TableHead>Tackle</TableHead>
-                      <TableHead>Season</TableHead>
-                      <TableHead>Notes</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {river.sections.map((s) => (
-                      <TableRow key={s.name}>
-                        <TableCell className="font-medium">{s.name}</TableCell>
-                        <TableCell className="text-xs">
+              <RowTable
+                titleLabel="Reach"
+                factLabels={["Tackle", "Season", "Notes"]}
+                rows={river.sections.map((s) => ({
+                  key: s.name,
+                  title: <span className="font-medium">{s.name}</span>,
+                  facts: [
+                    {
+                      label: "Tackle",
+                      value: (
+                        <>
                           {s.regulation.replace(/-/g, " ")}
                           {s.catchAndRelease ? " · C&R" : ""}
-                        </TableCell>
-                        <TableCell className="text-xs">{s.openAllYear ? "All year" : "Trout season"}</TableCell>
-                        <TableCell className="text-xs text-muted-foreground">
+                        </>
+                      ),
+                      cellClassName: "text-xs",
+                    },
+                    { label: "Season", value: s.openAllYear ? "All year" : "Trout season", cellClassName: "text-xs" },
+                    {
+                      label: "Notes",
+                      value: (
+                        <span className="text-muted-foreground">
                           {s.notes}
                           {s.needsVerification ? <Badge variant="destructive" className="ml-1">verify</Badge> : null}
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </div>
+                        </span>
+                      ),
+                      cellClassName: "text-xs",
+                    },
+                  ],
+                }))}
+              />
             </section>
           ) : null}
         </div>

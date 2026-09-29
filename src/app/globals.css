@@ -247,6 +247,11 @@
 /* The wall: shiplap planks with grain, four depth planes               */
 /* ------------------------------------------------------------------ */
 
+/* A page never scrolls sideways; decoration wider than the viewport is clipped, never scrolled to. */
+html,
+body {
+  overflow-x: clip;
+}
 .wall {
   position: relative;
   isolation: isolate;

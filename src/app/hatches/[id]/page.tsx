@@ -3,10 +3,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { EvidenceBadge } from "@/components/evidence-badge";
 import { FlyCard } from "@/components/fly-card";
 import { MonthGrid } from "@/components/month-grid";
+import { RowTable } from "@/components/row-table";
 import { SourceList } from "@/components/source-list";
 import { InsectGallery } from "@/components/insect-photo";
 import { REGION_LABELS, flies, hatchById, hatches, regionOffsets, rivers } from "@/data";
@@ -71,7 +71,7 @@ export default async function HatchPage({ params }: PageProps<"/hatches/[id]">) 
         </div>
       </div>
 
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_340px]">
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[minmax(0,1fr)_340px]">
         <div className="space-y-8">
           {photos.length ? (
             <section className="space-y-2">
@@ -81,50 +81,43 @@ export default async function HatchPage({ params }: PageProps<"/hatches/[id]">) 
 
           <section className="space-y-3">
             <h2 className="text-xl font-semibold tracking-tight">Timing by region</h2>
-            <div className="overflow-x-auto rounded-lg border border-border">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Region</TableHead>
-                    <TableHead className="min-w-64">Months</TableHead>
-                    <TableHead>Window</TableHead>
-                    <TableHead>Peak</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {regionOffsets
-                    .filter((r) => !hatch.regions.length || hatch.regions.includes(r.region))
-                    .map((r) => (
-                      <TableRow key={r.region}>
-                        <TableCell className="font-medium">{REGION_LABELS[r.region]}</TableCell>
-                        <TableCell>
-                          <MonthGrid active={windowMonths(hatch.window, r.offsetDays)} compact />
-                        </TableCell>
-                        <TableCell className="font-mono text-xs whitespace-nowrap">{formatWindow(hatch.window, r.offsetDays)}</TableCell>
-                        <TableCell className="font-mono text-xs whitespace-nowrap">{formatPeak(hatch.window, r.offsetDays) ?? "—"}</TableCell>
-                      </TableRow>
-                    ))}
-                  {overrides.map((r) => {
-                    const o = r.hatchOverrides.find((x) => x.hatchId === hatch.id)!;
-                    return (
-                      <TableRow key={r.id}>
-                        <TableCell>
-                          <Link href={`/rivers/${r.id}`} className="font-medium hover:underline">
-                            {r.name}
-                          </Link>
-                          <span className="ml-1 text-xs text-muted-foreground">local chart</span>
-                        </TableCell>
-                        <TableCell>
-                          <MonthGrid active={windowMonths(o.window)} compact />
-                        </TableCell>
-                        <TableCell className="font-mono text-xs whitespace-nowrap">{formatWindow(o.window)}</TableCell>
-                        <TableCell className="font-mono text-xs whitespace-nowrap">{formatPeak(o.window) ?? "—"}</TableCell>
-                      </TableRow>
-                    );
-                  })}
-                </TableBody>
-              </Table>
-            </div>
+            <RowTable
+              titleLabel="Region"
+              stripLabel="Months"
+              factLabels={["Window", "Peak"]}
+              rows={[
+                ...regionOffsets
+                  .filter((r) => !hatch.regions.length || hatch.regions.includes(r.region))
+                  .map((r) => ({
+                    key: r.region,
+                    title: <span className="font-medium">{REGION_LABELS[r.region]}</span>,
+                    strip: <MonthGrid active={windowMonths(hatch.window, r.offsetDays)} compact />,
+                    facts: [
+                      { label: "Window", value: formatWindow(hatch.window, r.offsetDays), cellClassName: "font-mono text-xs whitespace-nowrap" },
+                      { label: "Peak", value: formatPeak(hatch.window, r.offsetDays) ?? "—", cellClassName: "font-mono text-xs whitespace-nowrap" },
+                    ],
+                  })),
+                ...overrides.map((r) => {
+                  const o = r.hatchOverrides.find((x) => x.hatchId === hatch.id)!;
+                  return {
+                    key: r.id,
+                    title: (
+                      <>
+                        <Link href={`/rivers/${r.id}`} className="font-medium hover:underline">
+                          {r.name}
+                        </Link>
+                        <span className="ml-1 text-xs text-muted-foreground">local chart</span>
+                      </>
+                    ),
+                    strip: <MonthGrid active={windowMonths(o.window)} compact />,
+                    facts: [
+                      { label: "Window", value: formatWindow(o.window), cellClassName: "font-mono text-xs whitespace-nowrap" },
+                      { label: "Peak", value: formatPeak(o.window) ?? "—", cellClassName: "font-mono text-xs whitespace-nowrap" },
+                    ],
+                  };
+                }),
+              ]}
+            />
           </section>
 
           <section className="space-y-3">

@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { RowTable } from "@/components/row-table";
 import { FEATURED_DNR_SPECIES, STOCKING_FETCHED_AT, STOCKING_SOURCE, cmToInches, recentYears, speciesLabel, type RiverStocking } from "@/lib/stocking";
 
 const fmt = new Intl.NumberFormat("en-US");
@@ -49,56 +49,56 @@ export function StockingSection({ stocking }: { stocking: RiverStocking | null }
       </div>
 
       {active.length ? (
-        <div className="overflow-x-auto rounded-lg border border-border">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="min-w-40">Species</TableHead>
-                {years.map((y) => (
-                  <TableHead key={y} className="text-right font-mono text-xs">
-                    {y}
-                  </TableHead>
-                ))}
-                <TableHead>Latest plant</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {active.map((s) => (
-                <TableRow key={s.species}>
-                  <TableCell className="max-w-56">
-                    <p className="flex items-center gap-1.5 font-medium">
-                      {speciesLabel(s.species, s.strains).label}
-                      {speciesLabel(s.species, s.strains).note ? (
-                        <Badge variant={speciesLabel(s.species, s.strains).note === "steelhead strain" ? "default" : "outline"} className="text-[10px]">
-                          {speciesLabel(s.species, s.strains).note}
-                        </Badge>
-                      ) : null}
-                    </p>
-                    <p className="truncate text-xs text-muted-foreground" title={s.strains.join(", ")}>
-                      {s.strains.length ? `${s.strains.slice(0, 2).join(", ")}${s.strains.length > 2 ? ` +${s.strains.length - 2}` : ""} · ` : ""}
-                      since {s.firstYear}
-                    </p>
-                  </TableCell>
-                  {years.map((y) => {
-                    const n = s.byYear[String(y)];
-                    return (
-                      <TableCell key={y} className="text-right font-mono text-xs tabular-nums">
-                        {n ? fmt.format(n) : <span className="text-muted-foreground/50">—</span>}
-                      </TableCell>
-                    );
-                  })}
-                  <TableCell className="max-w-48 text-xs text-muted-foreground">
-                    <p>{fmtDate(s.latest.date)}</p>
-                    <p className="truncate" title={s.latest.site ?? undefined}>
-                      {s.latest.site ? titleCase(s.latest.site) : ""}
-                      {s.latest.avgLengthCm ? ` · ${cmToInches(s.latest.avgLengthCm)} in` : ""}
-                    </p>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
+        <RowTable
+          titleLabel="Species"
+          factLabels={[...years.map(String), "Latest plant"]}
+          titleClassName="min-w-40"
+          rows={active.map((s) => {
+            const label = speciesLabel(s.species, s.strains);
+            return {
+              key: s.species,
+              title: (
+                <div className="max-w-56">
+                  <p className="flex flex-wrap items-center gap-1.5 font-medium">
+                    {label.label}
+                    {label.note ? (
+                      <Badge variant={label.note === "steelhead strain" ? "default" : "outline"} className="text-[10px]">
+                        {label.note}
+                      </Badge>
+                    ) : null}
+                  </p>
+                  <p className="truncate text-xs text-muted-foreground" title={s.strains.join(", ")}>
+                    {s.strains.length ? `${s.strains.slice(0, 2).join(", ")}${s.strains.length > 2 ? ` +${s.strains.length - 2}` : ""} · ` : ""}
+                    since {s.firstYear}
+                  </p>
+                </div>
+              ),
+              facts: [
+                ...years.map((y) => {
+                  const n = s.byYear[String(y)];
+                  return {
+                    label: String(y),
+                    value: n ? fmt.format(n) : <span className="text-muted-foreground/50">—</span>,
+                    cellClassName: "text-right font-mono text-xs tabular-nums",
+                  };
+                }),
+                {
+                  label: "Latest plant",
+                  value: (
+                    <span className="text-muted-foreground">
+                      <span className="block">{fmtDate(s.latest.date)}</span>
+                      <span className="block truncate" title={s.latest.site ?? undefined}>
+                        {s.latest.site ? titleCase(s.latest.site) : ""}
+                        {s.latest.avgLengthCm ? ` · ${cmToInches(s.latest.avgLengthCm)} in` : ""}
+                      </span>
+                    </span>
+                  ),
+                  cellClassName: "max-w-48 text-xs",
+                },
+              ],
+            };
+          })}
+        />
       ) : (
         <Card>
           <CardContent className="py-6 text-sm text-muted-foreground">

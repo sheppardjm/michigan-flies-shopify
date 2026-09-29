@@ -4,10 +4,10 @@ import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { EvidenceBadge } from "@/components/evidence-badge";
 import { FlyCard } from "@/components/fly-card";
 import { MonthGrid } from "@/components/month-grid";
+import { RowTable } from "@/components/row-table";
 import { SourceList } from "@/components/source-list";
 import { SpeciesId, eggSources, flies, rivers, species, speciesById } from "@/data";
 import { monthName } from "@/lib/recommend";
@@ -52,35 +52,22 @@ export default async function SpeciesPage({ params }: PageProps<"/species/[id]">
         </Button>
       </div>
 
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_340px]">
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[minmax(0,1fr)_340px]">
         <div className="space-y-8">
           <section className="space-y-3">
             <h2 className="text-xl font-semibold tracking-tight">What they eat in the river</h2>
             <p className="text-sm text-muted-foreground">{s.dietSummary}</p>
-            <div className="overflow-x-auto rounded-lg border border-border">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Months</TableHead>
-                    <TableHead>Food</TableHead>
-                    <TableHead>Evidence</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {s.diet.map((d, i) => (
-                    <TableRow key={i}>
-                      <TableCell className="min-w-56">
-                        <MonthGrid active={d.months} compact />
-                      </TableCell>
-                      <TableCell className="text-sm">{d.items.join(", ")}</TableCell>
-                      <TableCell>
-                        <EvidenceBadge evidence={d.evidence} />
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
+            <RowTable
+              titleLabel="Food"
+              stripLabel="Months"
+              factLabels={["Evidence"]}
+              rows={s.diet.map((d, i) => ({
+                key: String(i),
+                title: <span className="text-sm">{d.items.join(", ")}</span>,
+                strip: <MonthGrid active={d.months} compact />,
+                facts: [{ label: "Evidence", value: <EvidenceBadge evidence={d.evidence} /> }],
+              }))}
+            />
           </section>
 
           <section className="space-y-3">
