@@ -12,6 +12,9 @@ import {
   speciesById,
 } from "@/data";
 import { collections } from "@/data/collections";
+import { formatMoney } from "./shopify/types";
+import { searchProducts } from "./shopify/products";
+import type { SearchResult } from "./search-types";
 
 /**
  * Site-wide search over the local dataset: rivers, hatches, flies, fish,
@@ -19,30 +22,12 @@ import { collections } from "@/data/collections";
  * separately (see /api/search). Server-only; the index is built once per process.
  */
 
-export type SearchKind = "page" | "river" | "hatch" | "fly" | "species" | "collection";
-
-export interface SearchResult {
-  kind: SearchKind;
-  title: string;
-  subtitle: string;
-  href: string;
-}
-
-export const KIND_LABELS: Record<SearchKind, string> = {
-  page: "Pages",
-  river: "Rivers",
-  hatch: "Hatches",
-  fly: "Flies",
-  species: "Fish",
-  collection: "Boxes",
-};
-
 interface Entry extends SearchResult {
   /** Other names the thing goes by; weighted nearly as high as the title. */
   aliases: string[];
   /** Related terms that should find this entry but rank below a name match. */
   keywords: string[];
-  /** Small tiebreak so staples outrank niche patterns. */
+  /** Small tiebreak: a river, hatch or fish (3) edges out the patterns named after it; staple flies (2) edge out niche ones. */
   boost: number;
   titleWords: string[];
   aliasWords: string[];
@@ -119,6 +104,7 @@ function buildIndex(): Entry[] {
           ...r.species.map((s) => speciesById.get(s.speciesId)?.name ?? ""),
           ...r.signatureHatches.map((id) => hatchById.get(id)?.commonName ?? ""),
         ],
+        boost: 3,
       }),
     );
   }
@@ -132,6 +118,7 @@ function buildIndex(): Entry[] {
         href: `/hatches/${h.id}`,
         aliases: [...h.aliases, h.scientificName],
         keywords: [ORDER_LABELS[h.order], ...h.keyStages, ...h.colors],
+        boost: 3,
       }),
     );
   }
@@ -157,7 +144,7 @@ function buildIndex(): Entry[] {
           ...f.techniques.map((t) => TECHNIQUE_LABELS[t]),
           f.origin ?? "",
         ],
-        boost: f.priority,
+        boost: f.priority - 1,
       }),
     );
   }
@@ -170,8 +157,8 @@ function buildIndex(): Entry[] {
         subtitle: s.scientificName,
         href: `/species/${s.id}`,
         aliases: [s.scientificName],
-        keywords: ["fish", s.feedingModel, ...(s.spawn?.eggColors ?? [])],
-        boost: 2,
+        keywords: ["fish", s.feedingModel],
+        boost: 3,
       }),
     );
   }
@@ -234,4 +221,22 @@ export function searchSite(query: string, limit = 40): SearchResult[] {
     .sort((a, b) => b.s - a.s || a.e.title.localeCompare(b.e.title))
     .slice(0, limit)
     .map(({ e }) => ({ kind: e.kind, title: e.title, subtitle: e.subtitle, href: e.href }));
+}
+
+/** Local matches plus shop products. A Shopify outage drops the products and keeps the rest. */
+export async function searchEverything(query: string, limit = 40): Promise<SearchResult[]> {
+  const local = searchSite(query, limit);
+  const phrase = normalize(query);
+  if (phrase.length < 2) return local;
+  const products = await searchProducts(phrase.split(" ")).catch(() => []);
+  return [
+    ...local,
+    ...products.map((p) => ({
+      kind: "product" as const,
+      title: p.title,
+      subtitle: p.availableForSale ? formatMoney(p.priceRange.minVariantPrice) : "Sold out",
+      href: `/shop/${p.handle}`,
+      image: p.featuredImage?.url,
+    })),
+  ];
 }

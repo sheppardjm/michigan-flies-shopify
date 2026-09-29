@@ -25,3 +25,13 @@ export async function getProductsByHandles(handles: string[]): Promise<Map<strin
   });
   return out;
 }
+
+/**
+ * Storefront product search. Each word becomes a prefix term ("hex*"), and
+ * Shopify matches them against title, tags, type and vendor. Callers pass
+ * words already stripped to [a-z0-9], so no search syntax leaks through.
+ */
+export async function searchProducts(words: string[], first = 6): Promise<Product[]> {
+  if (!isShopifyConfigured() || words.length === 0) return [];
+  return getProducts(first, words.map((w) => `${w}*`).join(" "));
+}

@@ -813,6 +813,13 @@ body {
 .rail-nav a:hover {
   background: oklch(1 0 0 / 0.1);
 }
+/* Tablet widths: eight links plus search and cart only just fit. */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  .rail-nav a {
+    padding-inline: 0.45rem;
+    letter-spacing: 0.1em;
+  }
+}
 .rail-nav a[aria-current="page"] {
   background: var(--trout-band);
   color: var(--ink);
