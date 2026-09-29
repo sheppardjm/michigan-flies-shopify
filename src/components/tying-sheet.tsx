@@ -59,7 +59,7 @@ export function TyingSheet({ sheet, flyName }: { sheet: Sheet; flyName: string }
           <ol className="mt-2 space-y-2.5">
             {sheet.steps.map((step, i) => (
               <li key={i} className="grid grid-cols-[2rem_minmax(0,1fr)] gap-2">
-                <span className="live pt-0.5 text-right text-xs text-muted-foreground">{i + 1}.</span>
+                <span className="pt-0.5 text-right font-mono text-xs tabular-nums text-muted-foreground">{i + 1}.</span>
                 <span className="leading-relaxed">{step}</span>
               </li>
             ))}

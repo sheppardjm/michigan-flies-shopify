@@ -36,6 +36,8 @@ console.log("Data valid.");
     if (!flyById.has(t.flyId)) throw new Error(`Tying sheet for unknown fly: ${t.flyId}`);
     if (seen.has(t.flyId)) throw new Error(`Duplicate tying sheet for ${t.flyId}`);
     seen.add(t.flyId);
+    const parts = new Set(t.materials.map((m) => m.part));
+    for (const b of t.bill) for (const part of b.usedFor) if (!parts.has(part)) throw new Error(`Bill item "${b.item}" on ${t.flyId} references unknown part "${part}"`);
   }
   console.log(`tying sheets ${tyingSheets.length}`);
 }
