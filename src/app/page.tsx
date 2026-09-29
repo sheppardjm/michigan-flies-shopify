@@ -10,7 +10,7 @@ import { HatchBoard } from "@/components/wall/hatch-board";
 import { MichiganOutlineDefs, RiverBadge, REGION_SHORT } from "@/components/wall/river-badge";
 import { TroutSign } from "@/components/wall/trout-sign";
 import { MichiganMap } from "@/components/wall/michigan-map";
-import { CATEGORY_LABELS, REGION_LABELS, Region, TECHNIQUE_LABELS, Technique, eggSourceById, flyById, forageById, hatchById, rivers, species, speciesById } from "@/data";
+import { CATEGORY_LABELS, REGION_LABELS, Region, TECHNIQUE_LABELS, Technique, eggSourceById, flies, flyById, forageById, hatchById, rivers, species, speciesById } from "@/data";
 import { collectionById } from "@/data/collections";
 import { fieldPhotoById, fieldPhotosFor } from "@/data/field-photos";
 import { FieldGallery } from "@/components/field-gallery";
@@ -268,7 +268,7 @@ export default function HomePage() {
             The whole Two Hearted box
           </Link>
           <Link href="/flies" className="underline underline-offset-4">
-            All {130} patterns
+            All {flies.length} patterns
           </Link>
         </div>
       </section>
