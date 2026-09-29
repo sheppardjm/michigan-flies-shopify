@@ -11,7 +11,7 @@ export function SiteFooter() {
         <div className="min-w-0 space-y-3">
           <TroutLogo className="max-w-[140px]" />
           <p className="script text-3xl leading-none">Michigan Flies</p>
-          <p className="woodtype-caps text-[0.76rem] opacity-80">Hand-tied for Michigan rivers</p>
+          <p className="woodtype-caps text-[0.76rem] opacity-80">Scientifically selected and hand-tied for Great Lakes State rivers</p>
         </div>
         <div className="min-w-0 space-y-2 opacity-90">
           <p className="woodtype-caps text-[0.76rem]">How the timing works</p>
