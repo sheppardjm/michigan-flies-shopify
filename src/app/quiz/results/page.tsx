@@ -16,7 +16,7 @@ import { StatusBadge } from "@/components/status-badge";
 import { getHatchHero } from "@/lib/photos";
 import { REGION_LABELS, SpeciesId, TECHNIQUE_LABELS, riverById, speciesById, type River } from "@/data";
 import { getRiverConditions } from "@/lib/conditions";
-import { describeSetup, parseSetup, recommendMulti, serializeSetup, type Setup } from "@/lib/recommend";
+import { ANY_FISH, describeSetup, parseSetup, recommendMulti, resolveSpecies, serializeSetup, type Setup } from "@/lib/recommend";
 import { formatDate, formatPeak, formatWindow, parseIsoDate, toUtcDay } from "@/lib/season";
 import { getProductsByHandles } from "@/lib/shopify/products";
 
@@ -24,27 +24,26 @@ export const metadata: Metadata = { title: "Your flies" };
 
 function parseParams(sp: Record<string, string | string[] | undefined>) {
   const river = typeof sp.river === "string" ? riverById.get(sp.river) : undefined;
-  const speciesIds =
-    typeof sp.species === "string"
-      ? [...new Set(sp.species.split(",").map((s) => SpeciesId.safeParse(s)).flatMap((r) => (r.success ? [r.data] : [])))]
-      : [];
   const setup = parseSetup(sp.setup);
-  if (!river || !speciesIds.length || !setup) return null;
-  return { river, speciesIds, setup, date: parseIsoDate(typeof sp.date === "string" ? sp.date : undefined) };
+  if (!river || !setup) return null;
+  const date = parseIsoDate(typeof sp.date === "string" ? sp.date : undefined);
+  const { ids: speciesIds, any } = resolveSpecies(sp.species, river, date);
+  if (!speciesIds.length) return null;
+  return { river, speciesIds, setup, date, any };
 }
 
 export default async function ResultsPage({ searchParams }: PageProps<"/quiz/results">) {
   const sp = await searchParams;
   const parsed = parseParams(sp);
   if (!parsed) notFound();
-  const { river, speciesIds, setup, date } = parsed;
+  const { river, speciesIds, setup, date, any } = parsed;
   const speciesNames = speciesIds.map((id) => speciesById.get(id)?.name ?? id);
 
   // Live conditions only help when the trip is within the forecast horizon.
   const daysOut = Math.round((date.getTime() - toUtcDay(new Date()).getTime()) / 86_400_000);
   const useLive = daysOut >= -1 && daysOut <= 7;
 
-  const editHref = `/quiz?${new URLSearchParams({ river: river.id, date: date.toISOString().slice(0, 10), species: speciesIds.join(","), setup: serializeSetup(setup) })}`;
+  const editHref = `/quiz?${new URLSearchParams({ river: river.id, date: date.toISOString().slice(0, 10), species: any ? ANY_FISH : speciesIds.join(","), setup: serializeSetup(setup) })}`;
 
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-8 sm:py-12">
@@ -52,10 +51,11 @@ export default async function ResultsPage({ searchParams }: PageProps<"/quiz/res
         <div className="space-y-2">
           <p className="text-sm text-muted-foreground">Fly finder results</p>
           <h1 className="text-3xl font-semibold tracking-tight">
-            {joinNames(speciesNames)} · {river.name}
+            {any ? "Whatever's in" : joinNames(speciesNames)} · {river.name}
           </h1>
           <p className="text-muted-foreground">
             {formatDate(date)} · {describeSetup(setup, TECHNIQUE_LABELS)} · {REGION_LABELS[river.region]}
+            {any ? ` · fish in the river this month: ${joinNames(speciesNames)}` : ""}
             {river.offsetDays !== 0 ? ` · hatch timing ${river.offsetDays > 0 ? "+" : ""}${river.offsetDays} days vs. Au Sable` : ""}
           </p>
         </div>

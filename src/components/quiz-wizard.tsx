@@ -11,7 +11,7 @@ import { Progress } from "@/components/ui/progress";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
-import { OTHER_SETUP } from "@/lib/recommend";
+import { ANY_FISH, OTHER_SETUP } from "@/lib/recommend";
 import { cn } from "@/lib/utils";
 import type { Region, SpeciesId, Technique } from "@/data/schema";
 
@@ -50,13 +50,14 @@ export function QuizWizard({
   techniques: QuizTechniqueOption[];
   regionLabels: Record<Region, string>;
   today: string;
-  initial?: Partial<{ river: string; date: string; species: SpeciesId[]; setup: string[] }>;
+  initial?: Partial<{ river: string; date: string; species: SpeciesId[]; anyFish: boolean; setup: string[] }>;
 }) {
   const router = useRouter();
   const [step, setStep] = useState(0);
   const [riverId, setRiverId] = useState(initial?.river ?? "");
   const [date, setDate] = useState(initial?.date ?? today);
   const [speciesIds, setSpeciesIds] = useState<SpeciesId[]>(initial?.species ?? []);
+  const [anyFish, setAnyFish] = useState<boolean>(initial?.anyFish ?? false);
   const [setup, setSetup] = useState<string[]>(initial?.setup ?? []);
   const [riverQuery, setRiverQuery] = useState("");
 
@@ -72,14 +73,14 @@ export function QuizWizard({
 
   const speciesHere = new Set(river?.speciesIds ?? []);
 
-  const canNext = [Boolean(riverId), /^\d{4}-\d{2}-\d{2}$/.test(date), speciesIds.length > 0, setup.length > 0][step];
+  const canNext = [Boolean(riverId), /^\d{4}-\d{2}-\d{2}$/.test(date), speciesIds.length > 0 || anyFish, setup.length > 0][step];
 
   function toggleSpecies(id: SpeciesId, on: boolean) {
     setSpeciesIds((prev) => (on ? (prev.includes(id) ? prev : [...prev, id]) : prev.filter((x) => x !== id)));
   }
 
   function submit() {
-    const params = new URLSearchParams({ river: riverId, date, species: speciesIds.join(","), setup: setup.join(",") });
+    const params = new URLSearchParams({ river: riverId, date, species: anyFish ? ANY_FISH : speciesIds.join(","), setup: setup.join(",") });
     router.push(`/quiz/results?${params}`);
   }
 
@@ -194,7 +195,27 @@ export function QuizWizard({
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="grid gap-2 sm:grid-cols-2" role="group" aria-label="Target species">
+            <Label
+              htmlFor="species-whatever"
+              className={cn("mb-3 flex cursor-pointer items-start gap-3 rounded-lg border p-3 transition-colors hover:bg-muted", anyFish && "border-primary bg-primary/5")}
+            >
+              <Checkbox
+                id="species-whatever"
+                checked={anyFish}
+                onCheckedChange={(v) => {
+                  setAnyFish(v === true);
+                  if (v === true) setSpeciesIds([]);
+                }}
+                className="mt-0.5"
+              />
+              <span className="space-y-1">
+                <span className="block font-medium leading-tight">Whatever&apos;s biting</span>
+                <span className="block text-xs font-normal text-muted-foreground">
+                  Rank the box for every fish documented in {river ? `the ${river.name}` : "the river"} on that date. Pick this when you would be happy with anything.
+                </span>
+              </span>
+            </Label>
+            <div className={cn("grid gap-2 sm:grid-cols-2", anyFish && "opacity-45")} role="group" aria-label="Target species">
               {species.map((s) => {
                 const here = speciesHere.has(s.id);
                 const checked = speciesIds.includes(s.id);
@@ -207,7 +228,15 @@ export function QuizWizard({
                       checked && "border-primary bg-primary/5",
                     )}
                   >
-                    <Checkbox id={`species-${s.id}`} checked={checked} onCheckedChange={(v) => toggleSpecies(s.id, v === true)} className="mt-0.5" />
+                    <Checkbox
+                      id={`species-${s.id}`}
+                      checked={checked}
+                      onCheckedChange={(v) => {
+                        if (v === true) setAnyFish(false);
+                        toggleSpecies(s.id, v === true);
+                      }}
+                      className="mt-0.5"
+                    />
                     <span className="space-y-1">
                       <span className="flex items-center gap-2 font-medium leading-tight">
                         {s.name}

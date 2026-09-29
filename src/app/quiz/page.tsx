@@ -35,6 +35,7 @@ export default async function QuizPage({ searchParams }: PageProps<"/quiz">) {
             .flatMap((r) => (r.success ? [r.data] : []))
         : undefined,
     setup: typeof sp.setup === "string" ? sp.setup.split(",").filter((t) => Technique.safeParse(t).success || t === "other") : undefined,
+    anyFish: typeof sp.species === "string" ? sp.species.split(",").includes("whatever") : undefined,
   };
 
   return (
