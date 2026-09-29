@@ -24,6 +24,16 @@
   --font-heading: "Zilla Slab", "Zilla Slab Fallback", "Rockwell", Georgia, serif;
   --font-display: "Zilla Slab", "Zilla Slab Fallback", "Rockwell", Georgia, serif;
   --font-script: "Mr Dafoe", "Mr Dafoe Fallback", "Brush Script MT", cursive;
+  /*
+    Type scale. The root is 17px because Jost has a small x-height and reads a
+    size smaller than it measures. Roles: body 1rem (17px), secondary text
+    text-sm (16px), captions and labels text-xs (13.8px), and nothing below
+    0.7rem (11.9px) anywhere. Headings keep their rem sizes and scale with the root.
+  */
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.45;
+  --text-sm: 0.9375rem;
+  --text-sm--line-height: 1.5;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -171,10 +181,12 @@
   }
   html {
     @apply font-sans;
+    font-size: 106.25%;
     scrollbar-color: var(--trout-back) var(--plank);
   }
   body {
     @apply bg-background text-foreground;
+    line-height: 1.55;
     caret-color: var(--trout-fin);
     font-feature-settings: "tnum" 0;
   }
@@ -812,6 +824,13 @@ body {
 }
 .rail-nav a:hover {
   background: oklch(1 0 0 / 0.1);
+}
+/* Tablet widths: eight links plus search and cart only just fit. */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  .rail-nav a {
+    padding-inline: 0.45rem;
+    letter-spacing: 0.1em;
+  }
 }
 .rail-nav a[aria-current="page"] {
   background: var(--trout-band);

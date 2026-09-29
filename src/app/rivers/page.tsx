@@ -39,7 +39,7 @@ export default function RiversPage() {
                     </CardHeader>
                     <CardContent className="flex flex-wrap gap-1">
                       {r.species.map((s) => (
-                        <Badge key={s.speciesId} variant="secondary" className="text-[10px]">
+                        <Badge key={s.speciesId} variant="secondary" className="text-[0.7rem]">
                           {speciesById.get(s.speciesId)?.name ?? s.speciesId}
                         </Badge>
                       ))}

@@ -38,13 +38,13 @@ typography:
     letterSpacing: "-0.01em"
   title:
     fontFamily: "Zilla Slab, Zilla Slab Fallback, Rockwell, Georgia, serif"
-    fontSize: "0.875rem"
+    fontSize: "0.9375rem"
     fontWeight: 600
     lineHeight: 1.1
     letterSpacing: "0.16em"
   body:
     fontFamily: "Jost, Jost Fallback, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "0.875rem"
+    fontSize: "0.9375rem"
     fontWeight: 400
     lineHeight: 1.5
   label:
@@ -232,7 +232,8 @@ The rainbow trout supplies every hue; the shop supplies the surfaces those hues 
 - **Display** (Mr Dafoe 400, clamp(3rem, 7.5vw, 4.75rem), 1): the sign's "Michigan Flies" in Olive Back, upright, no shadow. The rail wordmark is the same face at 1.9rem, rotated -2deg, with a 1px Rail Deep shadow. The footer and mobile sheet reuse `.script` at 1.875rem.
 - **Headline / Woodtype** (Zilla Slab 700, 1.875rem to 2.25rem via `text-3xl sm:text-4xl`, 1.05, -0.01em): section titles on the wall ("Pick your river", "Most asked for") and the counter card's question (1.5rem to 1.875rem). Sentence case, never tracked.
 - **Title / Woodtype caps** (Zilla Slab 600, 0.76rem to 0.875rem, 1.1, 0.16em, uppercase): shelf region labels (0.875rem) and footer column labels (0.76rem). The board title is the same face in uppercase at 0.14em, 1.125rem to 1.25rem, chalk-roughened.
-- **Body** (Jost 400, 0.875rem, 1.5): all paragraphs; secondary copy uses Muted Foreground and is bounded to `max-w-prose` or `max-w-md`.
+- **Body** (Jost 400, 1rem on a 17px root, 1.55): all paragraphs; secondary copy uses Muted Foreground and is bounded to `max-w-prose` or `max-w-md`.
+- **Scale** (September 29, 2026): the root is 17px (`html { font-size: 106.25% }`) because Jost reads a size smaller than it measures. The Tailwind steps are retuned in `@theme`: `text-xs` 0.8125rem (13.8px, 1.45), `text-sm` 0.9375rem (15.9px, 1.5), `text-base` 1rem (17px). Nothing on the site sets below 0.7rem (11.9px); the smallest badges and photo credits sit at 0.7rem to 0.74rem, and the board's small mono at 0.74rem to 0.76rem. Headings keep their rem sizes and grow with the root.
 - **Label** (Jost 600, 0.72rem to 0.82rem, 0.1em to 0.26em, uppercase): the sign line (0.26em), counter labels (0.16em, Dirt), board region labels (0.14em, Chalk Dim), badge names (0.1em, container-scaled), and the primary button (0.95rem, 0.12em). Rail nav links are Jost 500 at 0.8rem, 0.14em. Chip and tag text is the same sans at 0.7 to 0.8rem, medium, sentence case, not tracked.
 - **Live** (Courier Prime 400, 0.74rem to 1rem, tabular numerals): dates, temperatures, offsets, and reading times on the board; the date input on the counter card.
 

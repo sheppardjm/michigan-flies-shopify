@@ -62,7 +62,7 @@ export function StockingSection({ stocking }: { stocking: RiverStocking | null }
                   <p className="flex flex-wrap items-center gap-1.5 font-medium">
                     {label.label}
                     {label.note ? (
-                      <Badge variant={label.note === "steelhead strain" ? "default" : "outline"} className="text-[10px]">
+                      <Badge variant={label.note === "steelhead strain" ? "default" : "outline"} className="text-[0.7rem]">
                         {label.note}
                       </Badge>
                     ) : null}

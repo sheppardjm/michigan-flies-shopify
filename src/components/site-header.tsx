@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Menu, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { SiteSearch } from "@/components/site-search";
 
 const NAV = [
   { href: "/quiz", label: "Fly finder" },
@@ -18,7 +19,7 @@ const NAV = [
 export function SiteHeader() {
   return (
     <header className="rail sticky top-0 z-40">
-      <div className="mx-auto flex h-16 w-full max-w-6xl items-center gap-4 px-4">
+      <div className="mx-auto flex h-16 w-full max-w-6xl items-center gap-2 px-4 lg:gap-4">
         <Link href="/" className="rail-wordmark rounded-sm pr-2" aria-label="Michigan Flies home">
           Michigan Flies
         </Link>
@@ -28,11 +29,9 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
-          <Link href="/cart" aria-label="Cart" className="ml-1 inline-flex items-center">
-            <ShoppingBag className="size-4" />
-          </Link>
         </nav>
-        <div className="ml-auto flex items-center gap-1 md:hidden">
+        <div className="ml-auto flex items-center gap-1 md:ml-0">
+          <SiteSearch />
           <Button asChild variant="ghost" size="icon-sm" aria-label="Cart" className="text-trout-belly hover:bg-white/10 hover:text-trout-belly">
             <Link href="/cart">
               <ShoppingBag />
@@ -40,7 +39,7 @@ export function SiteHeader() {
           </Button>
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon-sm" aria-label="Open menu" className="text-trout-belly hover:bg-white/10 hover:text-trout-belly">
+              <Button variant="ghost" size="icon-sm" aria-label="Open menu" className="text-trout-belly md:hidden hover:bg-white/10 hover:text-trout-belly">
                 <Menu />
               </Button>
             </SheetTrigger>

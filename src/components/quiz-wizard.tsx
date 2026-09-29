@@ -92,7 +92,7 @@ export function QuizWizard({
               <li key={s} className={cn("flex items-center gap-1.5", i === step ? "font-medium text-foreground" : "text-muted-foreground")}>
                 <span
                   className={cn(
-                    "flex size-5 items-center justify-center rounded-full border font-mono text-[10px]",
+                    "flex size-5 items-center justify-center rounded-full border font-mono text-[0.7rem]",
                     i < step ? "border-primary bg-primary text-primary-foreground" : i === step ? "border-primary" : "border-border",
                   )}
                 >
@@ -212,7 +212,7 @@ export function QuizWizard({
                       <span className="flex items-center gap-2 font-medium leading-tight">
                         {s.name}
                         {river ? (
-                          <Badge variant={here ? "default" : "outline"} className="text-[10px]">
+                          <Badge variant={here ? "default" : "outline"} className="text-[0.7rem]">
                             {here ? "In this river" : "Not documented here"}
                           </Badge>
                         ) : null}

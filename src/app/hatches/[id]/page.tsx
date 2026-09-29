@@ -59,12 +59,12 @@ export default async function HatchPage({ params }: PageProps<"/hatches/[id]">) 
             </Badge>
           ))}
           {hatch.keyStages.map((s) => (
-            <Badge key={s} variant="outline">
+            <Badge key={s} variant="outline" className="h-auto max-w-full whitespace-normal text-left">
               {s}
             </Badge>
           ))}
           {hatch.colors.map((c) => (
-            <Badge key={c} variant="outline">
+            <Badge key={c} variant="outline" className="h-auto max-w-full whitespace-normal text-left">
               {c}
             </Badge>
           ))}
